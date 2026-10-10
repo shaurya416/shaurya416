@@ -1,0 +1,18 @@
+{
+ "as_of": "2026-10-08T20:50Z",
+ "checked": "2026-10-08",
+ "account": {
+  "login": "shaurya416",
+  "user_id": 298017155
+ },
+ "exclusion_applied": true,
+ "counts": {
+  "issues_total": 238,
+  "issues_open": 213,
+  "issues_closed": 25,
+  "prs_total": 33,
+  "prs_merged": 3,
+  "prs_open": 28,
+  "prs_closed_unmerged": 2
+ }
+}

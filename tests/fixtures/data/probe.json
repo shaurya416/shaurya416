@@ -1,0 +1,70 @@
+{
+ "version": "0.1.0",
+ "status": "first release pending",
+ "source": [
+  "def grade(answer, reference):",
+  "    return reference.lower() in answer.lower()"
+ ],
+ "fixed_line": "    return reference.lower() == answer.lower()",
+ "runs": [
+  {
+   "checks_run": [
+    "unrelated_answer",
+    "degenerate_answers",
+    "whitespace_asymmetry",
+    "malformed_answers",
+    "empty_reference",
+    "short_references",
+    "substring_containment",
+    "numeric_tolerance",
+    "numeric_sign"
+   ],
+   "findings": [
+    {
+     "check": "empty_reference",
+     "answer": "'anything'",
+     "reference": "''",
+     "n": 3
+    },
+    {
+     "check": "unrelated_answer",
+     "answer": "'qzxv unrelated'",
+     "reference": "'a'",
+     "n": 2
+    },
+    {
+     "check": "substring_containment",
+     "answer": "'not Paris'",
+     "reference": "'Paris'",
+     "n": 33
+    },
+    {
+     "check": "numeric_tolerance",
+     "answer": "'4200'",
+     "reference": "'42'",
+     "n": 11
+    },
+    {
+     "check": "numeric_sign",
+     "answer": "'-42'",
+     "reference": "'42'",
+     "n": 6
+    }
+   ]
+  },
+  {
+   "checks_run": [
+    "unrelated_answer",
+    "degenerate_answers",
+    "whitespace_asymmetry",
+    "malformed_answers",
+    "empty_reference",
+    "short_references",
+    "substring_containment",
+    "numeric_tolerance",
+    "numeric_sign"
+   ],
+   "findings": []
+  }
+ ]
+}

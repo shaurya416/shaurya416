@@ -1,0 +1,1189 @@
+{
+ "_note": "Constructed, not recorded: issue timelines, commit-to-pull lookups and repository star counts in the documented REST shapes, built from the traced fixes in data/issues.json and the counts in data/stars.json. Logins starting example- are placeholders.",
+ "timelines": {
+  "Nixtla/statsforecast#1247": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-30T19:34:11Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-10-01T23:26:15Z",
+    "updated_at": "2026-10-01T23:26:15Z",
+    "actor": {
+     "login": "vgvr0"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 1248,
+      "title": "fix",
+      "user": {
+       "login": "vgvr0"
+      },
+      "state": "closed",
+      "repository_url": "https://api.github.com/repos/Nixtla/statsforecast",
+      "html_url": "https://github.com/Nixtla/statsforecast/pull/1248",
+      "pull_request": {
+       "url": "https://api.github.com/repos/Nixtla/statsforecast/pulls/1248",
+       "html_url": "https://github.com/Nixtla/statsforecast/pull/1248",
+       "merged_at": "2026-10-01T23:26:15Z"
+      }
+     }
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-10-01T23:26:17Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "completed",
+    "commit_id": null
+   }
+  ],
+  "terrierteam/ir_measures#83": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-30T19:28:48Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-09-30T22:00:19Z",
+    "updated_at": "2026-09-30T22:00:19Z",
+    "actor": {
+     "login": "shaurya416"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 84,
+      "title": "fix",
+      "user": {
+       "login": "shaurya416"
+      },
+      "state": "closed",
+      "repository_url": "https://api.github.com/repos/terrierteam/ir_measures",
+      "html_url": "https://github.com/terrierteam/ir_measures/pull/84",
+      "pull_request": {
+       "url": "https://api.github.com/repos/terrierteam/ir_measures/pulls/84",
+       "html_url": "https://github.com/terrierteam/ir_measures/pull/84",
+       "merged_at": "2026-09-30T22:00:19Z"
+      }
+     }
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-09-30T22:00:20Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "completed",
+    "commit_id": null
+   }
+  ],
+  "Nixtla/utilsforecast#285": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-28T13:28:33Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-10-02T23:19:40Z",
+    "updated_at": "2026-10-02T23:19:40Z",
+    "actor": {
+     "login": "vgvr0"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 286,
+      "title": "fix",
+      "user": {
+       "login": "vgvr0"
+      },
+      "state": "closed",
+      "repository_url": "https://api.github.com/repos/Nixtla/utilsforecast",
+      "html_url": "https://github.com/Nixtla/utilsforecast/pull/286",
+      "pull_request": {
+       "url": "https://api.github.com/repos/Nixtla/utilsforecast/pulls/286",
+       "html_url": "https://github.com/Nixtla/utilsforecast/pull/286",
+       "merged_at": "2026-10-02T23:19:40Z"
+      }
+     }
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-10-02T23:19:41Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "completed",
+    "commit_id": null
+   }
+  ],
+  "unit8co/darts#3221": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-28T13:28:31Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-10-08T14:50:34Z",
+    "updated_at": "2026-10-08T14:50:34Z",
+    "actor": {
+     "login": "adigulalkari"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 3223,
+      "title": "fix",
+      "user": {
+       "login": "adigulalkari"
+      },
+      "state": "closed",
+      "repository_url": "https://api.github.com/repos/unit8co/darts",
+      "html_url": "https://github.com/unit8co/darts/pull/3223",
+      "pull_request": {
+       "url": "https://api.github.com/repos/unit8co/darts/pulls/3223",
+       "html_url": "https://github.com/unit8co/darts/pull/3223",
+       "merged_at": "2026-10-08T14:50:34Z"
+      }
+     }
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-10-08T14:50:36Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "completed",
+    "commit_id": null
+   }
+  ],
+  "rasbt/mlxtend#1202": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-28T09:08:43Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-09-29T15:53:43Z",
+    "updated_at": "2026-09-29T15:53:43Z",
+    "actor": {
+     "login": "MohammadHijjawi97"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 1203,
+      "title": "fix",
+      "user": {
+       "login": "MohammadHijjawi97"
+      },
+      "state": "closed",
+      "repository_url": "https://api.github.com/repos/rasbt/mlxtend",
+      "html_url": "https://github.com/rasbt/mlxtend/pull/1203",
+      "pull_request": {
+       "url": "https://api.github.com/repos/rasbt/mlxtend/pulls/1203",
+       "html_url": "https://github.com/rasbt/mlxtend/pull/1203",
+       "merged_at": "2026-09-29T15:53:43Z"
+      }
+     }
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-09-29T15:53:45Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "completed",
+    "commit_id": null
+   }
+  ],
+  "scikit-learn-contrib/MAPIE#993": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-27T17:06:59Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "connected",
+    "created_at": "2026-10-07T13:55:38Z",
+    "actor": {
+     "login": "SashaMIT"
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-10-07T13:55:40Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "completed",
+    "commit_id": "79c5118abbdd4b8c8ff0a11bbcc21dc3041f8d05",
+    "commit_url": null
+   }
+  ],
+  "modelscope/evalscope#1783": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-27T16:57:44Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-09-28T09:33:52Z",
+    "updated_at": "2026-09-28T09:33:52Z",
+    "actor": {
+     "login": "Yunnglin"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 1785,
+      "title": "fix",
+      "user": {
+       "login": "Yunnglin"
+      },
+      "state": "closed",
+      "repository_url": "https://api.github.com/repos/modelscope/evalscope",
+      "html_url": "https://github.com/modelscope/evalscope/pull/1785",
+      "pull_request": {
+       "url": "https://api.github.com/repos/modelscope/evalscope/pulls/1785",
+       "html_url": "https://github.com/modelscope/evalscope/pull/1785",
+       "merged_at": "2026-09-28T09:33:52Z"
+      }
+     }
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-09-26T00:00:00Z",
+    "updated_at": "2026-09-26T00:00:00Z",
+    "actor": {
+     "login": "example-user"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 5,
+      "title": "fix",
+      "user": {
+       "login": "example-user"
+      },
+      "state": "closed",
+      "repository_url": "https://api.github.com/repos/example-org/evalscope-fork",
+      "html_url": "https://github.com/example-org/evalscope-fork/pull/5",
+      "pull_request": {
+       "url": "https://api.github.com/repos/example-org/evalscope-fork/pulls/5",
+       "html_url": "https://github.com/example-org/evalscope-fork/pull/5",
+       "merged_at": "2026-09-27T00:00:00Z"
+      }
+     }
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-09-28T09:33:54Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "completed",
+    "commit_id": null
+   }
+  ],
+  "nuprl/MultiPL-E#192": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-25T17:26:40Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-09-26T16:55:49Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "not_planned",
+    "commit_id": null
+   }
+  ],
+  "Marker-Inc-Korea/AutoRAG#1707": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-25T16:51:01Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-09-29T07:34:00Z",
+    "updated_at": "2026-09-29T07:34:00Z",
+    "actor": {
+     "login": "vkehfdl1"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 1722,
+      "title": "fix",
+      "user": {
+       "login": "vkehfdl1"
+      },
+      "state": "closed",
+      "repository_url": "https://api.github.com/repos/Marker-Inc-Korea/AutoRAG",
+      "html_url": "https://github.com/Marker-Inc-Korea/AutoRAG/pull/1722",
+      "pull_request": {
+       "url": "https://api.github.com/repos/Marker-Inc-Korea/AutoRAG/pulls/1722",
+       "html_url": "https://github.com/Marker-Inc-Korea/AutoRAG/pull/1722",
+       "merged_at": "2026-09-29T07:34:00Z"
+      }
+     }
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-09-29T07:34:01Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "completed",
+    "commit_id": null
+   }
+  ],
+  "truera/trulens#2823": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-25T16:28:24Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-09-30T06:00:17Z",
+    "updated_at": "2026-09-30T06:00:17Z",
+    "actor": {
+     "login": "feiiiiii5"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 2836,
+      "title": "fix",
+      "user": {
+       "login": "feiiiiii5"
+      },
+      "state": "closed",
+      "repository_url": "https://api.github.com/repos/truera/trulens",
+      "html_url": "https://github.com/truera/trulens/pull/2836",
+      "pull_request": {
+       "url": "https://api.github.com/repos/truera/trulens/pulls/2836",
+       "html_url": "https://github.com/truera/trulens/pull/2836",
+       "merged_at": "2026-09-30T06:00:17Z"
+      }
+     }
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-09-30T06:44:25Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "completed",
+    "commit_id": null
+   }
+  ],
+  "areal-project/AReaL#1757": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-24T17:07:52Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-09-27T01:49:39Z",
+    "updated_at": "2026-09-27T01:49:39Z",
+    "actor": {
+     "login": "MohammadHijjawi97"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 1758,
+      "title": "fix",
+      "user": {
+       "login": "MohammadHijjawi97"
+      },
+      "state": "closed",
+      "repository_url": "https://api.github.com/repos/areal-project/AReaL",
+      "html_url": "https://github.com/areal-project/AReaL/pull/1758",
+      "pull_request": {
+       "url": "https://api.github.com/repos/areal-project/AReaL/pulls/1758",
+       "html_url": "https://github.com/areal-project/AReaL/pull/1758",
+       "merged_at": "2026-09-27T01:49:39Z"
+      }
+     }
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-09-27T01:49:40Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "completed",
+    "commit_id": null
+   }
+  ],
+  "ucbds-infra/otter-grader#1020": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-24T14:03:11Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-09-25T21:08:28Z",
+    "updated_at": "2026-09-25T21:08:28Z",
+    "actor": {
+     "login": "shaurya416"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 1021,
+      "title": "fix",
+      "user": {
+       "login": "shaurya416"
+      },
+      "state": "closed",
+      "repository_url": "https://api.github.com/repos/ucbds-infra/otter-grader",
+      "html_url": "https://github.com/ucbds-infra/otter-grader/pull/1021",
+      "pull_request": {
+       "url": "https://api.github.com/repos/ucbds-infra/otter-grader/pulls/1021",
+       "html_url": "https://github.com/ucbds-infra/otter-grader/pull/1021",
+       "merged_at": "2026-09-25T21:08:28Z"
+      }
+     }
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-09-25T21:08:29Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "completed",
+    "commit_id": null
+   }
+  ],
+  "PrairieLearn/PrairieLearn#15852": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-24T13:23:10Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-09-25T16:11:01Z",
+    "updated_at": "2026-09-25T16:11:01Z",
+    "actor": {
+     "login": "jonatanschroeder"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 15854,
+      "title": "fix",
+      "user": {
+       "login": "jonatanschroeder"
+      },
+      "state": "closed",
+      "repository_url": "https://api.github.com/repos/PrairieLearn/PrairieLearn",
+      "html_url": "https://github.com/PrairieLearn/PrairieLearn/pull/15854",
+      "pull_request": {
+       "url": "https://api.github.com/repos/PrairieLearn/PrairieLearn/pulls/15854",
+       "html_url": "https://github.com/PrairieLearn/PrairieLearn/pull/15854",
+       "merged_at": "2026-09-25T16:11:01Z"
+      }
+     }
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-09-25T16:11:02Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "completed",
+    "commit_id": null
+   }
+  ],
+  "langchain-ai/langchain#40805": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-24T08:29:58Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-09-24T08:30:09Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "not_planned",
+    "commit_id": null
+   }
+  ],
+  "huggingface/open-r1#732": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-24T05:58:21Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-09-24T12:00:00Z",
+    "updated_at": "2026-09-24T12:00:00Z",
+    "actor": {
+     "login": "shaurya416"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 734,
+      "title": "fix",
+      "user": {
+       "login": "shaurya416"
+      },
+      "state": "open",
+      "repository_url": "https://api.github.com/repos/huggingface/open-r1",
+      "html_url": "https://github.com/huggingface/open-r1/pull/734",
+      "pull_request": {
+       "url": "https://api.github.com/repos/huggingface/open-r1/pulls/734",
+       "html_url": "https://github.com/huggingface/open-r1/pull/734",
+       "merged_at": null
+      }
+     }
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-10-02T03:23:44Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "not_planned",
+    "commit_id": null
+   }
+  ],
+  "zjunlp/EasyEdit#716": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-24T03:18:32Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-09-24T08:01:22Z",
+    "updated_at": "2026-09-24T08:01:22Z",
+    "actor": {
+     "login": "TengJiao33"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 717,
+      "title": "fix",
+      "user": {
+       "login": "TengJiao33"
+      },
+      "state": "closed",
+      "repository_url": "https://api.github.com/repos/zjunlp/EasyEdit",
+      "html_url": "https://github.com/zjunlp/EasyEdit/pull/717",
+      "pull_request": {
+       "url": "https://api.github.com/repos/zjunlp/EasyEdit/pulls/717",
+       "html_url": "https://github.com/zjunlp/EasyEdit/pull/717",
+       "merged_at": "2026-09-24T08:01:22Z"
+      }
+     }
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-09-24T08:01:23Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "completed",
+    "commit_id": null
+   }
+  ],
+  "datajuicer/data-juicer#1077": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-24T03:18:31Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-09-28T08:51:24Z",
+    "updated_at": "2026-09-28T08:51:24Z",
+    "actor": {
+     "login": "shaurya416"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 1080,
+      "title": "fix",
+      "user": {
+       "login": "shaurya416"
+      },
+      "state": "closed",
+      "repository_url": "https://api.github.com/repos/datajuicer/data-juicer",
+      "html_url": "https://github.com/datajuicer/data-juicer/pull/1080",
+      "pull_request": {
+       "url": "https://api.github.com/repos/datajuicer/data-juicer/pulls/1080",
+       "html_url": "https://github.com/datajuicer/data-juicer/pull/1080",
+       "merged_at": "2026-09-28T08:51:24Z"
+      }
+     }
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-09-28T08:51:25Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "completed",
+    "commit_id": null
+   }
+  ],
+  "InternLM/InternLM#859": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-24T03:18:31Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-10-08T07:55:38Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "not_planned",
+    "commit_id": null
+   }
+  ],
+  "huggingface/trl#7364": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-24T00:16:05Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-10-06T08:30:14Z",
+    "updated_at": "2026-10-06T08:30:14Z",
+    "actor": {
+     "login": "adithya-s-k"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 7467,
+      "title": "fix",
+      "user": {
+       "login": "adithya-s-k"
+      },
+      "state": "closed",
+      "repository_url": "https://api.github.com/repos/huggingface/trl",
+      "html_url": "https://github.com/huggingface/trl/pull/7467",
+      "pull_request": {
+       "url": "https://api.github.com/repos/huggingface/trl/pulls/7467",
+       "html_url": "https://github.com/huggingface/trl/pull/7467",
+       "merged_at": "2026-10-06T08:30:14Z"
+      }
+     }
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-10-06T08:30:16Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "completed",
+    "commit_id": null
+   }
+  ],
+  "comet-ml/opik#8519": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-23T23:42:59Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-09-30T13:27:48Z",
+    "updated_at": "2026-09-30T13:27:48Z",
+    "actor": {
+     "login": "desty"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 8528,
+      "title": "fix",
+      "user": {
+       "login": "desty"
+      },
+      "state": "closed",
+      "repository_url": "https://api.github.com/repos/comet-ml/opik",
+      "html_url": "https://github.com/comet-ml/opik/pull/8528",
+      "pull_request": {
+       "url": "https://api.github.com/repos/comet-ml/opik/pulls/8528",
+       "html_url": "https://github.com/comet-ml/opik/pull/8528",
+       "merged_at": "2026-09-30T13:27:48Z"
+      }
+     }
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-09-30T15:26:08Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "completed",
+    "commit_id": null
+   }
+  ],
+  "NVIDIA-NeMo/Curator#2443": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-23T22:56:28Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-10-07T03:06:54Z",
+    "updated_at": "2026-10-07T03:06:54Z",
+    "actor": {
+     "login": "1fanwang"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 2444,
+      "title": "fix",
+      "user": {
+       "login": "1fanwang"
+      },
+      "state": "closed",
+      "repository_url": "https://api.github.com/repos/NVIDIA-NeMo/Curator",
+      "html_url": "https://github.com/NVIDIA-NeMo/Curator/pull/2444",
+      "pull_request": {
+       "url": "https://api.github.com/repos/NVIDIA-NeMo/Curator/pulls/2444",
+       "html_url": "https://github.com/NVIDIA-NeMo/Curator/pull/2444",
+       "merged_at": "2026-10-07T03:06:54Z"
+      }
+     }
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-10-07T03:06:56Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "completed",
+    "commit_id": null
+   }
+  ],
+  "open-compass/VLMEvalKit#1705": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-23T20:17:27Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-09-24T00:00:00Z",
+    "updated_at": "2026-09-24T00:00:00Z",
+    "actor": {
+     "login": "shaurya416"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 1707,
+      "title": "fix",
+      "user": {
+       "login": "shaurya416"
+      },
+      "state": "open",
+      "repository_url": "https://api.github.com/repos/open-compass/VLMEvalKit",
+      "html_url": "https://github.com/open-compass/VLMEvalKit/pull/1707",
+      "pull_request": {
+       "url": "https://api.github.com/repos/open-compass/VLMEvalKit/pulls/1707",
+       "html_url": "https://github.com/open-compass/VLMEvalKit/pull/1707",
+       "merged_at": null
+      }
+     }
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-09-26T00:00:00Z",
+    "updated_at": "2026-09-26T00:00:00Z",
+    "actor": {
+     "login": "example-user"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 1739,
+      "title": "fix",
+      "user": {
+       "login": "example-user"
+      },
+      "state": "open",
+      "repository_url": "https://api.github.com/repos/open-compass/VLMEvalKit",
+      "html_url": "https://github.com/open-compass/VLMEvalKit/pull/1739",
+      "pull_request": {
+       "url": "https://api.github.com/repos/open-compass/VLMEvalKit/pulls/1739",
+       "html_url": "https://github.com/open-compass/VLMEvalKit/pull/1739",
+       "merged_at": null
+      }
+     }
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-10-08T03:50:30Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "completed",
+    "commit_id": null
+   }
+  ],
+  "EvolvingLMMs-Lab/lmms-eval#1546": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-23T19:05:00Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-10-03T14:09:59Z",
+    "updated_at": "2026-10-03T14:09:59Z",
+    "actor": {
+     "login": "longzhenren"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 1553,
+      "title": "fix",
+      "user": {
+       "login": "longzhenren"
+      },
+      "state": "closed",
+      "repository_url": "https://api.github.com/repos/EvolvingLMMs-Lab/lmms-eval",
+      "html_url": "https://github.com/EvolvingLMMs-Lab/lmms-eval/pull/1553",
+      "pull_request": {
+       "url": "https://api.github.com/repos/EvolvingLMMs-Lab/lmms-eval/pulls/1553",
+       "html_url": "https://github.com/EvolvingLMMs-Lab/lmms-eval/pull/1553",
+       "merged_at": "2026-10-03T14:09:59Z"
+      }
+     }
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-10-03T14:10:00Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "completed",
+    "commit_id": null
+   }
+  ],
+  "modelscope/evalscope#1774": [
+   {
+    "event": "labeled",
+    "created_at": "2026-09-23T14:34:08Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "label": {
+     "name": "bug"
+    }
+   },
+   {
+    "event": "cross-referenced",
+    "created_at": "2026-09-28T09:33:52Z",
+    "updated_at": "2026-09-28T09:33:52Z",
+    "actor": {
+     "login": "Yunnglin"
+    },
+    "source": {
+     "type": "issue",
+     "issue": {
+      "number": 1785,
+      "title": "fix",
+      "user": {
+       "login": "Yunnglin"
+      },
+      "state": "closed",
+      "repository_url": "https://api.github.com/repos/modelscope/evalscope",
+      "html_url": "https://github.com/modelscope/evalscope/pull/1785",
+      "pull_request": {
+       "url": "https://api.github.com/repos/modelscope/evalscope/pulls/1785",
+       "html_url": "https://github.com/modelscope/evalscope/pull/1785",
+       "merged_at": "2026-09-28T09:33:52Z"
+      }
+     }
+    }
+   },
+   {
+    "event": "closed",
+    "created_at": "2026-09-28T09:33:54Z",
+    "actor": {
+     "login": "example-maintainer"
+    },
+    "state_reason": "completed",
+    "commit_id": null
+   }
+  ]
+ },
+ "timeline_page_size": {
+  "huggingface/trl#7364": 2
+ },
+ "timeline_missing": [
+  "Kaggle/kaggle-benchmarks#217"
+ ],
+ "commit_pulls": {
+  "79c5118abbdd4b8c8ff0a11bbcc21dc3041f8d05": [
+   {
+    "number": 994,
+    "merged_at": "2026-10-07T13:55:38Z",
+    "user": {
+     "login": "SashaMIT"
+    },
+    "base": {
+     "repo": {
+      "full_name": "scikit-learn-contrib/MAPIE"
+     }
+    }
+   }
+  ]
+ },
+ "fallback_search": {
+  "repo:Kaggle/kaggle-benchmarks is:pr is:merged 217": [
+   {
+    "number": 220,
+    "title": "Score the ci split",
+    "body": "Fixes #217",
+    "state": "closed",
+    "created_at": "2026-09-30T00:00:00Z",
+    "html_url": "https://github.com/Kaggle/kaggle-benchmarks/pull/220",
+    "repository_url": "https://api.github.com/repos/Kaggle/kaggle-benchmarks",
+    "user": {
+     "login": "yyl"
+    },
+    "pull_request": {
+     "merged_at": "2026-10-01T15:59:51Z"
+    }
+   },
+   {
+    "number": 2170,
+    "title": "Bump version",
+    "body": "Follows #2170 and #21700",
+    "state": "closed",
+    "created_at": "2026-09-29T00:00:00Z",
+    "html_url": "https://github.com/Kaggle/kaggle-benchmarks/pull/2170",
+    "repository_url": "https://api.github.com/repos/Kaggle/kaggle-benchmarks",
+    "user": {
+     "login": "example-user"
+    },
+    "pull_request": {
+     "merged_at": "2026-09-29T00:00:00Z"
+    }
+   }
+  ]
+ },
+ "stars": {
+  "Aider-AI/aider": 49427,
+  "AmenRa/ranx": 702,
+  "Arize-ai/phoenix": 11760,
+  "Azure/azure-sdk-for-python": 5614,
+  "cleanlab/cleanlab": 11690,
+  "crewAIInc/crewAI": 59469,
+  "EleutherAI/lm-evaluation-harness": 14157,
+  "evidentlyai/evidently": 7978,
+  "Giskard-AI/giskard-oss": 5878,
+  "google-research/google-research": 38883,
+  "hiyouga/EasyR1": 5183,
+  "huggingface/open-r1": 26478,
+  "huggingface/trl": 19471,
+  "langchain-ai/langchain": 147402,
+  "langwatch/langwatch": 4925,
+  "microsoft/autogen": 61312,
+  "ml-stat-Sustech/TorchCP": 479,
+  "mlflow/mlflow": 28317,
+  "modelscope/evalscope": 3510,
+  "mosaicml/llm-foundry": 4451,
+  "Nixtla/statsforecast": 4922,
+  "open-compass/opencompass": 7496,
+  "openai/evals": 19575,
+  "openai/frontier-evals": 1309,
+  "openai/gpt-oss": 20454,
+  "OpenRLHF/OpenRLHF": 10074,
+  "PaddlePaddle/PaddleNLP": 12979,
+  "promptfoo/promptfoo": 25820,
+  "QwenLM/Qwen": 21896,
+  "recommenders-team/recommenders": 21931,
+  "run-llama/llama_index": 52440,
+  "ShishirPatil/gorilla": 13042,
+  "stanford-oval/storm": 31592,
+  "stanfordnlp/dspy": 38558,
+  "THUDM/slime": 8605,
+  "torch-uncertainty/torch-uncertainty": 530,
+  "Trusted-AI/adversarial-robustness-toolbox": 6262,
+  "unit8co/darts": 9537,
+  "verl-project/verl": 23796,
+  "yzhao062/pyod": 10029,
+  "zli12321/qa_metrics": 64,
+  "ZubinGou/math-evaluation-harness": 280
+ }
+}

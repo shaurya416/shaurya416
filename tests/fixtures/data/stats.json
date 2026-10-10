@@ -1,0 +1,554 @@
+{
+ "as_of": "2026-10-08T20:50Z",
+ "account": {
+  "login": "shaurya416",
+  "user_id": 298017155
+ },
+ "queries": {
+  "issues_total": 238,
+  "issues_open": 213,
+  "issues_closed": 25,
+  "prs_total": 33,
+  "prs_merged": 3,
+  "prs_open": 28,
+  "prs_closed_unmerged": 2
+ },
+ "exclusion_applied": true,
+ "issues": {
+  "total": 238,
+  "open": 213,
+  "closed": 25,
+  "closed_completed": 21,
+  "closed_not_planned": 4,
+  "distinct_repos": 229,
+  "distinct_owner_accounts": 189,
+  "max_issues_in_one_repo": 2,
+  "repos_with_more_than_one": 9,
+  "first_created_at": "2026-09-23T03:46:11Z",
+  "last_created_at": "2026-10-01T01:19:20Z",
+  "monthly": {
+   "2026-09": 233,
+   "2026-10": 5
+  },
+  "daily_utc": {
+   "2026-09-23": 57,
+   "2026-09-24": 44,
+   "2026-09-25": 35,
+   "2026-09-26": 40,
+   "2026-09-27": 4,
+   "2026-09-28": 15,
+   "2026-09-30": 38,
+   "2026-10-01": 5
+  },
+  "with_comments": 50
+ },
+ "outcomes": {
+  "open": 213,
+  "closed": 25,
+  "fixed_by_merged_pr_from_someone_else": 17,
+  "fixed_by_his_own_merged_pr": 3,
+  "closed_completed_without_a_fix_merged": 1,
+  "closed_completed_without_a_fix": [
+   "open-compass/VLMEvalKit#1705"
+  ],
+  "closed_not_planned": 4,
+  "not_planned": [
+   "InternLM/InternLM#859",
+   "huggingface/open-r1#732",
+   "langchain-ai/langchain#40805",
+   "nuprl/MultiPL-E#192"
+  ]
+ },
+ "fix_lag_hours_filed_to_merge": {
+  "n": 17,
+  "min": 4.7,
+  "median": 109.5,
+  "max": 316.2
+ },
+ "prs": {
+  "total": 33,
+  "upstream": 33,
+  "in_own_repo": 0,
+  "own_repos": [],
+  "merged": 3,
+  "open": 28,
+  "closed_unmerged": 2,
+  "distinct_upstream_repos": 33,
+  "first_pr_created_at_upstream": "2026-09-24T08:37:19Z",
+  "closed_unmerged_detail": [
+   "huggingface/open-r1#734",
+   "open-compass/VLMEvalKit#1707"
+  ],
+  "merged_list": [
+   {
+    "repo": "ucbds-infra/otter-grader",
+    "number": 1021,
+    "title": "Fail Otter Assign when grading the solutions notebook produces no results",
+    "merged_at": "2026-09-25T21:08:28Z",
+    "closes_issue": [
+     "ucbds-infra/otter-grader#1020"
+    ],
+    "hours": [
+     31.1
+    ]
+   },
+   {
+    "repo": "datajuicer/data-juicer",
+    "number": 1080,
+    "title": "Leave failed judge calls out of the GPT evaluator averages and report how many",
+    "merged_at": "2026-09-28T08:51:24Z",
+    "closes_issue": [
+     "datajuicer/data-juicer#1077"
+    ],
+    "hours": [
+     101.5
+    ]
+   },
+   {
+    "repo": "terrierteam/ir_measures",
+    "number": 84,
+    "title": "Keep a no-gains nDCG on the original-qrels invocation",
+    "merged_at": "2026-09-30T22:00:19Z",
+    "closes_issue": [
+     "terrierteam/ir_measures#83"
+    ],
+    "hours": [
+     2.5
+    ]
+   }
+  ]
+ },
+ "fixes_by_others": [
+  {
+   "repo": "zjunlp/EasyEdit",
+   "pr": 717,
+   "url": "https://github.com/zjunlp/EasyEdit/pull/717",
+   "pr_author": "TengJiao33",
+   "merged_at": "2026-09-24T08:01:22Z",
+   "cites_issues": [
+    716
+   ],
+   "issue_closed_at": [
+    "2026-09-24T08:01:23Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    4.7
+   ]
+  },
+  {
+   "repo": "PrairieLearn/PrairieLearn",
+   "pr": 15854,
+   "url": "https://github.com/PrairieLearn/PrairieLearn/pull/15854",
+   "pr_author": "jonatanschroeder",
+   "merged_at": "2026-09-25T16:11:01Z",
+   "cites_issues": [
+    15852
+   ],
+   "issue_closed_at": [
+    "2026-09-25T16:11:02Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    26.8
+   ]
+  },
+  {
+   "repo": "areal-project/AReaL",
+   "pr": 1758,
+   "url": "https://github.com/areal-project/AReaL/pull/1758",
+   "pr_author": "MohammadHijjawi97",
+   "merged_at": "2026-09-27T01:49:39Z",
+   "cites_issues": [
+    1757
+   ],
+   "issue_closed_at": [
+    "2026-09-27T01:49:40Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    56.7
+   ]
+  },
+  {
+   "repo": "modelscope/evalscope",
+   "pr": 1785,
+   "url": "https://github.com/modelscope/evalscope/pull/1785",
+   "pr_author": "Yunnglin",
+   "merged_at": "2026-09-28T09:33:52Z",
+   "cites_issues": [
+    1774,
+    1783
+   ],
+   "issue_closed_at": [
+    "2026-09-28T09:33:54Z",
+    "2026-09-28T09:33:54Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    115.0,
+    16.6
+   ]
+  },
+  {
+   "repo": "Marker-Inc-Korea/AutoRAG",
+   "pr": 1722,
+   "url": "https://github.com/Marker-Inc-Korea/AutoRAG/pull/1722",
+   "pr_author": "vkehfdl1",
+   "merged_at": "2026-09-29T07:34:00Z",
+   "cites_issues": [
+    1707
+   ],
+   "issue_closed_at": [
+    "2026-09-29T07:34:01Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    86.7
+   ]
+  },
+  {
+   "repo": "rasbt/mlxtend",
+   "pr": 1203,
+   "url": "https://github.com/rasbt/mlxtend/pull/1203",
+   "pr_author": "MohammadHijjawi97",
+   "merged_at": "2026-09-29T15:53:43Z",
+   "cites_issues": [
+    1202
+   ],
+   "issue_closed_at": [
+    "2026-09-29T15:53:45Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    30.8
+   ]
+  },
+  {
+   "repo": "truera/trulens",
+   "pr": 2836,
+   "url": "https://github.com/truera/trulens/pull/2836",
+   "pr_author": "feiiiiii5",
+   "merged_at": "2026-09-30T06:00:17Z",
+   "cites_issues": [
+    2823
+   ],
+   "issue_closed_at": [
+    "2026-09-30T06:44:25Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    109.5
+   ]
+  },
+  {
+   "repo": "comet-ml/opik",
+   "pr": 8528,
+   "url": "https://github.com/comet-ml/opik/pull/8528",
+   "pr_author": "desty",
+   "merged_at": "2026-09-30T13:27:48Z",
+   "cites_issues": [
+    8519
+   ],
+   "issue_closed_at": [
+    "2026-09-30T15:26:08Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    157.7
+   ]
+  },
+  {
+   "repo": "Kaggle/kaggle-benchmarks",
+   "pr": 220,
+   "url": "https://github.com/Kaggle/kaggle-benchmarks/pull/220",
+   "pr_author": "yyl",
+   "merged_at": "2026-10-01T15:59:51Z",
+   "cites_issues": [
+    217
+   ],
+   "issue_closed_at": [
+    "2026-10-01T15:59:52Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    187.5
+   ]
+  },
+  {
+   "repo": "Nixtla/statsforecast",
+   "pr": 1248,
+   "url": "https://github.com/Nixtla/statsforecast/pull/1248",
+   "pr_author": "vgvr0",
+   "merged_at": "2026-10-01T23:26:15Z",
+   "cites_issues": [
+    1247
+   ],
+   "issue_closed_at": [
+    "2026-10-01T23:26:17Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    27.9
+   ]
+  },
+  {
+   "repo": "Nixtla/utilsforecast",
+   "pr": 286,
+   "url": "https://github.com/Nixtla/utilsforecast/pull/286",
+   "pr_author": "vgvr0",
+   "merged_at": "2026-10-02T23:19:40Z",
+   "cites_issues": [
+    285
+   ],
+   "issue_closed_at": [
+    "2026-10-02T23:19:41Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    105.9
+   ]
+  },
+  {
+   "repo": "EvolvingLMMs-Lab/lmms-eval",
+   "pr": 1553,
+   "url": "https://github.com/EvolvingLMMs-Lab/lmms-eval/pull/1553",
+   "pr_author": "longzhenren",
+   "merged_at": "2026-10-03T14:09:59Z",
+   "cites_issues": [
+    1546
+   ],
+   "issue_closed_at": [
+    "2026-10-03T14:10:00Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    235.1
+   ]
+  },
+  {
+   "repo": "huggingface/trl",
+   "pr": 7467,
+   "url": "https://github.com/huggingface/trl/pull/7467",
+   "pr_author": "adithya-s-k",
+   "merged_at": "2026-10-06T08:30:14Z",
+   "cites_issues": [
+    7364
+   ],
+   "issue_closed_at": [
+    "2026-10-06T08:30:16Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    296.2
+   ]
+  },
+  {
+   "repo": "NVIDIA-NeMo/Curator",
+   "pr": 2444,
+   "url": "https://github.com/NVIDIA-NeMo/Curator/pull/2444",
+   "pr_author": "1fanwang",
+   "merged_at": "2026-10-07T03:06:54Z",
+   "cites_issues": [
+    2443
+   ],
+   "issue_closed_at": [
+    "2026-10-07T03:06:56Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    316.2
+   ]
+  },
+  {
+   "repo": "scikit-learn-contrib/MAPIE",
+   "pr": 994,
+   "url": "https://github.com/scikit-learn-contrib/MAPIE/pull/994",
+   "pr_author": "SashaMIT",
+   "merged_at": "2026-10-07T13:55:38Z",
+   "cites_issues": [
+    993
+   ],
+   "issue_closed_at": [
+    "2026-10-07T13:55:40Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    236.8
+   ]
+  },
+  {
+   "repo": "unit8co/darts",
+   "pr": 3223,
+   "url": "https://github.com/unit8co/darts/pull/3223",
+   "pr_author": "adigulalkari",
+   "merged_at": "2026-10-08T14:50:34Z",
+   "cites_issues": [
+    3221
+   ],
+   "issue_closed_at": [
+    "2026-10-08T14:50:36Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    241.4
+   ]
+  }
+ ],
+ "fixes_by_others_summary": {
+  "prs": 16,
+  "issues_fixed": 17,
+  "distinct_pr_authors": 14
+ },
+ "ecosystems": [
+  {
+   "bucket": "LLM eval harnesses & benchmarks",
+   "repos": 38,
+   "issues": 42,
+   "examples": "Qwen, gpt-oss, evals, lm-evaluation-harness, PaddleNLP"
+  },
+  {
+   "bucket": "Judge, RAG & hallucination scoring",
+   "repos": 29,
+   "issues": 29,
+   "examples": "OpenJudge, WildBench, athina-evals, FAITHSCORE, autoevals"
+  },
+  {
+   "bucket": "RL post-training & reward functions",
+   "repos": 22,
+   "issues": 22,
+   "examples": "open-r1, verl, trl, OpenRLHF, slime"
+  },
+  {
+   "bucket": "Agent & tool-use benchmarks",
+   "repos": 20,
+   "issues": 21,
+   "examples": "autogen, crewAI, aider, storm, gorilla"
+  },
+  {
+   "bucket": "Classic metric libraries",
+   "repos": 20,
+   "issues": 20,
+   "examples": "google-research, qa_metrics, mAP, seqeval, nlg-metricverse"
+  },
+  {
+   "bucket": "LLM eval platforms & app frameworks",
+   "repos": 18,
+   "issues": 19,
+   "examples": "langchain, llama_index, dspy, mlflow, promptfoo"
+  },
+  {
+   "bucket": "Fairness, calibration & uncertainty",
+   "repos": 16,
+   "issues": 18,
+   "examples": "adversarial-robustness-toolbox, torch-uncertainty, TorchCP, langfair, aequitas"
+  },
+  {
+   "bucket": "Code & math answer checking",
+   "repos": 13,
+   "issues": 13,
+   "examples": "math-evaluation-harness, bigcode-evaluation-harness, codefuse-evaluation, evalplus, TACO"
+  },
+  {
+   "bucket": "Data pipelines & ML monitoring",
+   "repos": 12,
+   "issues": 12,
+   "examples": "cleanlab, dolma, argilla, distilabel, DataProfiler"
+  },
+  {
+   "bucket": "Safety, red-teaming & guardrails",
+   "repos": 12,
+   "issues": 12,
+   "examples": "last_layer, strong_reject, ai-gateway, invariant, jailbreakbench"
+  },
+  {
+   "bucket": "Autograders & education",
+   "repos": 8,
+   "issues": 8,
+   "examples": "nbgrader, ok, edx-ora2, xblocks-core, oppia"
+  },
+  {
+   "bucket": "Forecasting, time series & anomaly detection",
+   "repos": 8,
+   "issues": 8,
+   "examples": "pyod, darts, statsforecast, aeon, utilsforecast"
+  },
+  {
+   "bucket": "Retrieval, ranking & recommender metrics",
+   "repos": 6,
+   "issues": 7,
+   "examples": "recommenders, ranx, beir, torchrec, pykeen"
+  },
+  {
+   "bucket": "Explainability",
+   "repos": 4,
+   "issues": 4,
+   "examples": "shapash, captum, DALEX, Quantus"
+  },
+  {
+   "bucket": "Speech & audio",
+   "repos": 3,
+   "issues": 3,
+   "examples": "meeteval, PESQ, speechbrain"
+  }
+ ],
+ "areas_by_rule": [],
+ "speech_audio": {
+  "repo_level_repos": 3,
+  "issue_level": 5,
+  "issues": [
+   "ludlows/PESQ#60",
+   "speechbrain/speechbrain#3090",
+   "fgnt/meeteval#132",
+   "Lightning-AI/torchmetrics#3516",
+   "stanford-crfm/helm#4359"
+  ]
+ },
+ "top_repos": [
+  {
+   "repo": "EleutherAI/lm-evaluation-harness",
+   "issues": 2,
+   "stars": 14157
+  },
+  {
+   "repo": "open-compass/opencompass",
+   "issues": 2,
+   "stars": 7496
+  },
+  {
+   "repo": "Azure/azure-sdk-for-python",
+   "issues": 2,
+   "stars": 5614
+  },
+  {
+   "repo": "mosaicml/llm-foundry",
+   "issues": 2,
+   "stars": 4451
+  },
+  {
+   "repo": "modelscope/evalscope",
+   "issues": 2,
+   "stars": 3510
+  },
+  {
+   "repo": "openai/frontier-evals",
+   "issues": 2,
+   "stars": 1309
+  },
+  {
+   "repo": "AmenRa/ranx",
+   "issues": 2,
+   "stars": 702
+  },
+  {
+   "repo": "torch-uncertainty/torch-uncertainty",
+   "issues": 2,
+   "stars": 530
+  },
+  {
+   "repo": "ml-stat-Sustech/TorchCP",
+   "issues": 2,
+   "stars": 479
+  },
+  {
+   "repo": "langchain-ai/langchain",
+   "issues": 1,
+   "stars": 147402
+  },
+  {
+   "repo": "microsoft/autogen",
+   "issues": 1,
+   "stars": 61312
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "issues": 1,
+   "stars": 59469
+  }
+ ],
+ "stars_read_at": "2026-10-08"
+}

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 342" width="380" height="342" role="img" aria-labelledby="t d">
+<title id="t">issues filed and fixed per day</title>
+<desc id="d">issues filed per day, UTC, 2026-09-23 to 2026-10-08: 09-23 57, 09-24 44, 09-25 35, 09-26 40, 09-27 4, 09-28 15, 09-29 0, 09-30 38, 10-01 5, 10-02 0, 10-03 0, 10-04 0, 10-05 0, 10-06 0, 10-07 0, 10-08 0. Issues closed by a merged PR, by merge day: 09-24 1, 09-25 2, 09-27 1, 09-28 3, 09-29 2, 09-30 3, 10-01 2, 10-02 1, 10-03 1, 10-06 1, 10-07 2, 10-08 1.</desc>
+<style>text{font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;font-size:12px;fill:#1f2328}.m{fill:#59636e}.a{fill:#0969da}.b{font-size:26px}.e{text-anchor:end}.c{text-anchor:middle}</style>
+<rect x=".5" y=".5" width="373" height="335" rx="6" fill="#ffffff" stroke="#d1d9e0"/>
+<text class="m" x="14" y="22">issues per day, utc</text>
+<text class="m e" x="360" y="22">2026-09-23/2026-10-08</text>
+<rect x="14" y="42" width="8" height="14" rx="4" fill="#6e7781"/>
+<text x="30" y="56"><tspan class="b">238</tspan><tspan class="m" dx="7">filed</tspan></text>
+<rect x="164" y="47" width="9" height="9" rx="1.6" fill="#0969da"/>
+<text x="180" y="56"><tspan class="b">20</tspan><tspan class="m" dx="7">fixed</tspan></text>
+<rect x="20.81" y="96" width="8" height="153" rx="4" fill="#6e7781"/>
+<rect x="42.44" y="113.45" width="8" height="118.11" rx="4" fill="#6e7781"/>
+<rect x="64.06" y="125.53" width="8" height="93.95" rx="4" fill="#6e7781"/>
+<rect x="85.69" y="118.82" width="8" height="107.37" rx="4" fill="#6e7781"/>
+<rect x="107.31" y="167.13" width="8" height="10.74" rx="4" fill="#6e7781"/>
+<rect x="128.94" y="152.37" width="8" height="40.26" rx="4" fill="#6e7781"/>
+<rect x="150.56" y="171.2" width="8" height="2.6" rx="1.3" fill="#d0d7de"/>
+<rect x="172.19" y="121.5" width="8" height="102" rx="4" fill="#6e7781"/>
+<rect x="193.81" y="165.79" width="8" height="13.42" rx="4" fill="#6e7781"/>
+<rect x="215.44" y="171.2" width="8" height="2.6" rx="1.3" fill="#d0d7de"/>
+<rect x="237.06" y="171.2" width="8" height="2.6" rx="1.3" fill="#d0d7de"/>
+<rect x="258.69" y="171.2" width="8" height="2.6" rx="1.3" fill="#d0d7de"/>
+<rect x="280.31" y="171.2" width="8" height="2.6" rx="1.3" fill="#d0d7de"/>
+<rect x="301.94" y="171.2" width="8" height="2.6" rx="1.3" fill="#d0d7de"/>
+<rect x="323.56" y="171.2" width="8" height="2.6" rx="1.3" fill="#d0d7de"/>
+<rect x="345.19" y="171.2" width="8" height="2.6" rx="1.3" fill="#d0d7de"/>
+<text class="m c" x="24.81" y="91">57</text>
+<text class="m c" x="46.44" y="108.45">44</text>
+<text class="m c" x="68.06" y="120.53">35</text>
+<text class="m c" x="89.69" y="113.82">40</text>
+<text class="m c" x="111.31" y="162.13">4</text>
+<text class="m c" x="132.94" y="147.37">15</text>
+<text class="m c" x="176.19" y="116.5">38</text>
+<text class="m c" x="197.81" y="160.79">5</text>
+<path d="M14 298.5H360" stroke="#d1d9e0" fill="none"/>
+<rect x="20.81" y="295" width="8" height="2" rx="1" fill="#d0d7de"/>
+<path d="M24.81 299v3" stroke="#d1d9e0" fill="none"/>
+<rect x="41.94" y="287" width="9" height="9" rx="1.6" fill="#0969da"/>
+<path d="M46.44 299v3" stroke="#d1d9e0" fill="none"/>
+<rect x="63.56" y="287" width="9" height="9" rx="1.6" fill="#0969da"/>
+<rect x="64.26" y="276.7" width="7.6" height="7.6" rx="1.6" fill="none" stroke="#0969da" stroke-width="1.4"/>
+<path d="M68.06 299v3" stroke="#d1d9e0" fill="none"/>
+<rect x="85.69" y="295" width="8" height="2" rx="1" fill="#d0d7de"/>
+<path d="M89.69 299v3" stroke="#d1d9e0" fill="none"/>
+<rect x="106.81" y="287" width="9" height="9" rx="1.6" fill="#0969da"/>
+<path d="M111.31 299v3" stroke="#d1d9e0" fill="none"/>
+<rect x="128.44" y="287" width="9" height="9" rx="1.6" fill="#0969da"/>
+<rect x="128.44" y="276" width="9" height="9" rx="1.6" fill="#0969da"/>
+<rect x="129.14" y="265.7" width="7.6" height="7.6" rx="1.6" fill="none" stroke="#0969da" stroke-width="1.4"/>
+<path d="M132.94 299v3" stroke="#d1d9e0" fill="none"/>
+<rect x="150.06" y="287" width="9" height="9" rx="1.6" fill="#0969da"/>
+<rect x="150.06" y="276" width="9" height="9" rx="1.6" fill="#0969da"/>
+<path d="M154.56 299v3" stroke="#d1d9e0" fill="none"/>
+<rect x="171.69" y="287" width="9" height="9" rx="1.6" fill="#0969da"/>
+<rect x="171.69" y="276" width="9" height="9" rx="1.6" fill="#0969da"/>
+<rect x="172.39" y="265.7" width="7.6" height="7.6" rx="1.6" fill="none" stroke="#0969da" stroke-width="1.4"/>
+<path d="M176.19 299v3" stroke="#d1d9e0" fill="none"/>
+<rect x="193.31" y="287" width="9" height="9" rx="1.6" fill="#0969da"/>
+<rect x="193.31" y="276" width="9" height="9" rx="1.6" fill="#0969da"/>
+<path d="M197.81 299v3" stroke="#d1d9e0" fill="none"/>
+<rect x="214.94" y="287" width="9" height="9" rx="1.6" fill="#0969da"/>
+<path d="M219.44 299v3" stroke="#d1d9e0" fill="none"/>
+<rect x="236.56" y="287" width="9" height="9" rx="1.6" fill="#0969da"/>
+<path d="M241.06 299v3" stroke="#d1d9e0" fill="none"/>
+<rect x="258.69" y="295" width="8" height="2" rx="1" fill="#d0d7de"/>
+<path d="M262.69 299v3" stroke="#d1d9e0" fill="none"/>
+<rect x="280.31" y="295" width="8" height="2" rx="1" fill="#d0d7de"/>
+<path d="M284.31 299v3" stroke="#d1d9e0" fill="none"/>
+<rect x="301.44" y="287" width="9" height="9" rx="1.6" fill="#0969da"/>
+<path d="M305.94 299v3" stroke="#d1d9e0" fill="none"/>
+<rect x="323.06" y="287" width="9" height="9" rx="1.6" fill="#0969da"/>
+<rect x="323.06" y="276" width="9" height="9" rx="1.6" fill="#0969da"/>
+<path d="M327.56 299v3" stroke="#d1d9e0" fill="none"/>
+<rect x="344.69" y="287" width="9" height="9" rx="1.6" fill="#0969da"/>
+<path d="M349.19 299v3" stroke="#d1d9e0" fill="none"/>
+<text class="m" x="14" y="316">09-23</text>
+<text class="m e" x="360" y="316">10-08</text>
+<text class="m c" x="132.94" y="316">09-28</text>
+<text class="m c" x="241.06" y="316">10-03</text>
+</svg>

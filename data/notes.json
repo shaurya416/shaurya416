@@ -1,0 +1,13 @@
+{
+ "lead": "eight of the fixes share one defect: a missing, empty or undefined result counted as a score.",
+ "rows": [
+  {"issue": "ucbds-infra/otter-grader#1020", "what": "grading produced no results and the log still said all tests passed"},
+  {"issue": "areal-project/AReaL#1757", "what": "a reply with no answer scored 0.9 against a \"None\" placeholder gold"},
+  {"issue": "modelscope/evalscope#1783", "what": "a blank answer against a blank reference scored full credit"},
+  {"issue": "rasbt/mlxtend#1202", "what": "mcnemar returned p = 0.0 by default when there were no discordant pairs"},
+  {"issue": "Nixtla/utilsforecast#285", "what": "smape scored a missing forecast as a perfect 0"},
+  {"issue": "huggingface/trl#7364", "what": "OpenReward's default GRPO reward could not tell never scored from scored 0.0"},
+  {"issue": "NVIDIA-NeMo/Curator#2443", "what": "an empty document scored 1.0 on the repetition filter and was kept"},
+  {"issue": "unit8co/darts#3221", "what": "grid search returned a NaN-scored combination as the best when it came first in the grid"}
+ ]
+}

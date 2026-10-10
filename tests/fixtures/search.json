@@ -1,0 +1,3717 @@
+{
+ "_note": "Recorded GitHub search API results, 2026-10-08: every item of author:shaurya416 is:issue (238) and author:shaurya416 is:pr, as returned page by page, less two pull requests in a private repository of his that the recording query did not scope out (the build now adds is:public), leaving 33. Fields trimmed to the ones build.py reads; absent keys were absent in the recording.",
+ "issues": [
+  {
+   "html_url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5525",
+   "number": 5525,
+   "repository_url": "https://api.github.com/repos/UKGovernmentBEIS/inspect_ai",
+   "state": "open",
+   "title": "A blank `Sample.target` makes every completion CORRECT, and a mis-named CSV column produces one silently",
+   "created_at": "2026-09-23T03:46:11Z",
+   "comments": 5,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/EleutherAI/lm-evaluation-harness/issues/4212",
+   "number": 4212,
+   "repository_url": "https://api.github.com/repos/EleutherAI/lm-evaluation-harness",
+   "state": "open",
+   "title": "`mbpp_plus_instruct` grades against the assertion printed in its own prompt, and never uses the MBPP+ test suite",
+   "created_at": "2026-09-23T03:46:41Z",
+   "comments": 4,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/confident-ai/deepeval/issues/3344",
+   "number": 3344,
+   "repository_url": "https://api.github.com/repos/confident-ai/deepeval",
+   "state": "open",
+   "title": "`ARC()` at its defaults evaluates the `train` split, and all five hardcoded few-shot exemplars are items in it",
+   "created_at": "2026-09-23T03:46:42Z",
+   "comments": 4,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/vibrantlabsai/ragas/issues/3028",
+   "number": 3028,
+   "repository_url": "https://api.github.com/repos/vibrantlabsai/ragas",
+   "state": "open",
+   "title": "A row that errors leaves the denominator, so the reported score rises as the system degrades",
+   "created_at": "2026-09-23T03:46:43Z",
+   "comments": 3,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/openai/evals/issues/1837",
+   "number": 1837,
+   "repository_url": "https://api.github.com/repos/openai/evals",
+   "state": "open",
+   "title": "`naughty_strings_graded` scores judgement rather than generation, on a scale whose optimum is 0.5, reported as accuracy",
+   "created_at": "2026-09-23T03:46:44Z",
+   "comments": 2,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/promptfoo/promptfoo/issues/11041",
+   "number": 11041,
+   "repository_url": "https://api.github.com/repos/promptfoo/promptfoo",
+   "state": "open",
+   "title": "isEmptyResponse treats transport failures (empty, undefined, null) as refusals, so a dead endpoint scores clean on 130 of 138 redteam graders",
+   "created_at": "2026-09-23T12:02:16Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/wandb/weave/issues/7939",
+   "number": 7939,
+   "repository_url": "https://api.github.com/repos/wandb/weave",
+   "state": "open",
+   "title": "StringMatchScorer scores an empty output as a match against every target",
+   "created_at": "2026-09-23T12:37:55Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/mlflow/mlflow/issues/26116",
+   "number": 26116,
+   "repository_url": "https://api.github.com/repos/mlflow/mlflow",
+   "state": "open",
+   "title": "GenAI metric aggregates drop failed rows from the denominator, so the headline mean rises as more rows fail",
+   "created_at": "2026-09-23T12:45:37Z",
+   "comments": 3,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/huggingface/evaluate/issues/822",
+   "number": 822,
+   "repository_url": "https://api.github.com/repos/huggingface/evaluate",
+   "state": "open",
+   "title": "exact_match scores two different answers as a perfect match when normalization erases both to the same residue",
+   "created_at": "2026-09-23T12:53:25Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/Azure/azure-sdk-for-python/issues/49153",
+   "number": 49153,
+   "repository_url": "https://api.github.com/repos/Azure/azure-sdk-for-python",
+   "state": "open",
+   "title": "azure-ai-evaluation: PromptyEvaluatorBase falls back to the first digit anywhere in the judge's reply, and the threshold turns a stray digit into a wrong pass/fail (15 evaluators)",
+   "created_at": "2026-09-23T13:21:33Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/uptrain-ai/uptrain/issues/765",
+   "number": 765,
+   "repository_url": "https://api.github.com/repos/uptrain-ai/uptrain",
+   "state": "open",
+   "title": "ConversationGuidelineAdherence (local evaluation) scores an adhered conversation 0.0 and a violated one 1.0; any non-\"A\" label also scores 1.0",
+   "created_at": "2026-09-23T13:52:51Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/Giskard-AI/giskard-oss/issues/2840",
+   "number": 2840,
+   "repository_url": "https://api.github.com/repos/Giskard-AI/giskard-oss",
+   "state": "open",
+   "title": "garak adapter grades a NaN detector score as PASS",
+   "created_at": "2026-09-23T13:54:02Z",
+   "comments": 2,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/aws/fmeval/issues/354",
+   "number": 354,
+   "repository_url": "https://api.github.com/repos/aws/fmeval",
+   "state": "open",
+   "title": "ClassificationAccuracy scores every correct answer as 0 when the dataset's labels contain uppercase characters",
+   "created_at": "2026-09-23T14:12:16Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/meta-llama/PurpleLlama/issues/267",
+   "number": 267,
+   "repository_url": "https://api.github.com/repos/meta-llama/PurpleLlama",
+   "state": "open",
+   "title": "MITRE FRR benchmark scores empty replies and the FAIL TO QUERY sentinel as accept, so a model that never answers gets the best possible refusal_rate",
+   "created_at": "2026-09-23T14:12:48Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/IBM/unitxt/issues/1980",
+   "number": 1980,
+   "repository_url": "https://api.github.com/repos/IBM/unitxt",
+   "state": "open",
+   "title": "MatchClosestOption maps an empty, whitespace or refusal judge reply to \"Yes\" (score 1.0) and, in pairwise mode, always to \"Response 2\"",
+   "created_at": "2026-09-23T14:13:17Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/google-research/google-research/issues/3436",
+   "number": 3436,
+   "repository_url": "https://api.github.com/repos/google-research/google-research",
+   "state": "open",
+   "title": "rouge: io._compute_scores pairs target/prediction files by independent lexical sort, so a naming mismatch scores the wrong pairs with no error",
+   "created_at": "2026-09-23T14:13:41Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/modelscope/evalscope/issues/1774",
+   "number": 1774,
+   "repository_url": "https://api.github.com/repos/modelscope/evalscope",
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "math_equal accepts any numeric answer off by exactly 100x (include_percentage defaults True), so gsm8k / math_500 grade 1800 == 18 as correct",
+   "created_at": "2026-09-23T14:34:08Z",
+   "closed_at": "2026-09-28T09:33:54Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/stanford-crfm/helm/issues/4359",
+   "number": 4359,
+   "repository_url": "https://api.github.com/repos/stanford-crfm/helm",
+   "state": "open",
+   "title": "wer_score / mer_score / cer_score return 0 (a perfect lower-is-better score) for an empty prediction",
+   "created_at": "2026-09-23T14:34:08Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/mistralai/mistral-evals/issues/21",
+   "number": 21,
+   "repository_url": "https://api.github.com/repos/mistralai/mistral-evals",
+   "state": "open",
+   "title": "ExplicitPromptRelaxedCorrectness scores any answer whose first character matches the option letter as correct (wrong option text, refusals, hedges)",
+   "created_at": "2026-09-23T17:08:48Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/huggingface/lighteval/issues/1395",
+   "number": 1395,
+   "repository_url": "https://api.github.com/repos/huggingface/lighteval",
+   "state": "open",
+   "title": "Metrics.drop aggregates em/f1 across documents with max, so one correct sample reports 1.0",
+   "created_at": "2026-09-23T17:08:49Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/EleutherAI/lm-evaluation-harness/issues/4218",
+   "number": 4218,
+   "repository_url": "https://api.github.com/repos/EleutherAI/lm-evaluation-harness",
+   "state": "open",
+   "title": "BBH NumberParseRegexFilter: number words match inside other words, bare six/seven/eight/nine never parse, and word_to_num errors are uncaught",
+   "created_at": "2026-09-23T17:35:51Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/allenai/olmes/issues/61",
+   "number": 61,
+   "repository_url": "https://api.github.com/repos/allenai/olmes",
+   "state": "open",
+   "title": "gsm8k: integer minus sign is dropped from the gold label, so wrong-sign answers score correct (and correct negative answers fail under the boxed configs)",
+   "created_at": "2026-09-23T17:35:51Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/SWE-bench/SWE-bench/issues/667",
+   "number": 667,
+   "repository_url": "https://api.github.com/repos/SWE-bench/SWE-bench",
+   "state": "open",
+   "title": "Exit-code spoof guard (#620) reads the first \"&gt;&gt;&gt;&gt;&gt; Test Exit Code:\" marker in the log, so a patch that prints the marker during the test run is scored resolved",
+   "created_at": "2026-09-23T18:20:36Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/bigcode-project/bigcode-evaluation-harness/issues/327",
+   "number": 327,
+   "repository_url": "https://api.github.com/repos/bigcode-project/bigcode-evaluation-harness",
+   "state": "open",
+   "title": "MultiPL-E pass@k averages every *.results.json in the shared system temp dir, so leftovers from earlier runs or the previous task are scored too",
+   "created_at": "2026-09-23T18:20:36Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/tatsu-lab/alpaca_eval/issues/475",
+   "number": 475,
+   "repository_url": "https://api.github.com/repos/tatsu-lab/alpaca_eval",
+   "state": "open",
+   "title": "Failed judge calls are dropped from the win-rate denominator and nothing gates n_total against the instruction count, so win_rate rises as rows fail",
+   "created_at": "2026-09-23T18:20:37Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/evalplus/evalplus/issues/320",
+   "number": 320,
+   "repository_url": "https://api.github.com/repos/evalplus/evalplus",
+   "state": "open",
+   "title": "atol is rebound inside the per-input loop of unsafe_execute, so a float expected output arms rtol=1e-7 tolerance for every later integer output of the same task (order-dependent verdicts on MBPP+/HumanEval+)",
+   "created_at": "2026-09-23T19:04:59Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/EvolvingLMMs-Lab/lmms-eval/issues/1546",
+   "number": 1546,
+   "repository_url": "https://api.github.com/repos/EvolvingLMMs-Lab/lmms-eval",
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "relax_exact_match treats free-text ground truths beginning with A-H as multiple-choice letters, so wrong answers sharing the gold's first letter score 1.0 (chartqa_reasoning)",
+   "created_at": "2026-09-23T19:05:00Z",
+   "closed_at": "2026-10-03T14:10:00Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/UKGovernmentBEIS/inspect_evals/issues/2523",
+   "number": 2523,
+   "repository_url": "https://api.github.com/repos/UKGovernmentBEIS/inspect_evals",
+   "state": "open",
+   "title": "humaneval: extract_function_body corrupts a fenced body-only reply, so the same correct code scores INCORRECT fenced and CORRECT unfenced",
+   "created_at": "2026-09-23T19:24:39Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/TIGER-AI-Lab/MMLU-Pro/issues/82",
+   "number": 82,
+   "repository_url": "https://api.github.com/repos/TIGER-AI-Lab/MMLU-Pro",
+   "state": "open",
+   "title": "evaluate_from_api.py: a failed API call drops the question from the result file and the summary denominator, so reported accuracy changes with which calls fail",
+   "created_at": "2026-09-23T19:24:40Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/openai/gpt-oss/issues/313",
+   "number": 313,
+   "repository_url": "https://api.github.com/repos/openai/gpt-oss",
+   "state": "open",
+   "title": "abcd_grader: patterns 0.1, 2 and 9 lack a boundary after the letter, so refusals and prose answers are graded as A/B/C/D instead of None",
+   "created_at": "2026-09-23T19:24:41Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/ServiceNow/BrowserGym/issues/404",
+   "number": 404,
+   "repository_url": "https://api.github.com/repos/ServiceNow/BrowserGym",
+   "state": "open",
+   "title": "AssistantBench scorer treats a thousands separator as a decimal point: \"3,080,000\" scores 0 against gold 3080000, while \"1,000\" scores 1.0 against gold 1",
+   "created_at": "2026-09-23T19:38:59Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/web-arena-x/webarena/issues/276",
+   "number": 276,
+   "repository_url": "https://api.github.com/repos/web-arena-x/webarena",
+   "state": "open",
+   "title": "must_include single-word guard only fires for 1-character references, so 2+ character references are raw substring matches: \"16\" passes on \"160\", \"9.99\" on \"$19.99\", \"Yes\" on \"Yesterday\"",
+   "created_at": "2026-09-23T19:38:59Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/microsoft/WindowsAgentArena/issues/86",
+   "number": 86,
+   "repository_url": "https://api.github.com/repos/microsoft/WindowsAgentArena",
+   "state": "open",
+   "title": "show_result.py scores any unparseable result.txt as a pass via float(bool(result)); a failed compare_videos run written as \"False\" counts as a success",
+   "created_at": "2026-09-23T19:57:18Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/xlang-ai/OSWorld/issues/597",
+   "number": 597,
+   "repository_url": "https://api.github.com/repos/xlang-ai/OSWorld",
+   "state": "open",
+   "title": "compare_result_files scores 1.0 for any result containing the gold numeral as a substring: 125.27, -25.27 and 25.271 all pass against 25.27",
+   "created_at": "2026-09-23T19:57:18Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/OSU-NLP-Group/Mind2Web/issues/73",
+   "number": 73,
+   "repository_url": "https://api.github.com/repos/OSU-NLP-Group/Mind2Web",
+   "state": "open",
+   "title": "Generation-mode postprocess_action scores any unparseable reply as a prediction of choices[0]; the text-match fallback compares a string to a [id, text] pair and can never match",
+   "created_at": "2026-09-23T19:57:19Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/google-research/android_world/issues/380",
+   "number": 380,
+   "repository_url": "https://api.github.com/repos/google-research/android_world",
+   "state": "open",
+   "title": "check_agent_answer is not one-to-one: repeating one correct item N times passes an N-item information-retrieval task",
+   "created_at": "2026-09-23T19:57:19Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/openai/mle-bench/issues/153",
+   "number": 153,
+   "repository_url": "https://api.github.com/repos/openai/mle-bench",
+   "state": "open",
+   "title": "osic-pulmonary-fibrosis-progression grader averages only over submitted rows, so omitting poorly predicted patients raises the score to the perfect-submission value",
+   "created_at": "2026-09-23T20:05:52Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/ScalingIntelligence/KernelBench/issues/169",
+   "number": 169,
+   "repository_url": "https://api.github.com/repos/ScalingIntelligence/KernelBench",
+   "state": "open",
+   "title": "score.py accepts runtime=-1.0 on correct rows, so geo_mean_speedup goes NaN or wrong and fast_p stops matching the correctness rate",
+   "created_at": "2026-09-23T20:05:53Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/THUDM/LongBench/issues/144",
+   "number": 144,
+   "repository_url": "https://api.github.com/repos/THUDM/LongBench",
+   "state": "open",
+   "title": "LongBench v2: questions whose API call failed are dropped and result.py divides by the rows written, so non-random failures raise the reported accuracy",
+   "created_at": "2026-09-23T20:05:54Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/facebookresearch/lingua/issues/104",
+   "number": 104,
+   "repository_url": "https://api.github.com/repos/facebookresearch/lingua",
+   "state": "open",
+   "title": "EvalHarnessLM.loglikelihood silently returns (0.0, True) for every choice when context+continuation exceeds the model window, so choice 0 wins",
+   "created_at": "2026-09-23T20:05:54Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/LiveCodeBench/LiveCodeBench/issues/158",
+   "number": 158,
+   "repository_url": "https://api.github.com/repos/LiveCodeBench/LiveCodeBench",
+   "state": "open",
+   "title": "Code execution: generations disqualified by the input-echo guard are dropped from the pass@1 denominator instead of being scored False",
+   "created_at": "2026-09-23T20:17:26Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/NVIDIA/RULER/issues/112",
+   "number": 112,
+   "repository_url": "https://api.github.com/repos/NVIDIA/RULER",
+   "state": "open",
+   "title": "qa_2 (HotpotQA): string_match_part matches the gold answer \"no\" inside other words (not, know, cannot), so hedged or refusing answers get full credit",
+   "created_at": "2026-09-23T20:17:26Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/open-compass/VLMEvalKit/issues/1705",
+   "number": 1705,
+   "repository_url": "https://api.github.com/repos/open-compass/VLMEvalKit",
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "anls_compute measures distance on normalized strings but divides by raw length, so whitespace-padded predictions score near 1.0 on DocVQA/InfoVQA/WildDoc",
+   "created_at": "2026-09-23T20:17:27Z",
+   "closed_at": "2026-10-08T03:50:30Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/LiveBench/LiveBench/issues/553",
+   "number": 553,
+   "repository_url": "https://api.github.com/repos/LiveBench/LiveBench",
+   "state": "open",
+   "title": "connections scorer counts each copy of a repeated group, so one correct group repeated four times scores 1.0 and scores can exceed 1.0",
+   "created_at": "2026-09-23T20:27:52Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/Kaggle/kaggle-benchmarks/issues/217",
+   "number": 217,
+   "repository_url": "https://api.github.com/repos/Kaggle/kaggle-benchmarks",
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "Task.bind_dataframe sums the raw result column, so PassFail subtasks always score 0/N and recorded assertion failures are ignored",
+   "created_at": "2026-09-23T20:27:53Z",
+   "closed_at": "2026-10-01T15:59:52Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/princeton-nlp/HELMET/issues/46",
+   "number": 46,
+   "repository_url": "https://api.github.com/repos/princeton-nlp/HELMET",
+   "state": "open",
+   "title": "eval_gpt4_longqa.py: gpt-4-score averages only judged rows without recording how many were dropped, and the same block has three crash paths",
+   "created_at": "2026-09-23T20:27:53Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/QwenLM/Qwen2.5-Math/issues/67",
+   "number": 67,
+   "repository_url": "https://api.github.com/repos/QwenLM/Qwen2.5-Math",
+   "state": "open",
+   "title": "Multiple-choice extraction upper-cases the reply, so the article \"a\" is read as choice A: refusals score correct on gt=A items",
+   "created_at": "2026-09-23T20:27:54Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/argilla-io/argilla/issues/5873",
+   "number": 5873,
+   "repository_url": "https://api.github.com/repos/argilla-io/argilla",
+   "state": "open",
+   "title": "Binary Precision/Recall/F1ScoreMetric use unseeded random.choice() for pos_label, so identical inputs score anywhere from 0.0 to 0.889 across repeated calls",
+   "created_at": "2026-09-23T22:56:27Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/stanfordnlp/dspy/issues/10485",
+   "number": 10485,
+   "repository_url": "https://api.github.com/repos/stanfordnlp/dspy",
+   "state": "open",
+   "title": "em_score returns an exact match for an empty prediction whenever the gold answer is a bare stopword or punctuation placeholder",
+   "created_at": "2026-09-23T22:56:27Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/NVIDIA-NeMo/Curator/issues/2443",
+   "number": 2443,
+   "repository_url": "https://api.github.com/repos/NVIDIA-NeMo/Curator",
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "RepeatedParagraphsFilter scores an empty document 1.0 (maximum non-repetitive) and keeps it, unlike its sibling filters in the same file",
+   "created_at": "2026-09-23T22:56:28Z",
+   "closed_at": "2026-10-07T03:06:56Z",
+   "comments": 2,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/athina-ai/athina-evals/issues/205",
+   "number": 205,
+   "repository_url": "https://api.github.com/repos/athina-ai/athina-evals",
+   "state": "open",
+   "title": "Contains/ContainsAny/ContainsAll/StartsWith/EndsWith/Regex vacuously pass any response when the configured keyword/substring/pattern is an empty string",
+   "created_at": "2026-09-23T23:26:51Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/Arize-ai/phoenix/issues/16429",
+   "number": 16429,
+   "repository_url": "https://api.github.com/repos/Arize-ai/phoenix",
+   "state": "open",
+   "title": "create_evaluator's tuple-to-Score conversion classifies strings by word count, not position, silently corrupting label/explanation",
+   "created_at": "2026-09-23T23:26:52Z",
+   "comments": 2,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/comet-ml/opik/issues/8519",
+   "number": 8519,
+   "repository_url": "https://api.github.com/repos/comet-ml/opik",
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "ConversationDegenerationMetric silently drops punctuation/whitespace-only assistant turns instead of scoring them as degenerate",
+   "created_at": "2026-09-23T23:42:59Z",
+   "closed_at": "2026-09-30T15:26:08Z",
+   "comments": 2,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/langwatch/langwatch/issues/8283",
+   "number": 8283,
+   "repository_url": "https://api.github.com/repos/langwatch/langwatch",
+   "state": "open",
+   "title": "ValidFormatEvaluator (format=\"python\") scores whitespace-only and comment-only output as passed=True",
+   "created_at": "2026-09-23T23:43:00Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/evidentlyai/evidently/issues/1937",
+   "number": 1937,
+   "repository_url": "https://api.github.com/repos/evidentlyai/evidently",
+   "state": "open",
+   "title": "OpenAIFeature._postprocess_response inverts the judge verdict when one possible_values label is a substring of another (e.g. 'correct' in 'incorrect')",
+   "created_at": "2026-09-23T23:58:15Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/crewAIInc/crewAI/issues/7739",
+   "number": 7739,
+   "repository_url": "https://api.github.com/repos/crewAIInc/crewAI",
+   "state": "open",
+   "title": "ExperimentRunner._assert_scores only checks the intersection of expected/actual dict keys, so a multi-metric expected_score passes even when other metrics silently produced no score",
+   "created_at": "2026-09-23T23:58:16Z",
+   "comments": 7,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/microsoft/autogen/issues/8276",
+   "number": 8276,
+   "repository_url": "https://api.github.com/repos/microsoft/autogen",
+   "state": "open",
+   "title": "gaia_question_scorer vacuously scores a degenerate/empty agent answer as correct when the ground truth normalizes to empty",
+   "created_at": "2026-09-23T23:58:16Z",
+   "comments": 3,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/PKU-Alignment/safe-rlhf/issues/194",
+   "number": 194,
+   "repository_url": "https://api.github.com/repos/PKU-Alignment/safe-rlhf",
+   "state": "open",
+   "title": "gpt4_eval judge failures (exception, unparseable reply, empty reply) silently write score1=score2=0.0 into eval.json, indistinguishable from a real tie",
+   "created_at": "2026-09-24T00:16:04Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/meta-llama/llama-cookbook/issues/1079",
+   "number": 1079,
+   "repository_url": "https://api.github.com/repos/meta-llama/llama-cookbook",
+   "state": "open",
+   "title": "calculate_metrics() drops crashed/exception samples from the accuracy denominator instead of scoring them as failures",
+   "created_at": "2026-09-24T00:16:04Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/huggingface/trl/issues/7364",
+   "number": 7364,
+   "repository_url": "https://api.github.com/repos/huggingface/trl",
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "OpenReward's default GRPO reward function cannot distinguish \"never scored\" from \"scored 0.0\"",
+   "created_at": "2026-09-24T00:16:05Z",
+   "closed_at": "2026-10-06T08:30:16Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/mosaicml/llm-foundry/issues/1897",
+   "number": 1897,
+   "repository_url": "https://api.github.com/repos/mosaicml/llm-foundry",
+   "state": "open",
+   "title": "InContextLearningGenerationExactMatchAccuracy: a gold alias that normalizes to empty (bare article, punctuation-only) makes any reply score correct",
+   "created_at": "2026-09-24T00:53:40Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/allenai/OLMo/issues/919",
+   "number": 919,
+   "repository_url": "https://api.github.com/repos/allenai/OLMo",
+   "state": "open",
+   "title": "ICLMetric.compute() silently drops under-gathered documents from both numerator and denominator on IndexError, inflating reported accuracy",
+   "created_at": "2026-09-24T00:53:41Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/salesforce/BOLAA/issues/16",
+   "number": 16,
+   "repository_url": "https://api.github.com/repos/salesforce/BOLAA",
+   "state": "open",
+   "title": "run_webagent.py silently drops LLM-failure episodes from the batch log instead of saving them, inflating reported avg_reward/success_rate",
+   "created_at": "2026-09-24T00:53:42Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/google/seqio/issues/795",
+   "number": 795,
+   "repository_url": "https://api.github.com/repos/google/seqio",
+   "state": "open",
+   "title": "LegacyMetric.from_model_output silently truncates predictions to len(model_output) when shorter than the dataset, with no error and no signal",
+   "created_at": "2026-09-24T01:07:47Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/microsoft/LMOps/issues/445",
+   "number": 445,
+   "repository_url": "https://api.github.com/repos/microsoft/LMOps",
+   "state": "open",
+   "title": "Arena-Hard-V2 judge: an unrecognized/garbled verdict silently scores as a tie and is never flagged failed",
+   "created_at": "2026-09-24T01:07:48Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/stanford-oval/storm/issues/572",
+   "number": 572,
+   "repository_url": "https://api.github.com/repos/stanford-oval/storm",
+   "state": "open",
+   "title": "heading_entity_recall / article_entity_recall return a perfect 1.0 for an empty golden entity set regardless of the candidate",
+   "created_at": "2026-09-24T01:07:48Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/Tiiiger/bert_score/issues/207",
+   "number": 207,
+   "repository_url": "https://api.github.com/repos/Tiiiger/bert_score",
+   "state": "open",
+   "title": "F1 is not zeroed for an empty candidate/reference when a caller-supplied idf dict gives CLS/SEP nonzero weight",
+   "created_at": "2026-09-24T01:26:58Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/neulab/BARTScore/issues/48",
+   "number": 48,
+   "repository_url": "https://api.github.com/repos/neulab/BARTScore",
+   "state": "open",
+   "title": "harm_f composite score is dominated by whichever axis is near zero, letting a catastrophic one-sided failure outscore a genuinely well-matched pair",
+   "created_at": "2026-09-24T01:26:59Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/open-compass/opencompass/issues/2654",
+   "number": 2654,
+   "repository_url": "https://api.github.com/repos/open-compass/opencompass",
+   "state": "open",
+   "title": "JudgeEvaluator/RMBEvaluator score judge replies that never state a verdict, by reading the first character of the raw unparsed text",
+   "created_at": "2026-09-24T02:59:45Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/PaddlePaddle/PaddleNLP/issues/11251",
+   "number": 11251,
+   "repository_url": "https://api.github.com/repos/PaddlePaddle/PaddleNLP",
+   "state": "open",
+   "title": "MMLU-Pro grader scores unparseable predictions with a random guess instead of \"wrong\", and a reload-clobber bug means the buggy tally always overwrites the correct one in the saved summary",
+   "created_at": "2026-09-24T02:59:46Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/codefuse-ai/codefuse-evaluation/issues/14",
+   "number": 14,
+   "repository_url": "https://api.github.com/repos/codefuse-ai/codefuse-evaluation",
+   "state": "open",
+   "title": "check_currentmetric() inverts accuracy/f1: exact-match generations score 0.0, all-wrong/empty generations score 1.0",
+   "created_at": "2026-09-24T02:59:46Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/QwenLM/Qwen/issues/2350",
+   "number": 2350,
+   "repository_url": "https://api.github.com/repos/QwenLM/Qwen",
+   "state": "open",
+   "title": "extract_choice() unbounded fuzzy-match fallback scores degenerate/refusal chat replies as a real MMLU/C-Eval answer letter",
+   "created_at": "2026-09-24T02:59:47Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/InternLM/InternLM/issues/859",
+   "number": 859,
+   "repository_url": "https://api.github.com/repos/InternLM/InternLM",
+   "state": "closed",
+   "state_reason": "not_planned",
+   "title": "math_equal()'s default include_percentage=True checks every numeric prediction against reference times 100 and reference divided by 100, so answers off by exactly 100x score as correct",
+   "created_at": "2026-09-24T03:18:31Z",
+   "closed_at": "2026-10-08T07:55:38Z",
+   "comments": 2,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/datajuicer/data-juicer/issues/1077",
+   "number": 1077,
+   "repository_url": "https://api.github.com/repos/datajuicer/data-juicer",
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "A failed judge call and a genuine 0/0 verdict are numerically identical in GPTEvaluator output, and the failure count is never surfaced",
+   "created_at": "2026-09-24T03:18:31Z",
+   "closed_at": "2026-09-28T08:51:25Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/zjunlp/EasyEdit/issues/716",
+   "number": 716,
+   "repository_url": "https://api.github.com/repos/zjunlp/EasyEdit",
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "normalize_answer's article/punctuation stripping lets degenerate replies pass exact_match_score in the LLM-judge no-api_key fallback",
+   "created_at": "2026-09-24T03:18:32Z",
+   "closed_at": "2026-09-24T08:01:23Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/allenai/open-instruct/issues/1915",
+   "number": 1915,
+   "repository_url": "https://api.github.com/repos/allenai/open-instruct",
+   "state": "open",
+   "title": "R1-style format-reward gate compares format_scores[i] to the literal int 1 instead of the configured r1_style_format_reward, so any non-default scale silently zeros the entire verifiable reward",
+   "created_at": "2026-09-24T03:18:33Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/RLHFlow/RLHF-Reward-Modeling/issues/63",
+   "number": 63,
+   "repository_url": "https://api.github.com/repos/RLHFlow/RLHF-Reward-Modeling",
+   "state": "open",
+   "title": "EXAMPLE_COUNTS transposition in eval_reward_bench_bt.py silently distorts the reported Safety score",
+   "created_at": "2026-09-24T04:26:12Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/WeOpenML/PandaLM/issues/45",
+   "number": 45,
+   "repository_url": "https://api.github.com/repos/WeOpenML/PandaLM",
+   "state": "open",
+   "title": "parse_pandalm_response silently returns the same value for an unparseable judge reply as for a genuine Tie verdict",
+   "created_at": "2026-09-24T04:26:13Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/OpenBMB/UltraEval/issues/27",
+   "number": 27,
+   "repository_url": "https://api.github.com/repos/OpenBMB/UltraEval",
+   "state": "open",
+   "title": "prefix_match scores any reply 1.0 whenever the reference answer is an empty string",
+   "created_at": "2026-09-24T04:26:14Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/huggingface/Math-Verify/issues/83",
+   "number": 83,
+   "repository_url": "https://api.github.com/repos/huggingface/Math-Verify",
+   "state": "open",
+   "title": "evaluate_model_outputs.py: rows whose gold cannot be extracted are dropped from the accuracy denominator, so the printed accuracy disagrees with the is_correct column the script writes",
+   "created_at": "2026-09-24T05:58:19Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/verl-project/verl/issues/8011",
+   "number": 8011,
+   "repository_url": "https://api.github.com/repos/verl-project/verl",
+   "state": "open",
+   "title": "[reward] math_verify.compute_score: after one worker process dies, every later correct answer scores 0.0 with only a print line",
+   "created_at": "2026-09-24T05:58:20Z",
+   "comments": 2,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/huggingface/open-r1/issues/732",
+   "number": 732,
+   "repository_url": "https://api.github.com/repos/huggingface/open-r1",
+   "state": "closed",
+   "state_reason": "not_planned",
+   "title": "cosine_scaled_reward returns 1.0 for every completion when the gold answer cannot be parsed (should be None, as accuracy_reward does since #566)",
+   "created_at": "2026-09-24T05:58:21Z",
+   "closed_at": "2026-10-02T03:23:44Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/openai/frontier-evals/issues/177",
+   "number": 177,
+   "repository_url": "https://api.github.com/repos/openai/frontier-evals",
+   "state": "open",
+   "title": "PaperBench: resources_provided=True scores a subtree whose leaves are all \"Dataset and Model Acquisition\" as 0 at full weight, so a perfect submission scores below 1.0",
+   "created_at": "2026-09-24T05:58:22Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/THUDM/slime/issues/2409",
+   "number": 2409,
+   "repository_url": "https://api.github.com/repos/THUDM/slime",
+   "state": "open",
+   "title": "gpqa: when no option letter can be extracted, a single-letter gold label is substring-matched against the whole reply, so a reply that never answers can score 1.0",
+   "created_at": "2026-09-24T08:23:44Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/hiyouga/EasyR1/issues/11014",
+   "number": 11014,
+   "repository_url": "https://api.github.com/repos/hiyouga/EasyR1",
+   "state": "open",
+   "title": "[reward] android_gui: `extract_answer` fallback takes the first `0`/`1`/`2` anywhere in the reply, so a reply that is not a bare digit can be scored on the wrong digit",
+   "created_at": "2026-09-24T08:23:45Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/NovaSky-AI/SkyRL/issues/2289",
+   "number": 2289,
+   "repository_url": "https://api.github.com/repos/NovaSky-AI/SkyRL",
+   "state": "open",
+   "title": "naive_dapo.compute_score: `tiemout=True` typo makes the `\\pi` branch always raise (swallowed by bare `except:`), so correct numeric answers to `\\pi` questions score 0.0",
+   "created_at": "2026-09-24T08:23:46Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/OpenRLHF/OpenRLHF/issues/1364",
+   "number": 1364,
+   "repository_url": "https://api.github.com/repos/OpenRLHF/OpenRLHF",
+   "state": "open",
+   "title": "math_utils.grade_answer ignores units when both reference and prediction carry one, so the right number with the wrong unit (or wrong rate) is graded correct",
+   "created_at": "2026-09-24T08:23:46Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/run-llama/llama_index/issues/23216",
+   "number": 23216,
+   "repository_url": "https://api.github.com/repos/run-llama/llama_index",
+   "state": "open",
+   "title": "PairwiseComparisonEvaluator: with enforce_consensus=True, a tie in the original order plus a decisive flipped order returns the flipped judge's score/passing unconverted (verdict inverted)",
+   "created_at": "2026-09-24T08:29:56Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/langchain-ai/langchain/issues/40805",
+   "number": 40805,
+   "repository_url": "https://api.github.com/repos/langchain-ai/langchain",
+   "state": "closed",
+   "state_reason": "not_planned",
+   "title": "CriteriaResultOutputParser takes the last or first letter of a word as the Y/N verdict (`match_last`/`match_first` have no `\\b`)",
+   "created_at": "2026-09-24T08:29:58Z",
+   "closed_at": "2026-09-24T08:30:09Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/ogx-ai/ogx/issues/6647",
+   "number": 6647,
+   "repository_url": "https://api.github.com/repos/ogx-ai/ogx",
+   "state": "open",
+   "title": "RAG benchmark: MultiHOP is ranked on SQuAD token-F1 against 1-word gold answers, and at the published scores that F1 cannot separate backends from a constant reply",
+   "created_at": "2026-09-24T08:29:59Z",
+   "comments": 2,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/NVIDIA-NeMo/Skills/issues/1533",
+   "number": 1533,
+   "repository_url": "https://api.github.com/repos/NVIDIA-NeMo/Skills",
+   "state": "open",
+   "title": "ArenaMetrics.get_incorrect_sample marks over-length generations as strong candidate wins, so `--max_seq_len` inflates the Arena-Hard score",
+   "created_at": "2026-09-24T08:30:01Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/oppia/oppia/issues/27488",
+   "number": 27488,
+   "repository_url": "https://api.github.com/repos/oppia/oppia",
+   "state": "open",
+   "title": "TextInput: whitespace-only reply bypasses the no-response guard and is classified (a blank reply matches a one-character FuzzyEquals rule)",
+   "created_at": "2026-09-24T13:23:07Z",
+   "comments": 2,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/openedx/xblocks-core/issues/306",
+   "number": 306,
+   "repository_url": "https://api.github.com/repos/openedx/xblocks-core",
+   "state": "open",
+   "title": "ChoiceTextResponse: a submission that omits a required numtolerance_input key is graded correct",
+   "created_at": "2026-09-24T13:23:09Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/PrairieLearn/PrairieLearn/issues/15852",
+   "number": 15852,
+   "repository_url": "https://api.github.com/repos/PrairieLearn/PrairieLearn",
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "pl-checkbox: a single ticked box reaches parse()/grade() as a bare `str`, so multi-character keys (option 27 and later) are split into letters and graded wrongly",
+   "created_at": "2026-09-24T13:23:10Z",
+   "closed_at": "2026-09-25T16:11:02Z",
+   "comments": 2,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/jupyter/nbgrader/issues/2021",
+   "number": 2021,
+   "repository_url": "https://api.github.com/repos/jupyter/nbgrader",
+   "state": "open",
+   "title": "LimitOutput drops stderr stream outputs after ~1000 lines of stdout, so a failing grade cell gets full credit",
+   "created_at": "2026-09-24T14:03:09Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/ucbds-infra/otter-grader/issues/1020",
+   "number": 1020,
+   "repository_url": "https://api.github.com/repos/ucbds-infra/otter-grader",
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "otter assign logs \"All autograder tests passed.\" when grading the solutions notebook produced no results (catastrophic 0/0)",
+   "created_at": "2026-09-24T14:03:11Z",
+   "closed_at": "2026-09-25T21:08:29Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/openedx/edx-ora2/issues/2455",
+   "number": 2455,
+   "repository_url": "https://api.github.com/repos/openedx/edx-ora2",
+   "state": "open",
+   "title": "AssessmentWorkflow.staff_score_exists() always returns False (looks up get_latest_assessment; the staff API defines get_latest_staff_assessment), so the ORA Summary Report's is_staff_grade_received is always 0",
+   "created_at": "2026-09-24T14:03:12Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/Submitty/Submitty/issues/13380",
+   "number": 13380,
+   "repository_url": "https://api.github.com/repos/Submitty/Submitty",
+   "state": "open",
+   "title": "[Bug:Autograding] diff with tolerance gives full credit when a student line has extra words after the expected ones",
+   "created_at": "2026-09-24T14:03:13Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/ShishirPatil/gorilla/issues/1373",
+   "number": 1373,
+   "repository_url": "https://api.github.com/repos/ShishirPatil/gorilla",
+   "state": "open",
+   "title": "[BFCL] resolve_ast_by_type decodes every unary operator as negation, so +3 and ~3 are both read as -3",
+   "created_at": "2026-09-24T17:07:43Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/huggingface/datatrove/issues/529",
+   "number": 529,
+   "repository_url": "https://api.github.com/repos/huggingface/datatrove",
+   "state": "open",
+   "title": "C4BadWordsFilter: word-list entries containing an uppercase character can never match (text is lowercased, list entries are not, no IGNORECASE)",
+   "created_at": "2026-09-24T17:07:48Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/areal-project/AReaL/issues/1757",
+   "number": 1757,
+   "repository_url": "https://api.github.com/repos/areal-project/AReaL",
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "ViRL39K loader stores mathruler's \"None\" sentinel as gold for a row with unbalanced braces; a reply with no answer then scores 0.9 on that row",
+   "created_at": "2026-09-24T17:07:52Z",
+   "closed_at": "2026-09-27T01:49:40Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/Aider-AI/aider/issues/5761",
+   "number": 5761,
+   "repository_url": "https://api.github.com/repos/Aider-AI/aider",
+   "state": "open",
+   "title": "Benchmark records an exercise as solved when the test command exits non-zero with no output",
+   "created_at": "2026-09-25T01:20:27Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/hkust-nlp/simpleRL-reason/issues/101",
+   "number": 101,
+   "repository_url": "https://api.github.com/repos/hkust-nlp/simpleRL-reason",
+   "state": "open",
+   "title": "math_equal accepts numeric predictions that are 100x or 1/100 of the reference, and the evaluation script scores with it",
+   "created_at": "2026-09-25T01:20:35Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/OpenBMB/ToolBench/issues/384",
+   "number": 384,
+   "repository_url": "https://api.github.com/repos/OpenBMB/ToolBench",
+   "state": "open",
+   "title": "eval_pass_rate.py divides by the queries that have an answer, so unanswered test queries are not counted as failures",
+   "created_at": "2026-09-25T01:20:39Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/rllm-org/rllm/issues/929",
+   "number": 929,
+   "repository_url": "https://api.github.com/repos/rllm-org/rllm",
+   "state": "open",
+   "title": "RewardMathFn gives full reward to an empty \\boxed{} answer when the ground truth is empty or an empty \\boxed{}, instead of returning unk_error_reward",
+   "created_at": "2026-09-25T10:29:38Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/PrimeIntellect-ai/verifiers/issues/2682",
+   "number": 2682,
+   "repository_url": "https://api.github.com/repos/PrimeIntellect-ai/verifiers",
+   "state": "open",
+   "title": "best-of-n: finalize() ranks a crashed (never-scored) sibling as reward 0, so it can be marked best over scored attempts and decide pass_at_n",
+   "created_at": "2026-09-25T10:29:45Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/SWE-agent/SWE-agent/issues/1566",
+   "number": 1566,
+   "repository_url": "https://api.github.com/repos/SWE-agent/SWE-agent",
+   "state": "open",
+   "title": "Reviewer.review() averages over surviving judge samples only, so partial judge failures shrink the denominator and can let one sample stand in for n_sample (ScoreRetryLoop)",
+   "created_at": "2026-09-25T10:29:46Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/allenai/dolma/issues/315",
+   "number": 315,
+   "repository_url": "https://api.github.com/repos/allenai/dolma",
+   "state": "open",
+   "title": "add_global_language_score_from_slice_score sets both doc_en and doc_not_en to 0.0 on empty documents, breaking the doc_en + doc_not_en == 1 invariant",
+   "created_at": "2026-09-25T10:50:00Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/Unbabel/COMET/issues/277",
+   "number": 277,
+   "repository_url": "https://api.github.com/repos/Unbabel/COMET",
+   "state": "open",
+   "title": "comet-score / comet-compare do not check that -s, -t and -r have the same number of lines (silent truncation, cross-system mis-pairing with --gpus &gt; 1)",
+   "created_at": "2026-09-25T10:50:06Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/sylinrl/TruthfulQA/issues/28",
+   "number": 28,
+   "repository_url": "https://api.github.com/repos/sylinrl/TruthfulQA",
+   "state": "open",
+   "title": "run_BLEURT / run_bleu_and_rouge drop unscored rows from the reported average without recording coverage, unlike GPT-judge, which scores empty answers",
+   "created_at": "2026-09-25T10:50:07Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/mlfoundations/dclm/issues/121",
+   "number": 121,
+   "repository_url": "https://api.github.com/repos/mlfoundations/dclm",
+   "state": "open",
+   "title": "get_aggregated_results(): per-category, overall and aggregation_json averages are computed over whichever tasks ran, while Core_{version}/Extended_{version} report N/A for the same missing tasks",
+   "created_at": "2026-09-25T11:09:27Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/open-compass/opencompass/issues/2657",
+   "number": 2657,
+   "repository_url": "https://api.github.com/repos/open-compass/opencompass",
+   "state": "open",
+   "title": "CascadeEvaluator._get_llm_correctness counts a judge reply that starts with \"Correctness\" (or \"Correctly\") as correct, even when the verdict is negative",
+   "created_at": "2026-09-25T11:09:35Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/braintrustdata/autoevals/issues/223",
+   "number": 223,
+   "repository_url": "https://api.github.com/repos/braintrustdata/autoevals",
+   "state": "open",
+   "title": "ContextRelevancy divides by context length with no zero guard: an empty context gives NaN (serialized as the \"skipped\" null) or a perfect 1 in JS, and ZeroDivisionError in Python",
+   "created_at": "2026-09-25T11:32:17Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/Azure/azure-sdk-for-python/issues/49190",
+   "number": 49190,
+   "repository_url": "https://api.github.com/repos/Azure/azure-sdk-for-python",
+   "state": "open",
+   "title": "azure-ai-evaluation: a content-harm score of 0 (no harm) is parsed as NaN in _parse_content_harm_response (numeric branch uses 0 &lt; x instead of 0 &lt;= x)",
+   "created_at": "2026-09-25T11:33:08Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/relari-ai/continuous-eval/issues/86",
+   "number": 86,
+   "repository_url": "https://api.github.com/repos/relari-ai/continuous-eval",
+   "state": "open",
+   "title": "JSON._check_json_obj coerces a judge's quoted-string \"false\" verdict to True, inverting ContextCoverage's score",
+   "created_at": "2026-09-25T15:28:29Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/deepchecks/deepchecks/issues/2824",
+   "number": 2824,
+   "repository_url": "https://api.github.com/repos/deepchecks/deepchecks",
+   "state": "open",
+   "title": "SingleDatasetPerformance conditions (NLP greater-than, vision less-than) report PASS for scalar metrics that fail the threshold: NA class rows are dropped by groupby, so all([]) is True",
+   "created_at": "2026-09-25T15:28:35Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/whylabs/whylogs/issues/1609",
+   "number": 1609,
+   "repository_url": "https://api.github.com/repos/whylabs/whylogs",
+   "state": "open",
+   "title": "ConstraintsBuilder.add_constraint() silently drops a constraint whose metric does not resolve (under the default ignore_missing=False), and Constraints.validate() can then return True with no condition evaluated",
+   "created_at": "2026-09-25T15:28:41Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/NannyML/nannyml/issues/454",
+   "number": 454,
+   "repository_url": "https://api.github.com/repos/NannyML/nannyml",
+   "state": "open",
+   "title": "Chi2Statistic.alert() ignores its `value` argument and reports the previous chunk's p-value verdict for chunks whose column is entirely missing",
+   "created_at": "2026-09-25T15:53:25Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/truera/trulens/issues/2823",
+   "number": 2823,
+   "repository_url": "https://api.github.com/repos/truera/trulens",
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "generate_score / generate_score_and_reasons skip range validation when a provider returns a parsed structured-output model (OpenAI output_parsed, Anthropic, Cortex, Google), letting out-of-scale scores escape [0, 1]",
+   "created_at": "2026-09-25T16:28:24Z",
+   "closed_at": "2026-09-30T06:44:25Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/mosaicml/llm-foundry/issues/1899",
+   "number": 1899,
+   "repository_url": "https://api.github.com/repos/mosaicml/llm-foundry",
+   "state": "open",
+   "title": "EvalGauntlet: a gauntlet benchmark missing from icl_tasks silently drops its category, and named averages are computed over the remaining subset (or reported as 0)",
+   "created_at": "2026-09-25T16:28:32Z",
+   "comments": 3,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/Agenta-AI/agenta/issues/7149",
+   "number": 7149,
+   "repository_url": "https://api.github.com/repos/Agenta-AI/agenta",
+   "state": "open",
+   "title": "JSON Diff: case_insensitive_keys=True scores identical JSON as 0.0 when keys contain uppercase letters",
+   "created_at": "2026-09-25T16:50:59Z",
+   "comments": 4,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/Marker-Inc-Korea/AutoRAG/issues/1707",
+   "number": 1707,
+   "repository_url": "https://api.github.com/repos/Marker-Inc-Korea/AutoRAG",
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "[BUG] prompt_maker node scores every prompt maker on the last module's generations; with deterministic metrics the first module always wins",
+   "created_at": "2026-09-25T16:51:01Z",
+   "closed_at": "2026-09-29T07:34:01Z",
+   "comments": 2,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/flowaicom/flow-judge/issues/32",
+   "number": 32,
+   "repository_url": "https://api.github.com/repos/flowaicom/flow-judge",
+   "state": "open",
+   "title": "LlamaIndexFlowJudge reports unparseable judge replies as valid EvaluationResults with score -1",
+   "created_at": "2026-09-25T16:51:02Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/stanford-futuredata/ARES/issues/89",
+   "number": 89,
+   "repository_url": "https://api.github.com/repos/stanford-futuredata/ARES",
+   "state": "open",
+   "title": "Unparseable LLM-judge replies (including `[[yes]]`/`[[YES]]`) are scored as a genuine `[[No]]` and averaged into UES/IDP and PPI results",
+   "created_at": "2026-09-25T17:09:06Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/beir-cellar/beir/issues/222",
+   "number": 222,
+   "repository_url": "https://api.github.com/repos/beir-cellar/beir",
+   "state": "open",
+   "title": "EvaluateRetrieval.evaluate() averages NDCG/MAP/Recall/P only over queries present in results, so a judged query with no results entry is dropped instead of scored 0",
+   "created_at": "2026-09-25T17:09:07Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/nuprl/MultiPL-E/issues/192",
+   "number": 192,
+   "repository_url": "https://api.github.com/repos/nuprl/MultiPL-E",
+   "state": "closed",
+   "state_reason": "not_planned",
+   "title": "Lean evaluator can never report \"OK\": str(output) == \"\" is unreachable, so every accepted proof is graded SyntaxError",
+   "created_at": "2026-09-25T17:26:40Z",
+   "closed_at": "2026-09-26T16:55:49Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/vectara/hallucination-leaderboard/issues/190",
+   "number": 190,
+   "repository_url": "https://api.github.com/repos/vectara/hallucination-leaderboard",
+   "state": "open",
+   "title": "A model+date group with zero valid summaries is written as hallucination_rate=-100.0 and update_readme.py ranks it #1 with a 200% Factual Consistency Rate",
+   "created_at": "2026-09-25T17:45:52Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/RUCAIBox/HaluEval/issues/28",
+   "number": 28,
+   "repository_url": "https://api.github.com/repos/RUCAIBox/HaluEval",
+   "state": "open",
+   "title": "evaluate.py: Yes/No judge parsing uses case-sensitive substring checks, so words like \"Not\"/\"None\"/\"Notably\" count as a \"No\" verdict and \"Norway\"/\"November\" knock out a real \"Yes\"",
+   "created_at": "2026-09-25T17:45:53Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/bcdnlp/FAITHSCORE/issues/7",
+   "number": 7,
+   "repository_url": "https://api.github.com/repos/bcdnlp/FAITHSCORE",
+   "state": "open",
+   "title": "Sentence-level FaithScore scores an answer with no descriptive sub-sentences as 1.0, while the fact-level score in the same call scores it 0",
+   "created_at": "2026-09-25T17:45:54Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/eth-sri/ChatProtect/issues/5",
+   "number": 5,
+   "repository_url": "https://api.github.com/repos/eth-sri/ChatProtect",
+   "state": "open",
+   "title": "Demo pipeline: label_to_tag compares check_consistent_cot's vote fraction with == 0/1, so any non-unanimous contradiction vote is tagged \"ok\"",
+   "created_at": "2026-09-25T17:45:56Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/Lightning-AI/torchmetrics/issues/3516",
+   "number": 3516,
+   "repository_url": "https://api.github.com/repos/Lightning-AI/torchmetrics",
+   "state": "open",
+   "title": "WER/CER return inf/nan with no warning when the total reference length is zero; jiwer defines a value for this case",
+   "created_at": "2026-09-25T20:03:49Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/PacificAI/langtest/issues/1259",
+   "number": 1259,
+   "repository_url": "https://api.github.com/repos/PacificAI/langtest",
+   "state": "open",
+   "title": "SimplePrompt threshold falls back to 0.5 on a 1-10 judge scale, so the mental_health clinical test cannot fail unless evaluation.threshold is set",
+   "created_at": "2026-09-25T22:29:16Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/whylabs/langkit/issues/329",
+   "number": 329,
+   "repository_url": "https://api.github.com/repos/whylabs/langkit",
+   "state": "open",
+   "title": "response_hallucination: convert_score() scores any off-vocabulary judge reply (including \"Major Inaccurate.\" with a trailing period) as \"accurate\" (0.0)",
+   "created_at": "2026-09-25T22:29:17Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/flageval-baai/FlagEval/issues/45",
+   "number": 45,
+   "repository_url": "https://api.github.com/repos/flageval-baai/FlagEval",
+   "state": "open",
+   "title": "mCLIPEval leaderboard mean skips datasets a model has no score for, so partial result files can outrank complete ones",
+   "created_at": "2026-09-25T23:00:18Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/argilla-io/distilabel/issues/1190",
+   "number": 1190,
+   "repository_url": "https://api.github.com/repos/argilla-io/distilabel",
+   "state": "open",
+   "title": "MathShepherdCompleter._format_structured_output compares len(output) with N and discards every parsed structured reply, so intermediate step labels are lost",
+   "created_at": "2026-09-25T23:16:28Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/NVIDIA-NeMo/RL/issues/4275",
+   "number": 4275,
+   "repository_url": "https://api.github.com/repos/NVIDIA-NeMo/RL",
+   "state": "open",
+   "title": "exact_answer_alphanumeric_reward returns 1.0 when both the answer and the ground truth normalize to an empty string",
+   "created_at": "2026-09-25T23:53:18Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/unitaryai/detoxify/issues/135",
+   "number": 135,
+   "repository_url": "https://api.github.com/repos/unitaryai/detoxify",
+   "state": "open",
+   "title": "binary_accuracy compares a boolean prediction to the raw float target with ==, under-reporting accuracy when JigsawDataBias(soft_labels=True) is used",
+   "created_at": "2026-09-26T00:08:38Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/invariantlabs-ai/invariant/issues/68",
+   "number": 68,
+   "repository_url": "https://api.github.com/repos/invariantlabs-ai/invariant",
+   "state": "open",
+   "title": "fuzzy_contains() returns True when the semantic check answers \"no\" (match is not None on a bool)",
+   "created_at": "2026-09-26T00:08:39Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/cleanlab/cleanlab/issues/1338",
+   "number": 1338,
+   "repository_url": "https://api.github.com/repos/cleanlab/cleanlab",
+   "state": "open",
+   "title": "token_classification.rank.issues_from_scores() raises IndexError when every sentence score is below threshold (or input is empty)",
+   "created_at": "2026-09-26T00:08:40Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/vectara/open-rag-eval/issues/163",
+   "number": 163,
+   "repository_url": "https://api.github.com/repos/vectara/open-rag-eval",
+   "state": "open",
+   "title": "AutoNuggetMetric failures are recorded as a real 0.5 nugget score instead of being excluded or flagged",
+   "created_at": "2026-09-26T00:38:55Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/declare-lab/instruct-eval/issues/36",
+   "number": 36,
+   "repository_url": "https://api.github.com/repos/declare-lab/instruct-eval",
+   "state": "open",
+   "title": "subjective.py score_answers() keeps the LAST digit in the judge's reply instead of the first, and records replies with no digit as a score of 1",
+   "created_at": "2026-09-26T00:38:57Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/yuh-zha/AlignScore/issues/24",
+   "number": 24,
+   "repository_url": "https://api.github.com/repos/yuh-zha/AlignScore",
+   "state": "open",
+   "title": "Inferencer.smart_n() sets recall to prec / denom instead of recall / denom, so SMART-N recall/F1 ignore the reverse-direction pass",
+   "created_at": "2026-09-26T00:53:17Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/openai/frontier-evals/issues/178",
+   "number": 178,
+   "repository_url": "https://api.github.com/repos/openai/frontier-evals",
+   "state": "open",
+   "title": "JudgeEval drops leaves with valid_score=False from y_true/y_pred, so judge accuracy/F1 is computed only over leaves the judge managed to grade",
+   "created_at": "2026-09-26T01:11:12Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/AmenRa/ranx/issues/84",
+   "number": 84,
+   "repository_url": "https://api.github.com/repos/AmenRa/ranx",
+   "state": "open",
+   "title": "evaluate() pairs dict qrels and run by key insertion order, not by query id; a perfect run can score 0.0",
+   "created_at": "2026-09-26T01:44:51Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/AmenRa/ranx/issues/85",
+   "number": 85,
+   "repository_url": "https://api.github.com/repos/AmenRa/ranx",
+   "state": "open",
+   "title": "bpref returns NaN for qrels with no judged non-relevant docs (trec_eval returns a defined value), and fisher_randomization_test reports p_value=0.0 / significant=True whenever a per-query score is NaN",
+   "created_at": "2026-09-26T01:44:58Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/okpy/ok/issues/1428",
+   "number": 1428,
+   "repository_url": "https://api.github.com/repos/okpy/ok",
+   "state": "open",
+   "title": "autograde_assignment reports job.failed=False with a normal scores link even when every backup ends in GradingStatus.FAILED",
+   "created_at": "2026-09-26T01:44:59Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/agentscope-ai/OpenJudge/issues/199",
+   "number": 199,
+   "repository_url": "https://api.github.com/repos/agentscope-ai/OpenJudge",
+   "state": "open",
+   "title": "StringMatchGrader: empty reference_response scores 1.0 for any response under prefix/suffix/substring/regex/contains_all/contains_any",
+   "created_at": "2026-09-26T01:45:00Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/KRLabsOrg/LettuceDetect/issues/117",
+   "number": 117,
+   "repository_url": "https://api.github.com/repos/KRLabsOrg/LettuceDetect",
+   "state": "open",
+   "title": "Stop-hook --min-confidence drops every --llm-model span (missing confidence treated as 0.0), reporting hallucinated answers as clean",
+   "created_at": "2026-09-26T02:09:07Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/google-deepmind/long-form-factuality/issues/56",
+   "number": 56,
+   "repository_url": "https://api.github.com/repos/google-deepmind/long-form-factuality",
+   "state": "open",
+   "title": "SAFE: facts that exhaust all pipeline retries are silently dropped, so F1 is computed over an unreported subset with no reconciliation against num_claims",
+   "created_at": "2026-09-26T02:27:34Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/disi-unibo-nlp/nlg-metricverse/issues/13",
+   "number": 13,
+   "repository_url": "https://api.github.com/repos/disi-unibo-nlp/nlg-metricverse",
+   "state": "open",
+   "title": "DataLoader.one_record_per_file pairs predictions/references by sort position, not filename: equal-size directories with different basenames silently cross-wire unrelated files",
+   "created_at": "2026-09-26T02:27:35Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/dynatrace-oss/dt-evals/issues/246",
+   "number": 246,
+   "repository_url": "https://api.github.com/repos/dynatrace-oss/dt-evals",
+   "state": "open",
+   "title": "`run --ci` exits 0 when every judge call fails (errors are never consulted by the CI gate)",
+   "created_at": "2026-09-26T02:27:36Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/zli12321/qa_metrics/issues/4",
+   "number": 4,
+   "repository_url": "https://api.github.com/repos/zli12321/qa_metrics",
+   "state": "open",
+   "title": "em_match() returns True for any candidate when the reference is empty after normalization (punctuation-only, whitespace-only, or an article such as \"A\"/\"The\")",
+   "created_at": "2026-09-26T02:45:51Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/LLAMATOR-Core/llamator/issues/185",
+   "number": 185,
+   "repository_url": "https://api.github.com/repos/LLAMATOR-Core/llamator",
+   "state": "open",
+   "title": "evaluate_response() maps judge failures (exception, empty or unparseable reply) to 0.0, which every caller reports as RESILIENT instead of ERROR",
+   "created_at": "2026-09-26T02:45:52Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/msoedov/agentic_security/issues/350",
+   "number": 350,
+   "repository_url": "https://api.github.com/repos/msoedov/agentic_security",
+   "state": "open",
+   "title": "LLMRefusalClassifier.is_refusal reports a \"pass\" judge verdict as a refusal when the reply carries punctuation, quotes or markdown",
+   "created_at": "2026-09-26T03:09:45Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/arekusandr/last_layer/issues/51",
+   "number": 51,
+   "repository_url": "https://api.github.com/repos/arekusandr/last_layer",
+   "state": "open",
+   "title": "interaction_matrix: last 4 rows are keyed on Threat Enum members instead of .name strings, so their score adjustments never apply",
+   "created_at": "2026-09-26T03:09:46Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/presidio-oss/hai-guardrails/issues/110",
+   "number": 110,
+   "repository_url": "https://api.github.com/repos/presidio-oss/hai-guardrails",
+   "state": "open",
+   "title": "injectionGuard/leakageGuard: documented `failOnError` option is never read; an LLM error in language-model mode returns passed:true with the clean-scan reason",
+   "created_at": "2026-09-26T03:09:47Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/killertcell428/aigis/issues/276",
+   "number": 276,
+   "repository_url": "https://api.github.com/repos/killertcell428/aigis",
+   "state": "open",
+   "title": "regression_guard.py excludes errored attack rows from the CI detection rate without checking error counts, so a scanner that starts raising on missed attacks passes as an improvement",
+   "created_at": "2026-09-26T03:28:34Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/yfedoseev/jailguard/issues/61",
+   "number": 61,
+   "repository_url": "https://api.github.com/repos/yfedoseev/jailguard",
+   "state": "open",
+   "title": "test_output_validation_on_real_data never asserts, and it hides that check_output misses \"Your API key is sk_live_...\"",
+   "created_at": "2026-09-26T03:28:35Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/GlassAlpha/glassalpha/issues/93",
+   "number": 93,
+   "repository_url": "https://api.github.com/repos/GlassAlpha/glassalpha",
+   "state": "open",
+   "title": "DemographicParityMetric / EqualOpportunityMetric: multi-attribute headline score reflects only the last sensitive column, so it changes with DataFrame column order",
+   "created_at": "2026-09-26T03:28:36Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/Trusted-AI/AIF360/issues/578",
+   "number": 578,
+   "repository_url": "https://api.github.com/repos/Trusted-AI/AIF360",
+   "state": "open",
+   "title": "sklearn metrics: difference()/ratio() do not check that priv_group matches any sample, so the default priv_group=1 with multiple protected attributes returns NaN or a wrong fairness value",
+   "created_at": "2026-09-26T03:46:47Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/cvs-health/langfair/issues/249",
+   "number": 249,
+   "repository_url": "https://api.github.com/repos/cvs-health/langfair",
+   "state": "open",
+   "title": "ToxicityMetrics: `toxigen` scores are wrong whenever the classifier predicts the toxic class, because `r[\"label\"][-1]` (a str) is compared to the int `1`",
+   "created_at": "2026-09-26T03:46:48Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/ferro-labs/ai-gateway/issues/447",
+   "number": 447,
+   "repository_url": "https://api.github.com/repos/ferro-labs/ai-gateway",
+   "state": "open",
+   "title": "wordfilter: a non-list `blocked_words` value is a silent no-op, not a load error; the guardrail loads and screens nothing",
+   "created_at": "2026-09-26T03:46:49Z",
+   "comments": 3,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/ModelOriented/DALEX/issues/585",
+   "number": 585,
+   "repository_url": "https://api.github.com/repos/ModelOriented/DALEX",
+   "state": "open",
+   "title": "fairness_check() reports \"No bias was detected!\" when a subgroup ratio is exactly 0 or infinite (ratio masked to NaN before the epsilon comparison)",
+   "created_at": "2026-09-26T04:04:31Z",
+   "comments": 2,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/wearepal/EthicML/issues/1183",
+   "number": 1183,
+   "repository_url": "https://api.github.com/repos/wearepal/EthicML",
+   "state": "open",
+   "title": "aggregate_results() silently drops failed repeats from the mean: a model failing 3 of 5 repeats reports the same mean/std as one that succeeds all 5",
+   "created_at": "2026-09-26T04:04:33Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/dssg/aequitas/issues/222",
+   "number": 222,
+   "repository_url": "https://api.github.com/repos/dssg/aequitas",
+   "state": "open",
+   "title": "Fairness.get_overall_fairness reports True when a high-level fairness column is entirely NaN (NaN == False is False)",
+   "created_at": "2026-09-26T04:27:02Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/verifywise-ai/verifywise/issues/4783",
+   "number": 4783,
+   "repository_url": "https://api.github.com/repos/verifywise-ai/verifywise",
+   "state": "open",
+   "title": "Custom scorer reports passed=True for every judge reply, including an explicit FAIL, when the scorer's defaultThreshold is NULL",
+   "created_at": "2026-09-26T04:27:03Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/IBM/inFairness/issues/72",
+   "number": 72,
+   "repository_url": "https://api.github.com/repos/IBM/inFairness",
+   "state": "open",
+   "title": "Auditor.compute_audit_result() returns is_model_fair=True when no finite loss ratios remain (or on an exact tie at the threshold), because a NaN p-value falls through to the \"fair\" branch",
+   "created_at": "2026-09-26T05:04:16Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/Trusted-AI/adversarial-robustness-toolbox/issues/2828",
+   "number": 2828,
+   "repository_url": "https://api.github.com/repos/Trusted-AI/adversarial-robustness-toolbox",
+   "state": "open",
+   "title": "`empirical_robustness` returns 0.0 when the attack flips no predictions, scoring a fully resisted attack below any successful one",
+   "created_at": "2026-09-26T05:04:17Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/KenSciResearch/fairMLHealth/issues/78",
+   "number": 78,
+   "repository_url": "https://api.github.com/repos/KenSciResearch/fairMLHealth",
+   "state": "open",
+   "title": "performance_metrics.ratio() turns an undefined 0/0 subgroup rate into 0.0 instead of NaN",
+   "created_at": "2026-09-26T05:04:18Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/holistic-ai/holisticai/issues/320",
+   "number": 320,
+   "repository_url": "https://api.github.com/repos/holistic-ai/holisticai",
+   "state": "open",
+   "title": "Empty group_a/group_b passes validation and every success-rate bias metric returns NaN with no error naming the empty group",
+   "created_at": "2026-09-26T05:04:19Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/RobustBench/robustbench/issues/217",
+   "number": 217,
+   "repository_url": "https://api.github.com/repos/RobustBench/robustbench",
+   "state": "open",
+   "title": "benchmark()'s aa_state_path (resumable-evaluation) branch always crashes with RuntimeError after the AutoAttack run finishes",
+   "created_at": "2026-09-26T05:39:11Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/google-research/robustness_metrics/issues/99",
+   "number": 99,
+   "repository_url": "https://api.github.com/repos/google-research/robustness_metrics",
+   "state": "open",
+   "title": "ThresholdedAdaptiveCalibrationError (\"tace\") ignores its threshold argument and always runs with threshold=0, same as \"ace\"",
+   "created_at": "2026-09-26T06:01:35Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/EFS-OpenSource/calibration-framework/issues/67",
+   "number": 67,
+   "repository_url": "https://api.github.com/repos/EFS-OpenSource/calibration-framework",
+   "state": "open",
+   "title": "ACE counts bins masked by sample_threshold in its denominator (ECE and UCE keep their samples in the normalizer)",
+   "created_at": "2026-09-26T06:01:36Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/JailbreakBench/jailbreakbench/issues/51",
+   "number": 51,
+   "repository_url": "https://api.github.com/repos/JailbreakBench/jailbreakbench",
+   "state": "open",
+   "title": "SynonymSubstitution deletes every word that has no WordNet synset, whatever `q` is set to",
+   "created_at": "2026-09-26T12:12:45Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/torch-uncertainty/torch-uncertainty/issues/347",
+   "number": 347,
+   "repository_url": "https://api.github.com/repos/torch-uncertainty/torch-uncertainty",
+   "state": "open",
+   "title": "`ThresholdAccuracy` (δ1/δ2/δ3) counts negative predictions as within threshold, so a sign-flipped or constant -1 depth map scores 1.0",
+   "created_at": "2026-09-26T12:12:47Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/ml-stat-Sustech/TorchCP/issues/127",
+   "number": 127,
+   "repository_url": "https://api.github.com/repos/ml-stat-Sustech/TorchCP",
+   "state": "open",
+   "title": "WSC: `covered_train` and `y_train` are passed to `calWSC` in swapped order, so the worst slice is chosen by class index, not by coverage",
+   "created_at": "2026-09-26T12:12:49Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/modelscope/evalscope/issues/1783",
+   "number": 1783,
+   "repository_url": "https://api.github.com/repos/modelscope/evalscope",
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "math_equal('', '') is True, so an extraction failure against a blank reference scores full credit",
+   "created_at": "2026-09-27T16:57:44Z",
+   "closed_at": "2026-09-28T09:33:54Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/ml-stat-Sustech/TorchCP/issues/128",
+   "number": 128,
+   "repository_url": "https://api.github.com/repos/ml-stat-Sustech/TorchCP",
+   "state": "open",
+   "title": "ConformalLM with rejection=True computes set loss from unmasked labels, crediting empty and gapped prediction sets",
+   "created_at": "2026-09-27T17:05:01Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/torch-uncertainty/torch-uncertainty/issues/348",
+   "number": 348,
+   "repository_url": "https://api.github.com/repos/torch-uncertainty/torch-uncertainty",
+   "state": "open",
+   "title": "DistributionNLL divides by target.numel() instead of the number of log-prob terms, deflating reg/NLL by 1/output_dim",
+   "created_at": "2026-09-27T17:05:28Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/scikit-learn-contrib/MAPIE/issues/993",
+   "number": 993,
+   "repository_url": "https://api.github.com/repos/scikit-learn-contrib/MAPIE",
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "RCPS Bernstein bound uses the variance of r_hat across lambdas instead of the per-sample loss variance",
+   "created_at": "2026-09-27T17:06:59Z",
+   "closed_at": "2026-10-07T13:55:40Z",
+   "comments": 5,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/rasbt/mlxtend/issues/1202",
+   "number": 1202,
+   "repository_url": "https://api.github.com/repos/rasbt/mlxtend",
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "`mcnemar()` returns p = 0.0 under the default settings when the two models have no discordant pairs (b + c == 0)",
+   "created_at": "2026-09-28T09:08:43Z",
+   "closed_at": "2026-09-29T15:53:45Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/SeldonIO/alibi-detect/issues/962",
+   "number": 962,
+   "repository_url": "https://api.github.com/repos/SeldonIO/alibi-detect",
+   "state": "open",
+   "title": "FETDrift.predict accepts non-binary batches: feature_score casts x to int64 before the binary check, so values in (-1, 2) are truncated and scored",
+   "created_at": "2026-09-28T09:08:45Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/capitalone/DataProfiler/issues/1229",
+   "number": 1229,
+   "repository_url": "https://api.github.com/repos/capitalone/DataProfiler",
+   "state": "open",
+   "title": "evaluate_accuracy: macro-average rescale drops predicted-but-absent labels, so false positives on them do not lower the returned F1",
+   "created_at": "2026-09-28T09:08:46Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/MAIF/shapash/issues/777",
+   "number": 777,
+   "repository_url": "https://api.github.com/repos/MAIF/shapash",
+   "state": "open",
+   "title": "`shap_neighbors` returns a neighbour's contributions as \"the instance\": the inner merge puts rows back in `x_encoded` order",
+   "created_at": "2026-09-28T09:08:48Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/understandable-machine-intelligence-lab/Quantus/issues/382",
+   "number": 382,
+   "repository_url": "https://api.github.com/repos/understandable-machine-intelligence-lab/Quantus",
+   "state": "open",
+   "title": "PointingGame scores an empty segmentation mask as a hit (True) instead of NaN; `weighted=True` raises TypeError",
+   "created_at": "2026-09-28T11:59:00Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/meta-pytorch/captum/issues/1938",
+   "number": 1938,
+   "repository_url": "https://api.github.com/repos/meta-pytorch/captum",
+   "state": "open",
+   "title": "`sensitivity_max` returns wrong scores with no error when `explanation_func` returns a bare Tensor (e.g. `LayerGradCam.attribute`)",
+   "created_at": "2026-09-28T11:59:01Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/online-ml/river/issues/2032",
+   "number": 2032,
+   "repository_url": "https://api.github.com/repos/online-ml/river",
+   "state": "open",
+   "title": "`Precision`, `Recall`, `F1`/`FBeta`, `Jaccard` and `MCC` ignore the predictions when `pos_val` is not `True`/`1`",
+   "created_at": "2026-09-28T11:59:03Z",
+   "comments": 4,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/yzhao062/pyod/issues/760",
+   "number": 760,
+   "repository_url": "https://api.github.com/repos/yzhao062/pyod",
+   "state": "open",
+   "title": "precision_n_scores can report up to 1.0 (or down to 0.0) when scores tie at the rank-n cutoff: get_label_n flags fewer than n rows",
+   "created_at": "2026-09-28T11:59:05Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/sktime/sktime/issues/11324",
+   "number": 11324,
+   "repository_url": "https://api.github.com/repos/sktime/sktime",
+   "state": "open",
+   "title": "[BUG] `EmpiricalCoverage` and `ConstraintViolation` compare `y_true` against another variable's interval for multivariate data with 2+ coverages; non-alphabetical variable names misalign `PinballLoss` too",
+   "created_at": "2026-09-28T13:28:29Z",
+   "comments": 3,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/unit8co/darts/issues/3221",
+   "number": 3221,
+   "repository_url": "https://api.github.com/repos/unit8co/darts",
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "gridsearch() returns a NaN-scored parameter combination as best when it comes first in the grid",
+   "created_at": "2026-09-28T13:28:31Z",
+   "closed_at": "2026-10-08T14:50:36Z",
+   "comments": 4,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/Nixtla/utilsforecast/issues/285",
+   "number": 285,
+   "repository_url": "https://api.github.com/repos/Nixtla/utilsforecast",
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "[losses] smape scores a missing forecast as a perfect 0, and on polars an exact 0 forecast of a 0 actual makes the series NaN",
+   "created_at": "2026-09-28T13:28:33Z",
+   "closed_at": "2026-10-02T23:19:41Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/scikit-learn-contrib/imbalanced-learn/issues/1220",
+   "number": 1220,
+   "repository_url": "https://api.github.com/repos/scikit-learn-contrib/imbalanced-learn",
+   "state": "open",
+   "title": "geometric_mean_score (default average=\"multiclass\") skips the sample-length check, so a length-1 y_pred is scored against every row of y_true",
+   "created_at": "2026-09-28T13:28:34Z",
+   "comments": 4,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/pytorch/ignite/issues/3845",
+   "number": 3845,
+   "repository_url": "https://api.github.com/repos/pytorch/ignite",
+   "state": "open",
+   "title": "cmAccuracy, cmPrecision, cmRecall and DiceCoefficient accept a normalized ConfusionMatrix (average=\"recall\"/\"precision\") and silently return wrong values, unlike IoU",
+   "created_at": "2026-09-28T15:16:19Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/sebp/scikit-survival/issues/643",
+   "number": 643,
+   "repository_url": "https://api.github.com/repos/sebp/scikit-survival",
+   "state": "open",
+   "title": "brier_score silently zero-weights rows where the censoring survival G is 0 instead of raising, so an all-dead predictor can score 0.0",
+   "created_at": "2026-09-28T15:17:12Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/aeon-toolkit/aeon/issues/3880",
+   "number": 3880,
+   "repository_url": "https://api.github.com/repos/aeon-toolkit/aeon",
+   "state": "open",
+   "title": "[BUG] Continuous anomaly-detection metrics discard check_y's output, so swapped arguments score the labels against themselves and any detector gets 1.0",
+   "created_at": "2026-09-28T15:17:47Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/recommenders-team/recommenders/issues/2390",
+   "number": 2390,
+   "repository_url": "https://api.github.com/repos/recommenders-team/recommenders",
+   "state": "open",
+   "title": "r_precision_at_k drops failing users from the mean instead of scoring them 0, so the score rises as more users fail",
+   "created_at": "2026-09-30T19:28:40Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/meta-pytorch/torchrec/issues/4812",
+   "number": 4812,
+   "repository_url": "https://api.github.com/repos/meta-pytorch/torchrec",
+   "state": "open",
+   "title": "RecallMetric / HindsightTargetPR: `compute_false_neg_sum` uses `&lt;=` and double-counts positives predicted exactly at the threshold",
+   "created_at": "2026-09-30T19:28:44Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/terrierteam/ir_measures/issues/83",
+   "number": 83,
+   "repository_url": "https://api.github.com/repos/terrierteam/ir_measures",
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "pytrec_eval provider: a no-gains nDCG shares an nDCG(gains=...) measure's invocation, returning gain-mapped or zeroed values",
+   "created_at": "2026-09-30T19:28:48Z",
+   "closed_at": "2026-09-30T22:00:20Z",
+   "comments": 2,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/tslearn-team/tslearn/issues/740",
+   "number": 740,
+   "repository_url": "https://api.github.com/repos/tslearn-team/tslearn",
+   "state": "open",
+   "title": "KShape: after every restart hits EmptyClusterError, predict(), labels_ and fit_predict() still return labels from the failed initialization",
+   "created_at": "2026-09-30T19:34:07Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/Nixtla/statsforecast/issues/1247",
+   "number": 1247,
+   "repository_url": "https://api.github.com/repos/Nixtla/statsforecast",
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "SES-family models: predict(level=...) returns the analytic intervals added in #1072, but forecast(level=...) still raises, and only_conformal_intervals=True was never cleared",
+   "created_at": "2026-09-30T19:34:11Z",
+   "closed_at": "2026-10-01T23:26:17Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/fgnt/meeteval/issues/132",
+   "number": 132,
+   "repository_url": "https://api.github.com/repos/fgnt/meeteval",
+   "state": "open",
+   "title": "md_eval_22 / dscore drop reference sessions that are missing from the hypothesis before running md-eval-22.pl, so the corpus DER omits them (md-eval-22.pl itself scores them as 100% missed)",
+   "created_at": "2026-09-30T19:36:43Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/speechbrain/speechbrain/issues/3090",
+   "number": 3090,
+   "repository_url": "https://api.github.com/repos/speechbrain/speechbrain",
+   "state": "open",
+   "title": "wer_summary reports WER=0.0 when every scored reference is empty, discarding the accumulated edit count",
+   "created_at": "2026-09-30T19:36:48Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/chakki-works/seqeval/issues/114",
+   "number": 114,
+   "repository_url": "https://api.github.com/repos/chakki-works/seqeval",
+   "state": "open",
+   "title": "accuracy_score() and performance_measure() silently truncate mismatched-length inputs instead of raising like the other metrics",
+   "created_at": "2026-09-30T19:53:20Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/pltrdy/rouge/issues/77",
+   "number": 77,
+   "repository_url": "https://api.github.com/repos/pltrdy/rouge",
+   "state": "open",
+   "title": "Whitespace-only sentence segments survive splitting and score as a shared empty-string token (phantom overlap, false perfect matches)",
+   "created_at": "2026-09-30T19:53:24Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/photosynthesis-team/piq/issues/391",
+   "number": 391,
+   "repository_url": "https://api.github.com/repos/photosynthesis-team/piq",
+   "state": "open",
+   "title": "PR.compute_metric: recall's isclose tie term uses the real k-NN radius instead of the fake one (piq/pr.py:118)",
+   "created_at": "2026-09-30T19:54:06Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/ludlows/PESQ/issues/60",
+   "number": 60,
+   "repository_url": "https://api.github.com/repos/ludlows/PESQ",
+   "state": "open",
+   "title": "pesq_batch() hardcodes on_error=RETURN_VALUES in its 1D-1D branch, so RAISE_EXCEPTION (the default) never raises there",
+   "created_at": "2026-09-30T20:10:45Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/NovaSky-AI/SkyThought/issues/121",
+   "number": 121,
+   "repository_url": "https://api.github.com/repos/NovaSky-AI/SkyThought",
+   "state": "open",
+   "title": "APPS/TACO scoring grades compile errors, runtime errors and timeouts as correct (negative-int sentinels are truthy)",
+   "created_at": "2026-09-30T20:22:14Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/sail-sg/understand-r1-zero/issues/40",
+   "number": 40,
+   "repository_url": "https://api.github.com/repos/sail-sg/understand-r1-zero",
+   "state": "open",
+   "title": "Empty or degenerate answers get full reward when the reference is empty or normalizes to \"\" (reachable on shipped math_12k / math_lvl3to5_8k / orz_57k rows)",
+   "created_at": "2026-09-30T20:22:18Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/Open-Reasoner-Zero/Open-Reasoner-Zero/issues/76",
+   "number": 76,
+   "repository_url": "https://api.github.com/repos/Open-Reasoner-Zero/Open-Reasoner-Zero",
+   "state": "open",
+   "title": "Training reward gives 1.0 to degenerate completions when the gold answer is empty or collapses to empty after _strip_string (rows present in the shipped 57k, 13k and 72k datasets)",
+   "created_at": "2026-09-30T20:22:23Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/ZubinGou/math-evaluation-harness/issues/10",
+   "number": 10,
+   "repository_url": "https://api.github.com/repos/ZubinGou/math-evaluation-harness",
+   "state": "open",
+   "title": "math_equal() scores a no-answer prediction as correct when the gold answer extracts to '' (hits math, math_oai/minerva_math, hungarian_exam rows)",
+   "created_at": "2026-09-30T20:24:10Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/lsdefine/simple_GRPO/issues/57",
+   "number": 57,
+   "repository_url": "https://api.github.com/repos/lsdefine/simple_GRPO",
+   "state": "open",
+   "title": "reward_correct/reward_format grade the whole completion instead of the `` span, so an empty or prose-only `` scores the same +2.25 as a correct answer",
+   "created_at": "2026-09-30T20:46:11Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/Unakar/Logic-RL/issues/78",
+   "number": 78,
+   "repository_url": "https://api.github.com/repos/Unakar/Logic-RL",
+   "state": "open",
+   "title": "eval_kk parse_model_answer accepts a name assigned both roles in  and scores the first-mentioned role",
+   "created_at": "2026-09-30T20:46:16Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/TIGER-AI-Lab/General-Reasoner/issues/4",
+   "number": 4,
+   "repository_url": "https://api.github.com/repos/TIGER-AI-Lab/General-Reasoner",
+   "state": "open",
+   "title": "get_prediction() returns the first A-J letter in fixed scan order, not the answer letter, when the extracted text contains other capitals",
+   "created_at": "2026-09-30T20:47:29Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/GAIR-NLP/LIMO/issues/47",
+   "number": 47,
+   "repository_url": "https://api.github.com/repos/GAIR-NLP/LIMO",
+   "state": "open",
+   "title": "eval_model_based.py: judge verdict parser scores WRONG as correct via substring match (\"correct\" in \"incorrect\")",
+   "created_at": "2026-09-30T20:47:34Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/MMMU-Benchmark/MMMU/issues/91",
+   "number": 91,
+   "repository_url": "https://api.github.com/repos/MMMU-Benchmark/MMMU",
+   "state": "open",
+   "title": "eval_open() scores open questions with string answers as Correct when the gold string only appears inside a longer token (MgS/MgSO4, 1/64/1/640, No/none)",
+   "created_at": "2026-09-30T21:06:20Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/Yuliang-Liu/MultimodalOCR/issues/102",
+   "number": 102,
+   "repository_url": "https://api.github.com/repos/Yuliang-Liu/MultimodalOCR",
+   "state": "open",
+   "title": "get_score.py: Overall Score shrinks its denominator when a capability category is empty, instead of scoring it 0 or flagging the run as incomplete",
+   "created_at": "2026-09-30T21:06:24Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/McGill-NLP/weblinx/issues/48",
+   "number": 48,
+   "repository_url": "https://api.github.com/repos/McGill-NLP/weblinx",
+   "state": "open",
+   "title": "URLFMetric.score uses str.lstrip(\"www.\") instead of prefix removal, so netlocs that differ only in leading 'w'/'.' characters score as the same site",
+   "created_at": "2026-09-30T21:09:31Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/web-arena-x/visualwebarena/issues/87",
+   "number": 87,
+   "repository_url": "https://api.github.com/repos/web-arena-x/visualwebarena",
+   "state": "open",
+   "title": "An LLM-judge reply that fails the assert in llm_fuzzy_match/llm_ua_match is excluded from the reported score instead of counting as a failure",
+   "created_at": "2026-09-30T21:09:36Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/OpenBMB/InfiniteBench/issues/37",
+   "number": 37,
+   "repository_url": "https://api.github.com/repos/OpenBMB/InfiniteBench",
+   "state": "open",
+   "title": "longbook_choice_eng and code_debug scoring count an explicit wrong answer as correct when the response's first word starts with the true label letter",
+   "created_at": "2026-09-30T21:21:03Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/bigai-nlco/LooGLE/issues/16",
+   "number": 16,
+   "repository_url": "https://api.github.com/repos/bigai-nlco/LooGLE",
+   "state": "open",
+   "title": "llm_eval.get_accuracy drops judge replies that are not exactly \"True\"/\"False\" from the denominator (and divides by zero when none match)",
+   "created_at": "2026-09-30T21:21:08Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/dsbowen/strong_reject/issues/44",
+   "number": 44,
+   "repository_url": "https://api.github.com/repos/dsbowen/strong_reject",
+   "state": "open",
+   "title": "generate() returns an unflagged \"\" when all retries fail, and string_matching scores it 1.0 (non-refusal)",
+   "created_at": "2026-09-30T21:22:21Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/allenai/WildBench/issues/26",
+   "number": 26,
+   "repository_url": "https://api.github.com/repos/allenai/WildBench",
+   "state": "open",
+   "title": "Models missing from a pairwise-reward file are merged with reward 0 (a \"tie\") and ranked, instead of being marked as having no data",
+   "created_at": "2026-09-30T21:43:12Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/TheAgentCompany/TheAgentCompany/issues/1099",
+   "number": 1099,
+   "repository_url": "https://api.github.com/repos/TheAgentCompany/TheAgentCompany",
+   "state": "open",
+   "title": "admin-arrange-meeting-rooms: grade_checkpoint_2 passes any chat message containing the answer digit as a substring, including wrong answers",
+   "created_at": "2026-09-30T21:43:17Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/tingofurro/summac/issues/28",
+   "number": 28,
+   "repository_url": "https://api.github.com/repos/tingofurro/summac",
+   "state": "open",
+   "title": "Unscoreable pairs (no chunks after splitting) silently score as 0.0 in SummaCZS and indistinguishably in SummaCConv",
+   "created_at": "2026-09-30T21:43:21Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/potsawee/selfcheckgpt/issues/39",
+   "number": 39,
+   "repository_url": "https://api.github.com/repos/potsawee/selfcheckgpt",
+   "state": "open",
+   "title": "SelfCheckLLMPrompt / SelfCheckAPIPrompt: text_postprocessing prefix match scores hedged replies (\"Not sure\", \"None of...\") as 1.0 instead of the documented N/A = 0.5",
+   "created_at": "2026-09-30T21:43:26Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/TonicAI/tonic_validate/issues/249",
+   "number": 249,
+   "repository_url": "https://api.github.com/repos/TonicAI/tonic_validate",
+   "state": "open",
+   "title": "parse_boolean_response substring fallback parses negated judge replies (\"not true\") as True, silently flipping LLM-judge verdicts",
+   "created_at": "2026-09-30T21:43:30Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/google-research/mt-metrics-eval/issues/30",
+   "number": 30,
+   "repository_url": "https://api.github.com/repos/google-research/mt-metrics-eval",
+   "state": "open",
+   "title": "PairwiseConfidenceError(filter_nones=True) reshapes a None-filtered flat vector into per-system rows, misaligning segments when missing gold scores are not column-aligned",
+   "created_at": "2026-09-30T21:43:35Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/rafaelpadilla/review_object_detection_metrics/issues/156",
+   "number": 156,
+   "repository_url": "https://api.github.com/repos/rafaelpadilla/review_object_detection_metrics",
+   "state": "open",
+   "title": "coco2bb() stops parsing all remaining annotations and files at the first detection missing `score`",
+   "created_at": "2026-09-30T22:01:01Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/Cartucho/mAP/issues/199",
+   "number": 199,
+   "repository_url": "https://api.github.com/repos/Cartucho/mAP",
+   "state": "open",
+   "title": "error() in main.py exits with status 0, so every fatal abort reports success to the OS",
+   "created_at": "2026-09-30T22:01:06Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/TimeEval/TimeEval/issues/197",
+   "number": 197,
+   "repository_url": "https://api.github.com/repos/TimeEval/TimeEval",
+   "state": "open",
+   "title": "RangeFScore.score() passes p_bias as r_bias, so r_bias is ignored and p_bias also sets the recall bias",
+   "created_at": "2026-09-30T22:01:10Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/pykeen/pykeen/issues/1676",
+   "number": 1676,
+   "repository_url": "https://api.github.com/repos/pykeen/pykeen",
+   "state": "open",
+   "title": "OGB evaluation: `_evaluate_ogb` uses the tail id as the positive candidate for head prediction, corrupting head-side and \"both\" metrics",
+   "created_at": "2026-09-30T22:19:12Z",
+   "comments": 1,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/henrikbostrom/crepes/issues/54",
+   "number": 54,
+   "repository_url": "https://api.github.com/repos/henrikbostrom/crepes",
+   "state": "open",
+   "title": "ConformalRegressor / ConformalPredictiveSystem predict_int silently return a zero-width [0, 0] interval for Mondrian test categories absent from calibration",
+   "created_at": "2026-09-30T22:19:17Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/taoyds/test-suite-sql-eval/issues/33",
+   "number": 33,
+   "repository_url": "https://api.github.com/repos/taoyds/test-suite-sql-eval",
+   "state": "open",
+   "title": "Comment-only or empty-statement predictions (e.g. `-- ...`, `/* */`, `;`) score as execution matches when the gold query returns zero rows on every database in the directory",
+   "created_at": "2026-09-30T22:19:58Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/hendrycks/apps/issues/35",
+   "number": 35,
+   "repository_url": "https://api.github.com/repos/hendrycks/apps",
+   "state": "open",
+   "title": "print_results() counts a problem with zero recorded test results as passing in \"Strict Accuracy\"",
+   "created_at": "2026-10-01T00:53:51Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/FlagOpen/TACO/issues/21",
+   "number": 21,
+   "repository_url": "https://api.github.com/repos/FlagOpen/TACO",
+   "state": "open",
+   "title": "compute_metrics() scores a compiling generation as a full pass when the problem has zero test cases (741 TACO train problems affected)",
+   "created_at": "2026-10-01T00:53:55Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/vis-nlp/ChartQA/issues/14",
+   "number": 14,
+   "repository_url": "https://api.github.com/repos/vis-nlp/ChartQA",
+   "state": "open",
+   "title": "evaluate_data_extraction.py: gold tables that filter to no numbers score 1.0 for any extraction (unguarded ground-truth side)",
+   "created_at": "2026-10-01T00:54:00Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/princeton-nlp/ALCE/issues/32",
+   "number": 32,
+   "repository_url": "https://api.github.com/repos/princeton-nlp/ALCE",
+   "state": "open",
+   "title": "compute_autoais drops empty outputs from the citation_rec / citation_prec denominator instead of scoring them 0",
+   "created_at": "2026-10-01T01:19:14Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  },
+  {
+   "html_url": "https://github.com/princeton-nlp/LLMBar/issues/6",
+   "number": 6,
+   "repository_url": "https://api.github.com/repos/princeton-nlp/LLMBar",
+   "state": "open",
+   "title": "completion_with_parsing returns the first config label whose pattern matches anywhere, not the judge's verdict; shipped PaLM2/CoT statistics change by up to 19.5 points",
+   "created_at": "2026-10-01T01:19:20Z",
+   "comments": 0,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   }
+  }
+ ],
+ "prs": [
+  {
+   "html_url": "https://github.com/allenai/open-instruct/pull/1917",
+   "number": 1917,
+   "repository_url": "https://api.github.com/repos/allenai/open-instruct",
+   "state": "open",
+   "title": "Compare the non-additive R1 format gate against r1_style_format_reward",
+   "created_at": "2026-09-24T08:37:19Z",
+   "comments": 2,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/NovaSky-AI/SkyRL/pull/2290",
+   "number": 2290,
+   "repository_url": "https://api.github.com/repos/NovaSky-AI/SkyRL",
+   "state": "open",
+   "title": "Fix the tiemout keyword in naive_dapo.compute_score's \\pi branch",
+   "created_at": "2026-09-24T12:57:45Z",
+   "comments": 2,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/THUDM/slime/pull/2411",
+   "number": 2411,
+   "repository_url": "https://api.github.com/repos/THUDM/slime",
+   "state": "open",
+   "title": "fix(rm_hub): stop substring-matching gpqa letter labels and short answers",
+   "created_at": "2026-09-24T13:46:22Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/LiveBench/LiveBench/pull/554",
+   "number": 554,
+   "repository_url": "https://api.github.com/repos/LiveBench/LiveBench",
+   "state": "open",
+   "title": "Count each ground-truth connections group at most once",
+   "created_at": "2026-09-24T14:19:08Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/SWE-bench/SWE-bench/pull/668",
+   "number": 668,
+   "repository_url": "https://api.github.com/repos/SWE-bench/SWE-bench",
+   "state": "open",
+   "title": "Reject logs whose recorded test exit codes disagree",
+   "created_at": "2026-09-24T15:05:22Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/huggingface/open-r1/pull/734",
+   "number": 734,
+   "repository_url": "https://api.github.com/repos/huggingface/open-r1",
+   "state": "closed",
+   "title": "Skip unparseable gold solutions in cosine_scaled_reward",
+   "created_at": "2026-09-24T15:41:09Z",
+   "closed_at": "2026-10-02T03:45:36Z",
+   "comments": 1,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/open-compass/VLMEvalKit/pull/1707",
+   "number": 1707,
+   "repository_url": "https://api.github.com/repos/open-compass/VLMEvalKit",
+   "state": "closed",
+   "title": "Use the normalized lengths in anls_compute",
+   "created_at": "2026-09-24T16:22:17Z",
+   "closed_at": "2026-09-29T06:53:23Z",
+   "comments": 2,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/xlang-ai/OSWorld/pull/598",
+   "number": 598,
+   "repository_url": "https://api.github.com/repos/xlang-ai/OSWorld",
+   "state": "open",
+   "title": "Compare numbers, not substrings, in compare_result_files",
+   "created_at": "2026-09-24T16:53:13Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/hiyouga/EasyR1/pull/11015",
+   "number": 11015,
+   "repository_url": "https://api.github.com/repos/hiyouga/EasyR1",
+   "state": "open",
+   "title": "Take the last standalone digit as the android_gui answer",
+   "created_at": "2026-09-24T17:13:18Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/ShishirPatil/gorilla/pull/1374",
+   "number": 1374,
+   "repository_url": "https://api.github.com/repos/ShishirPatil/gorilla",
+   "state": "open",
+   "title": "Decode unary and binary operators without eval",
+   "created_at": "2026-09-24T17:35:04Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/ucbds-infra/otter-grader/pull/1021",
+   "number": 1021,
+   "repository_url": "https://api.github.com/repos/ucbds-infra/otter-grader",
+   "state": "closed",
+   "title": "Fail Otter Assign when grading the solutions notebook produces no results",
+   "created_at": "2026-09-24T17:48:33Z",
+   "closed_at": "2026-09-25T21:08:28Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": "2026-09-25T21:08:28Z"
+   }
+  },
+  {
+   "html_url": "https://github.com/evidentlyai/evidently/pull/1938",
+   "number": 1938,
+   "repository_url": "https://api.github.com/repos/evidentlyai/evidently",
+   "state": "open",
+   "title": "Match longer possible_values labels first in OpenAIFeature contains modes",
+   "created_at": "2026-09-24T20:42:47Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/datajuicer/data-juicer/pull/1080",
+   "number": 1080,
+   "repository_url": "https://api.github.com/repos/datajuicer/data-juicer",
+   "state": "closed",
+   "title": "Leave failed judge calls out of the GPT evaluator averages and report how many",
+   "created_at": "2026-09-24T21:11:22Z",
+   "closed_at": "2026-09-28T08:51:24Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": "2026-09-28T08:51:24Z"
+   }
+  },
+  {
+   "html_url": "https://github.com/huggingface/datatrove/pull/530",
+   "number": 530,
+   "repository_url": "https://api.github.com/repos/huggingface/datatrove",
+   "state": "open",
+   "title": "fix(filters): lowercase C4BadWordsFilter list entries so mixed-case words can match",
+   "created_at": "2026-09-25T07:11:09Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/codefuse-ai/codefuse-evaluation/pull/15",
+   "number": 15,
+   "repository_url": "https://api.github.com/repos/codefuse-ai/codefuse-evaluation",
+   "state": "open",
+   "title": "Fix accuracy/f1 scoring the mismatch rate instead of the match rate",
+   "created_at": "2026-09-25T07:18:53Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/mosaicml/llm-foundry/pull/1898",
+   "number": 1898,
+   "repository_url": "https://api.github.com/repos/mosaicml/llm-foundry",
+   "state": "open",
+   "title": "Fix exact-match accuracy crediting any output when a label normalizes to empty",
+   "created_at": "2026-09-25T07:22:18Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/mistralai/mistral-evals/pull/22",
+   "number": 22,
+   "repository_url": "https://api.github.com/repos/mistralai/mistral-evals",
+   "state": "open",
+   "title": "Only credit a multiple-choice reply whose first token is the option letter",
+   "created_at": "2026-09-25T07:24:49Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/princeton-nlp/HELMET/pull/47",
+   "number": 47,
+   "repository_url": "https://api.github.com/repos/princeton-nlp/HELMET",
+   "state": "open",
+   "title": "Fix crashes in eval_gpt4_longqa.py and record how many rows the judge scored",
+   "created_at": "2026-09-25T07:34:09Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/openai/mle-bench/pull/154",
+   "number": 154,
+   "repository_url": "https://api.github.com/repos/openai/mle-bench",
+   "state": "open",
+   "title": "Reject osic-pulmonary-fibrosis-progression submissions that omit scored rows",
+   "created_at": "2026-09-25T07:38:42Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/TIGER-AI-Lab/MMLU-Pro/pull/83",
+   "number": 83,
+   "repository_url": "https://api.github.com/repos/TIGER-AI-Lab/MMLU-Pro",
+   "state": "open",
+   "title": "Keep questions that error out in the result and denominator",
+   "created_at": "2026-09-25T10:19:18Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/QwenLM/Qwen2.5-Math/pull/68",
+   "number": 68,
+   "repository_url": "https://api.github.com/repos/QwenLM/Qwen2.5-Math",
+   "state": "open",
+   "title": "Match choice letters case-sensitively in choice_answer_clean",
+   "created_at": "2026-09-25T10:20:50Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/athina-ai/athina-evals/pull/206",
+   "number": 206,
+   "repository_url": "https://api.github.com/repos/athina-ai/athina-evals",
+   "state": "open",
+   "title": "Reject empty keyword/substring/pattern in string evals",
+   "created_at": "2026-09-25T10:21:29Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/rllm-org/rllm/pull/930",
+   "number": 930,
+   "repository_url": "https://api.github.com/repos/rllm-org/rllm",
+   "state": "open",
+   "title": "fix(rewards): guard grade_answer_sympy/grade_answer_mathd against empty inputs",
+   "created_at": "2026-09-25T16:57:18Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/Unbabel/COMET/pull/278",
+   "number": 278,
+   "repository_url": "https://api.github.com/repos/Unbabel/COMET",
+   "state": "open",
+   "title": "Fix silent truncation when -s/-t/-r line counts differ",
+   "created_at": "2026-09-25T17:50:35Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/ScalingIntelligence/KernelBench/pull/170",
+   "number": 170,
+   "repository_url": "https://api.github.com/repos/ScalingIntelligence/KernelBench",
+   "state": "open",
+   "title": "Skip untimed correct samples in geometric mean speedup",
+   "created_at": "2026-09-25T17:50:55Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/NannyML/nannyml/pull/455",
+   "number": 455,
+   "repository_url": "https://api.github.com/repos/NannyML/nannyml",
+   "state": "open",
+   "title": "Reset Chi2 p-value for chunks without data to evaluate",
+   "created_at": "2026-09-25T21:11:06Z",
+   "comments": 1,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/allenai/dolma/pull/316",
+   "number": 316,
+   "repository_url": "https://api.github.com/repos/allenai/dolma",
+   "state": "open",
+   "title": "Score empty documents as doc_not_en=1.0 in language doc score",
+   "created_at": "2026-09-25T21:11:20Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/bigcode-project/bigcode-evaluation-harness/pull/328",
+   "number": 328,
+   "repository_url": "https://api.github.com/repos/bigcode-project/bigcode-evaluation-harness",
+   "state": "open",
+   "title": "Score MultiPL-E pass@k from a per-run temp dir",
+   "created_at": "2026-09-25T21:12:15Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/huggingface/Math-Verify/pull/84",
+   "number": 84,
+   "repository_url": "https://api.github.com/repos/huggingface/Math-Verify",
+   "state": "open",
+   "title": "Count rows with unreadable gold in evaluate_model_outputs accuracy",
+   "created_at": "2026-09-25T21:12:29Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/OSU-NLP-Group/Mind2Web/pull/74",
+   "number": 74,
+   "repository_url": "https://api.github.com/repos/OSU-NLP-Group/Mind2Web",
+   "state": "open",
+   "title": "fix(metric): don't fall back to first candidate on unparseable/wrong-shaped text match",
+   "created_at": "2026-09-26T05:59:10Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/ferro-labs/ai-gateway/pull/448",
+   "number": 448,
+   "repository_url": "https://api.github.com/repos/ferro-labs/ai-gateway",
+   "state": "open",
+   "title": "fix(wordfilter): fail the load on a malformed blocked_words",
+   "created_at": "2026-09-26T11:24:33Z",
+   "comments": 4,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/ModelOriented/DALEX/pull/586",
+   "number": 586,
+   "repository_url": "https://api.github.com/repos/ModelOriented/DALEX",
+   "state": "open",
+   "title": "fix(fairness): count a masked 0/inf ratio as exceeded in fairness_check",
+   "created_at": "2026-09-27T20:17:40Z",
+   "comments": 0,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": null
+   }
+  },
+  {
+   "html_url": "https://github.com/terrierteam/ir_measures/pull/84",
+   "number": 84,
+   "repository_url": "https://api.github.com/repos/terrierteam/ir_measures",
+   "state": "closed",
+   "title": "Keep a no-gains nDCG on the original-qrels invocation",
+   "created_at": "2026-09-30T21:32:27Z",
+   "closed_at": "2026-09-30T22:00:19Z",
+   "comments": 1,
+   "draft": false,
+   "user": {
+    "login": "shaurya416",
+    "id": 298017155
+   },
+   "pull_request": {
+    "merged_at": "2026-09-30T22:00:19Z"
+   }
+  }
+ ]
+}

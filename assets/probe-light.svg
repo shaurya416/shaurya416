@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 342" width="380" height="342" role="img" aria-labelledby="t d">
+<title id="t">scoreprobe on a two-line grader</title>
+<desc id="d">scoreprobe 0.1.0, first release pending. A grader written as: def grade(answer, reference): return reference.lower() in answer.lower(). probe(grader=grade): 5 of 9 checks reproduce: empty_reference, e.g. answer &#x27;anything&#x27; against reference &#x27;&#x27;, 3 inputs earned credit; unrelated_answer, e.g. answer &#x27;qzxv unrelated&#x27; against reference &#x27;a&#x27;, 2 inputs earned credit; substring_containment, e.g. answer &#x27;not Paris&#x27; against reference &#x27;Paris&#x27;, 33 inputs earned credit; numeric_tolerance, e.g. answer &#x27;4200&#x27; against reference &#x27;42&#x27;, 11 inputs earned credit; numeric_sign, e.g. answer &#x27;-42&#x27; against reference &#x27;42&#x27;, 6 inputs earned credit. With the line changed to return reference.lower() == answer.lower(): 0 of 9 reproduce.</desc>
+<style>text{font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;font-size:12px;fill:#1f2328}.m{fill:#59636e}.a{fill:#0969da}.b{font-size:26px}.e{text-anchor:end}.c{text-anchor:middle}</style>
+<rect x=".5" y=".5" width="373" height="335" rx="6" fill="#ffffff" stroke="#d1d9e0"/>
+<text x="14" y="22">scoreprobe</text>
+<text class="m e" x="360" y="22">first release pending</text>
+<text class="m" x="14" y="50">def grade(answer, reference):</text>
+<text class="m" x="14" y="66">    return reference.lower() in answer.lower()</text>
+<text x="14" y="94">probe(grader=grade)</text>
+<text class="e" x="360" y="94">5 of 9 checks reproduce</text>
+<text class="m" x="14" y="116">check</text>
+<text class="m" x="178.24" y="116">answer</text>
+<text class="m e" x="360" y="116">reference</text>
+<text x="14" y="134">empty_reference</text>
+<text x="178.24" y="134">'anything'</text>
+<text class="e" x="360" y="134">''</text>
+<text x="14" y="151">unrelated_answer</text>
+<text x="178.24" y="151">'qzxv unrelated'</text>
+<text class="e" x="360" y="151">'a'</text>
+<text x="14" y="168">substring_containment</text>
+<text x="178.24" y="168">'not Paris'</text>
+<text class="e" x="360" y="168">'Paris'</text>
+<text x="14" y="185">numeric_tolerance</text>
+<text x="178.24" y="185">'4200'</text>
+<text class="e" x="360" y="185">'42'</text>
+<text x="14" y="202">numeric_sign</text>
+<text x="178.24" y="202">'-42'</text>
+<text class="e" x="360" y="202">'42'</text>
+<path d="M14 212.5H360" stroke="#d1d9e0" fill="none"/>
+<text class="m" x="14" y="236">-   return reference.lower() in answer.lower()</text>
+<text x="14" y="252">+   return reference.lower() == answer.lower()</text>
+<text x="14" y="278">probe(grader=grade)</text>
+<text class="a e" x="360" y="278">0 of 9 checks reproduce</text>
+<text class="m" x="14" y="322">rows: answers the grader marked correct</text>
+</svg>
