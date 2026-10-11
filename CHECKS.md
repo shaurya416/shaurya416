@@ -148,6 +148,18 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | README method | people | 14 people | `fixes_by_others_summary.distinct_pr_authors` |
 | README method | repositories put in areas | 229 repositories | `issues.distinct_repos` |
 | README method | areas | 15 areas | `len(ecosystems)` |
+| README strip | since | \| since 2026-09-23 \| | `issues.first_created_at` |
+| README strip | issues filed | \| 238 \| | `issues.total` |
+| README strip | repositories | in 229 repositories | `issues.distinct_repos` |
+| README strip | areas | 15 areas | `len(ecosystems)` |
+| README strip | fixed | \| 20 \| | `outcomes.fixed_by_merged_pr_from_someone_else + outcomes.fixed_by_his_own_merged_pr` |
+| README strip | fixed by others | 17 by other people | `outcomes.fixed_by_merged_pr_from_someone_else` |
+| README strip | fixed by own PR | 3 by me | `outcomes.fixed_by_his_own_merged_pr` |
+| README strip | median hours | \| 109.5 \| | `fix_lag_hours_filed_to_merge.median` |
+| README strip | fixes by others with hours | 17 fixes | `fix_lag_hours_filed_to_merge.n` |
+| README strip | PRs upstream | \| 33 \| | `prs.upstream` |
+| README strip | PRs merged | 3 merged | `queries.prs_merged` |
+| README strip | PRs open | 28 open | `queries.prs_open` |
 | README side quest | since | since 2026-09-23: | `issues.first_created_at` |
 | README side quest | issues filed | 238 issues in | `issues.total` |
 | README side quest | repositories | in 229 repositories | `issues.distinct_repos` |

@@ -1,51 +1,20 @@
-**Shaurya Singh** · Seattle, WA<br/>
-cs + data science at UW, class of '27.
+**Shaurya Singh** · Seattle, WA · cs + data science at UW, class of '27 · [shauryasingh.com](https://shauryasingh.com)
 
-everyone sensible says pick a lane, and i keep not doing it. so far that has meant proteins, brains, quantum noise, classrooms, street safety, buildings, an underwater robot, and the code that grades things.
+i find what hurts, then build at it. so far: proteins, brains, quantum noise, classrooms, street safety, buildings, an underwater robot, and the code that grades things.
 
 ```
 $ grep -rl "same field" ~/built/
 no matches
 ```
 
-### field guide
+### grading the graders
 
-one line per world i've wandered into.
-
-- **proteins** · undergrad research in UW's DAIS lab: preprocessing, training runs and renders for DeepTracer, which turns cryo-EM maps into 3D protein structures. no byline, and that's fine.
-- **brains** · taught myself neuroscience in public: four essays, optogenetics to connectomics (2022–23). lately, **trigalign**, for EEG recordings that dropped a trigger or two.
-- **quantum** · **shotfloor**: the score a perfect quantum computer gets from shot noise alone. 8 qubits, uniform target, 1,024 shots: 0.92 hellinger fidelity, not 1.
-- **classrooms** · co-founded SkillTern and was its CTO (2022–23): computer science for 350+ students, built to run without me.
-- **street safety** · TurtleShell: K-means over 10,000+ LAPD crime datapoints and an iOS SOS app in Swift. got into Microsoft for Startups, then i shut it down on purpose (oct 2023).
-- **buildings** · a cabin-design prototype that has to pass the Seattle residential code: rule engine, NSGA-II over cost, space and comfort, IFC export. runs locally, so no link.
-- **earlier** · H2OAquatics, an autonomous underwater vehicle aimed at ocean acidification, the first time the build-at-it reflex showed up. also a co-written policy paper on phishing, runner-up at WatGov (Waterloo, 2023).
-- **graders** · scoring code that hands out credit it shouldn't. it turned into a side quest; notes at the bottom.
-- **off the clock** · music. made often, released never. links when that changes, not before.
-
-### things i made
-
-small python tools, each about one thing that quietly goes wrong. none is public yet, so no links: each name becomes one the day its repository is.
-
-**tests and repos**
-
-- **tolwatch** · a pytest plugin that flags `allclose`, `isclose` and `approx` checks that can't fail, or are far looser than they need to be.
-- **ziptrace** · names the `zip()` and `map()` calls that silently dropped data because their inputs had different lengths.
-- **unadded** · finds the untracked or gitignored files a passing test run quietly depends on, before CI does.
-- **whymodified** · `git status` says a file is modified and nothing in it changed. this says why, and the one command that clears it.
-
-**science data**
-
-- **shotfloor** · the score a flawless quantum computer gets at a given shot count, and how many shots it needs to reach a target.
-- **trigalign** · pairs a stimulus log with an EEG trigger list when triggers were dropped or duplicated, or the clocks drift.
-
-**grading code**
-
-- **scoreprobe** · feeds a grader the inputs known to slip through (a blank answer, "not Paris" against "Paris", 4200 against 42) and reports which earned credit.
-- **normladder** · is "1,000" the same answer as "1000"? 8 of 14 answer-matching rules from lm-eval, HELM, SQuAD and friends say yes. it shows which, and why.
-- **mcqlint** · lints multiple-choice eval sets: keys that name no option, duplicate options, leaked answers, position bias.
-- **tabverify** · recomputes the averages, deltas and bold in results tables at the precision they were printed, and flags what no rounding explains.
-
-### side quest: grading the graders
+| since 2026-09-23 | | |
+|:--|--:|:--|
+| issues filed | 238 | in 229 repositories, 15 areas |
+| fixed by a merged pull request | 20 | 17 by other people, 3 by me |
+| median hours to a fix | 109.5 | filed to merged, over 17 fixes by others |
+| pull requests to other people's repositories | 33 | 3 merged, 28 open |
 
 the habit: i read the code that decides whether an answer is right (eval harnesses, classroom autograders, forecasting and fairness metrics) and file what i find. since 2026-09-23: 238 issues in 229 repositories, 20 fixed by a merged pull request so far, 17 of those by other people and 3 by me.
 
@@ -122,6 +91,36 @@ eight of the fixes share one defect: a missing, empty or undefined result counte
 | 10-08 | [unit8co/darts#3223](https://github.com/unit8co/darts/pull/3223) | adigulalkari | [#3221](https://github.com/unit8co/darts/issues/3221) | 241.4 |
 
 </details>
+
+### field guide
+
+one line per world i've wandered into.
+
+- **proteins** · UW's DAIS lab: preprocessing, training runs and renders for DeepTracer, cryo-EM maps to 3D protein structures. no byline, and that's fine.
+- **brains** · four essays, taught to myself in public, optogenetics to connectomics (2022–23). now **trigalign**, for EEG recordings that dropped a trigger or two.
+- **quantum** · **shotfloor**: the score a perfect quantum computer gets from shot noise alone. 8 qubits, uniform target, 1,024 shots: 0.92 hellinger fidelity, not 1.
+- **classrooms** · co-founded SkillTern, its CTO (2022–23): computer science for 350+ students, built to run without me.
+- **street safety** · TurtleShell: K-means over 10,000+ LAPD crime datapoints and an iOS SOS app. Microsoft for Startups, then shut down on purpose (oct 2023).
+- **buildings** · a cabin designer that has to pass the Seattle residential code: rule engine, NSGA-II over cost, space and comfort, IFC export. runs locally, so no link.
+- **earlier** · H2OAquatics, an autonomous underwater vehicle aimed at ocean acidification; a phishing policy paper, runner-up at WatGov (Waterloo, 2023).
+- **off the clock** · music. made often, released never.
+
+### things i made
+
+small python tools, each about one thing that quietly goes wrong. none is public yet, so no links: each name becomes one the day its repository is.
+
+| | | |
+|:--|:--|:--|
+| tests and repos | **tolwatch** | pytest plugin: flags `allclose`, `isclose` and `approx` checks that can't fail, or are far looser than they need to be |
+|  | **ziptrace** | names the `zip()` and `map()` calls that silently dropped data to a length mismatch |
+|  | **unadded** | finds the untracked or gitignored files a passing test run quietly depends on, before CI does |
+|  | **whymodified** | `git status` says modified and nothing changed: says why, and the one command that clears it |
+| science data | **shotfloor** | the score a flawless quantum computer gets at a given shot count, and the shots it needs to reach a target |
+|  | **trigalign** | pairs a stimulus log with an EEG trigger list when triggers dropped, doubled, or the clocks drifted |
+| grading code | **scoreprobe** | feeds a grader the inputs known to slip through (a blank answer, "not Paris" against "Paris", 4200 against 42) and reports which earned credit |
+|  | **normladder** | is "1,000" the same answer as "1000"? 8 of 14 answer-matching rules from lm-eval, HELM and SQuAD say yes; it shows which, and why |
+|  | **mcqlint** | lints multiple-choice eval sets: keys that name no option, duplicate options, leaked answers, position bias |
+|  | **tabverify** | recomputes the averages, deltas and bold in results tables at the printed precision, and flags what no rounding explains |
 
 <details>
 <summary>method</summary>

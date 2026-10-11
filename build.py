@@ -1296,11 +1296,11 @@ def fixes_table(m: dict) -> list[str]:
 # link in it. A package name is written {name} and rendered by proj(): a link only when data/projects.json says
 # its repository is public, plain bold otherwise, so the page never links a repository that does not exist.
 INTRO = [
-    "**Shaurya Singh** · Seattle, WA<br/>",
-    "cs + data science at UW, class of '27.",
+    "**Shaurya Singh** · Seattle, WA · cs + data science at UW, class of '27 · "
+    "[shauryasingh.com](https://shauryasingh.com)",
     "",
-    "everyone sensible says pick a lane, and i keep not doing it. so far that has meant proteins, brains, "
-    "quantum noise, classrooms, street safety, buildings, an underwater robot, and the code that grades things.",
+    "i find what hurts, then build at it. so far: proteins, brains, quantum noise, classrooms, street safety, "
+    "buildings, an underwater robot, and the code that grades things.",
     "",
     "```",
     '$ grep -rl "same field" ~/built/',
@@ -1308,48 +1308,45 @@ INTRO = [
     "```",
 ]
 FIELD_GUIDE = [
-    "- **proteins** · undergrad research in UW's DAIS lab: preprocessing, training runs and renders for DeepTracer, "
-    "which turns cryo-EM maps into 3D protein structures. no byline, and that's fine.",
-    "- **brains** · taught myself neuroscience in public: four essays, optogenetics to connectomics (2022–23). "
-    "lately, {trigalign}, for EEG recordings that dropped a trigger or two.",
+    "- **proteins** · UW's DAIS lab: preprocessing, training runs and renders for DeepTracer, cryo-EM maps to 3D "
+    "protein structures. no byline, and that's fine.",
+    "- **brains** · four essays, taught to myself in public, optogenetics to connectomics (2022–23). now {trigalign}, "
+    "for EEG recordings that dropped a trigger or two.",
     "- **quantum** · {shotfloor}: the score a perfect quantum computer gets from shot noise alone. 8 qubits, uniform "
     "target, 1,024 shots: 0.92 hellinger fidelity, not 1.",
-    "- **classrooms** · co-founded SkillTern and was its CTO (2022–23): computer science for 350+ students, built to "
-    "run without me.",
-    "- **street safety** · TurtleShell: K-means over 10,000+ LAPD crime datapoints and an iOS SOS app in Swift. got "
-    "into Microsoft for Startups, then i shut it down on purpose (oct 2023).",
-    "- **buildings** · a cabin-design prototype that has to pass the Seattle residential code: rule engine, NSGA-II "
-    "over cost, space and comfort, IFC export. runs locally, so no link.",
-    "- **earlier** · H2OAquatics, an autonomous underwater vehicle aimed at ocean acidification, the first time the "
-    "build-at-it reflex showed up. also a co-written policy paper on phishing, runner-up at WatGov (Waterloo, 2023).",
-    "- **graders** · scoring code that hands out credit it shouldn't. it turned into a side quest; notes at the bottom.",
-    "- **off the clock** · music. made often, released never. links when that changes, not before.",
+    "- **classrooms** · co-founded SkillTern, its CTO (2022–23): computer science for 350+ students, built to run "
+    "without me.",
+    "- **street safety** · TurtleShell: K-means over 10,000+ LAPD crime datapoints and an iOS SOS app. Microsoft for "
+    "Startups, then shut down on purpose (oct 2023).",
+    "- **buildings** · a cabin designer that has to pass the Seattle residential code: rule engine, NSGA-II over "
+    "cost, space and comfort, IFC export. runs locally, so no link.",
+    "- **earlier** · H2OAquatics, an autonomous underwater vehicle aimed at ocean acidification; a phishing policy "
+    "paper, runner-up at WatGov (Waterloo, 2023).",
+    "- **off the clock** · music. made often, released never.",
 ]
 TOOLS = [
     ("tests and repos", [
-        ("tolwatch", "a pytest plugin that flags `allclose`, `isclose` and `approx` checks that can't fail, or are "
-                     "far looser than they need to be."),
-        ("ziptrace", "names the `zip()` and `map()` calls that silently dropped data because their inputs had "
-                     "different lengths."),
-        ("unadded", "finds the untracked or gitignored files a passing test run quietly depends on, before CI does."),
-        ("whymodified", "`git status` says a file is modified and nothing in it changed. this says why, and the one "
-                        "command that clears it."),
+        ("tolwatch", "pytest plugin: flags `allclose`, `isclose` and `approx` checks that can't fail, or are far "
+                     "looser than they need to be"),
+        ("ziptrace", "names the `zip()` and `map()` calls that silently dropped data to a length mismatch"),
+        ("unadded", "finds the untracked or gitignored files a passing test run quietly depends on, before CI does"),
+        ("whymodified", "`git status` says modified and nothing changed: says why, and the one command that clears it"),
     ]),
     ("science data", [
-        ("shotfloor", "the score a flawless quantum computer gets at a given shot count, and how many shots it needs "
-                      "to reach a target."),
-        ("trigalign", "pairs a stimulus log with an EEG trigger list when triggers were dropped or duplicated, or the "
-                      "clocks drift."),
+        ("shotfloor", "the score a flawless quantum computer gets at a given shot count, and the shots it needs to "
+                      "reach a target"),
+        ("trigalign", "pairs a stimulus log with an EEG trigger list when triggers dropped, doubled, or the clocks "
+                      "drifted"),
     ]),
     ("grading code", [
         ("scoreprobe", 'feeds a grader the inputs known to slip through (a blank answer, "not Paris" against "Paris", '
-                       "4200 against 42) and reports which earned credit."),
-        ("normladder", 'is "1,000" the same answer as "1000"? 8 of 14 answer-matching rules from lm-eval, HELM, SQuAD '
-                       "and friends say yes. it shows which, and why."),
+                       "4200 against 42) and reports which earned credit"),
+        ("normladder", 'is "1,000" the same answer as "1000"? 8 of 14 answer-matching rules from lm-eval, HELM and '
+                       "SQuAD say yes; it shows which, and why"),
         ("mcqlint", "lints multiple-choice eval sets: keys that name no option, duplicate options, leaked answers, "
-                    "position bias."),
-        ("tabverify", "recomputes the averages, deltas and bold in results tables at the precision they were "
-                      "printed, and flags what no rounding explains."),
+                    "position bias"),
+        ("tabverify", "recomputes the averages, deltas and bold in results tables at the printed precision, and flags "
+                      "what no rounding explains"),
     ]),
 ]
 # the side-quest sentence names four kinds of code; each must still be an area holding at least one issue
@@ -1406,9 +1403,10 @@ def proj(name: str, projects: dict) -> str:
     return f"[**{name}**]({url})" if url else f"**{name}**"
 
 
-def page_head(projects: dict) -> list:
+def field_and_tools(projects: dict) -> list:
+    """The field guide and the tools table: one line per world, one row per package, every name shown once here."""
     names = {n: proj(n, projects) for _, items in TOOLS for n, _ in items}
-    out = [*INTRO, "", "### field guide", "", "one line per world i've wandered into.", ""]
+    out = ["### field guide", "", "one line per world i've wandered into.", ""]
     out += [line.format(**names) for line in FIELD_GUIDE]
     out += ["", "### things i made", ""]
     released = sum(p["status"] == "released" for p in projects.values())
@@ -1417,11 +1415,27 @@ def page_head(projects: dict) -> list:
         lead += " none is public yet, so no links: each name becomes one the day its repository is."
     elif released < len(projects):
         lead += " linked names are out; the rest become links the day their repositories are public."
-    out.append(lead)
+    out += [lead, "", "| | | |", "|:--|:--|:--|"]
     for label, items in TOOLS:
-        out += ["", f"**{label}**", ""]
-        out += [f"- {names[n]} · {line}" for n, line in items]
+        for i, (n, line) in enumerate(items):
+            out.append(f"| {label if i == 0 else ''} | {names[n]} | {line} |")
     return out
+
+
+def strip(m: dict) -> list:
+    """The numbers of the side quest as a table a reader takes in before the sentence; every cell is checked."""
+    o, lag, p, q = dict(m["outcome"]), m["lag"], m["prs"], m["q"]
+    rows = [
+        ("issues filed", m["total"], f"in {plural(m['repos'], 'repository', 'repositories')}, "
+                                     f"{plural(len(m['areas']), 'area')}"),
+        ("fixed by a merged pull request", m["fixed"],
+         f"{o['others']} by other people, {o['own']} by me" if m["fixed"] else "none yet"),
+        ("median hours to a fix", lag["median"] if lag["median"] is not None else "—",
+         f"filed to merged, over {plural(lag['n'], 'fix', 'fixes')} by others" if lag["n"] else "no fix by others yet"),
+        ("pull requests to other people's repositories", p["upstream"],
+         f"{q['prs_merged']} merged, {q['prs_open']} open"),
+    ]
+    return [f"| since {m['start']} | | |", "|:--|--:|:--|", *[f"| {k} | {v} | {note} |" for k, v, note in rows]]
 
 
 def side_quest(m: dict) -> list:
@@ -1437,7 +1451,9 @@ def side_quest(m: dict) -> list:
     lines = len(m["probe"]["source"])
     word = NUMBER_WORDS.get(lines, str(lines))
     return [
-        "### side quest: grading the graders",
+        "### grading the graders",
+        "",
+        *strip(m),
         "",
         f"{SIDE_ANCHOR} i read the code that decides whether an answer is right ({kinds}) and file what i find. "
         f"since {m['start']}: {plural(m['total'], 'issue')} in "
@@ -1491,7 +1507,7 @@ def readme(m: dict, svgs: dict) -> str:
     grid = "<p>\n" + "\n".join(picture(k, svgs, m) for k in rest) + "\n</p>"
     side = [x.replace("{probe}", picture("probe", svgs, m)) for x in side_quest(m)]
     return "\n".join([
-        *page_head(m["projects"]),
+        *INTRO,
         "",
         *side,
         "",
@@ -1511,6 +1527,8 @@ def readme(m: dict, svgs: dict) -> str:
         "",
         "</details>",
         "",
+        *field_and_tools(m["projects"]),
+        "",
         "<details>",
         "<summary>method</summary>",
         "",
@@ -1528,7 +1546,9 @@ SVG_TAGS = {"svg", "title", "desc", "style", "rect", "path", "text", "tspan"}
 README_TAGS = {"p": set(), "br": set(), "picture": set(), "source": {"media", "srcset"},
                "img": {"alt", "src", "width"}, "table": set(), "tr": set(), "th": {"align", "width"},
                "td": {"width"}, "a": {"href"}, "sub": set(), "wbr": set(), "details": set(), "summary": set()}
-URL_RE = re.compile(r"https://github\.com/[A-Za-z0-9][A-Za-z0-9._/-]*")
+# Links go to GitHub, and to his own site — the one host added by hand, so the page never links anywhere a reader
+# did not expect from a profile.
+URL_RE = re.compile(r"https://github\.com/[A-Za-z0-9][A-Za-z0-9._/-]*|https://shauryasingh\.com(?:/[A-Za-z0-9._/-]*)?")
 ASSET_RE = re.compile(r"assets/[a-z]+-(light|dark)\.svg\?v=[0-9a-f]{8}")
 
 
@@ -1672,6 +1692,26 @@ def checks(m: dict, svgs: dict, text: str) -> str:
         "fixes_by_others_summary.distinct_pr_authors", fix_line)
     add("README method", "repositories put in areas", f"{m['repos']} repositories", "issues.distinct_repos", "- areas:")
     add("README method", "areas", plural(len(m["areas"]), "area"), "len(ecosystems)", "- areas:")
+    st = "| since "
+    add("README strip", "since", f"| since {m['start']} |", "issues.first_created_at", st)
+    add("README strip", "issues filed", f"| {m['total']} |", "issues.total", "| issues filed |")
+    add("README strip", "repositories", "in " + plural(m["repos"], "repository", "repositories"),
+        "issues.distinct_repos", "| issues filed |")
+    add("README strip", "areas", plural(len(m["areas"]), "area"), "len(ecosystems)", "| issues filed |")
+    add("README strip", "fixed", f"| {m['fixed']} |", fixed_f, "| fixed by a merged pull request |")
+    if m["fixed"]:
+        add("README strip", "fixed by others", f"{o['others']} by other people",
+            "outcomes.fixed_by_merged_pr_from_someone_else", "| fixed by a merged pull request |")
+        add("README strip", "fixed by own PR", f"{o['own']} by me", "outcomes.fixed_by_his_own_merged_pr",
+            "| fixed by a merged pull request |")
+    if m["lag"]["n"]:
+        add("README strip", "median hours", f"| {m['lag']['median']} |", "fix_lag_hours_filed_to_merge.median",
+            "| median hours to a fix |")
+        add("README strip", "fixes by others with hours", plural(m["lag"]["n"], "fix", "fixes"),
+            "fix_lag_hours_filed_to_merge.n", "| median hours to a fix |")
+    add("README strip", "PRs upstream", f"| {p['upstream']} |", "prs.upstream", "| pull requests to other people")
+    add("README strip", "PRs merged", f"{q['prs_merged']} merged", "queries.prs_merged", "| pull requests to other people")
+    add("README strip", "PRs open", f"{q['prs_open']} open", "queries.prs_open", "| pull requests to other people")
     sq = SIDE_ANCHOR
     add("README side quest", "since", f"since {m['start']}:", "issues.first_created_at", sq)
     add("README side quest", "issues filed", plural(m["total"], "issue") + " in", "issues.total", sq)
