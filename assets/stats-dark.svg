@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 96" width="830" height="96" role="img" aria-labelledby="t d">
+<title id="t">the side quest in four numbers</title>
+<desc id="d">Since 2026-09-23: 238 issues filed in 229 repositories, 15 areas; 20 fixed by a merged pull request, 17 by other people and 3 by me; median 109.5 hours from filing to the merged pull request, over 17 fixes by others; 33 pull requests to other people&#x27;s repositories, 3 merged and 28 open.</desc>
+<style>text{font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;font-size:12px;fill:#f0f6fc}.m{fill:#9198a1}.a{fill:#3987e5}.b{font-size:26px}.e{text-anchor:end}.c{text-anchor:middle}.w{fill:#db6d28}.nm{font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;font-weight:700}.s13{font-size:13px}.s14{font-size:14px}.s16{font-size:16px}.s22{font-size:22px}.s30{font-size:30px}.s40{font-size:40px}.s52{font-size:52px}</style>
+<rect x="0.5" y="0.5" width="200.5" height="95" rx="6" fill="#0d1117" stroke="#3d444d"/>
+<text x="12" y="38"><tspan class="b">238</tspan><tspan class="m" dx="7">issues filed</tspan></text>
+<text class="m" x="12" y="62">since 2026-09-23</text>
+<text class="m" x="12" y="80">229 repos, 15 areas</text>
+<rect x="210" y="0.5" width="200.5" height="95" rx="6" fill="#0d1117" stroke="#3d444d"/>
+<text x="221.5" y="38"><tspan class="b a">20</tspan><tspan class="m" dx="7">fixed</tspan></text>
+<text class="m" x="221.5" y="62">by a merged PR</text>
+<text class="m" x="221.5" y="80">17 by others, 3 by me</text>
+<rect x="419.5" y="0.5" width="200.5" height="95" rx="6" fill="#0d1117" stroke="#3d444d"/>
+<text x="431" y="38"><tspan class="b">109.5</tspan><tspan class="m" dx="7">h median</tspan></text>
+<text class="m" x="431" y="62">filed to merged PR</text>
+<text class="m" x="431" y="80">17 fixes by others</text>
+<rect x="629" y="0.5" width="200.5" height="95" rx="6" fill="#0d1117" stroke="#3d444d"/>
+<text x="640.5" y="38"><tspan class="b">33</tspan><tspan class="m" dx="7">PRs upstream</tspan></text>
+<text class="m" x="640.5" y="62">to others' repos</text>
+<text class="m" x="640.5" y="80">3 merged, 28 open</text>
+</svg>

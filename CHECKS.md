@@ -148,28 +148,125 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | README method | people | 14 people | `fixes_by_others_summary.distinct_pr_authors` |
 | README method | repositories put in areas | 229 repositories | `issues.distinct_repos` |
 | README method | areas | 15 areas | `len(ecosystems)` |
-| README strip | since | \| since 2026-09-23 \| | `issues.first_created_at` |
-| README strip | issues filed | \| 238 \| | `issues.total` |
-| README strip | repositories | in 229 repositories | `issues.distinct_repos` |
-| README strip | areas | 15 areas | `len(ecosystems)` |
-| README strip | fixed | \| 20 \| | `outcomes.fixed_by_merged_pr_from_someone_else + outcomes.fixed_by_his_own_merged_pr` |
-| README strip | fixed by others | 17 by other people | `outcomes.fixed_by_merged_pr_from_someone_else` |
-| README strip | fixed by own PR | 3 by me | `outcomes.fixed_by_his_own_merged_pr` |
-| README strip | median hours | \| 109.5 \| | `fix_lag_hours_filed_to_merge.median` |
-| README strip | fixes by others with hours | 17 fixes | `fix_lag_hours_filed_to_merge.n` |
-| README strip | PRs upstream | \| 33 \| | `prs.upstream` |
-| README strip | PRs merged | 3 merged | `queries.prs_merged` |
-| README strip | PRs open | 28 open | `queries.prs_open` |
-| README side quest | since | since 2026-09-23: | `issues.first_created_at` |
-| README side quest | issues filed | 238 issues in | `issues.total` |
-| README side quest | repositories | in 229 repositories | `issues.distinct_repos` |
-| README side quest | fixed | 20 fixed by a merged | `outcomes.fixed_by_merged_pr_from_someone_else + outcomes.fixed_by_his_own_merged_pr` |
-| README side quest | fixed by others | 17 of those by other people | `outcomes.fixed_by_merged_pr_from_someone_else` |
-| README side quest | fixed by own PR | and 3 by me | `outcomes.fixed_by_his_own_merged_pr` |
 | README side quest | panels in the fold | three more panels | `len(PANELS) - 1` |
 | README defect table | fixes in the table, lead sentence | eight of the fixes | `len(notes.json rows)` |
 | README side quest | lines in the example grader | two-line grader | `len(probe.json source)` |
 | README method and footer | as of | 2026-10-08 20:50 utc | `as_of (from fetch.json)` |
+| README method | trigalign capture | ds004621 | `trigalign.json source` |
+| header | class year | '27 | `WHO.year` |
+| header | stops (desc) | nine stops | `len(HEADER_STOPS)` |
+| proteins card | residues per turn | 3.6 residues/turn | `360 / PROTEIN.deg` |
+| proteins card | rise | 1.5 Å rise | `PROTEIN.rise` |
+| proteins card | strand step | 3.3 Å strand step | `PROTEIN.strand_step` |
+| proteins card | scale bar | 10 Å | `constant` |
+| proteins card | residues (desc) | 41-residue | `len(backbone())` |
+| proteins card | helix length (desc) | helix of 18 residues | `PROTEIN.helix` |
+| brains card | events paired | 194 of 195 | `trigalign.json logs[0].n_paired, logs[0].n_events` |
+| brains card | lost trigger, expected | 638.47 s | `logs[0].unmatched[0].expected_trigger_time` |
+| brains card | lost event, log time (desc) | 290.778 s | `logs[0].unmatched[0].time` |
+| brains card | triggers lost | one trigger | `logs[0].n_events - logs[0].n_paired` |
+| brains card | triggers with no log event | 1 extra trigger | `len(trigalign.json unpaired_triggers)` |
+| brains card | residual sd | sd 0.29 ms | `logs[0].segments[0].residual_sd_ms (recomputed from pairs)` |
+| brains card | residual max | max 0.54 | `logs[0].segments[0].residual_max_ms (recomputed from pairs)` |
+| brains card | drift | -22 ppm | `logs[0].segments[0].drift_ppm` |
+| brains card | offset (desc) | 347.7 s | `logs[0].segments[0].offset_s` |
+| brains card | residual axis | ±0.6 ms | `ceil(residual_max_ms × 10) / 10` |
+| quantum card | E\[BC\]² at 1,024 shots, a lower bound on mean fidelity | 0.9239 | `fidelity_floor(1024) = (√(K/s)·Σ pmf(k;s,1/K)√k)², K=256` |
+| quantum card | as the field guide prints it | 0.92 at 1,024 | `round(fidelity_floor(1024), 2)` |
+| quantum card | shots for 0.95, by the E\[BC\]² bound | 0.95 needs 1,425 | `shots_for(0.95), bisection` |
+| quantum card | E\[BC\]², frame 128 | E\[BC\]² 0.3807 | `fidelity_floor(128)` |
+| quantum card | E\[BC\]², frame 256 | E\[BC\]² 0.5986 | `fidelity_floor(256)` |
+| quantum card | E\[BC\]², frame 512 | E\[BC\]² 0.8056 | `fidelity_floor(512)` |
+| quantum card | E\[BC\]², frame 1,024 | E\[BC\]² 0.9239 | `fidelity_floor(1024)` |
+| quantum card | this simulated run | this simulated run 0.9334 | `BC² of splitmix64(0) counts, 1,024 shots, top 8 bits` |
+| quantum card | empty outcomes (desc) | 3 outcomes empty | `counts.count(0)` |
+| quantum card | outcomes | 256 outcomes | `QUANTUM.K = 2^8, 8 qubits, uniform` |
+| quantum card | ideal count per outcome (desc) | ideal of 4 each | `QUANTUM.shots / QUANTUM.K` |
+| quantum card | bar clip (desc) | clipped at 4 times the ideal | `QUANTUM.clip` |
+| quantum card | frame 128 | 128 shots so far | `QUANTUM.frames` |
+| quantum card | frame 256 | 256 shots so far | `QUANTUM.frames` |
+| quantum card | frame 512 | 512 shots so far | `QUANTUM.frames` |
+| quantum card | seed | seed 0 | `QUANTUM.seed` |
+| quantum card | asymptote | 1.0 | `fidelity_floor(s) tends to 1 as s grows` |
+| quantum card | axis ends | 64 | `QUANTUM.axis[0]` |
+| quantum card | axis ends | 65,536 | `QUANTUM.axis[1]` |
+| things i made shelf | tools (desc) | 10 small python tools | `len of every TOOLS group` |
+| things i made shelf | headings (desc) | three headings | `len(TOOLS)` |
+| side-quest stat tiles, all three widths | since | since 2026-09-23 | `issues.first_created_at` |
+| side-quest stat tiles, all three widths | issues filed | 238 issues filed | `issues.total` |
+| side-quest stat tiles, all three widths | repositories | 229 repos | `issues.distinct_repos` |
+| side-quest stat tiles, all three widths | areas | 15 areas | `len(ecosystems)` |
+| side-quest stat tiles, all three widths | fixed | 20 fixed | `fixed (others + own)` |
+| side-quest stat tiles, all three widths | fixed by others, by me | 17 by others, 3 by me | `outcomes.fixed_by_merged_pr_from_someone_else, outcomes.fixed_by_his_own_merged_pr` |
+| side-quest stat tiles, all three widths | median hours to a fix | median 109.5 hours | `fix_lag_hours_filed_to_merge.median` |
+| side-quest stat tiles, all three widths | fixes by others with hours | 17 fixes by others | `fix_lag_hours_filed_to_merge.n` |
+| side-quest stat tiles, all three widths | PRs upstream | 33 pull requests to other | `prs.upstream` |
+| side-quest stat tiles, all three widths | PRs merged, open | 3 merged, 28 open | `queries.prs_merged, queries.prs_open` |
+| divider | dots (desc) | 238 dots | `issues.total` |
+| divider | lit (desc) | the 20 fixed | `fixed (others + own)` |
+| constellation, all three widths | stars | 238 | `issues.total` |
+| constellation, all three widths | lit | fixed by a merged PR: 20 | `fixed (others + own)` |
+| constellation, all three widths | fixed by others | fixed by others 17 | `outcomes.fixed_by_merged_pr_from_someone_else` |
+| constellation, all three widths | fixed by me | fixed by me 3 | `outcomes.fixed_by_his_own_merged_pr` |
+| constellation, all three widths | closed, no fix | closed, no fix 5 | `outcomes.closed_not_planned + outcomes.closed_completed_without_a_fix_merged` |
+| constellation, all three widths | open | open 213 | `outcomes.open` |
+| constellation, all three widths | repositories | 229 repositories | `issues.distinct_repos` |
+| constellation, all three widths | areas | 15 areas | `len(ecosystems)` |
+| constellation, all three widths | eval harnesses | eval harnesses 42 | `ecosystems[0].issues` |
+| constellation, all three widths | judges &amp; RAG | judges &amp; RAG 29 | `ecosystems[1].issues` |
+| constellation, all three widths | RL rewards | RL rewards 22 | `ecosystems[2].issues` |
+| constellation, all three widths | agent evals | agent evals 21 | `ecosystems[3].issues` |
+| constellation, all three widths | metric libs | metric libs 20 | `ecosystems[4].issues` |
+| constellation, all three widths | eval platforms | eval platforms 19 | `ecosystems[5].issues` |
+| constellation, all three widths | fairness &amp; UQ | fairness &amp; UQ 18 | `ecosystems[6].issues` |
+| constellation, all three widths | code &amp; math | code &amp; math 13 | `ecosystems[7].issues` |
+| constellation, all three widths | data pipelines | data pipelines 12 | `ecosystems[8].issues` |
+| constellation, all three widths | safety | safety 12 | `ecosystems[9].issues` |
+| constellation, all three widths | autograders | autograders 8 | `ecosystems[10].issues` |
+| constellation, all three widths | forecasting | forecasting 8 | `ecosystems[11].issues` |
+| constellation, all three widths | retrieval | retrieval 7 | `ecosystems[12].issues` |
+| constellation, all three widths | explainability | explainability 4 | `ecosystems[13].issues` |
+| constellation, all three widths | speech &amp; audio | speech &amp; audio 3 | `ecosystems[14].issues` |
+| analyzer, all three widths | filed | 238 filed | `issues.total` |
+| analyzer, all three widths | fixed | 20 fixed | `fixed (others + own)` |
+| analyzer, all three widths | median wait | median 109.5 h | `fix_lag_hours_filed_to_merge.median, re-derived from created_at to merged_at` |
+| analyzer, all three widths | evalscope\#1774 (desc) | evalscope\#1774 115.0 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
+| analyzer, all three widths | lmms-eval\#1546 (desc) | lmms-eval\#1546 235.1 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
+| analyzer, all three widths | kaggle-benchmarks\#217 (desc) | kaggle-benchmarks\#217 187.5 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
+| analyzer, all three widths | Curator\#2443 (desc) | Curator\#2443 316.2 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
+| analyzer, all three widths | opik\#8519 (desc) | opik\#8519 157.7 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
+| analyzer, all three widths | trl\#7364 (desc) | trl\#7364 296.2 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
+| analyzer, all three widths | data-juicer\#1077 (desc) | data-juicer\#1077 101.5 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
+| analyzer, all three widths | EasyEdit\#716 (desc) | EasyEdit\#716 4.7 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
+| analyzer, all three widths | PrairieLearn\#15852 (desc) | PrairieLearn\#15852 26.8 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
+| analyzer, all three widths | otter-grader\#1020 (desc) | otter-grader\#1020 31.1 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
+| analyzer, all three widths | AReaL\#1757 (desc) | AReaL\#1757 56.7 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
+| analyzer, all three widths | trulens\#2823 (desc) | trulens\#2823 109.5 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
+| analyzer, all three widths | AutoRAG\#1707 (desc) | AutoRAG\#1707 86.7 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
+| analyzer, all three widths | evalscope\#1783 (desc) | evalscope\#1783 16.6 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
+| analyzer, all three widths | MAPIE\#993 (desc) | MAPIE\#993 236.8 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
+| analyzer, all three widths | mlxtend\#1202 (desc) | mlxtend\#1202 30.8 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
+| analyzer, all three widths | darts\#3221 (desc) | darts\#3221 241.4 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
+| analyzer, all three widths | utilsforecast\#285 (desc) | utilsforecast\#285 105.9 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
+| analyzer, all three widths | ir\_measures\#83 (desc) | ir\_measures\#83 2.5 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
+| analyzer, all three widths | statsforecast\#1247 (desc) | statsforecast\#1247 27.9 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
+| analyzer (desc) | filed, 09-23 | 09-23 57 | `issues.daily_utc[day]` |
+| analyzer (desc) | filed, 09-24 | 09-24 44 | `issues.daily_utc[day]` |
+| analyzer (desc) | filed, 09-25 | 09-25 35 | `issues.daily_utc[day]` |
+| analyzer (desc) | filed, 09-26 | 09-26 40 | `issues.daily_utc[day]` |
+| analyzer (desc) | filed, 09-27 | 09-27 4 | `issues.daily_utc[day]` |
+| analyzer (desc) | filed, 09-28 | 09-28 15 | `issues.daily_utc[day]` |
+| analyzer (desc) | filed, 09-29 | 09-29 0 | `issues.daily_utc[day]` |
+| analyzer (desc) | filed, 09-30 | 09-30 38 | `issues.daily_utc[day]` |
+| analyzer (desc) | filed, 10-01 | 10-01 5 | `issues.daily_utc[day]` |
+| analyzer (desc) | filed, 10-02 | 10-02 0 | `issues.daily_utc[day]` |
+| analyzer (desc) | filed, 10-03 | 10-03 0 | `issues.daily_utc[day]` |
+| analyzer (desc) | filed, 10-04 | 10-04 0 | `issues.daily_utc[day]` |
+| analyzer (desc) | filed, 10-05 | 10-05 0 | `issues.daily_utc[day]` |
+| analyzer (desc) | filed, 10-06 | 10-06 0 | `issues.daily_utc[day]` |
+| analyzer (desc) | filed, 10-07 | 10-07 0 | `issues.daily_utc[day]` |
+| analyzer (desc) | filed, 10-08 | 10-08 0 | `issues.daily_utc[day]` |
+| analyzer, all three widths | as of | 10-08 20:50 | `as_of` |
 
 ## quoted, not computed
 
@@ -177,9 +274,24 @@ The prose also quotes a few figures from outside data/: the packages' own README
 
 | where | figure as shown | source |
 |:--|:--|:--|
-| README field guide, quantum | 8 qubits, uniform target, 1,024 shots: 0.92 hellinger fidelity | shotfloor README.md, lines 9-20: the example for uniform:8 at 1024 shots prints a hellinger fidelity of 0.9239 |
-| README things i made, normladder | 8 of 14 answer-matching rules | normladder README.md, line 9: the example for "1,000" against "1000" prints 8 of 14 rules match |
-| README things i made, scoreprobe | 4200 against 42 | scoreprobe README.md, lines 4-5: the list of inputs it feeds in |
+| README field guide, quantum | 8 qubits, uniform target, 1,024 shots: about 0.92 hellinger fidelity | shotfloor README.md, lines 9-20: the example for uniform:8 at 1024 shots prints a hellinger fidelity of 0.9239 |
+| things i made shelf and its alt text, normladder | 8 of 14 answer-matching rules | normladder README.md, line 9: the example for "1,000" against "1000" prints 8 of 14 rules match |
+| things i made shelf and its alt text, scoreprobe | 4200 against 42 | scoreprobe README.md, lines 4-5: the list of inputs it feeds in |
 | README field guide, classrooms | 350+ students | his resume, SkillTern entry (a count he reports himself) |
 | README field guide, street safety | 10,000+ LAPD crime datapoints | his resume, TurtleShell entry |
 | README field guide, brains | four essays | his personal site, writing page: four neuroscience essays, Feb 2022 to Jul 2023 |
+
+## quoted, not computed (images)
+
+Text the pictures quote rather than compute. Each is checked to be on the picture it names.
+
+| where | figure as shown | source |
+|:--|:--|:--|
+| header | $ grep -rl "same field" \~/built/ / no matches | his personal site, sessions log |
+| music card | $ ls \~/music/released/ / (empty) | his personal site, sessions log |
+| brains card | OpenNeuro ds004621 (CC0) | trigalign tests/data/NOTICE |
+| brains card | (the recording paused) | trigalign README example output: "on a New Segment marker" |
+
+## drawn by an Action, not recomputed
+
+widgets: not generated yet. The refresh workflow draws them; until it has, the page leaves the commit-weather section out.

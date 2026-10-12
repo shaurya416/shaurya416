@@ -6,7 +6,15 @@
     python3 build.py stats           rebuild data/stats.json from the other files in data/ (no network)
     python3 build.py capture-probe --scoreprobe-src PATH [--status v0.1.0] [--url URL]
                                      re-run scoreprobe on the grader its panel shows; rewrites data/probe.json
+    python3 build.py capture-trigalign --trigalign-src PATH
+                                     re-run trigalign's README example on its CC0 excerpt; rewrites
+                                     data/trigalign.json (the brains card)
     python3 build.py --out DIR       render somewhere else (used to prove two builds give the same bytes)
+    python3 build.py --widgets DIR   where the Action-drawn files are read from (default: this directory):
+                                     assets/contrib/snake-{light,dark}.svg and profile-3d-contrib/3d-{light,dark}.svg.
+                                     Each is checked, the snake is made to play once, and the result is
+                                     written under --out. Absent or refused files leave the commit-weather
+                                     section out (logged, never fatal).
 
     PROFILE_EXCLUDE="-org:a -user:b" is appended to every author query and its owners are dropped from
     every row (never printed); empty or unset means no exclusion.
@@ -24,19 +32,23 @@ data/
     areas.json   hand-written: repository -> area
     notes.json   hand-written: one line per issue in the "one defect" table
     probe.json   capture-probe: a captured scoreprobe run
+    trigalign.json  capture-trigalign: a captured trigalign run (CC0 excerpt) drawn on the brains card
     projects.json  hand-written: which of the packages in TOOLS are public, and their repository url
     stats.json   stats: every number the page shows, derived from the files above
 
-Standard library only, Python 3.12 or later. Requests are serial and paced under GitHub's published
+Standard library only, Python 3.12 or later (3.11 cannot parse this file). Requests are serial and paced under GitHub's published
 limits. Rendering reads no clock, no randomness and no network, so the same data gives the same bytes.
-A text node that would leave its card or touch another mark fails the build, every total is checked
-against its parts, every string that did not come from this file is escaped, and the output is checked
-against an element allowlist before anything is written.
+The illustrations are drawn from data/ or from formulas in this file (a seeded splitmix64 draw is
+one of them). A text node that would leave its card or touch another mark fails the build, every
+animation stops by itself within 11 s and honours reduced motion, every total is checked against its
+parts, every string that did not come from this file is escaped, and the output is checked against an
+element allowlist before anything is written.
 """
 from __future__ import annotations
 
 import argparse
 import datetime as dt
+import functools
 import hashlib
 import inspect
 import json
@@ -717,13 +729,22 @@ SHOW_AREAS = 11                      # areas drawn as bars; the rest are summed 
 REPO_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9-]{0,38}/[A-Za-z0-9._-]{1,100}")
 LOGIN_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9-]{0,38}(\[bot\])?")
 
-# neutrals are Primer's own tokens; one accent, and it always means "fixed"
+# neutrals are Primer's own tokens; one accent, and it always means "fixed" (or ideal, or matched). warn is the
+# thing that quietly went wrong, and the colour of every "schematic" label; faint is graph paper and terminals.
 THEMES = {
     "light": dict(bg="#ffffff", fg="#1f2328", muted="#59636e", line="#d1d9e0",
-                  ink="#6e7781", cell="#d0d7de", accent="#0969da"),
+                  ink="#6e7781", cell="#d0d7de", accent="#0969da", warn="#bc4c00", faint="#eef1f4"),
     "dark": dict(bg="#0d1117", fg="#f0f6fc", muted="#9198a1", line="#3d444d",
-                 ink="#7d8590", cell="#30363d", accent="#3987e5"),
+                 ink="#7d8590", cell="#30363d", accent="#3987e5", warn="#db6d28", faint="#161b22"),
 }
+WIDE, MID, NARROW, AN_NARROW = 830, 560, 380, 400   # a full-width picture, its mid-width twin, the phone twins
+SANS = 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'   # the name only
+MOTION = "@media (prefers-reduced-motion: reduce){*{animation:none!important}}"
+SIZES = (12, 13, 14, 16, 22, 26, 30, 40, 52)    # every text size an illustration may use; 12 is the floor
+MAX_ANIM = 11.0                                  # seconds: every animation has finished by then
+ART = ["header", "proteins", "brains", "quantum", "music", "divider", "shelf", "stats", "constellation", "analyzer"]
+NARROW_ART = {"header", "constellation", "analyzer", "shelf", "stats"}   # drawn three times: wide, mid and narrow
+SIZES_OF = ("wide", "mid", "narrow")
 
 # area labels shortened for the label column; the key is the area name in areas.json
 AREA_LABELS = {
@@ -769,6 +790,9 @@ def h(s: object) -> str:
     """Text for HTML (a raw HTML block, an attribute, SVG): escaped, one line, and brackets as
     entities so nothing in it can read as a markdown link even outside the block."""
     return escape(clean(s), quote=True).replace("[", "&#91;").replace("]", "&#93;")
+
+
+h_ = h   # the escaper under a second name, for code where h is a height
 
 
 def mmdd(x: dt.date) -> str:
@@ -930,25 +954,30 @@ def _hit(a, b) -> bool:
 
 
 class Svg:
-    """One panel. Every text node and mark is registered as a box; a text box that leaves the card or
-    touches another box fails the build."""
+    """One picture. Every text node and every registered mark is a box; a text box that leaves the text area or
+    touches another box fails the build. The defaults draw the 380 x 342 card the four panels use."""
 
-    def __init__(self, t: dict, title: str, desc: str):
-        self.t = t
+    def __init__(self, t: dict, title: str, desc: str, w: float = IMG, h: float = H + GUT, frame: bool = True,
+                 css: str = "", area: tuple | None = None, card_h: float = H):
+        self.t, self.w, self.h = t, w, h
+        self.area = area or (PAD, CARD - PAD, 0, card_h)      # x0, x1, y0, y1 that every text box must stay inside
         self.texts: list[tuple] = []
         self.marks: list[tuple] = []
         self.parts = [
-            f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {IMG} {H + GUT}" width="{IMG}" height="{H + GUT}" '
+            f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {n(w)} {n(h)}" width="{n(w)}" height="{n(h)}" '
             f'role="img" aria-labelledby="t d">',
-            f'<title id="t">{h(title)}</title>',
-            f'<desc id="d">{h(desc)}</desc>',
+            f'<title id="t">{h_(title)}</title>',
+            f'<desc id="d">{h_(desc)}</desc>',
             "<style>"
             f"text{{font-family:{FONT};font-size:{T}px;fill:{t['fg']}}}"
             f".m{{fill:{t['muted']}}}.a{{fill:{t['accent']}}}.b{{font-size:{BIG}px}}"
             ".e{text-anchor:end}.c{text-anchor:middle}"
+            + css + (MOTION if "@keyframes" in css else "") +
             "</style>",
-            f'<rect x=".5" y=".5" width="{CARD - 1}" height="{H - 1}" rx="6" fill="{t["bg"]}" stroke="{t["line"]}"/>',
         ]
+        if frame:
+            self.parts.append(f'<rect x=".5" y=".5" width="{CARD - 1}" height="{n(card_h - 1)}" rx="6" fill="{t["bg"]}" '
+                              f'stroke="{t["line"]}"/>')
 
     def add(self, s: str) -> None:
         self.parts.append(s)
@@ -959,45 +988,93 @@ class Svg:
         x0 = {"end": x - w, "middle": x - w / 2}.get(anchor, x)
         return (x0, x0 + w, y - 0.78 * size, y + 0.22 * size, s)
 
-    def free(self, b: tuple, gap: float = 0.0) -> bool:
-        """Whether a text box fits inside the card, `gap` units clear of everything placed."""
-        inside = b[0] >= PAD - EPS and b[1] <= CARD - PAD + EPS and b[2] >= 0 and b[3] <= H
-        wide = (b[0] - gap, b[1] + gap, b[2], b[3], b[4])
-        return inside and not any(_hit(wide, o) for o in self.texts + self.marks)
+    def _inside(self, b: tuple) -> bool:
+        x0, x1, y0, y1 = self.area
+        return b[0] >= x0 - EPS and b[1] <= x1 + EPS and b[2] >= y0 - EPS and b[3] <= y1 + EPS
 
-    def _place(self, b: tuple) -> None:
-        if b[0] < PAD - EPS or b[1] > CARD - PAD + EPS or b[2] < 0 or b[3] > H:
+    def _others(self, layer):
+        """Boxes a new box must not touch: those on no layer, and those on its own layer. Two layers that are never
+        shown at once (quantum's frames) may reuse the same place."""
+        return [o for o in self.texts + self.marks if o[5] is None or layer is None or o[5] == layer]
+
+    def free(self, b: tuple, gap: float = 0.0, layer=None) -> bool:
+        """Whether a text box fits inside the text area, `gap` units clear of everything placed."""
+        wide = (b[0] - gap, b[1] + gap, b[2], b[3], b[4])
+        return self._inside(b) and not any(_hit(wide, o) for o in self._others(layer))
+
+    def _place(self, b: tuple, layer=None) -> None:
+        if not self._inside(b):
+            x0, x1, y0, y1 = self.area
             raise SystemExit(f"overflow: {b[4]!r} spans {b[0]:.0f}..{b[1]:.0f} x {b[2]:.0f}..{b[3]:.0f}; "
-                             f"the card's text area is {PAD}..{CARD - PAD} x 0..{H}")
-        for o in self.texts + self.marks:
+                             f"the text area is {n(x0)}..{n(x1)} x {n(y0)}..{n(y1)}")
+        for o in self._others(layer):
             if _hit(b, o):
                 raise SystemExit(f"collision: {b[4]!r} overlaps {o[4]!r}")
-        self.texts.append(b)
+        self.texts.append((*b[:5], layer))
 
-    def text(self, x: float, y: float, s: str, cls: str = "") -> None:
+    def text(self, x: float, y: float, s: str, cls: str = "", size: int = T, layer=None, extra: str = "",
+             body: str | None = None) -> None:
+        """One line of text at (x, y). body, when given, is the element's content as built by the caller from
+        this file's own strings (tspans); the box is still measured on s."""
         c = cls.split()
-        self._place(self.box(x, y, s, T, "end" if "e" in c else ("middle" if "c" in c else "start")))
-        body = escape("".join(ch for ch in s if ord(ch) >= 32), quote=False)   # spaces kept: code is shown
-        if "  " in s or s.startswith(" "):
-            body = body.replace(" ", "\u00a0")   # SVG collapses runs of spaces; code keeps its indent
+        must(size in SIZES, f"text size {size} is not one of {SIZES}")
+        self._place(self.box(x, y, s, size, "end" if "e" in c else ("middle" if "c" in c else "start")), layer)
+        if size != T:
+            cls = (cls + " " + ("b" if size == BIG else f"s{size}")).strip()
+        if body is None:
+            body = escape("".join(ch for ch in s if ord(ch) >= 32), quote=False)   # spaces kept: code is shown
+            if "  " in s or s.startswith(" "):
+                body = body.replace(" ", "\u00a0")   # SVG collapses runs of spaces; code keeps its indent
         attr = f' class="{cls}"' if cls else ""
-        self.add(f'<text{attr} x="{n(x)}" y="{n(y)}">{body}</text>')
+        self.add(f'<text{attr} x="{n(x)}" y="{n(y)}"{extra}>{body}</text>')
+
+    def mark(self, x0: float, y0: float, x1: float, y1: float, what: str = "mark", layer=None) -> None:
+        """Register an area no text may touch (a drawn shape)."""
+        b = (x0, x1, y0, y1, what)
+        for o in self.texts:
+            if (o[5] is None or layer is None or o[5] == layer) and _hit(b, o):
+                raise SystemExit(f"collision: {what} overlaps {o[4]!r}")
+        self.marks.append((*b, layer))
 
     def rect(self, x, y, w, hh, fill, rx=0.0, what="mark", extra="") -> None:
-        b = (x, x + w, y, y + hh, what)
-        for o in self.texts:
-            if _hit(b, o):
-                raise SystemExit(f"collision: {what} overlaps {o[4]!r}")
-        self.marks.append(b)
+        self.mark(x, y, x + w, y + hh, what)
         r = f' rx="{n(rx)}"' if rx else ""
         self.add(f'<rect x="{n(x)}" y="{n(y)}" width="{n(w)}" height="{n(hh)}"{r} fill="{fill}"{extra}/>')
 
-    def readout(self, x: float, big: str, unit: str, y: float = 56) -> None:
-        b1 = self.box(x, y, big, BIG)
+    def circle(self, cx: float, cy: float, r: float, fill: str = "none", stroke: str | None = None,
+               sw: float | None = None, cls: str = "", what: str | None = None, extra: str = "") -> None:
+        if what:
+            pad = (sw or 0) / 2
+            self.mark(cx - r - pad, cy - r - pad, cx + r + pad, cy + r + pad, what)
+        c = f' class="{cls}"' if cls else ""
+        st = f' stroke="{stroke}"' if stroke else ""
+        w = f' stroke-width="{n(sw)}"' if sw is not None else ""
+        self.add(f'<circle{c} cx="{n(cx)}" cy="{n(cy)}" r="{n(r)}" fill="{fill}"{st}{w}{extra}/>')
+
+    def path(self, d: str, cls: str = "", extra: str = "") -> None:
+        c = f' class="{cls}"' if cls else ""
+        self.add(f'<path{c} d="{d}"{extra}/>')
+
+    def poly(self, pts: list[tuple[float, float]], cls: str = "", extra: str = "") -> None:
+        c = f' class="{cls}"' if cls else ""
+        self.add(f'<polyline{c} points="{" ".join(f"{n(x)},{n(y)}" for x, y in pts)}"{extra}/>')
+
+    def group(self, cls: str = "", transform: str = "", extra: str = "") -> None:
+        c = f' class="{cls}"' if cls else ""
+        tr = f' transform="{transform}"' if transform else ""
+        self.add(f"<g{c}{tr}{extra}>")
+
+    def end(self) -> None:
+        self.add("</g>")
+
+    def readout(self, x: float, big: str, unit: str, y: float = 56, size: int = BIG, gap: float = 7,
+                ucls: str = "m") -> None:
+        b1 = self.box(x, y, big, size)
         self._place(b1)
-        self._place(self.box(b1[1] + 7, y, unit))
-        self.add(f'<text x="{n(x)}" y="{n(y)}"><tspan class="b">{h(big)}</tspan>'
-                 f'<tspan class="m" dx="7">{h(unit)}</tspan></text>')
+        self._place(self.box(b1[1] + gap, y, unit))
+        bc = "b" if size == BIG else f"s{size}"
+        self.add(f'<text x="{n(x)}" y="{n(y)}"><tspan class="{bc}">{h(big)}</tspan>'
+                 f'<tspan class="{ucls}" dx="{n(gap)}">{h(unit)}</tspan></text>')
 
     def rule(self, y: float) -> None:
         self.add(f'<path d="M{PAD} {n(y + .5)}H{CARD - PAD}" stroke="{self.t["line"]}" fill="none"/>')
@@ -1020,7 +1097,7 @@ def glyph(s: Svg, kind: str, x: float, y: float, size: float, what: str) -> None
 
 
 def panel_filed(m: dict, t: dict) -> str:
-    """Filings as a symmetric envelope (the shape of a waveform), fixes as squares by merge date."""
+    """Filings as bars standing on a baseline, fixes as squares by merge date."""
     b, unit = m["bins"], m["unit"]
     k = len(b)
     desc = (f"issues filed per {unit}, UTC, {m['start']} to {m['end']}: "
@@ -1035,6 +1112,10 @@ def panel_filed(m: dict, t: dict) -> str:
     x2 = PAD + 150
     s.rect(x2, 47, 9, 9, t["accent"], 1.6, "fixed key")
     s.readout(x2 + 16, str(m["fixed"]), "fixed")
+    if any(x["own"] for x in b):
+        x3 = CARD - PAD - len("own PR") * T * ADV
+        glyph(s, "own", x3 - 15, 47, 9, "own key")
+        s.text(x3, 56, "own PR", "m")
 
     slot = INNER / k
     cx = [PAD + slot * (i + .5) for i in range(k)]
@@ -1045,15 +1126,16 @@ def panel_filed(m: dict, t: dict) -> str:
     must(sq >= 2, f"{stack} fixes in one {unit} do not fit the panel")
     sq_top = base - max(33.0, stack * pitch)
     wave_top, wave_bot = 96, sq_top - 16
-    mid, half = (wave_top + wave_bot) / 2, (wave_bot - wave_top) / 2
     peak = max(x["filed"] for x in b) or 1
     bw = min(8.0, slot - 4)
     tops = []
+    s.path(f"M{PAD} {n(wave_bot + .5)}H{CARD - PAD}", extra=f' stroke="{t["line"]}" fill="none"')
     for i, x in enumerate(b):
         c = x["filed"]
-        hh = max(1.3, half * c / peak)
-        tops.append(mid - hh)
-        s.rect(cx[i] - bw / 2, mid - hh, bw, 2 * hh, t["ink"] if c else t["cell"], min(bw / 2, hh), f"bar {x['tick']}")
+        hh = max(2.0, (wave_bot - wave_top) * c / peak)
+        tops.append(wave_bot - hh)
+        s.rect(cx[i] - bw / 2, wave_bot - hh, bw, hh, t["ink"] if c else t["cell"], min(bw / 2, hh / 2, 3),
+               f"bar {x['tick']}")
     # numbers over bars: the peak first, then left to right, each only where it has room
     order = sorted(range(k), key=lambda i: (b[i]["filed"] != peak, i))
     for i in order:
@@ -1145,13 +1227,14 @@ def panel_areas(m: dict, t: dict) -> str:
     desc = (f"{m['total']} issues in {m['repos']} repositories, each repository in one area: "
             + ", ".join(f"{area_label(a)} {a['issues']}" for a in areas)
             + ".")
-    s = Svg(t, "issues by area", desc)
-    s.text(PAD, 22, "issues by area", "m")
-    s.text(CARD - PAD, 22, plural(len(areas), "area"), "m e")
-    s.readout(PAD, str(m["repos"]), "repositories")
     lines = len(shown) + (1 if rest else 0)
     y0 = 86
     pitch = min(18.0, (H - 30 - y0) / max(lines - 1, 1))
+    card_h = y0 + (lines - 1) * pitch + 16          # the card ends one line below its last line, as the others do
+    s = Svg(t, "issues by area", desc, h=card_h + GUT, card_h=card_h)
+    s.text(PAD, 22, "issues by area", "m")
+    s.text(CARD - PAD, 22, plural(len(areas), "area"), "m e")
+    s.readout(PAD, str(m["repos"]), "repositories")
     label_w = max(len(area_label(a)) for a in shown) * T * ADV
     num_w = max(len(str(a["issues"])) for a in shown) * T * ADV
     bar_x, bar_end = PAD + label_w + 10, CARD - PAD - num_w - 8
@@ -1222,11 +1305,1071 @@ def panel_probe(m: dict, t: dict) -> str:
 PANEL_FN = dict(filed=panel_filed, outcome=panel_outcome, areas=panel_areas, probe=panel_probe)
 
 
+# ------------------------------------------------------------ illustrations ----
+# The eight pictures between the prose. Each is drawn from data/ (the same rows the tables use) or from a formula
+# in this section; the two schematics and the header's icons say so on the image. Light and dark come from the
+# same function with a different token dict, so the geometry is identical.
+
+GREP = ('$ grep -rl "same field" ~/built/', "no matches")     # the joke from his site's sessions log
+# (label on the map, icon, keyword, where the keyword must appear): the route follows the intro sentence, music last
+HEADER_STOPS = (
+    ("proteins", "proteins", "proteins", "intro"),
+    ("brains", "brains", "brains", "intro"),
+    ("quantum", "quantum", "quantum", "intro"),
+    ("classrooms", "classrooms", "classrooms", "intro"),
+    ("street safety", "street safety", "street safety", "intro"),
+    ("buildings", "buildings", "buildings", "intro"),
+    ("underwater robot", "underwater robot", "underwater robot", "intro"),
+    ("graders", "graders", "grades", "intro"),
+    ("music", "music", "music", "off the clock"),
+)
+# one label per area for the constellation, at most 14 characters; an area missing here stops the build
+STAR_LABELS = {
+    "LLM eval harnesses & benchmarks": "eval harnesses",
+    "Judge, RAG & hallucination scoring": "judges & RAG",
+    "RL post-training & reward functions": "RL rewards",
+    "Agent & tool-use benchmarks": "agent evals",
+    "Classic metric libraries": "metric libs",
+    "LLM eval platforms & app frameworks": "eval platforms",
+    "Fairness, calibration & uncertainty": "fairness & UQ",
+    "Code & math answer checking": "code & math",
+    "Data pipelines & ML monitoring": "data pipelines",
+    "Safety, red-teaming & guardrails": "safety",
+    "Autograders & education": "autograders",
+    "Forecasting, time series & anomaly detection": "forecasting",
+    "Retrieval, ranking & recommender metrics": "retrieval",
+    "Explainability": "explainability",
+    "Speech & audio": "speech & audio",
+    OTHER: "other",
+}
+STAR_LABEL_MAX = 14
+# the phone twin's three columns sit 117 apart, so two 14-character labels side by side read as one; these are
+# drawn there instead (the description and alt text keep the full label)
+STAR_LABELS_NARROW = {"Speech & audio": "speech"}
+# textbook backbone geometry, angstroms and degrees: an alpha helix, a loop, a turn and two antiparallel strands
+PROTEIN = dict(helix=18, loop=4, strand=8, turn=3, rise=1.5, radius=2.3, deg=100, strand_step=3.3, pleat=0.9)
+# shotfloor's example: 8 qubits (256 outcomes), uniform target, 1,024 shots; one simulated flawless run, seed 0
+QUANTUM = dict(K=256, shots=1024, frames=(128, 256, 512), seed=0, clip=4, axis=(64, 65536))
+GAP_S = 10.0          # brains: a gap this long between triggers breaks the residual trace
+STAR_STEP, STAR_TURN = 7.5, 137.508               # golden-angle spiral: radius step per sqrt(i), degrees per star
+
+
+def is_dark(t: dict) -> bool:
+    return t["bg"] == THEMES["dark"]["bg"]
+
+
+def art_css(t: dict, extra: str = "") -> str:
+    """The text classes every illustration shares, after the panels' own: warn, the sans name, and the sizes."""
+    sizes = "".join(f".s{z}{{font-size:{z}px}}" for z in SIZES if z not in (T, BIG))
+    return f".w{{fill:{t['warn']}}}.nm{{font-family:{SANS};font-weight:700}}" + sizes + extra
+
+
+def frame(s: "Svg", w: float, hh: float) -> None:
+    """The card edge of a full-width picture: one stroke, half a unit in, in both themes."""
+    s.add(f'<rect x=".5" y=".5" width="{n(w - 1)}" height="{n(hh - 1)}" rx="8" fill="{s.t["bg"]}" stroke="{s.t["line"]}"/>')
+
+
+def delay(sec: float) -> str:
+    return f' style="animation-delay:{sec:.2f}s"'
+
+
+# ---------------------------------------------------------------- math ----
+def golden(i: int, step: float = STAR_STEP) -> tuple[float, float]:
+    """Position of the i-th point on a golden-angle spiral: radius step*sqrt(i), angle i*137.508 degrees."""
+    r, th = step * math.sqrt(i), math.radians(i * STAR_TURN)
+    return r * math.cos(th), r * math.sin(th)
+
+
+def catmull_rom(pts: list[tuple[float, float]]) -> str:
+    """A smooth path through every point (Catmull-Rom, written as cubic Beziers with /6 control points)."""
+    d = f"M{n(pts[0][0])} {n(pts[0][1])}"
+    for i in range(len(pts) - 1):
+        p0, p1, p2, p3 = pts[max(i - 1, 0)], pts[i], pts[i + 1], pts[min(i + 2, len(pts) - 1)]
+        c1 = (p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6)
+        c2 = (p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6)
+        d += f" C{n(c1[0])} {n(c1[1])} {n(c2[0])} {n(c2[1])} {n(p2[0])} {n(p2[1])}"
+    return d
+
+
+@functools.lru_cache(maxsize=None)
+def e_sqrt_binom(s: int, p: float) -> float:
+    """E[sqrt X] for X ~ Binomial(s, p), summed term by term from the log-pmf. Terms more than 40 standard
+    deviations from the mean are below e^-700 and are left out; that changes no printed digit."""
+    mu, sd = s * p, math.sqrt(s * p * (1 - p))
+    lo, hi = max(1, math.floor(mu - 40 * sd - 40)), min(s, math.ceil(mu + 40 * sd + 40))
+    lc, lp, lq = math.lgamma(s + 1), math.log(p), math.log1p(-p)
+    return sum(math.exp(lc - math.lgamma(k + 1) - math.lgamma(s - k + 1) + k * lp + (s - k) * lq) * math.sqrt(k)
+               for k in range(lo, hi + 1))
+
+
+def fidelity_floor(s: int, k: int = QUANTUM["K"]) -> float:
+    """shotfloor's closed form for a flawless device against a uniform target over k outcomes after s shots:
+    E[BC]^2 with E[BC] = sqrt(k/s) * E[sqrt X], X ~ Binomial(s, 1/k). By Jensen it is a lower bound on the mean
+    Hellinger fidelity E[BC^2], so the page labels it E[BC]² and never calls it the expected fidelity."""
+    bc = math.sqrt(k / s) * e_sqrt_binom(s, 1 / k)
+    return bc * bc
+
+
+def shots_for(target: float, k: int = QUANTUM["K"]) -> int:
+    """The fewest shots whose E[BC]^2 reaches target, by bisection on [1, 2^16] (shotfloor's answer)."""
+    lo, hi = 1, 1 << 16
+    must(fidelity_floor(hi, k) >= target, f"{target} is not reached within 2^16 shots")
+    while lo < hi:
+        mid = (lo + hi) // 2
+        if fidelity_floor(mid, k) >= target:
+            hi = mid
+        else:
+            lo = mid + 1
+    return lo
+
+
+def splitmix64(seed: int):
+    """Steele, Lea and Flood's splitmix64: specified by its own arithmetic, so the draw does not depend on Python."""
+    x = seed & (2 ** 64 - 1)
+    while True:
+        x = (x + 0x9E3779B97F4A7C15) & (2 ** 64 - 1)
+        z = x
+        z = ((z ^ (z >> 30)) * 0xBF58476D1CE4E5B9) & (2 ** 64 - 1)
+        z = ((z ^ (z >> 27)) * 0x94D049BB133111EB) & (2 ** 64 - 1)
+        yield z ^ (z >> 31)
+
+
+def shot_draw(seed: int, k: int, shots: int) -> list[int]:
+    """One outcome per shot: the top log2(k) bits of each splitmix64 value."""
+    bits = k.bit_length() - 1
+    must(1 << bits == k, "the number of outcomes must be a power of two")
+    g = splitmix64(seed)
+    return [next(g) >> (64 - bits) for _ in range(shots)]
+
+
+def counts_of(draw: list[int], k: int) -> list[int]:
+    c = [0] * k
+    for x in draw:
+        c[x] += 1
+    return c
+
+
+def bc2(counts: list[int], s: int, k: int) -> float:
+    """Hellinger fidelity of one run against the uniform target: (sum sqrt(c_i/s * 1/k))^2."""
+    return sum(math.sqrt(c / s / k) for c in counts) ** 2
+
+
+def backbone() -> list[tuple[float, float, float]]:
+    """A C-alpha trace from textbook geometry (schematic): helix along x, a loop down, strand 1 back toward the
+    start, a tight turn, strand 2 antiparallel. Angstroms."""
+    P = PROTEIN
+    pts = []
+    for i in range(P["helix"]):
+        a = math.radians(P["deg"] * i)
+        pts.append((P["rise"] * i, P["radius"] * math.cos(a), P["radius"] * math.sin(a)))
+    x0, y0, z0 = pts[-1]
+    for i in range(1, P["loop"] + 1):
+        a = math.pi / 2 * i / P["loop"]
+        pts.append((x0 + 3.2 * math.sin(a), y0 - 3.2 * (1 - math.cos(a)) - 1.2 * i, z0))
+    x1, y1, z1 = pts[-1]
+    for i in range(1, P["strand"] + 1):
+        pts.append((x1 - P["strand_step"] * i, y1 - 1.0 + (P["pleat"] if i % 2 else -P["pleat"]), z1))
+    x2, y2, z2 = pts[-1]
+    for i in range(1, P["turn"] + 1):
+        a = math.pi * i / P["turn"]
+        pts.append((x2 - 2.4 * math.sin(a), y2 - 2.4 * (1 - math.cos(a)), z2))
+    x3, y3, z3 = pts[-1]
+    for i in range(1, P["strand"] + 1):
+        pts.append((x3 + P["strand_step"] * i, y3 + (P["pleat"] if i % 2 else -P["pleat"]), z3))
+    return pts
+
+
+def wave(i: int, k: int) -> float:
+    """Schematic waveform bar i of k, 0..1: a few incommensurate sines under a breathing envelope."""
+    x = i / (k - 1)
+    env = math.sin(math.pi * x) ** 0.6 * (0.55 + 0.45 * math.sin(6 * math.pi * x) ** 2)
+    v = abs(0.6 * math.sin(37 * x) + 0.3 * math.sin(91 * x + 1) + 0.25 * math.sin(173 * x + 2)) * env
+    return min(1.0, v)
+
+
+# ------------------------------------------------------------ facts ----
+def protein_facts() -> dict:
+    P = PROTEIN
+    pts = backbone()
+    must(len(pts) == P["helix"] + P["loop"] + 2 * P["strand"] + P["turn"], "backbone length")
+    return dict(residues=len(pts), per_turn=f"{360 / P['deg']:.1f}", rise=f"{P['rise']:.1f}",
+                step=f"{P['strand_step']:.1f}", bar=10)
+
+
+def quantum_facts() -> dict:
+    Q = QUANTUM
+    k, s = Q["K"], Q["shots"]
+    draw = shot_draw(Q["seed"], k, s)
+    frames = list(Q["frames"]) + [s]
+    must(frames == sorted(frames) and frames[-1] == s, "quantum frames")
+    counts = {f: counts_of(draw[:f], k) for f in frames}
+    lo, hi = Q["axis"]
+    return dict(K=k, shots=s, seed=Q["seed"], clip=Q["clip"], frames=frames, counts=counts,
+                F={f: fidelity_floor(f, k) for f in frames}, run=bc2(counts[s], s, k),
+                empty=counts[s].count(0), s95=shots_for(0.95, k), axis=(lo, hi),
+                F_lo=fidelity_floor(lo, k), F_hi=fidelity_floor(hi, k))
+
+
+def check_trigalign(doc: dict) -> dict:
+    """data/trigalign.json: the drawn fields of one captured trigalign run, checked against themselves."""
+    must(isinstance(doc, dict) and doc.get("logs"), "trigalign.json: no logs")
+    must("ds004621" in str(doc.get("source", "")) and "CC0" in str(doc.get("source", "")),
+         "trigalign.json: source must name OpenNeuro ds004621 and its CC0 licence")
+    log0 = doc["logs"][0]
+    pairs, unmatched, seg = log0["pairs"], log0["unmatched"], log0["segments"][0]
+    must(log0["n_paired"] == len(pairs), "trigalign.json: n_paired != len(pairs)")
+    must(log0["n_events"] - log0["n_paired"] == len(unmatched), "trigalign.json: unmatched count")
+    must(len(pairs) >= 2, "trigalign.json: too few pairs to draw")
+    res = [p["residual_ms"] for p in pairs]
+    must(abs(statistics.pstdev(res) - seg["residual_sd_ms"]) <= 0.01, "trigalign.json: residual sd does not recompute")
+    must(abs(max(abs(r) for r in res) - seg["residual_max_ms"]) <= 0.01, "trigalign.json: residual max does not recompute")
+    must(all(a["time"] < b["time"] and a["trigger_time"] < b["trigger_time"] for a, b in zip(pairs, pairs[1:])),
+         "trigalign.json: pairs are not in time order")
+    return doc
+
+
+def brains_facts(doc: dict) -> dict:
+    log0 = doc["logs"][0]
+    pairs, seg = log0["pairs"], log0["segments"][0]
+    miss = log0["unmatched"][0] if log0["unmatched"] else None
+    orphans = doc.get("unpaired_triggers") or []
+    lo_log = math.floor(min(p["time"] for p in pairs) / 10) * 10
+    lo_eeg = math.floor((lo_log + seg["offset_s"]) / 10) * 10
+    top_log = max([p["time"] for p in pairs] + ([miss["time"]] if miss else []))
+    top_eeg = max([p["trigger_time"] for p in pairs] + [o["time"] for o in orphans]
+                  + ([miss["expected_trigger_time"]] if miss else []))
+    span = math.ceil(max(top_log - lo_log, top_eeg - lo_eeg) / 10) * 10
+    return dict(pairs=pairs, miss=miss, orphans=orphans, n_events=log0["n_events"], n_paired=log0["n_paired"],
+                lost=log0["n_events"] - log0["n_paired"], sd=f"{seg['residual_sd_ms']:.2f}",
+                mx=f"{seg['residual_max_ms']:.2f}", drift=f"{seg['drift_ppm']:.0f}", offset=f"{seg['offset_s']:.1f}",
+                axis=f"{math.ceil(seg['residual_max_ms'] * 10) / 10:.1f}", lo_log=lo_log, lo_eeg=lo_eeg, span=span,
+                expected=f"{miss['expected_trigger_time']:.2f}" if miss else None,
+                log_time=f"{miss['time']:.3f}" if miss else None,
+                paused=bool(miss and miss.get("on_marker") == "New Segment"))
+
+
+def area_map(issues: list, areas_doc: dict) -> dict[str, str]:
+    """Repository -> area, by the same rule the stats step uses."""
+    hand = {r.lower(): a for r, a in areas_doc.items()}
+    titles: dict[str, list] = {}
+    for i in issues:
+        titles.setdefault(i["repo"], []).append(i["title"])
+    return {r: area_of(r, hand, t)[0] for r, t in titles.items()}
+
+
+def star_rows(m: dict, issues: list) -> list[tuple[str, list[dict]]]:
+    """(area, stars in filing order), largest area first, each star one issue: its state and fix."""
+    fixed = {k: f for f in m["fixes"] for k in f["closes"]}
+    order = {k: i for i, k in enumerate(k for f in m["fixes"] for k in f["closes"])}   # merge order
+    by_area: dict[str, list] = {a["bucket"]: [] for a in m["areas"]}
+    for filed, it in enumerate(sorted(issues, key=lambda i: (i["created_at"], i["repo"].lower(), i["number"]))):
+        key = f"{it['repo']}#{it['number']}"
+        f = fixed.get(key)
+        kind = ("own" if f["own"] else "others") if f else ("nofix" if it["state"] == "closed" else "open")
+        must(m["area_of"][it["repo"]] in by_area, f"{key}: its area is not among the ecosystems")
+        by_area[m["area_of"][it["repo"]]].append(dict(key=key, kind=kind, rank=order.get(key), order=filed))
+    rows = [(a["bucket"], by_area[a["bucket"]]) for a in m["areas"]]
+    for (area, stars), a in zip(rows, m["areas"]):
+        must(area in STAR_LABELS, f"constellation: area {area!r} has no entry in STAR_LABELS")
+        must(len(STAR_LABELS[area]) <= STAR_LABEL_MAX, f"constellation: label for {area!r} is too long")
+        must(len(stars) == a["issues"], f"constellation: {area} has {len(stars)} stars, ecosystems says {a['issues']}")
+    kinds = [s["kind"] for _, st in rows for s in st]
+    o = dict(m["outcome"])
+    must(len(kinds) == m["total"], "constellation: stars != issues.total")
+    must(all(kinds.count(k) == o[k] for k in o), "constellation: star kinds != outcomes")
+    must(sum(1 for _, st in rows for s in st if s["rank"] is not None) == m["fixed"], "constellation: lit != fixed")
+    return rows
+
+
+def fix_rows(m: dict, issues: list) -> list[dict]:
+    """One row per fixed issue, in filing order, its hours re-derived from created_at and merged_at."""
+    by_key = {f"{i['repo']}#{i['number']}": i for i in issues}
+    rows = []
+    for f in m["fixes"]:
+        for k, table_hours in zip(f["closes"], f["hours"]):
+            created = by_key[k]["created_at"]
+            hrs = hours_between(created, f["merged_at"])
+            must(f"{hrs:.1f}" == f"{table_hours:.1f}", f"analyzer: {k} re-derives to {hrs} h, the table says {table_hours}")
+            rows.append(dict(key=k, label=f"{short(k.rsplit('#', 1)[0])}#{k.rsplit('#', 1)[1]}", created=created,
+                             merged=f["merged_at"], hours=hrs, own=f["own"]))
+    rows.sort(key=lambda r: (r["created"], r["key"].lower()))
+    others = [r["hours"] for r in rows if not r["own"]]
+    if others:
+        must(round(statistics.median(others), 1) == m["lag"]["median"], "analyzer: median does not re-derive")
+    daily: dict[str, int] = {}
+    for i in issues:
+        daily[i["created_at"][:10]] = daily.get(i["created_at"][:10], 0) + 1
+    must(daily == m["d"]["issues"]["daily_utc"], "analyzer: per-day filings differ from issues.daily_utc")
+    must(sum(daily.values()) == m["total"], "analyzer: CH0 != issues.total")
+    return rows
+
+
+# ------------------------------------------------------------ header ----
+def picto(kind: str, t: dict) -> str:
+    """A legend symbol for one stop, drawn about the origin in a 40-unit box. It draws no data."""
+    s0 = f'fill="none" stroke="{t["fg"]}" stroke-linecap="round" stroke-linejoin="round"'
+    s = s0 + ' stroke-width="2"'
+    a = f'stroke="{t["accent"]}"'
+    x, cy, cx = -16, 0, 0
+    if kind == "proteins":
+        d = "M" + " L".join(f"{n(x + 32 * i / 40)} {n(9 * math.sin(i / 40 * 4 * math.pi) * (0.6 + 0.4 * math.cos(i / 40 * 4 * math.pi + 1)))}"
+                            for i in range(41))
+        return f'<path {s} d="{d}"/>'
+    if kind == "brains":
+        return (f'<path {s} d="M{x} {cy}h5l3-9 4 17 3-12 3 4h6"/>'
+                f'<path fill="none" {a} stroke-width="2" stroke-dasharray="2 2.5" d="M{x + 28} {cy - 10}v20"/>')
+    if kind == "quantum":
+        hs = [12, 20, 9, 16, 22, 11]
+        d = "".join(f"M{n(x + 2 + i * 5.6)} {cy + 13}v{-hh}" for i, hh in enumerate(hs))
+        return f'<path {s} d="{d}"/><path fill="none" {a} stroke-width="1.6" stroke-dasharray="2.5 2" d="M{x} {cy - 3}h32"/>'
+    if kind == "classrooms":
+        dots = "".join(f'<circle cx="{n(x + 4 + 8 * (i % 4))}" cy="{n(cy - 6 + 9 * (i // 4))}" r="2.3" fill="{t["fg"]}"/>'
+                       for i in range(8))
+        return f'<path {s} d="M{x} {cy - 14}h32"/>{dots}'
+    if kind == "street safety":                             # a shield whose middle is one shell plate: TurtleShell
+        hexa = " ".join(f"{n(cx + 5.5 * math.cos(math.radians(60 * j + 30)))},"
+                        f"{n(cy + 5.5 * math.sin(math.radians(60 * j + 30)))}" for j in range(6))
+        return (f'<path {s} d="M{cx} {cy - 15}L{cx + 12} {cy - 10}V{cy}C{cx + 12} {cy + 8} {cx + 6} {cy + 13} {cx} {cy + 16}'
+                f'C{cx - 6} {cy + 13} {cx - 12} {cy + 8} {cx - 12} {cy}V{cy - 10}Z"/>'
+                f'<polygon {s0} stroke-width="1.6" points="{hexa}"/>'
+                f'<path {s0} stroke-width="1.2" d="M{cx} {cy - 5.5}V{cy - 14}M{cx} {cy + 5.5}V{cy + 15}'
+                f'M{cx + 4.8} {cy - 2.8}L{cx + 11} {cy - 6}M{cx - 4.8} {cy - 2.8}L{cx - 11} {cy - 6}'
+                f'M{cx + 4.8} {cy + 2.8}L{cx + 10} {cy + 6}M{cx - 4.8} {cy + 2.8}L{cx - 10} {cy + 6}"/>')
+    if kind == "buildings":
+        return f'<path {s} d="M{x + 2} {cy + 13}V{cy - 1}L{cx} {cy - 15}L{x + 30} {cy - 1}V{cy + 13}ZM{cx - 4} {cy + 13}v-9h8v9"/>'
+    if kind == "underwater robot":
+        return (f'<path {s} d="M{x + 4} {cy - 5}h18a5 5 0 0 1 0 10h-18a5 5 0 0 1 0-10ZM{x + 12} {cy - 5}v-5h5v5'
+                f'M{x + 27} {cy}h4M{x + 31} {cy - 5}v10"/><path {s0} stroke-width="1.4" d="M{x + 1} {cy}h3"/>'
+                f'<circle cx="{x + 6}" cy="{cy - 13}" r="1.6" {s0} stroke-width="1.2"/>'
+                f'<circle cx="{x + 2}" cy="{cy - 17}" r="1.1" {s0} stroke-width="1"/>')
+    if kind == "graders":
+        return f'<path {s} d="M{x + 2} {cy}l8 9 18-20"/><path fill="none" {a} stroke-width="2" d="M{x + 22} {cy + 4}l8 8m0-8l-8 8"/>'
+    if kind == "music":
+        return (f'<path {s} d="M{x + 8} {cy + 10}V{cy - 12}l16-4v18"/><circle cx="{x + 5}" cy="{cy + 10}" r="3.5" {s}/>'
+                f'<circle cx="{x + 21}" cy="{cy + 14}" r="3.5" {s}/>')
+    raise SystemExit(f"header: no icon for {kind!r}")
+
+
+def who() -> dict:
+    """Name, city and class year, from WHO: the header is the one place the page states them."""
+    return dict(WHO)
+
+
+def art_header(m: dict, t: dict, size: str = "wide") -> str:
+    me = who()
+    narrow, mid = size == "narrow", size == "mid"
+    W, Hh = {"narrow": (NARROW, 540), "mid": (MID, 342), "wide": (WIDE, 390)}[size]
+    cmd, out = GREP
+    css = art_css(t, (
+        f".rt{{fill:none;stroke:{t['ink']};stroke-width:1.6;stroke-dasharray:1;stroke-dashoffset:0;"
+        "animation:draw 2.4s ease-in-out .4s both}@keyframes draw{from{stroke-dashoffset:1}}"
+        ".st{animation:pop .5s cubic-bezier(.3,1.6,.5,1) both}@keyframes pop{from{opacity:0;transform:scale(.4)}}"
+        ".lb{animation:fade .5s ease-out both}@keyframes fade{from{opacity:0}}"
+        ".k{animation:key .01s step-end backwards}@keyframes key{from,to{opacity:0}}"
+        ".cur{opacity:0;animation:blink 1s step-end 5.94s 4}@keyframes blink{0%{opacity:1}50%{opacity:0}}"))
+    s = Svg(t, me["name"], alt("header", m), w=W, h=Hh, frame=False, css=css,
+            area=(14, W - 14, 0, Hh - 4))
+    s.add(f'<rect width="{W}" height="{Hh}" rx="10" fill="{t["faint"]}"/>')      # the paper
+    grid = "".join(f"M{x} 0V{Hh}" for x in range(40, W, 60)) + "".join(f"M0 {y}H{W}" for y in range(30, Hh, 60))
+    s.path(grid, extra=f' stroke="{t["line"]}" stroke-opacity=".45" stroke-width=".8"')
+    sub = f"{me['city'].lower()} · cs + data science at UW, {me['year']}"
+    if narrow:
+        s.text(20, 54, me["name"], "nm", 40)
+        s.text(20, 80, sub, "m", 14)
+        xs, top, cell = [80, 190, 300], 96, 110
+        st = []
+        for i, stop in enumerate(HEADER_STOPS):
+            row, col = divmod(i, 3)
+            col = col if row % 2 == 0 else 2 - col          # the route snakes: left to right, back, and again
+            st.append((xs[col], top + row * cell + 44, stop, xs[col], top + row * cell + 89, 13))
+        d = f"M{st[0][0]} {st[0][1]}"
+        for (x0, y0, *_), (x1, y1, *_) in zip(st, st[1:]):
+            if y0 == y1:
+                d += f" H{x1}"
+            else:                                           # a half-loop at the end of a row
+                bend = 56 if x0 > 190 else -56
+                d += f" C{x0 + bend} {y0} {x1 + bend} {y1} {x1} {y1}"
+    else:
+        if mid:
+            s.text(28, 64, me["name"], "nm", 40)
+            s.text(30, 90, sub, "m", 16)
+        else:
+            s.text(36, 80, me["name"], "nm", 52)
+            s.text(38, 114, sub, "m", 22)
+        st = []
+        edge, y0, lsize = (50, 166, 12) if mid else (62, 196, 16)
+        for i, stop in enumerate(HEADER_STOPS):
+            x = edge + i * (W - 2 * edge) / (len(HEADER_STOPS) - 1)
+            y = y0 + (28 if i % 2 else 0)
+            st.append((x, y, stop, x, y + 50 if i % 2 else y - 38, lsize))   # labels alternate above and below
+        d = f"M{n(st[0][0])} {n(st[0][1])}"
+        for (x0, y0, *_), (x1, y1, *_) in zip(st, st[1:]):
+            mx = (x0 + x1) / 2
+            d += f" C{n(mx)} {n(y0)} {n(mx)} {n(y1)} {n(x1)} {n(y1)}"
+    s.path(d, "rt", ' pathLength="1"')
+    for i, (x, y, stop, lx, ly, size) in enumerate(st):
+        when = 0.5 + 0.25 * i
+        s.mark(x - 27.75, y - 27.75, x + 27.75, y + 27.75, f"station {stop[0]}")
+        s.group(transform=f"translate({n(x)} {n(y)})")
+        s.group("st", extra=delay(when))
+        s.add(f'<circle r="27" fill="{t["bg"]}" stroke="{t["line"]}" stroke-width="1.5"/>')
+        s.add(picto(stop[1], t))
+        s.end()
+        s.end()
+        s.text(lx, ly, stop[0], "m c lb", size, extra=delay(when))
+    if narrow:
+        bx, by, bw, bh, fs, line2 = 20, 430, 340, 64, 14, 26
+    elif mid:
+        bx, by, bw, bh, fs, line2 = 24, 260, 380, 66, 16, 28
+    else:
+        bx, by, bw, bh, fs, line2 = 28, 296, 600, 84, 22, 32
+    s.add(f'<rect x="{bx}" y="{by}" width="{bw}" height="{bh}" rx="{6 if narrow else 8}" fill="{t["bg"]}" '
+          f'stroke="{t["line"]}"/>')
+    tx, ty = bx + (14 if narrow or mid else 20), by + (24 if narrow else (26 if mid else 34))
+    step = 2.24 / len(cmd)
+    body = "".join(f'<tspan class="k"{delay(3.1 + step * (i + 1))}>{escape(ch if ch != ' ' else chr(0xa0), quote=False)}</tspan>'
+                   for i, ch in enumerate(cmd))
+    s.text(tx, ty, cmd, "", fs, body=body)
+    s.text(tx, ty + line2, out, "a k", fs, extra=delay(3.1 + 2.24 + 0.5))
+    adv = 0.6 * fs
+    s.add(f'<rect class="cur" x="{n(tx + len(out) * adv + 6)}" y="{n(ty + line2 - fs * .78)}" width="{n(fs * .55)}" '
+          f'height="{n(fs)}" fill="{t["accent"]}"/>')
+    if narrow:
+        s.text(W - 20, by + bh + 26, "icons, not data", "m e")
+    else:
+        s.text(W - (24 if mid else 28), by + bh - 8, "icons, not data", "m e")
+    return s.done()
+
+
+# ------------------------------------------------------------ cards ----
+def card_head(s: Svg, kicker: str, big: str, unit: str, line: str, line_cls: str = "m") -> None:
+    s.text(PAD, 24, kicker, "m")
+    if unit:
+        s.readout(PAD, big, unit)
+    else:
+        s.text(PAD, 56, big, "", BIG)
+    s.text(PAD, 76, line, line_cls)
+
+
+def art_proteins(m: dict, t: dict) -> str:
+    pf = m["protein"]
+    pts = backbone()
+    L, R = PAD, CARD - PAD
+    xs_ = [q[0] + 0.9 * q[2] for q in pts]                 # oblique view: depth shifts x, so the helix reads as a coil
+    ys_ = [-q[1] for q in pts]
+    top, bot = 96, 226
+    sx = min((R - L - 40) / (max(xs_) - min(xs_)), (bot - top - 24) / (max(ys_) - min(ys_)))
+    cx0 = (L + R) / 2 - (max(xs_) + min(xs_)) / 2 * sx
+    cy0 = (top + bot) / 2 - (max(ys_) + min(ys_)) / 2 * sx
+    P = [(cx0 + x * sx, cy0 + y * sx) for x, y in zip(xs_, ys_)]
+    o1, o2, o3 = (.10, .14, .20) if is_dark(t) else (.05, .07, .10)
+    css = art_css(t, (
+        f".bl{{fill:{t['ink']}}}.r1{{opacity:{n(o1)}}}.r2{{opacity:{n(o2)}}}.r3{{opacity:{n(o3)}}}"
+        f".tr{{fill:none;stroke:{t['accent']};stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round;"
+        "stroke-dasharray:1;stroke-dashoffset:0;animation:draw 2.6s ease-in-out 1.2s both}"
+        "@keyframes draw{from{stroke-dashoffset:1}}"
+        ".ca{animation:pop .3s ease-out both}@keyframes pop{from{opacity:0}}"
+        ".hz{animation:sharpen 1.2s ease-out both}@keyframes sharpen{from{opacity:.25}}"))
+    s = Svg(t, "proteins: a backbone drawn out of a blur (schematic)", alt("proteins", m), css=css)
+    card_head(s, "proteins · DAIS lab, DeepTracer", "map → trace", "", "cryo-EM map in, 3D backbone out")
+    s.mark(min(x for x, _ in P) - 15, min(y for _, y in P) - 15, max(x for x, _ in P) + 15,
+           max(y for _, y in P) + 15, "density")
+    s.group("hz")
+    for r, cls in ((15, "r1"), (10, "r2"), (6, "r3")):
+        s.add(f'<g class="bl {cls}">' + "".join(f'<circle cx="{n(x)}" cy="{n(y)}" r="{r}"/>' for x, y in P) + "</g>")
+    s.end()
+    s.path(catmull_rom(P), "tr", ' pathLength="1"')
+    for i, (x, y) in enumerate(P):
+        s.circle(x, y, 2.1, t["bg"], t["accent"], 1.2, "ca", extra=delay(1.2 + 2.6 * i / len(P)))
+    yb = 250
+    bar = pf["bar"] * sx
+    s.path(f"M{L} {yb - 4}h{n(bar)}", extra=f' stroke="{t["fg"]}" stroke-width="1.5"')
+    s.mark(L, yb - 6, L + bar, yb - 2, "scale bar")
+    s.text(L + bar + 6, yb, f"{pf['bar']} Å", "m")
+    s.text(R, yb, "helix · loop · hairpin", "m e")
+    s.text(L, 270, f"{pf['per_turn']} residues/turn, {pf['rise']} Å rise,", "m")
+    s.text(L, 286, f"{pf['step']} Å strand step", "m")
+    s.text(L, 308, "schematic, not data: textbook geometry,", "w")
+    s.text(L, 324, "a pretend map, no real structure", "w")
+    return s.done()
+
+
+def art_brains(m: dict, t: dict) -> str:
+    b = m["brains"]
+    L, R = PAD, CARD - PAD
+    xl = lambda v: L + (v - b["lo_log"]) / b["span"] * (R - L)      # noqa: E731  two clocks, equal spans
+    xe = lambda v: L + (v - b["lo_eeg"]) / b["span"] * (R - L)      # noqa: E731
+    yt, yb = 108, 186
+    css = art_css(t, (
+        f".th{{stroke:{t['accent']};stroke-opacity:.55;stroke-width:.7;fill:none;stroke-dasharray:1;"
+        "stroke-dashoffset:0;animation:draw .5s ease-out both}@keyframes draw{from{stroke-dashoffset:1}}"
+        ".gh{animation:blink .45s step-end 3.2s 4}@keyframes blink{50%{opacity:.15}}"))
+    s = Svg(t, "brains: one trigger short", alt("brains", m), css=css)
+    lost = NUMBER_WORDS.get(b["lost"], str(b["lost"]))
+    card_head(s, "brains · trigalign", f"{b['n_paired']} of {b['n_events']}", "events paired",
+              f"a public EEG session, {lost} trigger{'s' if b['lost'] != 1 else ''} lost")
+    s.text(L, yt - 9, "stimulus log clock", "m")
+    s.text(L, yb + 20, "EEG recorder clock", "m")
+    s.path(f"M{L} {yt}H{R}M{L} {yb}H{R}", extra=f' stroke="{t["line"]}"')
+    ticks_t, ticks_b = [], []
+    for i, pr in enumerate(b["pairs"]):
+        a, c = xl(pr["time"]), xe(pr["trigger_time"])
+        ticks_t.append(f"M{n(a)} {yt - 5}v5")
+        ticks_b.append(f"M{n(c)} {yb}v5")
+        s.path(f"M{n(a)} {yt}L{n(c)} {yb}", "th", ' pathLength="1"' + delay(0.3 + 2.4 * i / len(b["pairs"])))
+    s.path("".join(ticks_t), extra=f' stroke="{t["fg"]}"')
+    s.path("".join(ticks_b), extra=f' stroke="{t["fg"]}"')
+    for o in b["orphans"]:                                  # a trigger with no log event behind it
+        s.circle(xe(o["time"]), yb + 2.5, 3, "none", t["ink"], 1.2)
+    if b["orphans"]:                                        # its key, on the image as well as in the alt text
+        k = len(b["orphans"])
+        s.circle(L + 3, yb + 30, 3, "none", t["ink"], 1.2, what="extra-trigger key")
+        s.text(L + 11, yb + 34, f"{k} extra trigger{'s' if k != 1 else ''}", "m")
+    if b["miss"]:
+        mx, gx = xl(b["miss"]["time"]), xe(b["miss"]["expected_trigger_time"])
+        s.group("gh")
+        s.path(f"M{n(mx)} {yt - 7}v7", extra=f' stroke="{t["warn"]}" stroke-width="2"')
+        s.path(f"M{n(mx)} {yt}L{n(gx)} {yb}", extra=f' stroke="{t["warn"]}" stroke-width="1.2" stroke-dasharray="3 3" fill="none"')
+        s.circle(gx, yb + 2.5, 3.5, t["bg"], t["warn"], 1.6)
+        s.end()
+        s.text(R, yb + 20, f"no trigger at {b['expected']} s", "w e")
+        if b["paused"]:
+            s.text(R, yb + 34, "(the recording paused)", "w e")
+    rt, rb = 248, 292
+    mid, ax = (rt + rb) / 2, float(b["axis"])
+    runs, cur = [], []
+    for a, c in zip([None] + b["pairs"], b["pairs"]):
+        if a is not None and c["trigger_time"] - a["trigger_time"] > GAP_S:
+            runs.append(cur)
+            cur = []
+        cur.append(c)
+    runs.append(cur)
+    s.path(f"M{L} {n(mid)}H{R}", extra=f' stroke="{t["line"]}" stroke-dasharray="2 3"')
+    for run in runs:
+        s.poly([(xe(p["trigger_time"]), mid - p["residual_ms"] / ax * (rb - rt) / 2) for p in run],
+               extra=f' fill="none" stroke="{t["accent"]}" stroke-width="1.1" stroke-linejoin="round"')
+    s.text(L, rt - 6, f"not a brainwave: each pair's miss, ±{b['axis']} ms", "m")
+    s.text(L, rb + 14, f"sd {b['sd']} ms · max {b['mx']} · drift {b['drift']} ppm", "m")
+    s.text(L, H - 10, "real markers: OpenNeuro ds004621 (CC0)", "m")
+    return s.done()
+
+
+def art_quantum(m: dict, t: dict) -> str:
+    q = m["quantum"]
+    k, S = q["K"], q["shots"]
+    L, R = PAD, CARD - PAD
+    css = art_css(t, f".bar{{fill:{t['accent']}}}.fq{{opacity:0}}"
+                  "@keyframes on{0%,100%{opacity:1}}@keyframes off{0%,100%{opacity:0}}")
+    dur = 1.1
+    for i, f in enumerate(q["frames"][:-1]):
+        css += f".f{f}{{animation:on {n(dur)}s step-end {n(0.4 + i * dur)}s 1}}"
+    rest = 0.4 + (len(q["frames"]) - 1) * dur
+    css += f".f{S}{{animation:off {n(rest)}s step-end 0s 1}}"
+    s = Svg(t, "a flawless quantum computer, 1,024 shots", alt("quantum", m), css=css)
+    card_head(s, "quantum · shotfloor", f"{q['F'][S]:.4f}", "not 1", "a flawless device, 8 qubits, uniform")
+    top, base = 120, 196
+    hgt, clip = base - top, q["clip"]
+    bw = (R - L) / k
+    s.mark(L, top, R, base, "histogram")
+    for f in q["frames"]:
+        ideal = f / k
+        resting = f == S
+        s.group(f"f{f}" + ("" if resting else " fq"))
+        d = []
+        for i, c in enumerate(q["counts"][f]):
+            r = min(c / ideal, clip)
+            if r > 0:
+                d.append(f"M{n(L + i * bw)} {n(base)}V{n(base - r / clip * hgt)}h{n(bw * 0.78)}V{n(base)}z")
+        s.path("".join(d), "bar")
+        if resting:
+            s.text(R, 98, f"{f:,} shots · this simulated run {q['run']:.4f}", "m e", layer=f)
+        else:
+            s.text(R, 98, f"{f:,} shots so far", "m e", layer=f)
+        s.text(R, 113, f"E[BC]² {q['F'][f]:.4f}", "a e", layer=f)
+        s.end()
+    yi = base - 1 / clip * hgt
+    s.path(f"M{L} {n(yi)}H{R}", extra=f' stroke="{t["warn"]}" stroke-width="1.2" stroke-dasharray="3 3"')
+    s.path(f"M{L} {base + .5}H{R}", extra=f' stroke="{t["line"]}"')
+    s.path(f"M{L} 109h18", extra=f' stroke="{t["warn"]}" stroke-width="1.2" stroke-dasharray="3 3"')
+    s.text(L + 24, 113, "ideal: all equal", "w")
+    s.text(L, base + 15, f"{k} outcomes · bar = count / ideal count", "m")
+    lo, hi = q["axis"]
+    ct, cb = 234, 290
+    l2lo, l2hi = math.log2(lo), math.log2(hi)
+    xs = lambda v: L + (math.log2(v) - l2lo) / (l2hi - l2lo) * (R - L)   # noqa: E731
+    ys = lambda v: cb - (v - 0.2) / 0.8 * (cb - ct)                       # noqa: E731
+    must(q["F_lo"] >= 0.2, "quantum: the curve starts below its axis")
+    steps = 8 * round(l2hi - l2lo)
+    curve = [(xs(2 ** (l2lo + i / 8)), ys(fidelity_floor(round(2 ** (l2lo + i / 8)), k))) for i in range(steps + 1)]
+    s.path(f"M{L} {n(ys(1))}H{R}", extra=f' stroke="{t["line"]}" stroke-dasharray="2 3"')
+    s.text(R, ys(1) - 4, "1.0", "m e")
+    s.poly(curve, extra=f' fill="none" stroke="{t["accent"]}" stroke-width="1.6"')
+    for v in (S, q["s95"]):
+        s.circle(xs(v), ys(fidelity_floor(v, k)), 3, t["bg"], t["accent"], 1.6)
+    s.text(xs(S) + 8, ys(q["F"][S]) + 17, f"{q['F'][S]:.2f} at {S:,}", "a")
+    s.text(xs(q["s95"]) + 8, ys(q["F"][S]) + 33, f"0.95 needs {q['s95']:,}", "a")
+    s.text(L, cb + 15, f"{lo:,}", "m")
+    s.text(R, cb + 15, f"{hi:,} shots (log)", "m e")
+    s.text(L, H - 14, f"bars: seed {q['seed']} run · curve: E[BC]² ≤ mean F", "m")
+    return s.done()
+
+
+def art_music(m: dict, t: dict) -> str:
+    L, R = PAD, CARD - PAD
+    css = art_css(t, (
+        f".wv{{fill:{t['accent']};opacity:.85;animation:breathe 1.6s ease-in-out .3s 3}}"
+        "@keyframes breathe{50%{transform:scaleY(.55)}}"
+        ".cur{opacity:0;animation:blink 1s step-end 1s 5}@keyframes blink{0%{opacity:1}50%{opacity:0}}"))
+    s = Svg(t, "music: made often, released never", alt("music", m), css=css)
+    card_head(s, "off the clock · music", "made often", "", "released never.")
+    mid, amp, k = 140, 48, 120
+    bw = (R - L) / k
+    s.mark(L, mid - amp, R, mid + amp, "waveform")
+    d = []
+    for i in range(k):
+        hh = max(1.5, wave(i, k) * amp)
+        d.append(f"M{n(L + i * bw)} {n(-hh)}h{n(bw * 0.6)}V{n(hh)}h{n(-bw * 0.6)}z")
+    s.group(transform=f"translate(0 {mid})")
+    s.path("".join(d), "wv")
+    s.end()
+    s.text(L, 208, "schematic: drawn from a formula,", "w")
+    s.text(L, 223, "not a recording", "w")
+    ty = 240
+    s.add(f'<rect x="{L}" y="{ty}" width="{R - L}" height="76" rx="6" fill="{t["faint"]}" stroke="{t["line"]}"/>')
+    s.text(L + 12, ty + 24, "$ ls ~/music/released/", "", 13)
+    s.text(L + 12, ty + 44, "(empty)", "m", 13)
+    s.text(L + 12, ty + 64, "$", "", 13)
+    s.add(f'<rect class="cur" x="{n(L + 12 + 2 * 0.6 * 13)}" y="{ty + 53}" width="8" height="14" fill="{t["accent"]}"/>')
+    return s.done()
+
+
+def art_divider(m: dict, t: dict) -> str:
+    stars = sorted((st for _, row in m["stars"] for st in row), key=lambda x: x["order"])
+    s = Svg(t, "the issues in the order filed", alt("divider", m), w=WIDE, h=18, frame=False)
+    step = (WIDE - 28) / len(stars)
+    for i, st in enumerate(stars):
+        lit = st["rank"] is not None
+        s.circle(14 + (i + 0.5) * step, 9, 4 if lit else 1.8, t["accent"] if lit else t["ink"])
+    return s.done()
+
+
+# ------------------------------------------------------------ stats ----
+STAT_GAP, STAT_PAD, STAT_H = 8, 12, 96     # gap between tiles, padding inside one, one tile's height
+
+
+def stat_tiles(m: dict) -> list[tuple[str, str, str, list[str]]]:
+    """The side quest's four numbers as (big, unit, class of the big number, detail lines); every value is checked."""
+    o, lag, p, q = dict(m["outcome"]), m["lag"], m["prs"], m["q"]
+    return [
+        (str(m["total"]), "issues filed", "",
+         [f"since {m['start']}", f"{m['repos']} repos, {plural(len(m['areas']), 'area')}"]),
+        (str(m["fixed"]), "fixed", "a",
+         ["by a merged PR", f"{o['others']} by others, {o['own']} by me" if m["fixed"] else "none yet"]),
+        (str(lag["median"]) if lag["median"] is not None else "—", "h median", "",
+         ["filed to merged PR", plural(lag["n"], "fix", "fixes") + " by others" if lag["n"] else "no fix by others yet"]),
+        (str(p["upstream"]), "PRs upstream", "",
+         ["to others' repos", f"{q['prs_merged']} merged, {q['prs_open']} open"]),
+    ]
+
+
+def art_stats(m: dict, t: dict, size: str = "wide") -> str:
+    """Four stat tiles: one row on the wide picture, two by two on the mid and phone twins."""
+    W, cols = {"wide": (WIDE, 4), "mid": (MID, 2), "narrow": (NARROW, 2)}[size]
+    tiles = stat_tiles(m)
+    rows = math.ceil(len(tiles) / cols)
+    tw = (W - (cols - 1) * STAT_GAP) / cols
+    Hh = rows * STAT_H + (rows - 1) * STAT_GAP
+    s = Svg(t, "the side quest in four numbers", alt("stats", m), w=W, h=Hh, frame=False, css=art_css(t),
+            area=(0, W, 0, Hh))
+    for i, (big, unit, cls, lines) in enumerate(tiles):
+        r, c = divmod(i, cols)
+        x, y = c * (tw + STAT_GAP), r * (STAT_H + STAT_GAP)
+        s.add(f'<rect x="{n(x + .5)}" y="{n(y + .5)}" width="{n(tw - 1)}" height="{STAT_H - 1}" rx="6" '
+              f'fill="{t["bg"]}" stroke="{t["line"]}"/>')
+        room = tw - 2 * STAT_PAD
+        need = max([len(big) * BIG * ADV + 7 + len(unit) * T * ADV] + [len(ln) * T * ADV for ln in lines])
+        must(need <= room + EPS, f"stats: tile {i + 1} needs {need:.0f} units, has {room:.0f} ({size})")
+        b1 = s.box(x + STAT_PAD, y + 38, big, BIG)
+        s._place(b1)
+        s._place(s.box(b1[1] + 7, y + 38, unit))
+        bc = "b" + (f" {cls}" if cls else "")
+        s.add(f'<text x="{n(x + STAT_PAD)}" y="{n(y + 38)}"><tspan class="{bc}">{h(big)}</tspan>'
+              f'<tspan class="m" dx="7">{h(unit)}</tspan></text>')
+        for j, ln in enumerate(lines):
+            s.text(x + STAT_PAD, y + 62 + 18 * j, ln, "m")
+    return s.done()
+
+
+# ------------------------------------------------------------ shelf ----
+SHELF_GLYPH = 24        # each tool's icon sits in a 24-unit box left of its name
+
+
+def tool_icon(name: str, t: dict) -> str:
+    """A small symbol for one package, drawn about the origin in a 24-unit box. Icons, not data."""
+    s = f'fill="none" stroke="{t["fg"]}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"'
+    a = f'fill="none" stroke="{t["accent"]}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"'
+    if name == "tolwatch":          # a value inside a band far wider than it needs
+        return (f'<path {s} d="M-10 -7H10M-10 7H10"/><path {a} stroke-dasharray="2 2" d="M-10 -2H10M-10 2H10"/>'
+                f'<circle cx="0" cy="0" r="1.6" fill="{t["accent"]}"/>')
+    if name == "ziptrace":          # a zipper whose right side runs out of teeth
+        teeth = "".join(f"M-6 {y}h4" for y in (-8, -3, 2, 7)) + "".join(f"M2 {y}h4" for y in (-5.5, -0.5))
+        return f'<path {s} d="M-2 -11V11M2 -11V11{teeth}"/><path {a} d="M3 5l4 4m0-4l-4 4"/>'
+    if name == "unadded":           # a file that git does not track
+        return (f'<path {s} stroke-dasharray="3 2.2" d="M-7 -10H3L8 -5V10H-7Z"/>'
+                f'<path {a} d="M-2 -1a2.6 2.6 0 1 1 3 2.5V4M1 7.4v.2"/>')
+    if name == "whymodified":       # a file marked modified with nothing inside it changed
+        return (f'<path {s} d="M-7 -10H3L8 -5V10H-7Z"/><path {s} d="M-3 -1h7M-3 4h7"/>'
+                f'<circle cx="6" cy="-8" r="3.2" fill="{t["warn"]}" stroke="{t["bg"]}" stroke-width="1"/>')
+    if name == "shotfloor":         # shot-noise bars under an ideal line
+        hs = (9, 14, 6, 12, 16, 8)
+        d = "".join(f"M{-9 + i * 3.6:.1f} 10v{-hh}" for i, hh in enumerate(hs))
+        return f'<path {s} d="{d}"/><path {a} stroke-dasharray="2.4 2" d="M-11 -1H11"/>'
+    if name == "trigalign":         # two clocks and the lines that pair them
+        thin = a.replace('stroke-width="1.6"', 'stroke-width="1.2"')
+        return (f'<path {s} d="M-11 -8H11M-11 8H11"/>'
+                f'<path {thin} d="M-8 -8L-6 8M-3 -8L-1 8M2 -8L4 8M7 -8L9 8"/>')
+    if name == "scoreprobe":        # a lens over a check mark that should not be there
+        return (f'<circle cx="-2" cy="-2" r="7" {s}/><path {s} d="M3 3l7 7"/>'
+                f'<path {a} d="M-5.5 -2l2.5 2.5 4.5-5"/>')
+    if name == "normladder":        # a ladder of answer-matching rules
+        return f'<path {s} d="M-6 -11V11M6 -11V11"/><path {a} d="M-6 -6H6M-6 0H6M-6 6H6"/>'
+    if name == "mcqlint":           # four options, one marked twice
+        dots = "".join(f'<circle cx="-6" cy="{y}" r="2.4" {s}/><path {s} d="M-1 {y}H10"/>' for y in (-8, -2.7, 2.7))
+        return dots + f'<circle cx="-6" cy="8" r="2.4" fill="{t["accent"]}"/><path {a} d="M-1 8H10"/>'
+    if name == "tabverify":         # a results table and the one cell that does not add up
+        return (f'<path {s} d="M-10 -9H10V9H-10ZM-10 -3H10M-10 3H10M-3 -9V9M4 -9V9"/>'
+                f'<path fill="{t["warn"]}" d="M4 3H10V9H4Z"/>')
+    raise SystemExit(f"shelf: no icon for {name!r}")
+
+
+def tool_lines(desc: str, width: float) -> list[str]:
+    """A description wrapped to width at 12 units; a `code` span never breaks across lines."""
+    chars = int(width // (T * ADV))
+    lines, cur = [], ""
+    for tok in re.findall(r"`[^`]*`\S*|\S+", desc):
+        trial = f"{cur} {tok}" if cur else tok
+        if cur and len(trial.replace("`", "")) > chars:
+            lines.append(cur)
+            cur = tok
+        else:
+            cur = trial
+    lines.append(cur)
+    must(all(len(ln.replace("`", "")) <= chars for ln in lines), f"shelf: a word is wider than {width:g} units")
+    return lines
+
+
+def shelf_layout(size: str) -> dict:
+    """Card geometry for one width: columns, card width, the text width inside a card."""
+    W = {"wide": WIDE, "mid": MID, "narrow": NARROW}[size]
+    cols = 1 if size == "narrow" else 2
+    gap, edge = 12, 14
+    cw = (W - 2 * edge - (cols - 1) * gap) / cols
+    return dict(W=W, cols=cols, gap=gap, edge=edge, cw=cw, text_w=cw - 28)
+
+
+def art_shelf(m: dict, t: dict, size: str = "wide") -> str:
+    """The packages from TOOLS as cards under their three headings: an icon, the name, the line from TOOLS."""
+    L = shelf_layout(size)
+    W, cols, gap, edge, cw = L["W"], L["cols"], L["gap"], L["edge"], L["cw"]
+    line_h, name_h, pad_top, pad_bot = 16, 30, 14, 12
+    # first pass: the height of every row of cards, so a row's cards share one height
+    plan, y = [], 6.0
+    for group, items in TOOLS:
+        plan.append(("head", group, y + 12))
+        y += 26
+        for r in range(0, len(items), cols):
+            row = items[r:r + cols]
+            wrapped = [tool_lines(d, L["text_w"]) for _, d in row]
+            hh = pad_top + name_h + max(len(w) for w in wrapped) * line_h + pad_bot - 4
+            plan.append(("row", [(nm, w) for (nm, _), w in zip(row, wrapped)], y, hh))
+            y += hh + gap
+        y += 6
+    Hh = y - gap - 6 + 2                         # the last card's frame, and nothing below it
+    css = art_css(t, ".cd{animation:rise .5s ease-out both}@keyframes rise{from{opacity:0;transform:translateY(6px)}}")
+    s = Svg(t, "things i made", alt("shelf", m), w=W, h=Hh, frame=False, css=css, area=(edge, W - edge, 0, Hh - 2))
+    k = 0
+    for item in plan:
+        if item[0] == "head":
+            s.text(edge + 2, item[2], item[1], "m", 13)
+            s.path(f"M{n(edge + 2 + len(item[1]) * 13 * ADV + 10)} {n(item[2] - 4.5)}H{n(W - edge)}",
+                   extra=f' stroke="{t["line"]}" fill="none"')
+            continue
+        _, row, top, hh = item
+        for c, (name, lines) in enumerate(row):
+            x = edge + c * (cw + gap)
+            s.group("cd", extra=delay(0.15 + 0.12 * k))
+            s.add(f'<rect x="{n(x + .5)}" y="{n(top + .5)}" width="{n(cw - 1)}" height="{n(hh - 1)}" rx="6" '
+                  f'fill="{t["bg"]}" stroke="{t["line"]}"/>')      # a frame for its own text, not a mark
+            gx, gy = x + 14 + SHELF_GLYPH / 2, top + pad_top + SHELF_GLYPH / 2 - 2
+            s.add(f'<g transform="translate({n(gx)} {n(gy)})">{tool_icon(name, t)}</g>')
+            s.mark(gx - 12, gy - 12, gx + 12, gy + 12, f"icon {name}")
+            s.text(x + 14 + SHELF_GLYPH + 10, top + pad_top + 15, name, "nm", 16)
+            for i, ln in enumerate(lines):
+                yy = top + pad_top + name_h + 12 + i * line_h
+                body = re.sub(r"`([^`]*)`", r'<tspan class="a">\1</tspan>', escape(ln, quote=False))
+                s.text(x + 14, yy, ln.replace("`", ""), "", T, body=body)
+            s.end()
+            k += 1
+    return s.done()
+
+
+# ------------------------------------------------------------ constellation ----
+def sparkle(cx: float, cy: float, r: float) -> str:
+    k = r * 0.28
+    return (f"M{n(cx)} {n(cy - r)}Q{n(cx + k)} {n(cy - k)} {n(cx + r)} {n(cy)}Q{n(cx + k)} {n(cy + k)} {n(cx)} {n(cy + r)}"
+            f"Q{n(cx - k)} {n(cy + k)} {n(cx - r)} {n(cy)}Q{n(cx - k)} {n(cy - k)} {n(cx)} {n(cy - r)}Z")
+
+
+def art_constellation(m: dict, t: dict, size: str = "wide") -> str:
+    rows, o = m["stars"], dict(m["outcome"])
+    narrow = size != "wide"                      # mid and narrow share the stacked layout, at two widths
+    cols, cw, ch, head, size = {"narrow": (3, 117, 156, 138, 13), "mid": (4, 130, 156, 138, 13),
+                                "wide": (5, 160, 160, 96, 14)}[size]
+    step = 6.5 if narrow else STAR_STEP          # the stacked twins pack each cluster a little tighter
+    nrows = math.ceil(len(rows) / cols)
+    W = {3: NARROW, 4: MID, 5: WIDE}[cols]
+    legend = 76 if narrow else 64
+    Hh = head + nrows * ch + legend
+    x_off = (W - cols * cw) / 2
+    css = art_css(t, (
+        f".op{{fill:{t['ink']}}}.ln{{fill:none;stroke:{t['line']};stroke-width:1}}"
+        ".sky{animation:fade 1.2s ease-out both}@keyframes fade{from{opacity:0}}"
+        ".lit{animation:lit 1.4s ease-out both}"
+        "@keyframes lit{0%{opacity:0;transform:scale(.2)}60%{opacity:1;transform:scale(1.35)}100%{transform:scale(1)}}"))
+    s = Svg(t, f"{m['total']} issues as stars", alt("constellation", m), w=W, h=Hh,
+            frame=False, css=css, area=(14, W - 14, 0, Hh - 4))
+    frame(s, W, Hh)
+    lit_line = f"lit = fixed by a merged PR: {m['fixed']}"
+    where = f"{plural(m['repos'], 'repository', 'repositories')} in {plural(len(rows), 'area')};"
+    if W == MID:
+        s.readout(18, str(m["total"]), "issues, one star each", y=44, size=30, gap=8)
+        s.text(18, 70, lit_line, "m")
+        s.text(18, 94, where, "m", 13)
+        s.text(18, 112, "lines join an area's issues in the order filed", "m", 13)
+    elif narrow:
+        s.readout(18, str(m["total"]), "issues, one star each", y=44, size=30, gap=8)
+        s.text(18, 70, lit_line, "m")
+        s.text(18, 94, where, "m", 13)
+        s.text(18, 112, "lines join an area's issues in", "m", 13)
+        s.text(18, 130, "the order filed", "m", 13)
+    else:
+        s.readout(28, str(m["total"]), "issues, one star each", y=50, size=30, gap=10)
+        s.text(W - 28, 50, lit_line, "m e", 14)
+        s.text(28, 76, f"{where[:-1]}; lines join an area's issues in the order filed", "m", 14)
+    sky, lit = [], []
+    for idx, (area, stars) in enumerate(rows):
+        r_, c_ = divmod(idx, cols)
+        cx = x_off + cw * (c_ + 0.5)
+        cy = head + ch * r_ + (58 if narrow else 70)
+        pos = [(cx + dx, cy + dy) for dx, dy in (golden(i, step) for i in range(len(stars)))]
+        sky.append(f'<path class="ln" d="M{" L".join(f"{n(x)} {n(y)}" for x, y in pos)}"/>')
+        for (x, y), st in zip(pos, stars):
+            rr = 12.5 if st["kind"] == "own" else (11 if st["kind"] == "others" else 3.2)
+            s.mark(x - rr, y - rr, x + rr, y + rr, f"star {st['key']}")
+            if st["kind"] == "open":
+                sky.append(f'<circle class="op" cx="{n(x)}" cy="{n(y)}" r="2.2"/>')
+            elif st["kind"] == "nofix":
+                sky.append(f'<circle cx="{n(x)}" cy="{n(y)}" r="3.2" fill="{t["bg"]}" stroke="{t["ink"]}" stroke-width="1.3"/>')
+            else:
+                ring = (f'<circle r="12.5" fill="none" stroke="{t["accent"]}" stroke-width="1.3"/>'
+                        if st["kind"] == "own" else "")
+                lit.append(f'<g transform="translate({n(x)} {n(y)})"><g class="lit"{delay(1.2 + 0.22 * st["rank"])}>'
+                           f'<circle r="11" fill="{t["accent"]}" fill-opacity=".16"/>'
+                           f'<path d="{sparkle(0, 0, 7.5)}" fill="{t["accent"]}"/>{ring}</g></g>')
+        label = STAR_LABELS_NARROW.get(area, STAR_LABELS[area]) if W == NARROW else STAR_LABELS[area]
+        yl = head + ch * (r_ + 1) - 14
+        if narrow:
+            sky.append(("text", cx, yl - 16, label, "c m", size))
+            sky.append(("text", cx, yl, str(len(stars)), "c", size))
+        else:
+            sky.append(("text", cx, yl, f"{label} {len(stars)}", "c m", size))
+    s.group("sky")
+    for item in sky:
+        if isinstance(item, tuple):
+            s.text(item[1], item[2], item[3], item[4], item[5])
+        else:
+            s.add(item)
+    s.end()
+    for g in lit:
+        s.add(g)
+    # legend: one mark and one count per kind
+    items = [("open", f"open {o['open']}"), ("nofix", f"closed, no fix {o['nofix']}"),
+             ("others", f"fixed by others {o['others']}"), ("own", f"fixed by me {o['own']}")]
+    lines = [items[:2], items[2:]] if narrow else [items]
+    ly0 = Hh - legend + (28 if narrow else 38)
+    for li, line in enumerate(lines):
+        x, y = (22 if narrow else 30), ly0 + li * 28
+        for kind, label in line:
+            gx = x + 8
+            if kind == "open":
+                s.circle(gx, y - 5, 2.2, t["ink"])
+            elif kind == "nofix":
+                s.circle(gx, y - 5, 3.2, t["bg"], t["ink"], 1.3)
+            else:
+                s.path(sparkle(gx, y - 5, 7), extra=f' fill="{t["accent"]}"')
+                if kind == "own":
+                    s.circle(gx, y - 5, 10.5, "none", t["accent"], 1.3)
+            s.mark(gx - 12, y - 17, gx + 12, y + 7, f"legend {kind}")
+            s.text(gx + 16, y, label, "m", size)
+            x = gx + 16 + len(label) * size * ADV + (22 if narrow else 34)
+    return s.done()
+
+
+# ------------------------------------------------------------ analyzer ----
+def art_analyzer(m: dict, t: dict, size: str = "wide") -> str:
+    rows, lag = m["fixrows"], m["lag"]
+    narrow, mid = size == "narrow", size == "mid"       # mid: the wide rows under the narrow head, 560 across
+    W = {"narrow": AN_NARROW, "mid": MID, "wide": WIDE}[size]
+    t0 = dt.datetime.combine(m["start"], dt.time(), dt.timezone.utc)
+    t1 = dt.datetime.combine(m["end"] + dt.timedelta(days=1), dt.time(), dt.timezone.utc)
+    span = (t1 - t0).total_seconds()
+    if narrow:
+        top, row_h, px0, px1, ch0 = 112, 34, 14, W - 14, 40
+    elif mid:
+        top, row_h, px0, px1, ch0 = 92, 20, 196, W - 82, 30
+    else:
+        top, row_h, px0, px1, ch0 = 76, 20, 210, W - 84, 30
+    rows_top = top + ch0
+    axis_y = rows_top + len(rows) * row_h + 8
+    Hh = axis_y + (60 if size == "wide" else 72)
+    X = lambda s_: px0 + (ts(s_) - t0).total_seconds() / span * (px1 - px0)   # noqa: E731
+    sweep = px1 - px0
+    # the cover shrinks toward the plot's right edge instead of sliding, so it never leaves the plot or hides the frame
+    css = art_css(t, (
+        f".hl{{stroke:{t['bg']};stroke-width:4px;stroke-linejoin:round;paint-order:stroke}}"   # text over grid lines
+        f".sw{{transform-origin:{n(px1)}px 0;transform:scaleX(0);animation:shrink 4.2s linear .3s both}}"
+        "@keyframes shrink{from{transform:scaleX(1)}to{transform:scaleX(0)}}"
+        f".cu{{transform:translateX({n(sweep)}px);opacity:0;animation:sweep 4.2s linear .3s both}}"
+        f"@keyframes sweep{{from{{transform:translateX(0);opacity:1}}98%{{opacity:1}}"
+        f"to{{transform:translateX({n(sweep)}px);opacity:0}}}}"))
+    s = Svg(t, "report to fix, as a logic analyzer", alt("analyzer", m), w=W, h=Hh, frame=False, css=css,
+            area=(14, W - 14, 0, Hh - 4))
+    frame(s, W, Hh)
+    med = lag["median"]
+    summary = f"{m['total']} filed · {m['fixed']} fixed" + (f" · median wait {med} h" if med is not None else "")
+    if narrow:
+        s.text(18, 30, "report → fix", "", 16)
+        s.text(18, 50, "high = waiting: from the report until", "m")
+        s.text(18, 66, "a merged PR closed it.", "m")
+        s.text(18, 86, summary, "m")
+        ly = 104
+        s.path(f"M18 {ly - 4}h16", extra=f' stroke="{t["accent"]}" stroke-width="1.6"')
+        s.text(40, ly, "fixed by someone else", "m")
+        s.circle(W - 112, ly - 4, 3.6, "none", t["fg"], 1.4)
+        s.text(W - 104, ly, "by my own PR", "m")
+    elif mid:
+        s.text(20, 30, "report → fix", "", 16)
+        s.text(W - 20, 30, summary, "m e")
+        s.text(20, 54, "high = waiting: from the report until a merged PR closed it.", "m")
+        ly = 76
+        s.path(f"M20 {ly - 4}h16", extra=f' stroke="{t["accent"]}" stroke-width="1.6"')
+        s.text(42, ly, "fixed by someone else", "m")
+        s.circle(220, ly - 4, 3.6, "none", t["fg"], 1.4)
+        s.text(228, ly, "by my own PR", "m")
+    else:
+        s.text(20, 30, "report → fix", "", 16)
+        s.text(W - 20, 30, summary, "m e")
+        s.text(20, 54, "high = waiting: from the report until a merged PR closed it.", "m")
+        own_w = len("by my own PR") * T * ADV
+        s.text(W - 20, 54, "by my own PR", "m e")
+        s.circle(W - 20 - own_w - 10, 50, 3.6, "none", t["fg"], 1.4)
+        lab = "fixed by someone else"
+        x2 = W - 20 - own_w - 26
+        s.text(x2, 54, lab, "m e")
+        s.path(f"M{n(x2 - len(lab) * T * ADV - 24)} 50h16", extra=f' stroke="{t["accent"]}" stroke-width="1.6"')
+    # traces first, then the sweep cover, then everything that must never be hidden
+    y = top + 4
+    tick_top = y + (16 if narrow else 8)
+    ticks = "".join(f"M{n(X(c))} {n(y + ch0 - 8)}V{n(tick_top)}" for c in m["created"])
+    s.path(ticks, extra=f' stroke="{t["ink"]}" stroke-width="1"')
+    s.path(f"M{px0} {n(y + ch0 - 7.5)}H{px1}", extra=f' stroke="{t["line"]}"')
+    for i, r in enumerate(rows):
+        ry = rows_top + i * row_h
+        hi_y, lo_y = (ry + 14, ry + 28) if narrow else (ry + 4, ry + 15)
+        col = t["fg"] if r["own"] else t["accent"]
+        xa, xb = X(r["created"]), X(r["merged"])
+        s.path(f"M{px0} {n(lo_y)}H{n(xa)}V{n(hi_y)}H{n(xb)}V{n(lo_y)}H{px1}",
+               extra=f' stroke="{col}" stroke-width="1.6" fill="none"')
+        if r["own"]:
+            s.circle(xb, lo_y, 3.6, t["bg"], col, 1.4)
+        else:
+            s.circle(xb, lo_y, 2.4, col)
+    cover_top, cover_bot = top - 2, rows_top + len(rows) * row_h
+    s.add(f'<rect class="sw" x="{px0}" y="{cover_top}" width="{n(px1 - px0)}" height="{n(cover_bot - cover_top)}" '
+          f'fill="{t["bg"]}"/>')
+    s.path(f"M{px0} {cover_top}V{n(cover_bot)}", "cu", f' stroke="{t["accent"]}" stroke-width="2"')
+    # day (or week, or month) graticule, labels and hours sit above the cover
+    unit, spans = m["unit"], m["spans"]
+    starts = [X(a.isoformat() + "T00:00:00Z") for a, _ in spans]
+    grid = "".join(f"M{n(x)} {top - 2}V{n(axis_y)}" for x in starts if px0 <= x <= px1)
+    s.path(grid + f"M{px1} {top - 2}V{n(axis_y)}", extra=f' stroke="{t["line"]}" stroke-opacity=".6"')
+    xs_asof = X(m["as_of"].replace("Z", ":00Z"))
+    s.path(f"M{n(xs_asof)} {top - 2}V{n(axis_y)}", extra=f' stroke="{t["muted"]}" stroke-dasharray="2 3"')
+    if narrow:
+        s.text(px0, y + 9, "CH0 every report", "m hl")
+    else:
+        s.text(20, y + ch0 - 10, "CH0 every report", "m hl", 13)
+    for i, r in enumerate(rows):
+        ry = rows_top + i * row_h
+        cls = "hl" if r["own"] else "m hl"
+        if narrow:
+            s.text(px0, ry + 9, r["label"], cls)
+            s.text(min(px1, xs_asof) - 6, ry + 9, f"{r['hours']:.1f} h", cls + " e")   # left of the as-of line
+        else:
+            s.text(20, ry + 15, r["label"], cls, 13)
+            s.text(W - 20, ry + 15, f"{r['hours']:.1f} h", cls + " e", 13)
+    fmt = {"day": mmdd, "week": mmdd, "month": lambda x: x.strftime("%Y-%m")}[unit]
+    slot = (px1 - px0) / len(spans)
+    lab_w = len(fmt(spans[0][0])) * T * ADV
+    every = max(1, math.ceil((lab_w + 8) / slot))
+    for i in range(0, len(spans), every):
+        a, z = spans[i]
+        cx = starts[i] + slot / 2 if unit == "day" else max(px0, starts[i])
+        anchor = "c" if unit == "day" else ""
+        if s.free(s.box(cx, axis_y + 14, fmt(a), T, "middle" if anchor else "start"), 4):
+            s.text(cx, axis_y + 14, fmt(a), ("m " + anchor).strip())
+    by = axis_y + 38
+    if med is not None:
+        xm = px0 + med * 3600 / span * (px1 - px0)
+        s.path(f"M{px0} {by - 7}v14M{n(xm)} {by - 7}v14M{px0} {by}H{n(xm)}", extra=f' stroke="{t["accent"]}" fill="none"')
+        s.text(xm + 8, by + 4, f"Δt median {med} h", "a")
+    stamp = m["as_of"][5:16].replace("T", " ")
+    foot = f"utc, {unit}s · dotted line: as of {stamp}"
+    if narrow:
+        s.text(px0, Hh - 10, foot, "m")
+    elif mid:
+        s.text(20, Hh - 10, foot, "m")
+    else:
+        s.text(W - 20, by + 4, foot, "m e")
+    return s.done()
+
+
+ART_FN = dict(header=art_header, proteins=art_proteins, brains=art_brains, quantum=art_quantum, music=art_music,
+              divider=art_divider, shelf=art_shelf, stats=art_stats, constellation=art_constellation,
+              analyzer=art_analyzer)
+
+
+def render_art(m: dict) -> dict:
+    """Every illustration in both themes, plus the mid and narrow twins; keyed (name, theme) like the panels."""
+    out = {}
+    for name in ART:
+        for th, t in THEMES.items():
+            out[(name, th)] = ART_FN[name](m, t)
+            if name in NARROW_ART:
+                for size in SIZES_OF[1:]:
+                    out[(f"{name}-{size}", th)] = ART_FN[name](m, t, size=size)
+    return out
+
+
 # ---------------------------------------------------------------- readme ----
 FIRST_COL = "25%"   # width hint for the defect table's first column, so the description gets the room
 
 
 def alt(name: str, m: dict) -> str:
+    """The text alternative for one picture, generated from the same values the picture and CHECKS.md read."""
+    base = re.sub(r"-(mid|narrow)$", "", name)
+    if base in ART:
+        return art_alt(base, m)
     if name == "filed":
         return (f"Issues filed per {m['unit']} in UTC, {m['start']} to {m['end']}: "
                 + " ".join(str(x["filed"]) for x in m["bins"]) + f". {m['total']} filed, {m['fixed']} fixed by a merged PR.")
@@ -1249,13 +2392,139 @@ def alt(name: str, m: dict) -> str:
             f"reproduce{eg}. With {fixed} instead: {len(f['findings'])} of {len(f['checks_run'])}.")
 
 
-def picture(name: str, svgs: dict, m: dict) -> str:
-    v = {th: hashlib.sha1(svgs[(name, th)].encode()).hexdigest()[:8] for th in THEMES}
+def art_alt(name: str, m: dict) -> str:
+    words = lambda k: NUMBER_WORDS.get(k, str(k))   # noqa: E731
+    if name == "header":
+        me = who()
+        stops = [x[0] for x in HEADER_STOPS]
+        return (f"{me['name']}, {me['city']}, cs + data science at UW, class of {me['year']}. A route through "
+                f"{words(len(stops))} stops, drawn as icons: {', '.join(stops)}. A terminal: {GREP[0]} prints {GREP[1]}.")
+    if name == "proteins":
+        pf, P = m["protein"], PROTEIN
+        return (f"Schematic, not data: a {pf['residues']}-residue protein backbone from textbook geometry (a helix of "
+                f"{P['helix']} residues at {pf['per_turn']} residues/turn and {pf['rise']} Å rise, a loop, and a two-strand "
+                f"hairpin at {pf['step']} Å strand step) drawn out of a blurred pretend density map, with a {pf['bar']} Å "
+                "scale bar. It stands for DeepTracer's job in UW's DAIS lab: cryo-EM map in, 3D backbone out.")
+    if name == "brains":
+        b = m["brains"]
+        out = (f"trigalign on a public EEG session (OpenNeuro ds004621, CC0): {b['n_paired']} of {b['n_events']} "
+               f"stimulus-log events paired with an EEG trigger; clock offset {b['offset']} s, drift {b['drift']} ppm, "
+               f"pairing residuals sd {b['sd']} ms, max {b['mx']} ms, drawn on an axis of ±{b['axis']} ms.")
+        if b["miss"]:
+            which = "The last event" if b["miss"]["event"] == b["n_events"] - 1 else "One event"
+            out += (f" {which}, at {b['log_time']} s on the log clock, has no trigger: one was expected at "
+                    f"{b['expected']} s" + (", where the recording paused." if b["paused"] else "."))
+        if b["orphans"]:
+            k = len(b["orphans"])
+            out += (f" Hollow circle on the recorder axis, labelled {k} extra trigger{'s' if k != 1 else ''}: "
+                    f"{'a trigger' if k == 1 else 'triggers'} with no log event.")
+        return out
+    if name == "quantum":
+        q = m["quantum"]
+        S, K, fr = q["shots"], q["K"], q["frames"]
+        lo, hi = q["axis"]
+        return (f"A flawless {K.bit_length() - 1}-qubit device sampling a uniform target: one simulated run of {S:,} "
+                f"shots (splitmix64, seed {q['seed']}) as {K} bars against the ideal of {n(S / K)} each, bars clipped at "
+                f"{q['clip']} times the ideal. This run scores {q['run']:.4f} and leaves {q['empty']} outcomes empty. "
+                "The curve is shotfloor's closed form E[BC]², a lower bound on the mean Hellinger fidelity: "
+                + ", ".join(f"{q['F'][f]:.4f}" for f in fr[:-1])
+                + " at " + ", ".join(f"{f:,}" for f in fr[:-1]) + f" shots; {q['F'][S]:.4f} at {S:,} shots "
+                f"({q['F'][S]:.2f} at {S:,} on the curve); by that bound, shotfloor puts 0.95 at {q['s95']:,} "
+                f"shots; 1.0 only at infinite shots. The curve runs from {lo:,} to {hi:,} shots.")
+    if name == "shelf":
+        count = sum(len(items) for _, items in TOOLS)
+        return (f"{count} small python tools as cards on a shelf, each with an icon, under "
+                f"{words(len(TOOLS))} headings. "
+                + " ".join(f"{group}: " + "; ".join(f"{nm}, {d.replace('`', '')}" for nm, d in items) + "."
+                           for group, items in TOOLS))
+    if name == "music":
+        return ("Schematic, not a recording: a waveform drawn from a formula, over a terminal where ls ~/music/released/ "
+                "lists nothing. Music: made often, released never.")
+    if name == "stats":
+        o, lag, p, q = dict(m["outcome"]), m["lag"], m["prs"], m["q"]
+        fixed = (f"{m['fixed']} fixed by a merged pull request, {o['others']} by other people and {o['own']} by me"
+                 if m["fixed"] else "none fixed by a merged pull request yet")
+        hours = (f"median {lag['median']} hours from filing to the merged pull request, over "
+                 f"{plural(lag['n'], 'fix', 'fixes')} by others" if lag["n"] else "no fix by others yet")
+        return (f"Since {m['start']}: {m['total']} issues filed in {plural(m['repos'], 'repository', 'repositories')}, "
+                f"{plural(len(m['areas']), 'area')}; {fixed}; {hours}; "
+                f"{plural(p['upstream'], 'pull request')} to other people's repositories, "
+                f"{q['prs_merged']} merged and {q['prs_open']} open.")
+    if name == "divider":
+        return (f"{m['total']} dots, one per issue in the order filed; the {m['fixed']} fixed by a merged pull request "
+                "are lit.")
+    if name == "constellation":
+        o = dict(m["outcome"])
+        rows = m["stars"]
+        return (f"{m['total']} issues drawn as stars in {len(rows)} clusters, one per area: "
+                + ", ".join(f"{STAR_LABELS[a]} {len(st)}" for a, st in rows)
+                + f". Lit: {m['fixed']} fixed by a merged pull request, {o['others']} by other people and {o['own']} by me "
+                f"(ringed). Rings: {o['nofix']} closed without a fix. Dots: {o['open']} open. "
+                f"{plural(m['repos'], 'repository', 'repositories')} in {plural(len(rows), 'area')}.")
+    if name == "analyzer":
+        rows, lag = m["fixrows"], m["lag"]
+        mine = [r for r in rows if r["own"]]
+        out = (f"Report to fix, drawn as a logic analyzer. Top channel: one edge per issue filed, {m['total']} in all; "
+               f"filed per {m['unit']}: " + ", ".join(f"{x['desc']} {x['filed']}" for x in m["bins"])
+               + f". Below, one channel per fixed issue ({len(rows)}), high from the report until the merged pull "
+               "request that closed it: " + ", ".join(f"{r['label']} {r['hours']:.1f} h" for r in rows) + ".")
+        if mine:
+            out += (f" {words(len(mine)).capitalize()} {'is' if len(mine) == 1 else 'are'} mine: "
+                    + ", ".join(f"{r['label']} {r['hours']:.1f} h" for r in mine) + ".")
+        if lag["median"] is not None:
+            out += f" Median wait for fixes by others: {lag['median']} h."
+        return out + f" As of {m['as_of'][5:16].replace('T', ' ')} utc."
+    raise SystemExit(f"no alt text for {name!r}")
+
+
+def versions(svgs: dict, name: str) -> dict:
+    return {th: hashlib.sha1(svgs[(name, th)].encode()).hexdigest()[:8] for th in THEMES}
+
+
+def picture(name: str, svgs: dict, m: dict, width: int | str = IMG) -> str:
+    """The two-source picture: the dark file when the reader's theme is dark, the light one otherwise."""
+    v = versions(svgs, name)
     return (
         "<picture>\n"
         f'<source media="(prefers-color-scheme: dark)" srcset="assets/{name}-dark.svg?v={v["dark"]}">\n'
         f'<source media="(prefers-color-scheme: light)" srcset="assets/{name}-light.svg?v={v["light"]}">\n'
-        f'<img alt="{h(alt(name, m))}" src="assets/{name}-light.svg?v={v["light"]}" width="{IMG}">\n'
+        f'<img alt="{h(alt(name, m))}" src="assets/{name}-light.svg?v={v["light"]}" width="{width}">\n'
+        "</picture>"
+    )
+
+
+# Which twin a viewport gets, by the width of GitHub's README column there: about the viewport minus 32 below 768,
+# about 400 to 660 beside the profile sidebar from 768 to 1011, about 580 to 770 from 1012 to 1199, and about 830
+# from 1200 up. The narrow twin (380 or 400 across) serves columns up to about 570, the mid twin (560) from there to
+# about 770 (beside the sidebar from a column of about 500), the wide one the rest, so every twin is drawn at
+# between 0.85 and 1.5 times its own size and a banner never towers over the 380 cards beside it.
+NARROW_WHEN = ("(max-width: 600px)", "(min-width: 768px) and (max-width: 859px)")
+MID_WHEN = ("(min-width: 601px) and (max-width: 767px)", "(min-width: 860px) and (max-width: 1199px)")
+DARK = "(prefers-color-scheme: dark)"
+
+
+def _either(conds: tuple[str, ...], dark: bool) -> str:
+    return ", ".join(f"{c} and {DARK}" if dark else c for c in conds)
+
+
+MEDIA = (_either(NARROW_WHEN, True), _either(NARROW_WHEN, False), _either(MID_WHEN, True), _either(MID_WHEN, False),
+         DARK, "(prefers-color-scheme: light)")
+
+
+def picture_narrow(name: str, svgs: dict, m: dict) -> str:
+    """The six-source picture for a wide image with mid and phone twins. Sources match in order; a browser that
+    ignores the width queries shows the wide image scaled, and the alt text carries everything either way. That
+    GitHub's sanitizer keeps these compound media values as written is checked on the live page, at phone and
+    desktop width in both themes, after each change to them."""
+    v, vm, vn = versions(svgs, name), versions(svgs, name + "-mid"), versions(svgs, name + "-narrow")
+    return (
+        "<picture>\n"
+        f'<source media="{MEDIA[0]}" srcset="assets/{name}-narrow-dark.svg?v={vn["dark"]}">\n'
+        f'<source media="{MEDIA[1]}" srcset="assets/{name}-narrow-light.svg?v={vn["light"]}">\n'
+        f'<source media="{MEDIA[2]}" srcset="assets/{name}-mid-dark.svg?v={vm["dark"]}">\n'
+        f'<source media="{MEDIA[3]}" srcset="assets/{name}-mid-light.svg?v={vm["light"]}">\n'
+        f'<source media="{MEDIA[4]}" srcset="assets/{name}-dark.svg?v={v["dark"]}">\n'
+        f'<img alt="{h(alt(name, m))}" src="assets/{name}-light.svg?v={v["light"]}" width="100%">\n'
         "</picture>"
     )
 
@@ -1295,33 +2564,29 @@ def fixes_table(m: dict) -> list[str]:
 # Hand-written prose: trusted text from this file, so it is not escaped; check_readme() still vets every tag and
 # link in it. A package name is written {name} and rendered by proj(): a link only when data/projects.json says
 # its repository is public, plain bold otherwise, so the page never links a repository that does not exist.
-INTRO = [
-    "**Shaurya Singh** · Seattle, WA · cs + data science at UW, class of '27 · "
-    "[shauryasingh.com](https://shauryasingh.com)",
-    "",
+# name, city and class year: the header draws them and its alt text says them, so the page states them once
+WHO = dict(name="Shaurya Singh", city="Seattle", year="'27")
+SITE = "[shauryasingh.com](https://shauryasingh.com)"   # his own site, the one link that is not GitHub
+INTRO_TEXT = [
     "i find what hurts, then build at it. so far: proteins, brains, quantum noise, classrooms, street safety, "
     "buildings, an underwater robot, and the code that grades things.",
-    "",
-    "```",
-    '$ grep -rl "same field" ~/built/',
-    "no matches",
-    "```",
 ]
+# the grep joke under the intro now lives in the header picture (GREP), its description and its alt text
 FIELD_GUIDE = [
-    "- **proteins** · UW's DAIS lab: preprocessing, training runs and renders for DeepTracer, cryo-EM maps to 3D "
-    "protein structures. no byline, and that's fine.",
+    "- **proteins** · undergrad research in UW's DAIS lab: preprocessing, training runs and renders for DeepTracer, "
+    "cryo-EM maps to 3D protein structures. no byline, and that's fine.",
     "- **brains** · four essays, taught to myself in public, optogenetics to connectomics (2022–23). now {trigalign}, "
     "for EEG recordings that dropped a trigger or two.",
     "- **quantum** · {shotfloor}: the score a perfect quantum computer gets from shot noise alone. 8 qubits, uniform "
-    "target, 1,024 shots: 0.92 hellinger fidelity, not 1.",
+    "target, 1,024 shots: about 0.92 hellinger fidelity, not 1.",
     "- **classrooms** · co-founded SkillTern, its CTO (2022–23): computer science for 350+ students, built to run "
     "without me.",
-    "- **street safety** · TurtleShell: K-means over 10,000+ LAPD crime datapoints and an iOS SOS app. Microsoft for "
-    "Startups, then shut down on purpose (oct 2023).",
+    "- **street safety** · TurtleShell: K-means over 10,000+ LAPD crime datapoints and an iOS SOS app in Swift. "
+    "Microsoft for Startups, then shut down on purpose (oct 2023).",
     "- **buildings** · a cabin designer that has to pass the Seattle residential code: rule engine, NSGA-II over "
     "cost, space and comfort, IFC export. runs locally, so no link.",
-    "- **earlier** · H2OAquatics, an autonomous underwater vehicle aimed at ocean acidification; a phishing policy "
-    "paper, runner-up at WatGov (Waterloo, 2023).",
+    "- **earlier** · H2OAquatics, an autonomous underwater vehicle aimed at ocean acidification; a co-written policy "
+    "paper on phishing, runner-up at WatGov (Waterloo, 2023).",
     "- **off the clock** · music. made often, released never.",
 ]
 TOOLS = [
@@ -1357,11 +2622,11 @@ SIDE_AREAS = {"eval harnesses": "LLM eval harnesses & benchmarks", "classroom au
 # them from data/, so CHECKS.md lists each with where it comes from, and the build fails if the page stops showing
 # one. (where on the page, a phrase on that README line, the figure as shown, source)
 QUOTED = (
-    ("README field guide, quantum", "**quantum**", "8 qubits, uniform target, 1,024 shots: 0.92 hellinger fidelity",
+    ("README field guide, quantum", "**quantum**", "8 qubits, uniform target, 1,024 shots: about 0.92 hellinger fidelity",
      "shotfloor README.md, lines 9-20: the example for uniform:8 at 1024 shots prints a hellinger fidelity of 0.9239"),
-    ("README things i made, normladder", "the same answer as", "8 of 14 answer-matching rules",
+    ("things i made shelf and its alt text, normladder", "the same answer as", "8 of 14 answer-matching rules",
      'normladder README.md, line 9: the example for "1,000" against "1000" prints 8 of 14 rules match'),
-    ("README things i made, scoreprobe", "feeds a grader", "4200 against 42",
+    ("things i made shelf and its alt text, scoreprobe", "feeds a grader", "4200 against 42",
      "scoreprobe README.md, lines 4-5: the list of inputs it feeds in"),
     ("README field guide, classrooms", "**classrooms**", "350+ students",
      "his resume, SkillTern entry (a count he reports himself)"),
@@ -1403,69 +2668,57 @@ def proj(name: str, projects: dict) -> str:
     return f"[**{name}**]({url})" if url else f"**{name}**"
 
 
-def field_and_tools(projects: dict) -> list:
-    """The field guide and the tools table: one line per world, one row per package, every name shown once here."""
+def field_guide(projects: dict, cards: list[str]) -> list:
+    """The field guide: four illustrated cards, then one line per world."""
     names = {n: proj(n, projects) for _, items in TOOLS for n, _ in items}
-    out = ["### field guide", "", "one line per world i've wandered into.", ""]
-    out += [line.format(**names) for line in FIELD_GUIDE]
-    out += ["", "### things i made", ""]
-    released = sum(p["status"] == "released" for p in projects.values())
+    out = ["### field guide", ""]
+    for pair in cards:
+        out += [pair, ""]
+    out += ["one line per world i've wandered into.", ""]
+    return out + [line.format(**names) for line in FIELD_GUIDE]
+
+
+def tools(projects: dict, shelf: str) -> list:
+    """The tools as a drawn shelf (shelf is its <picture>); a released package is linked on the line under it."""
+    out = ["### things i made", ""]
+    released = [n for _, items in TOOLS for n, _ in items if projects[n]["status"] == "released"]
     lead = "small python tools, each about one thing that quietly goes wrong."
-    if released == 0:
+    if not released:
         lead += " none is public yet, so no links: each name becomes one the day its repository is."
-    elif released < len(projects):
-        lead += " linked names are out; the rest become links the day their repositories are public."
-    out += [lead, "", "| | | |", "|:--|:--|:--|"]
-    for label, items in TOOLS:
-        for i, (n, line) in enumerate(items):
-            out.append(f"| {label if i == 0 else ''} | {names[n]} | {line} |")
+    elif len(released) < len(projects):
+        lead += (" the linked names under the shelf are out; the rest become links the day their repositories are "
+                 "public.")
+    out += [lead, "", "<p>\n" + shelf + "\n</p>"]
+    if released:
+        out += ["", "out now: " + " · ".join(proj(n, projects) for n in released)]
     return out
 
 
-def strip(m: dict) -> list:
-    """The numbers of the side quest as a table a reader takes in before the sentence; every cell is checked."""
-    o, lag, p, q = dict(m["outcome"]), m["lag"], m["prs"], m["q"]
-    rows = [
-        ("issues filed", m["total"], f"in {plural(m['repos'], 'repository', 'repositories')}, "
-                                     f"{plural(len(m['areas']), 'area')}"),
-        ("fixed by a merged pull request", m["fixed"],
-         f"{o['others']} by other people, {o['own']} by me" if m["fixed"] else "none yet"),
-        ("median hours to a fix", lag["median"] if lag["median"] is not None else "—",
-         f"filed to merged, over {plural(lag['n'], 'fix', 'fixes')} by others" if lag["n"] else "no fix by others yet"),
-        ("pull requests to other people's repositories", p["upstream"],
-         f"{q['prs_merged']} merged, {q['prs_open']} open"),
-    ]
-    return [f"| since {m['start']} | | |", "|:--|--:|:--|", *[f"| {k} | {v} | {note} |" for k, v, note in rows]]
-
-
 def side_quest(m: dict) -> list:
-    o = dict(m["outcome"])
     have = {a["bucket"]: a["issues"] for a in m["areas"]}
     must(all(have.get(v, 0) >= 1 for v in SIDE_AREAS.values()), "the side-quest sentence names an empty area")
     kinds = ", ".join(list(SIDE_AREAS)[:-1]) + " and " + list(SIDE_AREAS)[-1]
-    if m["fixed"]:
-        fixed = (f"{m['fixed']} fixed by a merged pull request so far, {o['others']} of those by other people and "
-                 f"{o['own']} by me.")
-    else:
-        fixed = "none fixed yet."
     lines = len(m["probe"]["source"])
     word = NUMBER_WORDS.get(lines, str(lines))
     return [
         "### grading the graders",
         "",
-        *strip(m),
+        f"{SIDE_ANCHOR} i read the code that decides whether an answer is right ({kinds}) and file what i find.",
         "",
-        f"{SIDE_ANCHOR} i read the code that decides whether an answer is right ({kinds}) and file what i find. "
-        f"since {m['start']}: {plural(m['total'], 'issue')} in "
-        f"{plural(m['repos'], 'repository', 'repositories')}, " + fixed,
+        "{stats}",
+        "",
+        "{constellation}",
         "",
         f"one example, small enough to read: scoreprobe on a {word}-line grader, before and after a one-line fix.",
         "",
-        "<p>\n" + "{probe}" + "\n</p>",
+        CENTER + "\n" + "{probe}" + "\n</p>",
     ]
 
 
-def readme(m: dict, svgs: dict) -> str:
+CENTER = '<p align="center">'   # the 380-wide cards sit centred in the column, under full-width pictures
+
+
+def readme(m: dict, svgs: dict, widgets: dict | None = None) -> str:
     stamp = m["as_of"].replace("T", " ").replace("Z", " utc")
     s, p, q = m["summary"], m["prs"], m["q"]
     o = dict(m["outcome"])
@@ -1500,16 +2753,46 @@ def readme(m: dict, svgs: dict) -> str:
         + ("" if probe.get("url") else "its first public release is pending; ")
         + "with its source, `python3 build.py capture-probe --scoreprobe-src PATH` reruns the panel.",
         unit,
-        "- regenerate: `python3 build.py fetch` reads the api (it needs `GITHUB_TOKEN`), then `python3 build.py` "
-        "renders. same input, same bytes.",
+        "- regenerate (python 3.12 or newer): `python3 build.py fetch` reads the api (it needs `GITHUB_TOKEN`), then "
+        "`python3 build.py` renders. same input, same bytes.",
     ]
+    projects = m["projects"]
+
+    def link(name: str) -> str:
+        url = projects[name].get("url")
+        return f"[{name}]({url})" if url else name
+
+    method += [
+        f"- the brains card is a captured run of {link('trigalign')} on a public EEG excerpt (OpenNeuro ds004621, CC0) "
+        "that ships with it; with its source, `python3 build.py capture-trigalign --trigalign-src PATH` reruns it.",
+        f"- the quantum card is computed, not measured: the curve is {link('shotfloor')}'s closed form E[BC]², a lower "
+        f"bound on the mean hellinger fidelity, and the bars one simulated flawless run (splitmix64, seed "
+        f"{QUANTUM['seed']}).",
+        "- the proteins and music drawings are schematics and say so on the image; the header's and the shelf's "
+        "icons are icons.",
+        "- the constellation, divider and report-to-fix pictures are drawn from the same data as the tables, and every "
+        "number on them is in CHECKS.md.",
+    ]
+    if widgets:
+        method.append("- the 3D graph and the snake are drawn by two GitHub Actions pinned to full commit SHAs, from the "
+                      "public profile calendar; their totals are the calendar's.")
     rest = [k for k in PANELS if k != "probe"]
-    grid = "<p>\n" + "\n".join(picture(k, svgs, m) for k in rest) + "\n</p>"
-    side = [x.replace("{probe}", picture("probe", svgs, m)) for x in side_quest(m)]
+    grid = CENTER + "\n" + "\n".join(picture(k, svgs, m) for k in rest) + "\n</p>"
+    side = [x.replace("{probe}", picture("probe", svgs, m))
+             .replace("{stats}", "<p>\n" + picture_narrow("stats", svgs, m) + "\n</p>")
+             .replace("{constellation}", "<p>\n" + picture_narrow("constellation", svgs, m) + "\n</p>")
+            for x in side_quest(m)]
+    cards = [CENTER + "\n" + picture("proteins", svgs, m) + "\n" + picture("brains", svgs, m) + "\n</p>",
+             CENTER + "\n" + picture("quantum", svgs, m) + "\n" + picture("music", svgs, m) + "\n</p>"]
+    divider = "<p>\n" + picture("divider", svgs, m, "100%") + "\n</p>"
     return "\n".join([
-        *INTRO,
+        "<p>\n" + picture_narrow("header", svgs, m) + "\n</p>",
         "",
-        *side,
+        SITE,
+        "",
+        *INTRO_TEXT,
+        "",
+        *side,                  # numbers first, as the live page had them: the stat tiles, the habit, the probe
         "",
         "<details>",
         f"<summary>{NUMBER_WORDS.get(len(rest), len(rest))} more panels and the one-defect table</summary>",
@@ -1523,12 +2806,21 @@ def readme(m: dict, svgs: dict) -> str:
         "<details>",
         f"<summary>{plural(len(m['fixes']), 'merged pull request')} closed {m['fixed']} of the issues</summary>",
         "",
+        "<p>\n" + picture_narrow("analyzer", svgs, m) + "\n</p>",
+        "",
         *fixes_table(m),
         "",
         "</details>",
         "",
-        *field_and_tools(m["projects"]),
+        divider,
         "",
+        *field_guide(projects, cards),
+        "",
+        divider,
+        "",
+        *tools(projects, picture_narrow("shelf", svgs, m)),
+        "",
+        *widget_section(widgets, m),
         "<details>",
         "<summary>method</summary>",
         "",
@@ -1541,15 +2833,132 @@ def readme(m: dict, svgs: dict) -> str:
     ])
 
 
+# ---------------------------------------------------------------- widgets ----
+# Two pictures are drawn by GitHub Actions in the refresh workflow, not by this file: a contribution snake and a 3D
+# contribution graph, each in a light and a dark file. This build reads them, refuses anything that could run or load
+# something, makes the snake play once, and lists every figure the 3D picture prints as the Action's, not its own.
+# A file that fails those checks is not fatal: the section is left out for that run and the reason is logged, so a
+# bad widget never holds back the day's data.
+SNAKE = ("assets/contrib/snake-light.svg", "assets/contrib/snake-dark.svg")
+CONTRIB_3D = ("profile-3d-contrib/3d-light.svg", "profile-3d-contrib/3d-dark.svg")
+CONTRIB_3D_SOURCE = "GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3"
+WIDGET_MAX = 400_000
+WIDGET_BANNED = {"script", "foreignobject", "image", "use", "a", "iframe"}
+
+
+def patch_snake(svg: str) -> str:
+    """Play once instead of forever, and stop for reduced motion. Patching twice gives the same bytes."""
+    styles = re.findall(r"<style>(.*?)</style>", svg, re.S)
+    must(len(styles) == 1, "snake: expected exactly one <style>")
+    body = styles[0].replace("infinite", "1")
+    if MOTION not in body:
+        body += MOTION
+    return svg.replace(f"<style>{styles[0]}</style>", f"<style>{body}</style>", 1)
+
+
+def check_widget_svg(name: str, svg: str) -> None:
+    """A file an Action drew: well-formed, small, nothing that runs or loads, every animation finite."""
+    must(len(svg.encode("utf-8")) < WIDGET_MAX, f"widget {name}: larger than {WIDGET_MAX} bytes")
+    try:
+        root = ET.fromstring(svg)
+    except ET.ParseError as e:
+        raise SystemExit(f"guard: widget {name} is not well-formed ({e})") from None
+    styles = []
+    for el in root.iter():
+        tag = el.tag.rsplit("}", 1)[-1].lower()
+        must(tag not in WIDGET_BANNED, f"guard: widget {name} has a <{tag}>")
+        if tag == "style":
+            styles.append(el.text or "")
+        for k, v in el.attrib.items():
+            k = k.rsplit("}", 1)[-1].lower()
+            must(not k.startswith("on"), f"guard: widget {name} has an {k} attribute")
+            must(k != "href" or v.startswith("#"), f"guard: widget {name} links to {v!r}")
+            must(not (k == "repeatcount" and v.strip() == "indefinite"), f"guard: widget {name} repeats forever")
+            if k == "style":
+                styles.append(v)
+    css = "\n".join(styles)
+    must("@import" not in css, f"guard: widget {name} imports a stylesheet")
+    must(all(u.startswith("#") for u in re.findall(r"url\(\s*['\"]?([^)'\"]*)", css)), f"guard: widget {name} loads a url")
+    must("infinite" not in css, f"guard: widget {name} animates forever")
+
+
+def widget_figures(svg: str) -> list[str]:
+    """Every <text> in the 3D picture that holds a digit, in document order, with its tooltip when it has one."""
+    out = []
+    for el in ET.fromstring(svg).iter():
+        if el.tag.rsplit("}", 1)[-1] != "text":
+            continue
+        own = clean(el.text or "")
+        tip = " ".join(clean("".join(c.itertext())) for c in el if c.tag.rsplit("}", 1)[-1] == "title")
+        fig = own if not tip or tip == own else f"{own} {tip}".strip()
+        if re.search(r"\d", fig):
+            out.append(fig)
+    return out
+
+
+def read_widgets(root: Path | None) -> dict | None:
+    """The Action-drawn files under root, checked and patched; None when any of the four is absent or fails a check
+    (logged, so the run goes on without the section)."""
+    if root is None:
+        return None
+    rels = (*SNAKE, *CONTRIB_3D)
+    if not all((root / rel).is_file() for rel in rels):
+        return None
+    files = {}
+    for rel in rels:
+        svg = (root / rel).read_text(encoding="utf-8")
+        try:
+            if rel in SNAKE:
+                svg = patch_snake(svg)
+            check_widget_svg(rel, svg)
+        except SystemExit as e:
+            log(f"widgets left out this run: {e}")
+            return None
+        files[rel] = svg
+    if widget_figures(files[CONTRIB_3D[0]]) != widget_figures(files[CONTRIB_3D[1]]):
+        log("widgets left out this run: the light and dark 3D files print different figures")
+        return None
+    return files
+
+
+def widget_picture(pair: tuple[str, str], widgets: dict, text: str) -> str:
+    v = {th: hashlib.sha1(widgets[f].encode()).hexdigest()[:8] for th, f in zip(("light", "dark"), pair)}
+    return ("<p>\n<picture>\n"
+            f'<source media="(prefers-color-scheme: dark)" srcset="{pair[1]}?v={v["dark"]}">\n'
+            f'<source media="(prefers-color-scheme: light)" srcset="{pair[0]}?v={v["light"]}">\n'
+            f'<img alt="{h(text)}" src="{pair[0]}?v={v["light"]}" width="100%">\n'
+            "</picture>\n</p>")
+
+
+def widget_section(widgets: dict | None, m: dict) -> list[str]:
+    if not widgets:
+        return []
+    alt3 = ("A 3D contribution calendar for the past year, drawn by a GitHub Action from the public profile calendar, "
+            "with a radar of commits, issues, pull requests, reviews and repositories and a language chart. On a phone "
+            "it is a picture of the calendar's shape; its small labels are not meant to be read there. Its totals are "
+            "the calendar's own.")
+    alts = "A snake eats the public profile calendar of the past year, once, and leaves the grid as it found it."
+    return [
+        "### commit weather",
+        "",
+        widget_picture(CONTRIB_3D, widgets, alt3),
+        widget_picture(SNAKE, widgets, alts),
+        "",
+        "<sub>drawn daily by two GitHub Actions from the public profile calendar: the shape of the year, not "
+        "numbers to read. the totals in the 3D picture are the calendar's own.</sub>",
+        "",
+    ]
+
+
 # ---------------------------------------------------------------- guards ----
-SVG_TAGS = {"svg", "title", "desc", "style", "rect", "path", "text", "tspan"}
-README_TAGS = {"p": set(), "br": set(), "picture": set(), "source": {"media", "srcset"},
+SVG_TAGS = {"svg", "title", "desc", "style", "rect", "path", "text", "tspan", "g", "circle", "polyline", "polygon", "line"}
+README_TAGS = {"p": {"align"}, "br": set(), "picture": set(), "source": {"media", "srcset"},
                "img": {"alt", "src", "width"}, "table": set(), "tr": set(), "th": {"align", "width"},
                "td": {"width"}, "a": {"href"}, "sub": set(), "wbr": set(), "details": set(), "summary": set()}
-# Links go to GitHub, and to his own site — the one host added by hand, so the page never links anywhere a reader
-# did not expect from a profile.
+# Links go to GitHub and his own site only, so the page never links anywhere a reader did not expect from a profile.
 URL_RE = re.compile(r"https://github\.com/[A-Za-z0-9][A-Za-z0-9._/-]*|https://shauryasingh\.com(?:/[A-Za-z0-9._/-]*)?")
-ASSET_RE = re.compile(r"assets/[a-z]+-(light|dark)\.svg\?v=[0-9a-f]{8}")
+ASSET_RE = re.compile(r"assets/(contrib/)?[a-z]+(-mid|-narrow)?-(light|dark)\.svg\?v=[0-9a-f]{8}"
+                      r"|profile-3d-contrib/3d-(light|dark)\.svg\?v=[0-9a-f]{8}")
 
 
 def check_svg(name: str, svg: str) -> None:
@@ -1562,7 +2971,86 @@ def check_svg(name: str, svg: str) -> None:
         must(tag in SVG_TAGS, f"guard: {name} has a <{tag}>")
         must(not any(a.lower().startswith("on") or "href" in a.lower() for a in el.attrib), f"guard: {name} attribute")
     style = "".join(el.text or "" for el in root.iter() if el.tag.endswith("style"))
+    style += "".join(el.get("style", "") for el in root.iter())
     must("url(" not in style and "@import" not in style, f"guard: {name} style loads something")
+
+
+def css_rules(css: str) -> list[tuple[str, dict]]:
+    """(selector, declarations) for each plain rule; @keyframes and @media blocks are skipped."""
+    rules, i = [], 0
+    while i < len(css):
+        j = css.find("{", i)
+        if j < 0:
+            break
+        sel = css[i:j].strip()
+        depth, k = 1, j + 1
+        while depth:
+            must(k < len(css), "css: unbalanced braces")
+            depth += {"{": 1, "}": -1}.get(css[k], 0)
+            k += 1
+        if not sel.startswith("@"):
+            decls = {}
+            for part in css[j + 1:k - 1].split(";"):
+                if ":" in part:
+                    key, val = part.split(":", 1)
+                    decls[key.strip()] = val.strip()
+            rules.append((sel, decls))
+        i = k
+    return rules
+
+
+def seconds(tok: str) -> float:
+    return float(tok[:-2]) / 1000 if tok.endswith("ms") else float(tok[:-1])
+
+
+def animation(value: str) -> tuple[float, float, float]:
+    """(duration, delay, iteration count) of one animation shorthand."""
+    must("," not in re.sub(r"\([^)]*\)", "", value), f"art: one animation per rule, not {value!r}")
+    toks = re.sub(r"\([^)]*\)", "()", value).split()
+    times = [seconds(x) for x in toks if re.fullmatch(r"-?[\d.]+m?s", x)]
+    counts = [x for x in toks if re.fullmatch(r"[\d.]+|infinite", x)]
+    must(len(times) >= 1 and len(counts) <= 1, f"art: animation {value!r} is not dur [delay] [count]")
+    must(not counts or counts[0] != "infinite", f"art: animation {value!r} never stops")
+    return times[0], times[1] if len(times) > 1 else 0.0, float(counts[0]) if counts else 1.0
+
+
+def check_art(name: str, svg: str) -> None:
+    """check_svg, plus the motion and type rules every illustration keeps."""
+    check_svg(name, svg)
+    root = ET.fromstring(svg)
+    styles = [el.text or "" for el in root.iter() if el.tag.rsplit("}", 1)[-1] == "style"]
+    must(len(styles) == 1, f"art: {name} has {len(styles)} <style> elements")
+    css = styles[0]
+    attrs = " ".join(el.get("style", "") for el in root.iter())
+    must("transform-box" not in css + attrs, f"art: {name} uses transform-box")
+    must("infinite" not in css + attrs and 'repeatCount="indefinite"' not in svg, f"art: {name} animates forever")
+    if "@keyframes" in css:
+        must(css.endswith(MOTION), f"art: {name} has keyframes but does not end with the reduced-motion rule")
+    for size in re.findall(r"font-size:\s*([\d.]+)", css + attrs):
+        must(float(size) >= 12, f"art: {name} has {size}-unit text")
+    for fam in re.findall(r"font-family:([^;}]+)", css + attrs):
+        must(fam.strip() in (FONT, SANS), f"art: {name} uses font-family {fam.strip()!r}")
+    timed = {}
+    for sel, decls in css_rules(css):
+        for k, v in decls.items():
+            must(k in ("animation", "transform", "opacity") or not k.startswith("animation"),
+                 f"art: {name} sets {k}; use the animation shorthand")
+            if k == "animation":
+                dur, dly, count = animation(v)
+                must(count <= 5, f"art: {name} {sel} runs {count:g} times")
+                must(dly + dur * count <= MAX_ANIM + EPS, f"art: {name} {sel} runs past {MAX_ANIM:g} s")
+                must(re.fullmatch(r"\.[\w-]+", sel) is not None, f"art: {name} animates {sel!r}; use one class")
+                timed[sel[1:]] = (dur, count)
+    for el in root.iter():
+        st = el.get("style")
+        if not st:
+            continue
+        mo = re.fullmatch(r"animation-delay:(-?[\d.]+s)", st)
+        must(mo is not None, f"art: {name} has an inline style other than a delay: {st!r}")
+        runs = [timed[c] for c in el.get("class", "").split() if c in timed]
+        must(len(runs) == 1, f"art: {name} has a delay on an element with no single animated class")
+        dur, count = runs[0]
+        must(seconds(mo.group(1)) + dur * count <= MAX_ANIM + EPS, f"art: {name} element runs past {MAX_ANIM:g} s")
 
 
 class _Tags(HTMLParser):
@@ -1591,6 +3079,10 @@ def check_readme(text: str) -> None:
                 must(ASSET_RE.fullmatch(v or "") is not None, f"guard: image source {v!r}")
             if k == "width":
                 must(re.fullmatch(r"\d+%?", v or "") is not None, f"guard: width {v!r}")
+            if k == "align" and tag == "p":
+                must(v == "center", f"guard: <p align={v!r}>")
+            if k == "media":
+                must(v in MEDIA, f"guard: <source media={v!r}> is not one of the allowed queries")
     for target in re.findall(r"(?<!\\)\]\(([^)]*)\)", text):   # an escaped \] opens no link
         must(URL_RE.fullmatch(target) is not None, f"guard: markdown link to {target!r}")
     head = None
@@ -1609,7 +3101,137 @@ def svg_text(svg: str) -> str:
     return "\n".join("".join(el.itertext()) for el in root.iter() if el.tag.rsplit("}", 1)[-1] in ("text", "desc"))
 
 
-def checks(m: dict, svgs: dict, text: str) -> str:
+def drawn_text(svg: str) -> str:
+    """The words a picture draws, its <text> lines joined by spaces (a wrapped sentence reads as one)."""
+    root = ET.fromstring(svg)
+    return " ".join("".join(el.itertext()) for el in root.iter() if el.tag.rsplit("}", 1)[-1] == "text")
+
+
+def art_checks(m: dict) -> list[tuple[str, str, str, str, list[str]]]:
+    """(where, what, value as shown, field or formula, pictures to find it in) for every number the illustrations
+    print or describe. The value is looked up in each picture's text and description, light and dark."""
+    o, pf, q, b = dict(m["outcome"]), m["protein"], m["quantum"], m["brains"]
+    rows = []
+
+    def add(where, what, value, field, keys):
+        rows.append((where, what, str(value), field, keys))
+
+    me = who()
+    add("header", "class year", me["year"], "WHO.year", ["header", "header-mid", "header-narrow"])
+    k = len(HEADER_STOPS)
+    add("header", "stops (desc)", f"{NUMBER_WORDS.get(k, k)} stops", "len(HEADER_STOPS)",
+        ["header", "header-mid", "header-narrow"])
+    card = ["proteins"]
+    add("proteins card", "residues per turn", f"{pf['per_turn']} residues/turn", "360 / PROTEIN.deg", card)
+    add("proteins card", "rise", f"{pf['rise']} Å rise", "PROTEIN.rise", card)
+    add("proteins card", "strand step", f"{pf['step']} Å strand step", "PROTEIN.strand_step", card)
+    add("proteins card", "scale bar", f"{pf['bar']} Å", "constant", card)
+    add("proteins card", "residues (desc)", f"{pf['residues']}-residue", "len(backbone())", card)
+    add("proteins card", "helix length (desc)", f"helix of {PROTEIN['helix']} residues", "PROTEIN.helix", card)
+    card = ["brains"]
+    add("brains card", "events paired", f"{b['n_paired']} of {b['n_events']}",
+        "trigalign.json logs[0].n_paired, logs[0].n_events", card)
+    if b["miss"]:
+        add("brains card", "lost trigger, expected", f"{b['expected']} s", "logs[0].unmatched[0].expected_trigger_time", card)
+        add("brains card", "lost event, log time (desc)", f"{b['log_time']} s", "logs[0].unmatched[0].time", card)
+    add("brains card", "triggers lost", f"{NUMBER_WORDS.get(b['lost'], b['lost'])} trigger",
+        "logs[0].n_events - logs[0].n_paired", card)
+    if b["orphans"]:
+        k = len(b["orphans"])
+        add("brains card", "triggers with no log event", f"{k} extra trigger", "len(trigalign.json unpaired_triggers)",
+            card)
+    add("brains card", "residual sd", f"sd {b['sd']} ms", "logs[0].segments[0].residual_sd_ms (recomputed from pairs)", card)
+    add("brains card", "residual max", f"max {b['mx']}", "logs[0].segments[0].residual_max_ms (recomputed from pairs)", card)
+    add("brains card", "drift", f"{b['drift']} ppm", "logs[0].segments[0].drift_ppm", card)
+    add("brains card", "offset (desc)", f"{b['offset']} s", "logs[0].segments[0].offset_s", card)
+    add("brains card", "residual axis", f"±{b['axis']} ms", "ceil(residual_max_ms × 10) / 10", card)
+    card, S = ["quantum"], q["shots"]
+    add("quantum card", f"E[BC]² at {S:,} shots, a lower bound on mean fidelity", f"{q['F'][S]:.4f}",
+        f"fidelity_floor({S}) = (√(K/s)·Σ pmf(k;s,1/K)√k)², K={q['K']}", card)
+    add("quantum card", "as the field guide prints it", f"{q['F'][S]:.2f} at {S:,}", f"round(fidelity_floor({S}), 2)", card)
+    add("quantum card", "shots for 0.95, by the E[BC]² bound", f"0.95 needs {q['s95']:,}", "shots_for(0.95), bisection",
+        card)
+    for f in q["frames"]:
+        add("quantum card", f"E[BC]², frame {f:,}", f"E[BC]² {q['F'][f]:.4f}", f"fidelity_floor({f})", card)
+    add("quantum card", "this simulated run", f"this simulated run {q['run']:.4f}",
+        f"BC² of splitmix64({q['seed']}) counts, {S:,} shots, top {q['K'].bit_length() - 1} bits", card)
+    add("quantum card", "empty outcomes (desc)", f"{q['empty']} outcomes empty", "counts.count(0)", card)
+    add("quantum card", "outcomes", f"{q['K']} outcomes", "QUANTUM.K = 2^8, 8 qubits, uniform", card)
+    add("quantum card", "ideal count per outcome (desc)", f"ideal of {n(S / q['K'])} each", "QUANTUM.shots / QUANTUM.K",
+        card)
+    add("quantum card", "bar clip (desc)", f"clipped at {q['clip']} times the ideal", "QUANTUM.clip", card)
+    for f in q["frames"][:-1]:
+        add("quantum card", f"frame {f:,}", f"{f:,} shots so far", "QUANTUM.frames", card)
+    add("quantum card", "seed", f"seed {q['seed']}", "QUANTUM.seed", card)
+    add("quantum card", "asymptote", "1.0", "fidelity_floor(s) tends to 1 as s grows", card)
+    add("quantum card", "axis ends", f"{q['axis'][0]:,}", "QUANTUM.axis[0]", card)
+    add("quantum card", "axis ends", f"{q['axis'][1]:,}", "QUANTUM.axis[1]", card)
+    card = ["shelf", "shelf-mid", "shelf-narrow"]
+    count = sum(len(items) for _, items in TOOLS)
+    add("things i made shelf", "tools (desc)", f"{count} small python tools", "len of every TOOLS group", card)
+    add("things i made shelf", "headings (desc)", f"{NUMBER_WORDS.get(len(TOOLS), len(TOOLS))} headings", "len(TOOLS)",
+        card)
+    card, w = ["stats", "stats-mid", "stats-narrow"], "side-quest stat tiles, all three widths"
+    sq, sp, slag = m["q"], m["prs"], m["lag"]
+    add(w, "since", f"since {m['start']}", "issues.first_created_at", card)
+    add(w, "issues filed", f"{m['total']} issues filed", "issues.total", card)
+    add(w, "repositories", f"{m['repos']} repos", "issues.distinct_repos", card)
+    add(w, "areas", plural(len(m["areas"]), "area"), "len(ecosystems)", card)
+    add(w, "fixed", f"{m['fixed']} fixed", "fixed (others + own)", card)
+    if m["fixed"]:
+        add(w, "fixed by others, by me", f"{o['others']} by others, {o['own']} by me",
+            "outcomes.fixed_by_merged_pr_from_someone_else, outcomes.fixed_by_his_own_merged_pr", card)
+    if slag["n"]:
+        add(w, "median hours to a fix", f"median {slag['median']} hours", "fix_lag_hours_filed_to_merge.median", card)
+        add(w, "fixes by others with hours", f"{plural(slag['n'], 'fix', 'fixes')} by others",
+            "fix_lag_hours_filed_to_merge.n", card)
+    add(w, "PRs upstream", f"{plural(sp['upstream'], 'pull request')} to other", "prs.upstream", card)
+    add(w, "PRs merged, open", f"{sq['prs_merged']} merged, {sq['prs_open']} open", "queries.prs_merged, queries.prs_open",
+        card)
+    card = ["divider"]
+    add("divider", "dots (desc)", f"{m['total']} dots", "issues.total", card)
+    add("divider", "lit (desc)", f"the {m['fixed']} fixed", "fixed (others + own)", card)
+    card, w = ["constellation", "constellation-mid", "constellation-narrow"], "constellation, all three widths"
+    add(w, "stars", m["total"], "issues.total", card)
+    add(w, "lit", f"fixed by a merged PR: {m['fixed']}", "fixed (others + own)", card)
+    add(w, "fixed by others", f"fixed by others {o['others']}", "outcomes.fixed_by_merged_pr_from_someone_else", card)
+    add(w, "fixed by me", f"fixed by me {o['own']}", "outcomes.fixed_by_his_own_merged_pr", card)
+    add(w, "closed, no fix", f"closed, no fix {o['nofix']}",
+        "outcomes.closed_not_planned + outcomes.closed_completed_without_a_fix_merged", card)
+    add(w, "open", f"open {o['open']}", "outcomes.open", card)
+    add(w, "repositories", plural(m["repos"], "repository", "repositories"), "issues.distinct_repos", card)
+    add(w, "areas", plural(len(m["areas"]), "area"), "len(ecosystems)", card)
+    for i, (area, stars) in enumerate(m["stars"]):
+        add(w, STAR_LABELS[area], f"{STAR_LABELS[area]} {len(stars)}", f"ecosystems[{i}].issues", card)
+    card, w = ["analyzer", "analyzer-mid", "analyzer-narrow"], "analyzer, all three widths"
+    add(w, "filed", f"{m['total']} filed", "issues.total", card)
+    add(w, "fixed", f"{m['fixed']} fixed", "fixed (others + own)", card)
+    if m["lag"]["median"] is not None:
+        add(w, "median wait", f"median {m['lag']['median']} h",
+            "fix_lag_hours_filed_to_merge.median, re-derived from created_at to merged_at", card)
+    for r in m["fixrows"]:
+        add(w, f"{r['label']} (desc)", f"{r['label']} {r['hours']:.1f} h",
+            "issues.json created_at to the fix's merged_at; equals the fixes table", card)
+    per = {"day": "issues.daily_utc[day]", "week": "issues.daily_utc, summed per week",
+           "month": "issues.monthly[month]"}[m["unit"]]
+    for x in m["bins"]:
+        add("analyzer (desc)", f"filed, {x['desc']}", f"{x['desc']} {x['filed']}", per, card)
+    add(w, "as of", m["as_of"][5:16].replace("T", " "), "as_of", card)
+    return rows
+
+
+def art_quoted(m: dict) -> list[tuple[str, tuple[str, ...], str, list[str]]]:
+    """Figures the pictures quote rather than compute: (where, the figure's parts, source, pictures)."""
+    out = [("header", GREP, "his personal site, sessions log", ["header", "header-mid", "header-narrow"]),
+           ("music card", ("$ ls ~/music/released/", "(empty)"), "his personal site, sessions log", ["music"]),
+           ("brains card", ("OpenNeuro ds004621 (CC0)",), "trigalign tests/data/NOTICE", ["brains"])]
+    if m["brains"]["paused"]:
+        out.append(("brains card", ("(the recording paused)",),
+                    'trigalign README example output: "on a New Segment marker"', ["brains"]))
+    return out
+
+
+def checks(m: dict, svgs: dict, text: str, widgets: dict | None = None) -> str:
     """Every computed number on the page with the field it is read from. Each value is looked up in the output
     it names (on the line that holds its anchor, when it has one), so this list cannot drift."""
     rows: list[tuple[str, str, str, str, str, str]] = []
@@ -1692,36 +3314,6 @@ def checks(m: dict, svgs: dict, text: str) -> str:
         "fixes_by_others_summary.distinct_pr_authors", fix_line)
     add("README method", "repositories put in areas", f"{m['repos']} repositories", "issues.distinct_repos", "- areas:")
     add("README method", "areas", plural(len(m["areas"]), "area"), "len(ecosystems)", "- areas:")
-    st = "| since "
-    add("README strip", "since", f"| since {m['start']} |", "issues.first_created_at", st)
-    add("README strip", "issues filed", f"| {m['total']} |", "issues.total", "| issues filed |")
-    add("README strip", "repositories", "in " + plural(m["repos"], "repository", "repositories"),
-        "issues.distinct_repos", "| issues filed |")
-    add("README strip", "areas", plural(len(m["areas"]), "area"), "len(ecosystems)", "| issues filed |")
-    add("README strip", "fixed", f"| {m['fixed']} |", fixed_f, "| fixed by a merged pull request |")
-    if m["fixed"]:
-        add("README strip", "fixed by others", f"{o['others']} by other people",
-            "outcomes.fixed_by_merged_pr_from_someone_else", "| fixed by a merged pull request |")
-        add("README strip", "fixed by own PR", f"{o['own']} by me", "outcomes.fixed_by_his_own_merged_pr",
-            "| fixed by a merged pull request |")
-    if m["lag"]["n"]:
-        add("README strip", "median hours", f"| {m['lag']['median']} |", "fix_lag_hours_filed_to_merge.median",
-            "| median hours to a fix |")
-        add("README strip", "fixes by others with hours", plural(m["lag"]["n"], "fix", "fixes"),
-            "fix_lag_hours_filed_to_merge.n", "| median hours to a fix |")
-    add("README strip", "PRs upstream", f"| {p['upstream']} |", "prs.upstream", "| pull requests to other people")
-    add("README strip", "PRs merged", f"{q['prs_merged']} merged", "queries.prs_merged", "| pull requests to other people")
-    add("README strip", "PRs open", f"{q['prs_open']} open", "queries.prs_open", "| pull requests to other people")
-    sq = SIDE_ANCHOR
-    add("README side quest", "since", f"since {m['start']}:", "issues.first_created_at", sq)
-    add("README side quest", "issues filed", plural(m["total"], "issue") + " in", "issues.total", sq)
-    add("README side quest", "repositories", "in " + plural(m["repos"], "repository", "repositories"),
-        "issues.distinct_repos", sq)
-    if m["fixed"]:
-        add("README side quest", "fixed", f"{m['fixed']} fixed by a merged", fixed_f, sq)
-        add("README side quest", "fixed by others", f"{o['others']} of those by other people",
-            "outcomes.fixed_by_merged_pr_from_someone_else", sq)
-        add("README side quest", "fixed by own PR", f"and {o['own']} by me", "outcomes.fixed_by_his_own_merged_pr", sq)
     # three counts the build derives and writes as words: the fold's summary and the example's grader length
     n_fold = len([k for k in PANELS if k != "probe"])
     n_src = len(m["probe"]["source"])
@@ -1733,6 +3325,7 @@ def checks(m: dict, svgs: dict, text: str) -> str:
     add("README side quest", "lines in the example grader", f"{NUMBER_WORDS.get(n_src, n_src)}-line grader",
         "len(probe.json source)", "one example, small enough")
     add("README method and footer", "as of", m["as_of"].replace("T", " ").replace("Z", " utc"), "as_of (from fetch.json)")
+    add("README method", "trigalign capture", "ds004621", "trigalign.json source", "- the brains card is")
 
     hay = {"README.md": text, **{f"{k} panel": svg_text(svgs[(k, "light")]) for k in PANELS}}
     for where, what, value, field, anchor, needle in rows:
@@ -1746,6 +3339,25 @@ def checks(m: dict, svgs: dict, text: str) -> str:
     for where, anchor, figure, _ in QUOTED:
         lines = [ln for ln in text.splitlines() if anchor in ln]
         must(len(lines) >= 1 and figure in lines[0], f"checks: quoted {figure!r} is not on the line with {anchor!r} ({where})")
+        if any(anchor in d for _, items in TOOLS for _, d in items):     # drawn on the shelf too, at every width
+            for size in ("shelf", "shelf-mid", "shelf-narrow"):
+                for th in THEMES:
+                    must(figure in drawn_text(svgs[(size, th)]), f"checks: quoted {figure!r} is not drawn on {size}-{th}")
+    art_rows = art_checks(m)
+    for where, what, value, field, keys in art_rows:
+        for k in keys:
+            for th in THEMES:
+                must(value in svg_text(svgs[(k, th)]), f"checks: {what!r} = {value!r} is not in {k}-{th}.svg")
+        must("`" not in field, "checks: a field name holds a backtick")
+    quoted = art_quoted(m)
+    for where, parts, _, keys in quoted:
+        for k in keys:
+            for part in parts:
+                must(part in svg_text(svgs[(k, "light")]), f"checks: quoted {part!r} is not in {k}")
+    q = m["quantum"]
+    guide = next(ln for ln in FIELD_GUIDE if ln.startswith("- **quantum**"))
+    must(f"{q['shots']:,} shots: about {q['F'][q['shots']]:.2f} hellinger fidelity" in guide,
+         "checks: the field guide's quantum figure is not fidelity_floor rounded to two places")
     out = ["# checks", "",
            "Every number this build computes from data/ and the field it is read from (data/stats.json unless another "
            "file is named).",
@@ -1755,6 +3367,8 @@ def checks(m: dict, svgs: dict, text: str) -> str:
            "", "| where | what | value as shown | field |", "|:--|:--|:--|:--|"]
     for where, what, value, field, _, _ in rows:
         out.append(f"| {md(where)} | {md(what)} | {md(value)} | `{field}` |")
+    for where, what, value, field, _ in art_rows:
+        out.append(f"| {md(where)} | {md(what)} | {md(value)} | `{field}` |")
     out += ["", "## quoted, not computed", "",
             "The prose also quotes a few figures from outside data/: the packages' own READMEs, the owner's resume and "
             "his personal site. This build cannot recompute them. It checks that each is still on the page, on the "
@@ -1762,6 +3376,23 @@ def checks(m: dict, svgs: dict, text: str) -> str:
             "", "| where | figure as shown | source |", "|:--|:--|:--|"]
     for where, _, figure, source in QUOTED:
         out.append(f"| {md(where)} | {md(figure)} | {md(source)} |")
+    out += ["", "## quoted, not computed (images)", "",
+            "Text the pictures quote rather than compute. Each is checked to be on the picture it names.",
+            "", "| where | figure as shown | source |", "|:--|:--|:--|"]
+    for where, parts, source, _ in quoted:
+        out.append(f"| {md(where)} | {md(' / '.join(parts))} | {md(source)} |")
+    out += ["", "## drawn by an Action, not recomputed", ""]
+    if widgets:
+        out += [f"Every figure printed in {CONTRIB_3D[0]}, in the order the file has them ({CONTRIB_3D[1]} prints the "
+                "same ones). They are GitHub's numbers for the public profile calendar, which counts things the side "
+                "quest does not (for example contributions to his own organisations), so they are not expected to "
+                "match the table above. The last one is the window the calendar covers, as printed in the file.",
+                "", "| figure as printed | source |", "|:--|:--|"]
+        for fig in widget_figures(widgets[CONTRIB_3D[0]]):
+            out.append(f"| {md(fig)} | {md(CONTRIB_3D_SOURCE)} |")
+    else:
+        out.append("widgets: not generated yet. The refresh workflow draws them; until it has, the page leaves the "
+                   "commit-weather section out.")
     return "\n".join(out) + "\n"
 
 
@@ -1798,40 +3429,114 @@ def capture_probe(src: str, status: str, url: str | None, out: Path) -> None:
 
 
 # ------------------------------------------------------------------ main ----
-def render(data: Path, out: Path) -> None:
-    m = derive(read(data / "stats.json"), read(data / "issues.json"), read(data / "notes.json"),
-               read(data / "probe.json"))
+def model(data: Path) -> dict:
+    """Everything the page draws, checked: derive() plus the facts behind each illustration."""
+    issues = read(data / "issues.json")
+    m = derive(read(data / "stats.json"), issues, read(data / "notes.json"), read(data / "probe.json"))
     m["projects"] = check_projects(read(data / "projects.json"), m["login"], m["probe"])
     for x in m["by_rule"]:
         log(f"areas: {x['repo']} is placed by rule in {x['area']!r}; add it to data/areas.json")
+    m["spans"] = bins_for(m["start"], m["end"])[1]
+    m["created"] = sorted(i["created_at"] for i in issues)
+    m["area_of"] = area_map(issues, read(data / "areas.json"))
+    m["stars"] = star_rows(m, issues)
+    m["fixrows"] = fix_rows(m, issues)
+    m["protein"] = protein_facts()
+    m["quantum"] = quantum_facts()
+    m["brains"] = brains_facts(check_trigalign(read(data / "trigalign.json")))
+    return m
+
+
+def render(data: Path, out: Path, widgets_root: Path | None = None) -> None:
+    m = model(data)
     svgs = {(name, th): PANEL_FN[name](m, THEMES[th]) for name in PANELS for th in THEMES}
     for (name, th), svg in svgs.items():
         check_svg(f"{name}-{th}.svg", svg)
-    text = readme(m, svgs)
+    art = render_art(m)
+    for (name, th), svg in art.items():
+        check_art(f"{name}-{th}.svg", svg)
+    svgs.update(art)
+    widgets = read_widgets(widgets_root)
+    text = readme(m, svgs, widgets)
     check_readme(text)
-    ledger = checks(m, svgs, text)  # everything is rendered and checked before anything is written
+    ledger = checks(m, svgs, text, widgets)  # everything is rendered and checked before anything is written
     (out / "assets").mkdir(parents=True, exist_ok=True)
     for (name, th), svg in svgs.items():
         write_if_changed(out / "assets" / f"{name}-{th}.svg", svg)
+    for rel, svg in (widgets or {}).items():
+        write_if_changed(out / rel, svg)
     write_if_changed(out / "README.md", text)
     write_if_changed(out / "CHECKS.md", ledger)
-    print(f"wrote {len(svgs)} svg, README.md and CHECKS.md to {out}")
+    extra = f", {len(widgets)} widget files" if widgets else ", no widget files"
+    print(f"wrote {len(svgs)} svg{extra}, README.md and CHECKS.md to {out}")
+
+
+# ------------------------------------------------------- trigalign capture ----
+TRIG_EXAMPLE = ("tests/data/nencki/sub-24_task-oddball_block2_eeg.vmrk", "tests/data/nencki/sub-24_task-oddball_log_2.log")
+TRIG_WHERE = "Event Type=Picture,Response"
+
+
+def capture_trigalign(src: str, out: Path) -> None:
+    """Run trigalign's README example from its source tree and keep the fields the brains card draws."""
+    root = Path(src)
+    sys.path.insert(0, str(root / "src"))
+    sys.path.insert(0, str(root))
+    import trigalign  # noqa: E402  (imported only here, from the path given)
+    from trigalign import cli  # noqa: E402
+    import contextlib
+    import io
+
+    argv = [str(root / TRIG_EXAMPLE[0]), str(root / TRIG_EXAMPLE[1]), "--log-where", TRIG_WHERE]
+    buf_json, buf_text = io.StringIO(), io.StringIO()
+    with contextlib.redirect_stdout(buf_json):
+        status = cli.main(argv + ["--json"])
+    with contextlib.redirect_stdout(buf_text):
+        cli.main(argv)
+    rep = json.loads(buf_json.getvalue())
+    markers = {int(mo.group(1)): mo.group(2) for mo in re.finditer(r"#(\d+) .*?, on an? (.+?) marker", buf_text.getvalue())}
+    log0 = rep["logs"][0]
+    doc = dict(
+        source=(f"trigalign {trigalign.__version__}, captured run of the README example on tests/data/nencki (excerpt "
+                f"of OpenNeuro ds004621 v1.0.4, CC0): trigalign {Path(TRIG_EXAMPLE[0]).name} {Path(TRIG_EXAMPLE[1]).name} "
+                f"--log-where '{TRIG_WHERE}'"),
+        exit_status=status,
+        triggers=dict(n=rep["triggers"]["n"], paired=rep["triggers"]["paired"]),
+        unpaired_triggers=[dict(time=u["time"], code=u["code"]) for u in rep["unpaired_triggers"]],
+        logs=[dict(
+            n_events=log0["n_events"], n_paired=log0["n_paired"],
+            segments=[{k: sg[k] for k in ("offset_s", "drift_ppm", "residual_sd_ms", "residual_max_ms", "n_pairs")}
+                      for sg in log0["segments"]],
+            unmatched=[dict({k: u[k] for k in ("event", "time", "status", "expected_trigger_time")},
+                            **({"on_marker": markers[u["event"]]} if u["event"] in markers else {}))
+                       for u in log0["unmatched"]],
+            pairs=[{k: pr[k] for k in ("event", "time", "trigger_time", "residual_ms")} for pr in log0["pairs"]],
+        )],
+    )
+    check_trigalign(doc)
+    out.write_text(dump(doc), encoding="utf-8", newline="\n")
+    print(f"wrote {out}: {log0['n_paired']} of {log0['n_events']} events paired")
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=inspect.cleandoc(__doc__).splitlines()[0])
-    ap.add_argument("cmd", nargs="?", default="build", choices=["build", "fetch", "stats", "capture-probe"])
+    ap.add_argument("cmd", nargs="?", default="build",
+                    choices=["build", "fetch", "stats", "capture-probe", "capture-trigalign"])
     ap.add_argument("--data", default=str(HERE / "data"), help="data directory")
     ap.add_argument("--out", default=str(HERE), help="render: output directory")
     ap.add_argument("--scoreprobe-src", help="capture-probe: directory that holds the scoreprobe package")
     ap.add_argument("--status", default=PROBE_PENDING, help="capture-probe: status line for the panel")
     ap.add_argument("--url", help="capture-probe: the scoreprobe repository, once it is public")
+    ap.add_argument("--trigalign-src", help="capture-trigalign: a trigalign source tree (with tests/data)")
+    ap.add_argument("--widgets", default=str(HERE), help="render: where the Action-drawn files are read from")
     a = ap.parse_args()
     data = Path(a.data)
     try:
         if a.cmd == "capture-probe":
             must(bool(a.scoreprobe_src), "capture-probe needs --scoreprobe-src")
             capture_probe(a.scoreprobe_src, a.status, a.url, data / "probe.json")
+        elif a.cmd == "capture-trigalign":
+            must(bool(a.trigalign_src), "capture-trigalign needs --trigalign-src")
+            capture_trigalign(a.trigalign_src, data / "trigalign.json")
         elif a.cmd == "fetch":
             try:
                 fetch(data, Client(os.environ.get("GITHUB_TOKEN", "")), dt.datetime.now(dt.timezone.utc))
@@ -1845,7 +3550,7 @@ def main() -> int:
             run_stats(data)
             print(f"wrote {data / 'stats.json'}")
         else:
-            render(data, Path(a.out))
+            render(data, Path(a.out), Path(a.widgets))
     except ApiError as e:
         raise SystemExit(f"fetch: {e}; nothing written") from None
     return 0

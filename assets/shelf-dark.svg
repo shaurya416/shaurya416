@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 630" width="830" height="630" role="img" aria-labelledby="t d">
+<title id="t">things i made</title>
+<desc id="d">10 small python tools as cards on a shelf, each with an icon, under three headings. tests and repos: tolwatch, pytest plugin: flags allclose, isclose and approx checks that can&#x27;t fail, or are far looser than they need to be; ziptrace, names the zip() and map() calls that silently dropped data to a length mismatch; unadded, finds the untracked or gitignored files a passing test run quietly depends on, before CI does; whymodified, git status says modified and nothing changed: says why, and the one command that clears it. science data: shotfloor, the score a flawless quantum computer gets at a given shot count, and the shots it needs to reach a target; trigalign, pairs a stimulus log with an EEG trigger list when triggers dropped, doubled, or the clocks drifted. grading code: scoreprobe, feeds a grader the inputs known to slip through (a blank answer, &quot;not Paris&quot; against &quot;Paris&quot;, 4200 against 42) and reports which earned credit; normladder, is &quot;1,000&quot; the same answer as &quot;1000&quot;? 8 of 14 answer-matching rules from lm-eval, HELM and SQuAD say yes; it shows which, and why; mcqlint, lints multiple-choice eval sets: keys that name no option, duplicate options, leaked answers, position bias; tabverify, recomputes the averages, deltas and bold in results tables at the printed precision, and flags what no rounding explains.</desc>
+<style>text{font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;font-size:12px;fill:#f0f6fc}.m{fill:#9198a1}.a{fill:#3987e5}.b{font-size:26px}.e{text-anchor:end}.c{text-anchor:middle}.w{fill:#db6d28}.nm{font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;font-weight:700}.s13{font-size:13px}.s14{font-size:14px}.s16{font-size:16px}.s22{font-size:22px}.s30{font-size:30px}.s40{font-size:40px}.s52{font-size:52px}.cd{animation:rise .5s ease-out both}@keyframes rise{from{opacity:0;transform:translateY(6px)}}@media (prefers-reduced-motion: reduce){*{animation:none!important}}</style>
+<text class="m s13" x="16" y="18">tests and repos</text>
+<path d="M146.9 13.5H816" stroke="#3d444d" fill="none"/>
+<g class="cd" style="animation-delay:0.15s">
+<rect x="14.5" y="32.5" width="394" height="99" rx="6" fill="#0d1117" stroke="#3d444d"/>
+<g transform="translate(40 56)"><path fill="none" stroke="#f0f6fc" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M-10 -7H10M-10 7H10"/><path fill="none" stroke="#3987e5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 2" d="M-10 -2H10M-10 2H10"/><circle cx="0" cy="0" r="1.6" fill="#3987e5"/></g>
+<text class="nm s16" x="62" y="61">tolwatch</text>
+<text x="28" y="88">pytest plugin: flags <tspan class="a">allclose</tspan>, <tspan class="a">isclose</tspan> and <tspan class="a">approx</tspan></text>
+<text x="28" y="104">checks that can't fail, or are far looser than</text>
+<text x="28" y="120">they need to be</text>
+</g>
+<g class="cd" style="animation-delay:0.27s">
+<rect x="421.5" y="32.5" width="394" height="99" rx="6" fill="#0d1117" stroke="#3d444d"/>
+<g transform="translate(447 56)"><path fill="none" stroke="#f0f6fc" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M-2 -11V11M2 -11V11M-6 -8h4M-6 -3h4M-6 2h4M-6 7h4M2 -5.5h4M2 -0.5h4"/><path fill="none" stroke="#3987e5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M3 5l4 4m0-4l-4 4"/></g>
+<text class="nm s16" x="469" y="61">ziptrace</text>
+<text x="435" y="88">names the <tspan class="a">zip()</tspan> and <tspan class="a">map()</tspan> calls that silently</text>
+<text x="435" y="104">dropped data to a length mismatch</text>
+</g>
+<g class="cd" style="animation-delay:0.39s">
+<rect x="14.5" y="144.5" width="394" height="83" rx="6" fill="#0d1117" stroke="#3d444d"/>
+<g transform="translate(40 168)"><path fill="none" stroke="#f0f6fc" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 2.2" d="M-7 -10H3L8 -5V10H-7Z"/><path fill="none" stroke="#3987e5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M-2 -1a2.6 2.6 0 1 1 3 2.5V4M1 7.4v.2"/></g>
+<text class="nm s16" x="62" y="173">unadded</text>
+<text x="28" y="200">finds the untracked or gitignored files a passing</text>
+<text x="28" y="216">test run quietly depends on, before CI does</text>
+</g>
+<g class="cd" style="animation-delay:0.51s">
+<rect x="421.5" y="144.5" width="394" height="83" rx="6" fill="#0d1117" stroke="#3d444d"/>
+<g transform="translate(447 168)"><path fill="none" stroke="#f0f6fc" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M-7 -10H3L8 -5V10H-7Z"/><path fill="none" stroke="#f0f6fc" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M-3 -1h7M-3 4h7"/><circle cx="6" cy="-8" r="3.2" fill="#db6d28" stroke="#0d1117" stroke-width="1"/></g>
+<text class="nm s16" x="469" y="173">whymodified</text>
+<text x="435" y="200"><tspan class="a">git status</tspan> says modified and nothing changed:</text>
+<text x="435" y="216">says why, and the one command that clears it</text>
+</g>
+<text class="m s13" x="16" y="258">science data</text>
+<path d="M122.72 253.5H816" stroke="#3d444d" fill="none"/>
+<g class="cd" style="animation-delay:0.63s">
+<rect x="14.5" y="272.5" width="394" height="99" rx="6" fill="#0d1117" stroke="#3d444d"/>
+<g transform="translate(40 296)"><path fill="none" stroke="#f0f6fc" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M-9.0 10v-9M-5.4 10v-14M-1.8 10v-6M1.8 10v-12M5.4 10v-16M9.0 10v-8"/><path fill="none" stroke="#3987e5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2.4 2" d="M-11 -1H11"/></g>
+<text class="nm s16" x="62" y="301">shotfloor</text>
+<text x="28" y="328">the score a flawless quantum computer gets at a</text>
+<text x="28" y="344">given shot count, and the shots it needs to reach</text>
+<text x="28" y="360">a target</text>
+</g>
+<g class="cd" style="animation-delay:0.75s">
+<rect x="421.5" y="272.5" width="394" height="99" rx="6" fill="#0d1117" stroke="#3d444d"/>
+<g transform="translate(447 296)"><path fill="none" stroke="#f0f6fc" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M-11 -8H11M-11 8H11"/><path fill="none" stroke="#3987e5" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" d="M-8 -8L-6 8M-3 -8L-1 8M2 -8L4 8M7 -8L9 8"/></g>
+<text class="nm s16" x="469" y="301">trigalign</text>
+<text x="435" y="328">pairs a stimulus log with an EEG trigger list</text>
+<text x="435" y="344">when triggers dropped, doubled, or the clocks</text>
+<text x="435" y="360">drifted</text>
+</g>
+<text class="m s13" x="16" y="402">grading code</text>
+<path d="M122.72 397.5H816" stroke="#3d444d" fill="none"/>
+<g class="cd" style="animation-delay:0.87s">
+<rect x="14.5" y="416.5" width="394" height="99" rx="6" fill="#0d1117" stroke="#3d444d"/>
+<g transform="translate(40 440)"><circle cx="-2" cy="-2" r="7" fill="none" stroke="#f0f6fc" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path fill="none" stroke="#f0f6fc" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M3 3l7 7"/><path fill="none" stroke="#3987e5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M-5.5 -2l2.5 2.5 4.5-5"/></g>
+<text class="nm s16" x="62" y="445">scoreprobe</text>
+<text x="28" y="472">feeds a grader the inputs known to slip through</text>
+<text x="28" y="488">(a blank answer, "not Paris" against "Paris",</text>
+<text x="28" y="504">4200 against 42) and reports which earned credit</text>
+</g>
+<g class="cd" style="animation-delay:0.99s">
+<rect x="421.5" y="416.5" width="394" height="99" rx="6" fill="#0d1117" stroke="#3d444d"/>
+<g transform="translate(447 440)"><path fill="none" stroke="#f0f6fc" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M-6 -11V11M6 -11V11"/><path fill="none" stroke="#3987e5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M-6 -6H6M-6 0H6M-6 6H6"/></g>
+<text class="nm s16" x="469" y="445">normladder</text>
+<text x="435" y="472">is "1,000" the same answer as "1000"? 8 of 14</text>
+<text x="435" y="488">answer-matching rules from lm-eval, HELM and</text>
+<text x="435" y="504">SQuAD say yes; it shows which, and why</text>
+</g>
+<g class="cd" style="animation-delay:1.11s">
+<rect x="14.5" y="528.5" width="394" height="99" rx="6" fill="#0d1117" stroke="#3d444d"/>
+<g transform="translate(40 552)"><circle cx="-6" cy="-8" r="2.4" fill="none" stroke="#f0f6fc" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path fill="none" stroke="#f0f6fc" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M-1 -8H10"/><circle cx="-6" cy="-2.7" r="2.4" fill="none" stroke="#f0f6fc" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path fill="none" stroke="#f0f6fc" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M-1 -2.7H10"/><circle cx="-6" cy="2.7" r="2.4" fill="none" stroke="#f0f6fc" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path fill="none" stroke="#f0f6fc" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M-1 2.7H10"/><circle cx="-6" cy="8" r="2.4" fill="#3987e5"/><path fill="none" stroke="#3987e5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M-1 8H10"/></g>
+<text class="nm s16" x="62" y="557">mcqlint</text>
+<text x="28" y="584">lints multiple-choice eval sets: keys that name</text>
+<text x="28" y="600">no option, duplicate options, leaked answers,</text>
+<text x="28" y="616">position bias</text>
+</g>
+<g class="cd" style="animation-delay:1.23s">
+<rect x="421.5" y="528.5" width="394" height="99" rx="6" fill="#0d1117" stroke="#3d444d"/>
+<g transform="translate(447 552)"><path fill="none" stroke="#f0f6fc" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M-10 -9H10V9H-10ZM-10 -3H10M-10 3H10M-3 -9V9M4 -9V9"/><path fill="#db6d28" d="M4 3H10V9H4Z"/></g>
+<text class="nm s16" x="469" y="557">tabverify</text>
+<text x="435" y="584">recomputes the averages, deltas and bold in</text>
+<text x="435" y="600">results tables at the printed precision, and</text>
+<text x="435" y="616">flags what no rounding explains</text>
+</g>
+</svg>

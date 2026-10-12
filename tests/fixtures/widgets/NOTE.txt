@@ -1,0 +1,6 @@
+Widget fixtures for the tests: the files the refresh workflow's two Actions write, at their pinned versions
+(Platane/snk/svg-only v3.5.0 and yoshi389111/github-profile-3d-contrib v0.9.3, with .github/contrib3d.json and the
+snake outputs from .github/workflows/refresh.yml), run offline against a fixed made-up calendar. The 3D files keep
+the last 70 of their calendar bars and everything else; nothing in them describes a real account. The 3D Action
+writes one file per entry of .github/contrib3d.json, and an entry without darkMode carries only its own colours, so
+3d-light.svg and 3d-dark.svg differ only in their <style>.

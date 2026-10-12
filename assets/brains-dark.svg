@@ -1,0 +1,224 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 342" width="380" height="342" role="img" aria-labelledby="t d">
+<title id="t">brains: one trigger short</title>
+<desc id="d">trigalign on a public EEG session (OpenNeuro ds004621, CC0): 194 of 195 stimulus-log events paired with an EEG trigger; clock offset 347.7 s, drift -22 ppm, pairing residuals sd 0.29 ms, max 0.54 ms, drawn on an axis of ±0.6 ms. The last event, at 290.778 s on the log clock, has no trigger: one was expected at 638.47 s, where the recording paused. Hollow circle on the recorder axis, labelled 1 extra trigger: a trigger with no log event.</desc>
+<style>text{font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;font-size:12px;fill:#f0f6fc}.m{fill:#9198a1}.a{fill:#3987e5}.b{font-size:26px}.e{text-anchor:end}.c{text-anchor:middle}.w{fill:#db6d28}.nm{font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;font-weight:700}.s13{font-size:13px}.s14{font-size:14px}.s16{font-size:16px}.s22{font-size:22px}.s30{font-size:30px}.s40{font-size:40px}.s52{font-size:52px}.th{stroke:#3987e5;stroke-opacity:.55;stroke-width:.7;fill:none;stroke-dasharray:1;stroke-dashoffset:0;animation:draw .5s ease-out both}@keyframes draw{from{stroke-dashoffset:1}}.gh{animation:blink .45s step-end 3.2s 4}@keyframes blink{50%{opacity:.15}}@media (prefers-reduced-motion: reduce){*{animation:none!important}}</style>
+<rect x=".5" y=".5" width="373" height="335" rx="6" fill="#0d1117" stroke="#3d444d"/>
+<text class="m" x="14" y="24">brains · trigalign</text>
+<text x="14" y="56"><tspan class="b">194 of 195</tspan><tspan class="m" dx="7">events paired</tspan></text>
+<text class="m" x="14" y="76">a public EEG session, one trigger lost</text>
+<text class="m" x="14" y="99">stimulus log clock</text>
+<text class="m" x="14" y="206">EEG recorder clock</text>
+<path d="M14 108H360M14 186H360" stroke="#3d444d"/>
+<path class="th" d="M18.9 108L27.78 186" pathLength="1" style="animation-delay:0.30s"/>
+<path class="th" d="M21.02 108L29.9 186" pathLength="1" style="animation-delay:0.31s"/>
+<path class="th" d="M22.78 108L31.67 186" pathLength="1" style="animation-delay:0.32s"/>
+<path class="th" d="M24.9 108L33.78 186" pathLength="1" style="animation-delay:0.34s"/>
+<path class="th" d="M27.01 108L35.89 186" pathLength="1" style="animation-delay:0.35s"/>
+<path class="th" d="M27.52 108L36.4 186" pathLength="1" style="animation-delay:0.36s"/>
+<path class="th" d="M28.78 108L37.66 186" pathLength="1" style="animation-delay:0.37s"/>
+<path class="th" d="M30.55 108L39.43 186" pathLength="1" style="animation-delay:0.39s"/>
+<path class="th" d="M32.66 108L41.55 186" pathLength="1" style="animation-delay:0.40s"/>
+<path class="th" d="M34.66 108L43.54 186" pathLength="1" style="animation-delay:0.41s"/>
+<path class="th" d="M35.13 108L44.01 186" pathLength="1" style="animation-delay:0.42s"/>
+<path class="th" d="M36.32 108L45.2 186" pathLength="1" style="animation-delay:0.44s"/>
+<path class="th" d="M38.26 108L47.14 186" pathLength="1" style="animation-delay:0.45s"/>
+<path class="th" d="M39.91 108L48.79 186" pathLength="1" style="animation-delay:0.46s"/>
+<path class="th" d="M41.91 108L50.79 186" pathLength="1" style="animation-delay:0.47s"/>
+<path class="th" d="M43.85 108L52.73 186" pathLength="1" style="animation-delay:0.49s"/>
+<path class="th" d="M45.85 108L54.73 186" pathLength="1" style="animation-delay:0.50s"/>
+<path class="th" d="M47.5 108L56.38 186" pathLength="1" style="animation-delay:0.51s"/>
+<path class="th" d="M49.33 108L58.21 186" pathLength="1" style="animation-delay:0.52s"/>
+<path class="th" d="M51.16 108L60.04 186" pathLength="1" style="animation-delay:0.54s"/>
+<path class="th" d="M52.87 108L61.75 186" pathLength="1" style="animation-delay:0.55s"/>
+<path class="th" d="M54.98 108L63.86 186" pathLength="1" style="animation-delay:0.56s"/>
+<path class="th" d="M56.98 108L65.86 186" pathLength="1" style="animation-delay:0.57s"/>
+<path class="th" d="M58.69 108L67.57 186" pathLength="1" style="animation-delay:0.58s"/>
+<path class="th" d="M60.63 108L69.51 186" pathLength="1" style="animation-delay:0.60s"/>
+<path class="th" d="M62.4 108L71.28 186" pathLength="1" style="animation-delay:0.61s"/>
+<path class="th" d="M64.11 108L72.99 186" pathLength="1" style="animation-delay:0.62s"/>
+<path class="th" d="M64.76 108L73.64 186" pathLength="1" style="animation-delay:0.63s"/>
+<path class="th" d="M65.88 108L74.76 186" pathLength="1" style="animation-delay:0.65s"/>
+<path class="th" d="M67.59 108L76.47 186" pathLength="1" style="animation-delay:0.66s"/>
+<path class="th" d="M68.26 108L77.14 186" pathLength="1" style="animation-delay:0.67s"/>
+<path class="th" d="M69.47 108L78.35 186" pathLength="1" style="animation-delay:0.68s"/>
+<path class="th" d="M71.42 108L80.3 186" pathLength="1" style="animation-delay:0.70s"/>
+<path class="th" d="M73.13 108L82.01 186" pathLength="1" style="animation-delay:0.71s"/>
+<path class="th" d="M75.01 108L83.89 186" pathLength="1" style="animation-delay:0.72s"/>
+<path class="th" d="M75.52 108L84.4 186" pathLength="1" style="animation-delay:0.73s"/>
+<path class="th" d="M77.01 108L85.89 186" pathLength="1" style="animation-delay:0.75s"/>
+<path class="th" d="M78.84 108L87.72 186" pathLength="1" style="animation-delay:0.76s"/>
+<path class="th" d="M80.83 108L89.72 186" pathLength="1" style="animation-delay:0.77s"/>
+<path class="th" d="M81.38 108L90.26 186" pathLength="1" style="animation-delay:0.78s"/>
+<path class="th" d="M82.89 108L91.77 186" pathLength="1" style="animation-delay:0.79s"/>
+<path class="th" d="M84.77 108L93.65 186" pathLength="1" style="animation-delay:0.81s"/>
+<path class="th" d="M86.83 108L95.71 186" pathLength="1" style="animation-delay:0.82s"/>
+<path class="th" d="M88.95 108L97.83 186" pathLength="1" style="animation-delay:0.83s"/>
+<path class="th" d="M90.6 108L99.48 186" pathLength="1" style="animation-delay:0.84s"/>
+<path class="th" d="M92.66 108L101.54 186" pathLength="1" style="animation-delay:0.86s"/>
+<path class="th" d="M94.31 108L103.19 186" pathLength="1" style="animation-delay:0.87s"/>
+<path class="th" d="M96.13 108L105.02 186" pathLength="1" style="animation-delay:0.88s"/>
+<path class="th" d="M96.71 108L105.59 186" pathLength="1" style="animation-delay:0.89s"/>
+<path class="th" d="M98.25 108L107.13 186" pathLength="1" style="animation-delay:0.91s"/>
+<path class="th" d="M100.19 108L109.07 186" pathLength="1" style="animation-delay:0.92s"/>
+<path class="th" d="M100.82 108L109.7 186" pathLength="1" style="animation-delay:0.93s"/>
+<path class="th" d="M102.02 108L110.9 186" pathLength="1" style="animation-delay:0.94s"/>
+<path class="th" d="M103.9 108L112.78 186" pathLength="1" style="animation-delay:0.96s"/>
+<path class="th" d="M105.73 108L114.61 186" pathLength="1" style="animation-delay:0.97s"/>
+<path class="th" d="M107.61 108L116.49 186" pathLength="1" style="animation-delay:0.98s"/>
+<path class="th" d="M109.44 108L118.32 186" pathLength="1" style="animation-delay:0.99s"/>
+<path class="th" d="M111.49 108L120.37 186" pathLength="1" style="animation-delay:1.01s"/>
+<path class="th" d="M113.55 108L122.43 186" pathLength="1" style="animation-delay:1.02s"/>
+<path class="th" d="M115.49 108L124.37 186" pathLength="1" style="animation-delay:1.03s"/>
+<path class="th" d="M117.14 108L126.02 186" pathLength="1" style="animation-delay:1.04s"/>
+<path class="th" d="M119.2 108L128.08 186" pathLength="1" style="animation-delay:1.05s"/>
+<path class="th" d="M121.32 108L130.19 186" pathLength="1" style="animation-delay:1.07s"/>
+<path class="th" d="M122.01 108L130.89 186" pathLength="1" style="animation-delay:1.08s"/>
+<path class="th" d="M123.03 108L131.91 186" pathLength="1" style="animation-delay:1.09s"/>
+<path class="th" d="M124.74 108L133.62 186" pathLength="1" style="animation-delay:1.10s"/>
+<path class="th" d="M126.74 108L135.62 186" pathLength="1" style="animation-delay:1.12s"/>
+<path class="th" d="M128.39 108L137.27 186" pathLength="1" style="animation-delay:1.13s"/>
+<path class="th" d="M130.5 108L139.38 186" pathLength="1" style="animation-delay:1.14s"/>
+<path class="th" d="M132.21 108L141.09 186" pathLength="1" style="animation-delay:1.15s"/>
+<path class="th" d="M133.93 108L142.8 186" pathLength="1" style="animation-delay:1.17s"/>
+<path class="th" d="M135.75 108L144.63 186" pathLength="1" style="animation-delay:1.18s"/>
+<path class="th" d="M136.24 108L145.12 186" pathLength="1" style="animation-delay:1.19s"/>
+<path class="th" d="M137.69 108L146.57 186" pathLength="1" style="animation-delay:1.20s"/>
+<path class="th" d="M139.63 108L148.51 186" pathLength="1" style="animation-delay:1.22s"/>
+<path class="th" d="M140.21 108L149.09 186" pathLength="1" style="animation-delay:1.23s"/>
+<path class="th" d="M141.4 108L150.28 186" pathLength="1" style="animation-delay:1.24s"/>
+<path class="th" d="M143.29 108L152.17 186" pathLength="1" style="animation-delay:1.25s"/>
+<path class="th" d="M145.29 108L154.16 186" pathLength="1" style="animation-delay:1.26s"/>
+<path class="th" d="M147.17 108L156.05 186" pathLength="1" style="animation-delay:1.28s"/>
+<path class="th" d="M149.23 108L158.11 186" pathLength="1" style="animation-delay:1.29s"/>
+<path class="th" d="M150.94 108L159.82 186" pathLength="1" style="animation-delay:1.30s"/>
+<path class="th" d="M152.88 108L161.76 186" pathLength="1" style="animation-delay:1.31s"/>
+<path class="th" d="M154.93 108L163.81 186" pathLength="1" style="animation-delay:1.33s"/>
+<path class="th" d="M156.59 108L165.47 186" pathLength="1" style="animation-delay:1.34s"/>
+<path class="th" d="M158.7 108L167.58 186" pathLength="1" style="animation-delay:1.35s"/>
+<path class="th" d="M160.41 108L169.29 186" pathLength="1" style="animation-delay:1.36s"/>
+<path class="th" d="M162.53 108L171.41 186" pathLength="1" style="animation-delay:1.38s"/>
+<path class="th" d="M164.35 108L173.23 186" pathLength="1" style="animation-delay:1.39s"/>
+<path class="th" d="M166.01 108L174.89 186" pathLength="1" style="animation-delay:1.40s"/>
+<path class="th" d="M168.12 108L177 186" pathLength="1" style="animation-delay:1.41s"/>
+<path class="th" d="M169.89 108L178.77 186" pathLength="1" style="animation-delay:1.43s"/>
+<path class="th" d="M170.55 108L179.43 186" pathLength="1" style="animation-delay:1.44s"/>
+<path class="th" d="M171.72 108L180.59 186" pathLength="1" style="animation-delay:1.45s"/>
+<path class="th" d="M173.77 108L182.65 186" pathLength="1" style="animation-delay:1.46s"/>
+<path class="th" d="M174.45 108L183.33 186" pathLength="1" style="animation-delay:1.48s"/>
+<path class="th" d="M175.54 108L184.42 186" pathLength="1" style="animation-delay:1.49s"/>
+<path class="th" d="M177.48 108L186.36 186" pathLength="1" style="animation-delay:1.50s"/>
+<path class="th" d="M179.37 108L188.24 186" pathLength="1" style="animation-delay:1.51s"/>
+<path class="th" d="M181.08 108L189.95 186" pathLength="1" style="animation-delay:1.52s"/>
+<path class="th" d="M181.63 108L190.51 186" pathLength="1" style="animation-delay:1.54s"/>
+<path class="th" d="M183.02 108L191.9 186" pathLength="1" style="animation-delay:1.55s"/>
+<path class="th" d="M184.79 108L193.67 186" pathLength="1" style="animation-delay:1.56s"/>
+<path class="th" d="M186.61 108L195.49 186" pathLength="1" style="animation-delay:1.57s"/>
+<path class="th" d="M187.17 108L196.05 186" pathLength="1" style="animation-delay:1.59s"/>
+<path class="th" d="M188.61 108L197.49 186" pathLength="1" style="animation-delay:1.60s"/>
+<path class="th" d="M190.26 108L199.14 186" pathLength="1" style="animation-delay:1.61s"/>
+<path class="th" d="M192.21 108L201.08 186" pathLength="1" style="animation-delay:1.62s"/>
+<path class="th" d="M193.86 108L202.74 186" pathLength="1" style="animation-delay:1.64s"/>
+<path class="th" d="M195.57 108L204.45 186" pathLength="1" style="animation-delay:1.65s"/>
+<path class="th" d="M197.34 108L206.22 186" pathLength="1" style="animation-delay:1.66s"/>
+<path class="th" d="M199.05 108L207.93 186" pathLength="1" style="animation-delay:1.67s"/>
+<path class="th" d="M200.93 108L209.81 186" pathLength="1" style="animation-delay:1.69s"/>
+<path class="th" d="M202.59 108L211.46 186" pathLength="1" style="animation-delay:1.70s"/>
+<path class="th" d="M204.41 108L213.29 186" pathLength="1" style="animation-delay:1.71s"/>
+<path class="th" d="M205.12 108L214 186" pathLength="1" style="animation-delay:1.72s"/>
+<path class="th" d="M206.3 108L215.17 186" pathLength="1" style="animation-delay:1.74s"/>
+<path class="th" d="M207.95 108L216.83 186" pathLength="1" style="animation-delay:1.75s"/>
+<path class="th" d="M209.6 108L218.48 186" pathLength="1" style="animation-delay:1.76s"/>
+<path class="th" d="M211.54 108L220.42 186" pathLength="1" style="animation-delay:1.77s"/>
+<path class="th" d="M213.37 108L222.25 186" pathLength="1" style="animation-delay:1.78s"/>
+<path class="th" d="M215.48 108L224.36 186" pathLength="1" style="animation-delay:1.80s"/>
+<path class="th" d="M217.54 108L226.42 186" pathLength="1" style="animation-delay:1.81s"/>
+<path class="th" d="M219.37 108L228.24 186" pathLength="1" style="animation-delay:1.82s"/>
+<path class="th" d="M221.42 108L230.3 186" pathLength="1" style="animation-delay:1.83s"/>
+<path class="th" d="M223.13 108L232.01 186" pathLength="1" style="animation-delay:1.85s"/>
+<path class="th" d="M225.19 108L234.07 186" pathLength="1" style="animation-delay:1.86s"/>
+<path class="th" d="M225.81 108L234.69 186" pathLength="1" style="animation-delay:1.87s"/>
+<path class="th" d="M227.13 108L236.01 186" pathLength="1" style="animation-delay:1.88s"/>
+<path class="th" d="M229.19 108L238.07 186" pathLength="1" style="animation-delay:1.90s"/>
+<path class="th" d="M246.51 108L255.38 186" pathLength="1" style="animation-delay:1.91s"/>
+<path class="th" d="M248.45 108L257.33 186" pathLength="1" style="animation-delay:1.92s"/>
+<path class="th" d="M250.39 108L259.27 186" pathLength="1" style="animation-delay:1.93s"/>
+<path class="th" d="M252.1 108L260.98 186" pathLength="1" style="animation-delay:1.95s"/>
+<path class="th" d="M253.75 108L262.63 186" pathLength="1" style="animation-delay:1.96s"/>
+<path class="th" d="M254.26 108L263.14 186" pathLength="1" style="animation-delay:1.97s"/>
+<path class="th" d="M255.87 108L264.75 186" pathLength="1" style="animation-delay:1.98s"/>
+<path class="th" d="M257.52 108L266.4 186" pathLength="1" style="animation-delay:1.99s"/>
+<path class="th" d="M259.17 108L268.05 186" pathLength="1" style="animation-delay:2.01s"/>
+<path class="th" d="M261.17 108L270.05 186" pathLength="1" style="animation-delay:2.02s"/>
+<path class="th" d="M261.65 108L270.53 186" pathLength="1" style="animation-delay:2.03s"/>
+<path class="th" d="M262.88 108L271.76 186" pathLength="1" style="animation-delay:2.04s"/>
+<path class="th" d="M264.77 108L273.65 186" pathLength="1" style="animation-delay:2.06s"/>
+<path class="th" d="M266.42 108L275.3 186" pathLength="1" style="animation-delay:2.07s"/>
+<path class="th" d="M268.36 108L277.24 186" pathLength="1" style="animation-delay:2.08s"/>
+<path class="th" d="M270.07 108L278.95 186" pathLength="1" style="animation-delay:2.09s"/>
+<path class="th" d="M272.07 108L280.95 186" pathLength="1" style="animation-delay:2.11s"/>
+<path class="th" d="M273.84 108L282.72 186" pathLength="1" style="animation-delay:2.12s"/>
+<path class="th" d="M275.96 108L284.83 186" pathLength="1" style="animation-delay:2.13s"/>
+<path class="th" d="M277.78 108L286.66 186" pathLength="1" style="animation-delay:2.14s"/>
+<path class="th" d="M278.3 108L287.18 186" pathLength="1" style="animation-delay:2.16s"/>
+<path class="th" d="M279.49 108L288.37 186" pathLength="1" style="animation-delay:2.17s"/>
+<path class="th" d="M281.32 108L290.19 186" pathLength="1" style="animation-delay:2.18s"/>
+<path class="th" d="M282.97 108L291.85 186" pathLength="1" style="animation-delay:2.19s"/>
+<path class="th" d="M284.8 108L293.67 186" pathLength="1" style="animation-delay:2.21s"/>
+<path class="th" d="M286.91 108L295.79 186" pathLength="1" style="animation-delay:2.22s"/>
+<path class="th" d="M288.8 108L297.67 186" pathLength="1" style="animation-delay:2.23s"/>
+<path class="th" d="M290.56 108L299.44 186" pathLength="1" style="animation-delay:2.24s"/>
+<path class="th" d="M291.13 108L300.01 186" pathLength="1" style="animation-delay:2.25s"/>
+<path class="th" d="M292.45 108L301.32 186" pathLength="1" style="animation-delay:2.27s"/>
+<path class="th" d="M294.5 108L303.38 186" pathLength="1" style="animation-delay:2.28s"/>
+<path class="th" d="M295.27 108L304.14 186" pathLength="1" style="animation-delay:2.29s"/>
+<path class="th" d="M296.5 108L305.38 186" pathLength="1" style="animation-delay:2.30s"/>
+<path class="th" d="M298.27 108L307.15 186" pathLength="1" style="animation-delay:2.32s"/>
+<path class="th" d="M300.27 108L309.15 186" pathLength="1" style="animation-delay:2.33s"/>
+<path class="th" d="M302.33 108L311.2 186" pathLength="1" style="animation-delay:2.34s"/>
+<path class="th" d="M302.87 108L311.75 186" pathLength="1" style="animation-delay:2.35s"/>
+<path class="th" d="M304.27 108L313.14 186" pathLength="1" style="animation-delay:2.37s"/>
+<path class="th" d="M306.21 108L315.09 186" pathLength="1" style="animation-delay:2.38s"/>
+<path class="th" d="M308.21 108L317.09 186" pathLength="1" style="animation-delay:2.39s"/>
+<path class="th" d="M308.98 108L317.85 186" pathLength="1" style="animation-delay:2.40s"/>
+<path class="th" d="M310.15 108L319.03 186" pathLength="1" style="animation-delay:2.42s"/>
+<path class="th" d="M312.21 108L321.08 186" pathLength="1" style="animation-delay:2.43s"/>
+<path class="th" d="M314.26 108L323.14 186" pathLength="1" style="animation-delay:2.44s"/>
+<path class="th" d="M316.32 108L325.2 186" pathLength="1" style="animation-delay:2.45s"/>
+<path class="th" d="M318.32 108L327.2 186" pathLength="1" style="animation-delay:2.46s"/>
+<path class="th" d="M319.97 108L328.85 186" pathLength="1" style="animation-delay:2.48s"/>
+<path class="th" d="M321.74 108L330.62 186" pathLength="1" style="animation-delay:2.49s"/>
+<path class="th" d="M323.57 108L332.44 186" pathLength="1" style="animation-delay:2.50s"/>
+<path class="th" d="M325.45 108L334.33 186" pathLength="1" style="animation-delay:2.51s"/>
+<path class="th" d="M327.34 108L336.21 186" pathLength="1" style="animation-delay:2.53s"/>
+<path class="th" d="M327.98 108L336.85 186" pathLength="1" style="animation-delay:2.54s"/>
+<path class="th" d="M329.22 108L338.09 186" pathLength="1" style="animation-delay:2.55s"/>
+<path class="th" d="M331.28 108L340.15 186" pathLength="1" style="animation-delay:2.56s"/>
+<path class="th" d="M332.99 108L341.86 186" pathLength="1" style="animation-delay:2.58s"/>
+<path class="th" d="M334.87 108L343.75 186" pathLength="1" style="animation-delay:2.59s"/>
+<path class="th" d="M336.64 108L345.51 186" pathLength="1" style="animation-delay:2.60s"/>
+<path class="th" d="M338.35 108L347.22 186" pathLength="1" style="animation-delay:2.61s"/>
+<path class="th" d="M340 108L348.88 186" pathLength="1" style="animation-delay:2.63s"/>
+<path class="th" d="M341.83 108L350.7 186" pathLength="1" style="animation-delay:2.64s"/>
+<path class="th" d="M343.94 108L352.82 186" pathLength="1" style="animation-delay:2.65s"/>
+<path class="th" d="M345.94 108L354.82 186" pathLength="1" style="animation-delay:2.66s"/>
+<path class="th" d="M347.65 108L356.53 186" pathLength="1" style="animation-delay:2.68s"/>
+<path class="th" d="M348.36 108L357.23 186" pathLength="1" style="animation-delay:2.69s"/>
+<path d="M18.9 103v5M21.02 103v5M22.78 103v5M24.9 103v5M27.01 103v5M27.52 103v5M28.78 103v5M30.55 103v5M32.66 103v5M34.66 103v5M35.13 103v5M36.32 103v5M38.26 103v5M39.91 103v5M41.91 103v5M43.85 103v5M45.85 103v5M47.5 103v5M49.33 103v5M51.16 103v5M52.87 103v5M54.98 103v5M56.98 103v5M58.69 103v5M60.63 103v5M62.4 103v5M64.11 103v5M64.76 103v5M65.88 103v5M67.59 103v5M68.26 103v5M69.47 103v5M71.42 103v5M73.13 103v5M75.01 103v5M75.52 103v5M77.01 103v5M78.84 103v5M80.83 103v5M81.38 103v5M82.89 103v5M84.77 103v5M86.83 103v5M88.95 103v5M90.6 103v5M92.66 103v5M94.31 103v5M96.13 103v5M96.71 103v5M98.25 103v5M100.19 103v5M100.82 103v5M102.02 103v5M103.9 103v5M105.73 103v5M107.61 103v5M109.44 103v5M111.49 103v5M113.55 103v5M115.49 103v5M117.14 103v5M119.2 103v5M121.32 103v5M122.01 103v5M123.03 103v5M124.74 103v5M126.74 103v5M128.39 103v5M130.5 103v5M132.21 103v5M133.93 103v5M135.75 103v5M136.24 103v5M137.69 103v5M139.63 103v5M140.21 103v5M141.4 103v5M143.29 103v5M145.29 103v5M147.17 103v5M149.23 103v5M150.94 103v5M152.88 103v5M154.93 103v5M156.59 103v5M158.7 103v5M160.41 103v5M162.53 103v5M164.35 103v5M166.01 103v5M168.12 103v5M169.89 103v5M170.55 103v5M171.72 103v5M173.77 103v5M174.45 103v5M175.54 103v5M177.48 103v5M179.37 103v5M181.08 103v5M181.63 103v5M183.02 103v5M184.79 103v5M186.61 103v5M187.17 103v5M188.61 103v5M190.26 103v5M192.21 103v5M193.86 103v5M195.57 103v5M197.34 103v5M199.05 103v5M200.93 103v5M202.59 103v5M204.41 103v5M205.12 103v5M206.3 103v5M207.95 103v5M209.6 103v5M211.54 103v5M213.37 103v5M215.48 103v5M217.54 103v5M219.37 103v5M221.42 103v5M223.13 103v5M225.19 103v5M225.81 103v5M227.13 103v5M229.19 103v5M246.51 103v5M248.45 103v5M250.39 103v5M252.1 103v5M253.75 103v5M254.26 103v5M255.87 103v5M257.52 103v5M259.17 103v5M261.17 103v5M261.65 103v5M262.88 103v5M264.77 103v5M266.42 103v5M268.36 103v5M270.07 103v5M272.07 103v5M273.84 103v5M275.96 103v5M277.78 103v5M278.3 103v5M279.49 103v5M281.32 103v5M282.97 103v5M284.8 103v5M286.91 103v5M288.8 103v5M290.56 103v5M291.13 103v5M292.45 103v5M294.5 103v5M295.27 103v5M296.5 103v5M298.27 103v5M300.27 103v5M302.33 103v5M302.87 103v5M304.27 103v5M306.21 103v5M308.21 103v5M308.98 103v5M310.15 103v5M312.21 103v5M314.26 103v5M316.32 103v5M318.32 103v5M319.97 103v5M321.74 103v5M323.57 103v5M325.45 103v5M327.34 103v5M327.98 103v5M329.22 103v5M331.28 103v5M332.99 103v5M334.87 103v5M336.64 103v5M338.35 103v5M340 103v5M341.83 103v5M343.94 103v5M345.94 103v5M347.65 103v5M348.36 103v5" stroke="#f0f6fc"/>
+<path d="M27.78 186v5M29.9 186v5M31.67 186v5M33.78 186v5M35.89 186v5M36.4 186v5M37.66 186v5M39.43 186v5M41.55 186v5M43.54 186v5M44.01 186v5M45.2 186v5M47.14 186v5M48.79 186v5M50.79 186v5M52.73 186v5M54.73 186v5M56.38 186v5M58.21 186v5M60.04 186v5M61.75 186v5M63.86 186v5M65.86 186v5M67.57 186v5M69.51 186v5M71.28 186v5M72.99 186v5M73.64 186v5M74.76 186v5M76.47 186v5M77.14 186v5M78.35 186v5M80.3 186v5M82.01 186v5M83.89 186v5M84.4 186v5M85.89 186v5M87.72 186v5M89.72 186v5M90.26 186v5M91.77 186v5M93.65 186v5M95.71 186v5M97.83 186v5M99.48 186v5M101.54 186v5M103.19 186v5M105.02 186v5M105.59 186v5M107.13 186v5M109.07 186v5M109.7 186v5M110.9 186v5M112.78 186v5M114.61 186v5M116.49 186v5M118.32 186v5M120.37 186v5M122.43 186v5M124.37 186v5M126.02 186v5M128.08 186v5M130.19 186v5M130.89 186v5M131.91 186v5M133.62 186v5M135.62 186v5M137.27 186v5M139.38 186v5M141.09 186v5M142.8 186v5M144.63 186v5M145.12 186v5M146.57 186v5M148.51 186v5M149.09 186v5M150.28 186v5M152.17 186v5M154.16 186v5M156.05 186v5M158.11 186v5M159.82 186v5M161.76 186v5M163.81 186v5M165.47 186v5M167.58 186v5M169.29 186v5M171.41 186v5M173.23 186v5M174.89 186v5M177 186v5M178.77 186v5M179.43 186v5M180.59 186v5M182.65 186v5M183.33 186v5M184.42 186v5M186.36 186v5M188.24 186v5M189.95 186v5M190.51 186v5M191.9 186v5M193.67 186v5M195.49 186v5M196.05 186v5M197.49 186v5M199.14 186v5M201.08 186v5M202.74 186v5M204.45 186v5M206.22 186v5M207.93 186v5M209.81 186v5M211.46 186v5M213.29 186v5M214 186v5M215.17 186v5M216.83 186v5M218.48 186v5M220.42 186v5M222.25 186v5M224.36 186v5M226.42 186v5M228.24 186v5M230.3 186v5M232.01 186v5M234.07 186v5M234.69 186v5M236.01 186v5M238.07 186v5M255.38 186v5M257.33 186v5M259.27 186v5M260.98 186v5M262.63 186v5M263.14 186v5M264.75 186v5M266.4 186v5M268.05 186v5M270.05 186v5M270.53 186v5M271.76 186v5M273.65 186v5M275.3 186v5M277.24 186v5M278.95 186v5M280.95 186v5M282.72 186v5M284.83 186v5M286.66 186v5M287.18 186v5M288.37 186v5M290.19 186v5M291.85 186v5M293.67 186v5M295.79 186v5M297.67 186v5M299.44 186v5M300.01 186v5M301.32 186v5M303.38 186v5M304.14 186v5M305.38 186v5M307.15 186v5M309.15 186v5M311.2 186v5M311.75 186v5M313.14 186v5M315.09 186v5M317.09 186v5M317.85 186v5M319.03 186v5M321.08 186v5M323.14 186v5M325.2 186v5M327.2 186v5M328.85 186v5M330.62 186v5M332.44 186v5M334.33 186v5M336.21 186v5M336.85 186v5M338.09 186v5M340.15 186v5M341.86 186v5M343.75 186v5M345.51 186v5M347.22 186v5M348.88 186v5M350.7 186v5M352.82 186v5M354.82 186v5M356.53 186v5M357.23 186v5" stroke="#f0f6fc"/>
+<circle cx="14.71" cy="188.5" r="3" fill="none" stroke="#7d8590" stroke-width="1.2"/>
+<circle cx="17" cy="216" r="3" fill="none" stroke="#7d8590" stroke-width="1.2"/>
+<text class="m" x="25" y="220">1 extra trigger</text>
+<g class="gh">
+<path d="M349.36 101v7" stroke="#db6d28" stroke-width="2"/>
+<path d="M349.36 108L358.24 186" stroke="#db6d28" stroke-width="1.2" stroke-dasharray="3 3" fill="none"/>
+<circle cx="358.24" cy="188.5" r="3.5" fill="#0d1117" stroke="#db6d28" stroke-width="1.6"/>
+</g>
+<text class="w e" x="360" y="206">no trigger at 638.47 s</text>
+<text class="w e" x="360" y="220">(the recording paused)</text>
+<path d="M14 270H360" stroke="#3d444d" stroke-dasharray="2 3"/>
+<polyline points="27.78,271.62 29.9,281.14 31.67,254.24 33.78,263.76 35.89,273.29 36.4,276.6 37.66,283.05 39.43,256.15 41.55,265.67 43.54,275.27 44.01,271.28 45.2,285.12 47.14,258.09 48.79,267.94 50.79,277.54 52.73,250.52 54.73,260.13 56.38,273.63 58.21,283.36 60.04,256.42 61.75,266.22 63.86,275.75 65.86,285.35 67.57,258.49 69.51,268.13 71.28,277.89 72.99,251.03 73.64,287.25 74.76,260.8 76.47,270.6 77.14,284.8 78.35,280.29 80.3,253.26 82.01,263.07 83.89,272.75 84.4,279.73 85.89,282.35 87.72,255.41 89.72,265.01 90.26,275.63 91.77,274.58 93.65,284.26 95.71,257.16 97.83,266.68 99.48,276.52 101.54,286.09 103.19,259.26 105.02,268.99 105.59,264.92 107.13,278.51 109.07,251.49 109.7,265.71 110.9,261.21 112.78,274.56 114.61,284.29 116.49,257.31 118.32,267.03 120.37,276.59 122.43,286.16 124.37,259.13 126.02,268.98 128.08,278.54 130.19,288.06 130.89,287.58 131.91,261.2 133.62,271 135.62,280.61 137.27,253.79 139.38,263.31 141.09,273.11 142.8,282.92 144.63,255.97 145.12,277.64 146.57,265.62 148.51,275.26 149.09,274.86 150.28,285.03 152.17,258.04 154.16,267.65 156.05,277.33 158.11,250.23 159.82,260.03 161.76,269.67 163.81,279.24 165.47,252.42 167.58,261.94 169.29,271.75 171.41,284.93 173.23,254.32 174.89,267.84 177,277.36 178.77,287.12 179.43,253.66 180.59,260.18 182.65,269.74 183.33,250.93 184.42,279.51 186.36,252.48 188.24,262.17 189.95,271.97 190.51,282.58 191.9,281.62 193.67,254.71 195.49,264.44 196.05,278.72 197.49,274.04 199.14,283.89 201.08,256.86 202.74,266.71 204.45,276.51 206.22,286.28 207.93,259.41 209.81,269.1 211.46,278.94 213.29,252 214,269.84 215.17,261.68 216.83,275.2 218.48,285.04 220.42,258.02 222.25,267.74 224.36,277.26 226.42,286.83 228.24,259.89 230.3,269.45 232.01,279.25 234.07,288.82 234.69,255.38 236.01,261.79 238.07,271.36" fill="none" stroke="#3987e5" stroke-width="1.1" stroke-linejoin="round"/>
+<polyline points="255.38,273.92 257.33,283.57 259.27,256.54 260.98,266.35 262.63,276.19 263.14,272.17 264.75,285.72 266.4,258.89 268.05,268.74 270.05,278.34 270.53,267 271.76,251.48 273.65,261.16 275.3,271.01 277.24,280.65 278.95,253.79 280.95,263.39 282.72,273.16 284.83,282.68 286.66,255.74 287.18,255.37 288.37,265.54 290.19,275.27 291.85,288.78 293.67,261.83 295.79,271.36 297.67,281.04 299.44,254.14 300.01,286.74 301.32,263.82 303.38,273.38 304.14,283.85 305.38,282.99 307.15,256.08 309.15,265.69 311.2,275.25 311.75,278.54 313.14,284.89 315.09,257.87 317.09,267.48 317.85,274.27 319.03,277.12 321.08,286.68 323.14,259.58 325.2,269.14 327.2,278.75 328.85,251.92 330.62,261.69 332.44,271.41 334.33,281.1 336.21,254.11 336.85,261 338.09,263.8 340.15,273.36 341.86,283.16 343.75,256.18 345.51,265.94 347.22,275.75 348.88,285.59 350.7,258.65 352.82,268.17 354.82,277.78 356.53,254.58 357.23,283.42" fill="none" stroke="#3987e5" stroke-width="1.1" stroke-linejoin="round"/>
+<text class="m" x="14" y="242">not a brainwave: each pair's miss, ±0.6 ms</text>
+<text class="m" x="14" y="306">sd 0.29 ms · max 0.54 · drift -22 ppm</text>
+<text class="m" x="14" y="326">real markers: OpenNeuro ds004621 (CC0)</text>
+</svg>

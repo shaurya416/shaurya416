@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 342" width="380" height="342" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 306" width="380" height="306" role="img" aria-labelledby="t d">
 <title id="t">issues by area</title>
 <desc id="d">238 issues in 229 repositories, each repository in one area: eval harnesses &amp; benchmarks 42, judge, RAG &amp; hallucination scoring 29, RL post-training &amp; rewards 22, agent &amp; tool-use benchmarks 21, classic metric libraries 20, eval platforms &amp; app frameworks 19, fairness, calibration &amp; uncertainty 18, code &amp; math answer checking 13, data pipelines &amp; ML monitoring 12, safety, red-teaming &amp; guardrails 12, autograders &amp; education 8, forecasting &amp; anomaly detection 8, retrieval &amp; recommender metrics 7, explainability 4, speech &amp; audio 3.</desc>
 <style>text{font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;font-size:12px;fill:#f0f6fc}.m{fill:#9198a1}.a{fill:#3987e5}.b{font-size:26px}.e{text-anchor:end}.c{text-anchor:middle}</style>
-<rect x=".5" y=".5" width="373" height="335" rx="6" fill="#0d1117" stroke="#3d444d"/>
+<rect x=".5" y=".5" width="373" height="299" rx="6" fill="#0d1117" stroke="#3d444d"/>
 <text class="m" x="14" y="22">issues by area</text>
 <text class="m e" x="360" y="22">15 areas</text>
 <text x="14" y="56"><tspan class="b">229</tspan><tspan class="m" dx="7">repositories</tspan></text>

@@ -1,0 +1,10 @@
+[{"type": "normal", "fileName": "3d-light.svg", "growingAnimation": true,
+  "backgroundColor": "#ffffff", "foregroundColor": "#1f2328", "strongColor": "#0969da", "weakColor": "#59636e",
+  "radarColor": "#0969da", "contribColors": ["#eef1f4", "#b6d4f5", "#6ea8ee", "#3987e5", "#0969da"],
+  "l10n": {"commit": "commits", "repo": "repos", "review": "reviews", "pullreq": "pull requests",
+           "issue": "issues", "contrib": "contributions"}},
+ {"type": "normal", "fileName": "3d-dark.svg", "growingAnimation": true,
+  "backgroundColor": "#0d1117", "foregroundColor": "#f0f6fc", "strongColor": "#3987e5", "weakColor": "#9198a1",
+  "radarColor": "#3987e5", "contribColors": ["#161b22", "#0b3a6e", "#1a5fb4", "#3987e5", "#79b8ff"],
+  "l10n": {"commit": "commits", "repo": "repos", "review": "reviews", "pullreq": "pull requests",
+           "issue": "issues", "contrib": "contributions"}}]

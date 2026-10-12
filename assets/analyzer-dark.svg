@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 574" width="830" height="574" role="img" aria-labelledby="t d">
+<title id="t">report to fix, as a logic analyzer</title>
+<desc id="d">Report to fix, drawn as a logic analyzer. Top channel: one edge per issue filed, 238 in all; filed per day: 09-23 57, 09-24 44, 09-25 35, 09-26 40, 09-27 4, 09-28 15, 09-29 0, 09-30 38, 10-01 5, 10-02 0, 10-03 0, 10-04 0, 10-05 0, 10-06 0, 10-07 0, 10-08 0. Below, one channel per fixed issue (20), high from the report until the merged pull request that closed it: evalscope#1774 115.0 h, lmms-eval#1546 235.1 h, kaggle-benchmarks#217 187.5 h, Curator#2443 316.2 h, opik#8519 157.7 h, trl#7364 296.2 h, data-juicer#1077 101.5 h, EasyEdit#716 4.7 h, PrairieLearn#15852 26.8 h, otter-grader#1020 31.1 h, AReaL#1757 56.7 h, trulens#2823 109.5 h, AutoRAG#1707 86.7 h, evalscope#1783 16.6 h, MAPIE#993 236.8 h, mlxtend#1202 30.8 h, darts#3221 241.4 h, utilsforecast#285 105.9 h, ir_measures#83 2.5 h, statsforecast#1247 27.9 h. Three are mine: data-juicer#1077 101.5 h, otter-grader#1020 31.1 h, ir_measures#83 2.5 h. Median wait for fixes by others: 109.5 h. As of 10-08 20:50 utc.</desc>
+<style>text{font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;font-size:12px;fill:#f0f6fc}.m{fill:#9198a1}.a{fill:#3987e5}.b{font-size:26px}.e{text-anchor:end}.c{text-anchor:middle}.w{fill:#db6d28}.nm{font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;font-weight:700}.s13{font-size:13px}.s14{font-size:14px}.s16{font-size:16px}.s22{font-size:22px}.s30{font-size:30px}.s40{font-size:40px}.s52{font-size:52px}.hl{stroke:#0d1117;stroke-width:4px;stroke-linejoin:round;paint-order:stroke}.sw{transform-origin:746px 0;transform:scaleX(0);animation:shrink 4.2s linear .3s both}@keyframes shrink{from{transform:scaleX(1)}to{transform:scaleX(0)}}.cu{transform:translateX(536px);opacity:0;animation:sweep 4.2s linear .3s both}@keyframes sweep{from{transform:translateX(0);opacity:1}98%{opacity:1}to{transform:translateX(536px);opacity:0}}@media (prefers-reduced-motion: reduce){*{animation:none!important}}</style>
+<rect x=".5" y=".5" width="829" height="573" rx="8" fill="#0d1117" stroke="#3d444d"/>
+<text class="s16" x="20" y="30">report → fix</text>
+<text class="m e" x="810" y="30">238 filed · 20 fixed · median wait 109.5 h</text>
+<text class="m" x="20" y="54">high = waiting: from the report until a merged PR closed it.</text>
+<text class="m e" x="810" y="54">by my own PR</text>
+<circle cx="710.72" cy="50" r="3.6" fill="none" stroke="#f0f6fc" stroke-width="1.4"/>
+<text class="m e" x="694.72" y="54">fixed by someone else</text>
+<path d="M514.48 50h16" stroke="#3987e5" stroke-width="1.6"/>
+<path d="M215.26 102V88M215.27 102V88M215.27 102V88M215.27 102V88M215.27 102V88M226.8 102V88M227.63 102V88M227.81 102V88M227.99 102V88M228.65 102V88M229.38 102V88M229.4 102V88M229.83 102V88M229.84 102V88M229.85 102V88M229.86 102V88M230.34 102V88M230.34 102V88M233.93 102V88M233.93 102V88M234.56 102V88M234.56 102V88M235.6 102V88M235.6 102V88M235.6 102V88M236.64 102V88M236.64 102V88M237.09 102V88M237.09 102V88M237.1 102V88M237.43 102V88M237.43 102V88M237.85 102V88M237.85 102V88M237.85 102V88M237.85 102V88M238.05 102V88M238.05 102V88M238.05 102V88M238.05 102V88M238.32 102V88M238.32 102V88M238.32 102V88M238.56 102V88M238.57 102V88M238.57 102V88M238.57 102V88M242.02 102V88M242.02 102V88M242.02 102V88M242.73 102V88M242.73 102V88M243.1 102V88M243.1 102V88M243.46 102V88M243.46 102V88M243.46 102V88M243.87 102V88M243.87 102V88M243.87 102V88M244.75 102V88M244.75 102V88M244.75 102V88M245.08 102V88M245.08 102V88M245.08 102V88M245.52 102V88M245.52 102V88M247.68 102V88M247.68 102V88M247.68 102V88M247.68 102V88M248.12 102V88M248.12 102V88M248.12 102V88M248.12 102V88M249.69 102V88M249.69 102V88M249.69 102V88M251.84 102V88M251.84 102V88M251.84 102V88M251.84 102V88M255.22 102V88M255.22 102V88M255.22 102V88M255.22 102V88M255.36 102V88M255.36 102V88M255.36 102V88M255.36 102V88M262.18 102V88M262.18 102V88M262.18 102V88M263.11 102V88M263.12 102V88M263.12 102V88M263.12 102V88M267.41 102V88M267.41 102V88M267.41 102V88M278.87 102V88M278.87 102V88M278.88 102V88M291.65 102V88M291.65 102V88M291.65 102V88M292.12 102V88M292.12 102V88M292.12 102V88M292.57 102V88M292.58 102V88M293.11 102V88M293.12 102V88M298.6 102V88M298.6 102V88M298.6 102V88M299.18 102V88M299.99 102V88M300 102V88M300.52 102V88M300.52 102V88M300.52 102V88M300.94 102V88M300.94 102V88M301.35 102V88M301.8 102V88M301.8 102V88M301.8 102V88M301.8 102V88M305.01 102V88M308.39 102V88M308.39 102V88M309.11 102V88M309.49 102V88M310.34 102V88M310.7 102V88M310.7 102V88M310.7 102V88M311.41 102V88M311.41 102V88M311.74 102V88M312.16 102V88M312.94 102V88M312.94 102V88M312.94 102V88M312.94 102V88M313.5 102V88M313.93 102V88M313.93 102V88M313.93 102V88M314.36 102V88M314.36 102V88M314.91 102V88M314.91 102V88M314.92 102V88M315.35 102V88M315.35 102V88M315.35 102V88M315.78 102V88M315.78 102V88M315.78 102V88M316.19 102V88M316.19 102V88M316.71 102V88M316.71 102V88M317.58 102V88M317.58 102V88M317.58 102V88M317.58 102V88M318.39 102V88M318.91 102V88M318.91 102V88M327.55 102V88M327.55 102V88M327.55 102V88M367.68 102V88M367.85 102V88M367.86 102V88M367.89 102V88M390.27 102V88M390.27 102V88M390.27 102V88M390.27 102V88M394.23 102V88M394.23 102V88M394.23 102V88M394.23 102V88M396.31 102V88M396.31 102V88M396.31 102V88M396.31 102V88M398.82 102V88M398.84 102V88M398.85 102V88M471.69 102V88M471.69 102V88M471.69 102V88M471.81 102V88M471.82 102V88M471.88 102V88M471.88 102V88M472.26 102V88M472.26 102V88M472.28 102V88M472.67 102V88M472.93 102V88M472.94 102V88M472.94 102V88M472.98 102V88M473.49 102V88M473.49 102V88M473.52 102V88M473.52 102V88M473.96 102V88M473.96 102V88M474.03 102V88M474.04 102V88M474.3 102V88M474.3 102V88M474.33 102V88M474.82 102V88M474.82 102V88M474.82 102V88M474.82 102V88M474.82 102V88M474.83 102V88M475.23 102V88M475.23 102V88M475.24 102V88M475.65 102V88M475.66 102V88M475.67 102V88M479.25 102V88M479.25 102V88M479.26 102V88M479.84 102V88M479.85 102V88" stroke="#7d8590" stroke-width="1"/>
+<path d="M210 102.5H746" stroke="#3d444d"/>
+<path d="M210 121H230.34V110H390.85V121H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="390.85" cy="121" r="2.4" fill="#3987e5"/>
+<path d="M210 141H236.64V130H564.77V141H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="564.77" cy="141" r="2.4" fill="#3987e5"/>
+<path d="M210 161H238.57V150H500.33V161H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="500.33" cy="161" r="2.4" fill="#3987e5"/>
+<path d="M210 181H242.02V170H683.35V181H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="683.35" cy="181" r="2.4" fill="#3987e5"/>
+<path d="M210 201H243.1V190H463.29V201H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="463.29" cy="201" r="2.4" fill="#3987e5"/>
+<path d="M210 221H243.87V210H657.37V221H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="657.37" cy="221" r="2.4" fill="#3987e5"/>
+<path d="M210 241H248.12V230H389.86V241H746" stroke="#f0f6fc" stroke-width="1.6" fill="none"/>
+<circle cx="389.86" cy="241" r="3.6" fill="#0d1117" stroke="#f0f6fc" stroke-width="1.4"/>
+<path d="M210 261H248.12V250H254.7V261H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="254.7" cy="261" r="2.4" fill="#3987e5"/>
+<path d="M210 281H262.18V270H299.59V281H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="299.59" cy="281" r="2.4" fill="#3987e5"/>
+<path d="M210 301H263.12V290H306.51V301H746" stroke="#f0f6fc" stroke-width="1.6" fill="none"/>
+<circle cx="306.51" cy="301" r="3.6" fill="#0d1117" stroke="#f0f6fc" stroke-width="1.4"/>
+<path d="M210 321H267.41V310H346.55V321H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="346.55" cy="321" r="2.4" fill="#3987e5"/>
+<path d="M210 341H299.99V330H452.88V341H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="452.88" cy="341" r="2.4" fill="#3987e5"/>
+<path d="M210 361H300.52V350H421.56V361H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="421.56" cy="361" r="2.4" fill="#3987e5"/>
+<path d="M210 381H367.68V370H390.85V381H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="390.85" cy="381" r="2.4" fill="#3987e5"/>
+<path d="M210 401H367.89V390H698.44V401H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="698.44" cy="401" r="2.4" fill="#3987e5"/>
+<path d="M210 421H390.27V410H433.19V421H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="433.19" cy="421" r="2.4" fill="#3987e5"/>
+<path d="M210 441H396.31V430H733.22V441H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="733.22" cy="441" r="2.4" fill="#3987e5"/>
+<path d="M210 461H396.31V450H544.06V461H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="544.06" cy="461" r="2.4" fill="#3987e5"/>
+<path d="M210 481H471.69V470H475.22V481H746" stroke="#f0f6fc" stroke-width="1.6" fill="none"/>
+<circle cx="475.22" cy="481" r="3.6" fill="#0d1117" stroke="#f0f6fc" stroke-width="1.4"/>
+<path d="M210 501H471.82V490H510.71V501H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="510.71" cy="501" r="2.4" fill="#3987e5"/>
+<rect class="sw" x="210" y="74" width="536" height="432" fill="#0d1117"/>
+<path class="cu" d="M210 74V506" stroke="#3987e5" stroke-width="2"/>
+<path d="M210 74V514M243.5 74V514M277 74V514M310.5 74V514M344 74V514M377.5 74V514M411 74V514M444.5 74V514M478 74V514M511.5 74V514M545 74V514M578.5 74V514M612 74V514M645.5 74V514M679 74V514M712.5 74V514M746 74V514" stroke="#3d444d" stroke-opacity=".6"/>
+<path d="M741.58 74V514" stroke="#9198a1" stroke-dasharray="2 3"/>
+<text class="m hl s13" x="20" y="100">CH0 every report</text>
+<text class="m hl s13" x="20" y="121">evalscope#1774</text>
+<text class="m hl e s13" x="810" y="121">115.0 h</text>
+<text class="m hl s13" x="20" y="141">lmms-eval#1546</text>
+<text class="m hl e s13" x="810" y="141">235.1 h</text>
+<text class="m hl s13" x="20" y="161">kaggle-benchmarks#217</text>
+<text class="m hl e s13" x="810" y="161">187.5 h</text>
+<text class="m hl s13" x="20" y="181">Curator#2443</text>
+<text class="m hl e s13" x="810" y="181">316.2 h</text>
+<text class="m hl s13" x="20" y="201">opik#8519</text>
+<text class="m hl e s13" x="810" y="201">157.7 h</text>
+<text class="m hl s13" x="20" y="221">trl#7364</text>
+<text class="m hl e s13" x="810" y="221">296.2 h</text>
+<text class="hl s13" x="20" y="241">data-juicer#1077</text>
+<text class="hl e s13" x="810" y="241">101.5 h</text>
+<text class="m hl s13" x="20" y="261">EasyEdit#716</text>
+<text class="m hl e s13" x="810" y="261">4.7 h</text>
+<text class="m hl s13" x="20" y="281">PrairieLearn#15852</text>
+<text class="m hl e s13" x="810" y="281">26.8 h</text>
+<text class="hl s13" x="20" y="301">otter-grader#1020</text>
+<text class="hl e s13" x="810" y="301">31.1 h</text>
+<text class="m hl s13" x="20" y="321">AReaL#1757</text>
+<text class="m hl e s13" x="810" y="321">56.7 h</text>
+<text class="m hl s13" x="20" y="341">trulens#2823</text>
+<text class="m hl e s13" x="810" y="341">109.5 h</text>
+<text class="m hl s13" x="20" y="361">AutoRAG#1707</text>
+<text class="m hl e s13" x="810" y="361">86.7 h</text>
+<text class="m hl s13" x="20" y="381">evalscope#1783</text>
+<text class="m hl e s13" x="810" y="381">16.6 h</text>
+<text class="m hl s13" x="20" y="401">MAPIE#993</text>
+<text class="m hl e s13" x="810" y="401">236.8 h</text>
+<text class="m hl s13" x="20" y="421">mlxtend#1202</text>
+<text class="m hl e s13" x="810" y="421">30.8 h</text>
+<text class="m hl s13" x="20" y="441">darts#3221</text>
+<text class="m hl e s13" x="810" y="441">241.4 h</text>
+<text class="m hl s13" x="20" y="461">utilsforecast#285</text>
+<text class="m hl e s13" x="810" y="461">105.9 h</text>
+<text class="hl s13" x="20" y="481">ir_measures#83</text>
+<text class="hl e s13" x="810" y="481">2.5 h</text>
+<text class="m hl s13" x="20" y="501">statsforecast#1247</text>
+<text class="m hl e s13" x="810" y="501">27.9 h</text>
+<text class="m c" x="226.75" y="528">09-23</text>
+<text class="m c" x="293.75" y="528">09-25</text>
+<text class="m c" x="360.75" y="528">09-27</text>
+<text class="m c" x="427.75" y="528">09-29</text>
+<text class="m c" x="494.75" y="528">10-01</text>
+<text class="m c" x="561.75" y="528">10-03</text>
+<text class="m c" x="628.75" y="528">10-05</text>
+<text class="m c" x="695.75" y="528">10-07</text>
+<path d="M210 545v14M362.84 545v14M210 552H362.84" stroke="#3987e5" fill="none"/>
+<text class="a" x="370.84" y="556">Δt median 109.5 h</text>
+<text class="m e" x="810" y="556">utc, days · dotted line: as of 10-08 20:50</text>
+</svg>

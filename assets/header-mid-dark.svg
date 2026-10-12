@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 342" width="560" height="342" role="img" aria-labelledby="t d">
+<title id="t">Shaurya Singh</title>
+<desc id="d">Shaurya Singh, Seattle, cs + data science at UW, class of &#x27;27. A route through nine stops, drawn as icons: proteins, brains, quantum, classrooms, street safety, buildings, underwater robot, graders, music. A terminal: $ grep -rl &quot;same field&quot; ~/built/ prints no matches.</desc>
+<style>text{font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;font-size:12px;fill:#f0f6fc}.m{fill:#9198a1}.a{fill:#3987e5}.b{font-size:26px}.e{text-anchor:end}.c{text-anchor:middle}.w{fill:#db6d28}.nm{font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;font-weight:700}.s13{font-size:13px}.s14{font-size:14px}.s16{font-size:16px}.s22{font-size:22px}.s30{font-size:30px}.s40{font-size:40px}.s52{font-size:52px}.rt{fill:none;stroke:#7d8590;stroke-width:1.6;stroke-dasharray:1;stroke-dashoffset:0;animation:draw 2.4s ease-in-out .4s both}@keyframes draw{from{stroke-dashoffset:1}}.st{animation:pop .5s cubic-bezier(.3,1.6,.5,1) both}@keyframes pop{from{opacity:0;transform:scale(.4)}}.lb{animation:fade .5s ease-out both}@keyframes fade{from{opacity:0}}.k{animation:key .01s step-end backwards}@keyframes key{from,to{opacity:0}}.cur{opacity:0;animation:blink 1s step-end 5.94s 4}@keyframes blink{0%{opacity:1}50%{opacity:0}}@media (prefers-reduced-motion: reduce){*{animation:none!important}}</style>
+<rect width="560" height="342" rx="10" fill="#161b22"/>
+<path d="M40 0V342M100 0V342M160 0V342M220 0V342M280 0V342M340 0V342M400 0V342M460 0V342M520 0V342M0 30H560M0 90H560M0 150H560M0 210H560M0 270H560M0 330H560" stroke="#3d444d" stroke-opacity=".45" stroke-width=".8"/>
+<text class="nm s40" x="28" y="64">Shaurya Singh</text>
+<text class="m s16" x="30" y="90">seattle · cs + data science at UW, '27</text>
+<path class="rt" d="M50 166 C78.75 166 78.75 194 107.5 194 C136.25 194 136.25 166 165 166 C193.75 166 193.75 194 222.5 194 C251.25 194 251.25 166 280 166 C308.75 166 308.75 194 337.5 194 C366.25 194 366.25 166 395 166 C423.75 166 423.75 194 452.5 194 C481.25 194 481.25 166 510 166" pathLength="1"/>
+<g transform="translate(50 166)">
+<g class="st" style="animation-delay:0.50s">
+<circle r="27" fill="#0d1117" stroke="#3d444d" stroke-width="1.5"/>
+<path fill="none" stroke="#f0f6fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M-16 0 L-15.2 1.95 L-14.4 3.05 L-13.6 3.31 L-12.8 2.97 L-12 2.37 L-11.2 1.82 L-10.4 1.46 L-9.6 1.2 L-8.8 0.81 L-8 0 L-7.2 -1.39 L-6.4 -3.3 L-5.6 -5.43 L-4.8 -7.3 L-4 -8.43 L-3.2 -8.45 L-2.4 -7.28 L-1.6 -5.15 L-0.8 -2.53 L0 0 L0.8 1.95 L1.6 3.05 L2.4 3.31 L3.2 2.97 L4 2.37 L4.8 1.82 L5.6 1.46 L6.4 1.2 L7.2 0.81 L8 0 L8.8 -1.39 L9.6 -3.3 L10.4 -5.43 L11.2 -7.3 L12 -8.43 L12.8 -8.45 L13.6 -7.28 L14.4 -5.15 L15.2 -2.53 L16 0"/>
+</g>
+</g>
+<text class="m c lb" x="50" y="128" style="animation-delay:0.50s">proteins</text>
+<g transform="translate(107.5 194)">
+<g class="st" style="animation-delay:0.75s">
+<circle r="27" fill="#0d1117" stroke="#3d444d" stroke-width="1.5"/>
+<path fill="none" stroke="#f0f6fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M-16 0h5l3-9 4 17 3-12 3 4h6"/><path fill="none" stroke="#3987e5" stroke-width="2" stroke-dasharray="2 2.5" d="M12 -10v20"/>
+</g>
+</g>
+<text class="m c lb" x="107.5" y="244" style="animation-delay:0.75s">brains</text>
+<g transform="translate(165 166)">
+<g class="st" style="animation-delay:1.00s">
+<circle r="27" fill="#0d1117" stroke="#3d444d" stroke-width="1.5"/>
+<path fill="none" stroke="#f0f6fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M-14 13v-12M-8.4 13v-20M-2.8 13v-9M2.8 13v-16M8.4 13v-22M14 13v-11"/><path fill="none" stroke="#3987e5" stroke-width="1.6" stroke-dasharray="2.5 2" d="M-16 -3h32"/>
+</g>
+</g>
+<text class="m c lb" x="165" y="128" style="animation-delay:1.00s">quantum</text>
+<g transform="translate(222.5 194)">
+<g class="st" style="animation-delay:1.25s">
+<circle r="27" fill="#0d1117" stroke="#3d444d" stroke-width="1.5"/>
+<path fill="none" stroke="#f0f6fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M-16 -14h32"/><circle cx="-12" cy="-6" r="2.3" fill="#f0f6fc"/><circle cx="-4" cy="-6" r="2.3" fill="#f0f6fc"/><circle cx="4" cy="-6" r="2.3" fill="#f0f6fc"/><circle cx="12" cy="-6" r="2.3" fill="#f0f6fc"/><circle cx="-12" cy="3" r="2.3" fill="#f0f6fc"/><circle cx="-4" cy="3" r="2.3" fill="#f0f6fc"/><circle cx="4" cy="3" r="2.3" fill="#f0f6fc"/><circle cx="12" cy="3" r="2.3" fill="#f0f6fc"/>
+</g>
+</g>
+<text class="m c lb" x="222.5" y="244" style="animation-delay:1.25s">classrooms</text>
+<g transform="translate(280 166)">
+<g class="st" style="animation-delay:1.50s">
+<circle r="27" fill="#0d1117" stroke="#3d444d" stroke-width="1.5"/>
+<path fill="none" stroke="#f0f6fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M0 -15L12 -10V0C12 8 6 13 0 16C-6 13 -12 8 -12 0V-10Z"/><polygon fill="none" stroke="#f0f6fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" points="4.76,2.75 0,5.5 -4.76,2.75 -4.76,-2.75 0,-5.5 4.76,-2.75"/><path fill="none" stroke="#f0f6fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M0 -5.5V-14M0 5.5V15M4.8 -2.8L11 -6M-4.8 -2.8L-11 -6M4.8 2.8L10 6M-4.8 2.8L-10 6"/>
+</g>
+</g>
+<text class="m c lb" x="280" y="128" style="animation-delay:1.50s">street safety</text>
+<g transform="translate(337.5 194)">
+<g class="st" style="animation-delay:1.75s">
+<circle r="27" fill="#0d1117" stroke="#3d444d" stroke-width="1.5"/>
+<path fill="none" stroke="#f0f6fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M-14 13V-1L0 -15L14 -1V13ZM-4 13v-9h8v9"/>
+</g>
+</g>
+<text class="m c lb" x="337.5" y="244" style="animation-delay:1.75s">buildings</text>
+<g transform="translate(395 166)">
+<g class="st" style="animation-delay:2.00s">
+<circle r="27" fill="#0d1117" stroke="#3d444d" stroke-width="1.5"/>
+<path fill="none" stroke="#f0f6fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M-12 -5h18a5 5 0 0 1 0 10h-18a5 5 0 0 1 0-10ZM-4 -5v-5h5v5M11 0h4M15 -5v10"/><path fill="none" stroke="#f0f6fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" d="M-15 0h3"/><circle cx="-10" cy="-13" r="1.6" fill="none" stroke="#f0f6fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/><circle cx="-14" cy="-17" r="1.1" fill="none" stroke="#f0f6fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+</g>
+</g>
+<text class="m c lb" x="395" y="128" style="animation-delay:2.00s">underwater robot</text>
+<g transform="translate(452.5 194)">
+<g class="st" style="animation-delay:2.25s">
+<circle r="27" fill="#0d1117" stroke="#3d444d" stroke-width="1.5"/>
+<path fill="none" stroke="#f0f6fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M-14 0l8 9 18-20"/><path fill="none" stroke="#3987e5" stroke-width="2" d="M6 4l8 8m0-8l-8 8"/>
+</g>
+</g>
+<text class="m c lb" x="452.5" y="244" style="animation-delay:2.25s">graders</text>
+<g transform="translate(510 166)">
+<g class="st" style="animation-delay:2.50s">
+<circle r="27" fill="#0d1117" stroke="#3d444d" stroke-width="1.5"/>
+<path fill="none" stroke="#f0f6fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M-8 10V-12l16-4v18"/><circle cx="-11" cy="10" r="3.5" fill="none" stroke="#f0f6fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/><circle cx="5" cy="14" r="3.5" fill="none" stroke="#f0f6fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+</g>
+</g>
+<text class="m c lb" x="510" y="128" style="animation-delay:2.50s">music</text>
+<rect x="24" y="260" width="380" height="66" rx="8" fill="#0d1117" stroke="#3d444d"/>
+<text class="s16" x="38" y="286"><tspan class="k" style="animation-delay:3.17s">$</tspan><tspan class="k" style="animation-delay:3.24s"> </tspan><tspan class="k" style="animation-delay:3.31s">g</tspan><tspan class="k" style="animation-delay:3.38s">r</tspan><tspan class="k" style="animation-delay:3.45s">e</tspan><tspan class="k" style="animation-delay:3.52s">p</tspan><tspan class="k" style="animation-delay:3.59s"> </tspan><tspan class="k" style="animation-delay:3.66s">-</tspan><tspan class="k" style="animation-delay:3.73s">r</tspan><tspan class="k" style="animation-delay:3.80s">l</tspan><tspan class="k" style="animation-delay:3.87s"> </tspan><tspan class="k" style="animation-delay:3.94s">"</tspan><tspan class="k" style="animation-delay:4.01s">s</tspan><tspan class="k" style="animation-delay:4.08s">a</tspan><tspan class="k" style="animation-delay:4.15s">m</tspan><tspan class="k" style="animation-delay:4.22s">e</tspan><tspan class="k" style="animation-delay:4.29s"> </tspan><tspan class="k" style="animation-delay:4.36s">f</tspan><tspan class="k" style="animation-delay:4.43s">i</tspan><tspan class="k" style="animation-delay:4.50s">e</tspan><tspan class="k" style="animation-delay:4.57s">l</tspan><tspan class="k" style="animation-delay:4.64s">d</tspan><tspan class="k" style="animation-delay:4.71s">"</tspan><tspan class="k" style="animation-delay:4.78s"> </tspan><tspan class="k" style="animation-delay:4.85s">~</tspan><tspan class="k" style="animation-delay:4.92s">/</tspan><tspan class="k" style="animation-delay:4.99s">b</tspan><tspan class="k" style="animation-delay:5.06s">u</tspan><tspan class="k" style="animation-delay:5.13s">i</tspan><tspan class="k" style="animation-delay:5.20s">l</tspan><tspan class="k" style="animation-delay:5.27s">t</tspan><tspan class="k" style="animation-delay:5.34s">/</tspan></text>
+<text class="a k s16" x="38" y="314" style="animation-delay:5.84s">no matches</text>
+<rect class="cur" x="140" y="301.52" width="8.8" height="16" fill="#3987e5"/>
+<text class="m e" x="536" y="318">icons, not data</text>
+</svg>

@@ -10,22 +10,67 @@ on:
         type: boolean
         default: false
 
-permissions:
-  contents: write               # the only permission the job needs: it commits generated files
+permissions: {}                 # nothing by default; each job asks for exactly what it needs
 
 concurrency:
   group: refresh
   cancel-in-progress: false     # a manual run during the daily one queues instead of racing it
 
 jobs:
-  refresh:
+  # The two third-party Actions run here, with a token that can only read. Their files leave this job as an
+  # artifact; the job that can push never runs them.
+  widgets:
     runs-on: ubuntu-24.04       # pinned, so a move of the ubuntu-latest label is a decision, not a surprise
-    timeout-minutes: 30
+    timeout-minutes: 15
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
+      # every action is pinned to a full commit SHA; the comment is the tag it was read at
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1          # v7.0.1
         with:
-          python-version: "3.12"
+          persist-credentials: false                  # no token left in .git/config for the steps below
+      - name: Prepare widget folders
+        run: mkdir -p assets/contrib
+      - name: Contribution snake
+        continue-on-error: true                       # a failed run keeps yesterday's committed files
+        uses: Platane/snk/svg-only@d8f6715049803e982ee5ff501b6b9b7d5deeb09b       # v3.5.0
+        with:                                         # github_token defaults to this job's read-only token
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            assets/contrib/snake-light.svg?color_snake=#0969da&color_dots=#eef1f4,#b6d4f5,#6ea8ee,#3987e5,#0969da
+            assets/contrib/snake-dark.svg?color_snake=#3987e5&color_dots=#161b22,#0b3a6e,#1a5fb4,#3987e5,#79b8ff
+      - name: 3D contribution graph
+        continue-on-error: true                       # writes profile-3d-contrib/3d-{light,dark}.svg (its fixed folder)
+        uses: yoshi389111/github-profile-3d-contrib@7d95e7d4cdc028dd1e1cbd957d65f35efb12ae39   # v0.9.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+          SETTING_JSON: .github/contrib3d.json
+      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f   # v7.0.0
+        with:
+          name: widgets
+          path: |                                    # the four files build.py checks, and nothing else they wrote
+            assets/contrib/snake-light.svg
+            assets/contrib/snake-dark.svg
+            profile-3d-contrib/3d-light.svg
+            profile-3d-contrib/3d-dark.svg
+          if-no-files-found: ignore
+          retention-days: 1
+
+  refresh:
+    needs: widgets
+    if: ${{ !cancelled() }}     # the data refresh runs whether or not the widgets were drawn
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: write           # the only permission this job needs: it commits generated files
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1          # v7.0.1
+        with:
+          persist-credentials: false                  # the token is handed to the commit step alone
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97      # v7.0.0
+        with:
+          python-version: "3.12"                      # build.py needs 3.12 or newer
       - name: Require the exclusion
         env:
           PROFILE_EXCLUDE: ${{ secrets.PROFILE_EXCLUDE }}
@@ -36,13 +81,24 @@ jobs:
           PROFILE_EXCLUDE: ${{ secrets.PROFILE_EXCLUDE }}
           PROFILE_FULL: ${{ inputs.full && '1' || '' }}
         run: python3 build.py fetch
-      - name: Render
+      - name: Today's widget files
+        continue-on-error: true                       # no artifact: yesterday's committed files stay
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131   # v7.0.0
+        with:
+          name: widgets                               # into the workspace, at the paths it was uploaded from
+      - name: Render                                  # also checks the widget files and makes the snake play once
         run: python3 build.py
       - name: Commit if changed
         # fetch.json "checked" moves at least every 30 days (build.py HEARTBEAT_DAYS), so even a quiet
         # month makes one commit and GitHub never disables this schedule for 60 days without activity
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git add README.md CHECKS.md assets data
+          git add -- README.md CHECKS.md data assets ':!assets/contrib'
+          widgets="assets/contrib/snake-light.svg assets/contrib/snake-dark.svg profile-3d-contrib/3d-light.svg profile-3d-contrib/3d-dark.svg"
+          if grep -q 'profile-3d-contrib/' README.md; then
+            for f in $widgets; do if [ -f "$f" ]; then git add -- "$f"; fi; done   # only the four files build.py checked
+          fi                            # otherwise the build left the widgets out: the committed files stay as they were
           if git diff --cached --quiet; then
             echo "no change"
             exit 0
@@ -50,5 +106,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "refresh data"
-          git pull --rebase
-          git push
+          auth="$(printf 'x-access-token:%s' "$GITHUB_TOKEN" | base64 -w0)"
+          echo "::add-mask::$auth"
+          git -c http.https://github.com/.extraheader="AUTHORIZATION: basic $auth" pull --rebase
+          git -c http.https://github.com/.extraheader="AUTHORIZATION: basic $auth" push

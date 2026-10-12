@@ -1,0 +1,288 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 640" width="830" height="640" role="img" aria-labelledby="t d">
+<title id="t">238 issues as stars</title>
+<desc id="d">238 issues drawn as stars in 15 clusters, one per area: eval harnesses 42, judges &amp; RAG 29, RL rewards 22, agent evals 21, metric libs 20, eval platforms 19, fairness &amp; UQ 18, code &amp; math 13, data pipelines 12, safety 12, autograders 8, forecasting 8, retrieval 7, explainability 4, speech &amp; audio 3. Lit: 20 fixed by a merged pull request, 17 by other people and 3 by me (ringed). Rings: 5 closed without a fix. Dots: 213 open. 229 repositories in 15 areas.</desc>
+<style>text{font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;font-size:12px;fill:#f0f6fc}.m{fill:#9198a1}.a{fill:#3987e5}.b{font-size:26px}.e{text-anchor:end}.c{text-anchor:middle}.w{fill:#db6d28}.nm{font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;font-weight:700}.s13{font-size:13px}.s14{font-size:14px}.s16{font-size:16px}.s22{font-size:22px}.s30{font-size:30px}.s40{font-size:40px}.s52{font-size:52px}.op{fill:#7d8590}.ln{fill:none;stroke:#3d444d;stroke-width:1}.sky{animation:fade 1.2s ease-out both}@keyframes fade{from{opacity:0}}.lit{animation:lit 1.4s ease-out both}@keyframes lit{0%{opacity:0;transform:scale(.2)}60%{opacity:1;transform:scale(1.35)}100%{transform:scale(1)}}@media (prefers-reduced-motion: reduce){*{animation:none!important}}</style>
+<rect x=".5" y=".5" width="829" height="639" rx="8" fill="#0d1117" stroke="#3d444d"/>
+<text x="28" y="50"><tspan class="s30">238</tspan><tspan class="m" dx="10">issues, one star each</tspan></text>
+<text class="m e s14" x="802" y="50">lit = fixed by a merged PR: 20</text>
+<text class="m s14" x="28" y="76">229 repositories in 15 areas; lines join an area's issues in the order filed</text>
+<g class="sky">
+<path class="ln" d="M95 166 L89.47 171.07 L95.93 155.43 L102.9 176.31 L80.23 163.39 L109.15 157 L90.23 183.74 L85.85 148.39 L114.93 173.28 L74.2 174.58 L105.05 144.52 L102.44 189.73 L72.52 152.97 L121.41 160.2 L78.86 188.96 L91.27 137.19 L117.94 185.33 L64.1 167.28 L117.56 143.56 L93.49 198.66 L73.51 140.25 L129.06 170.59 L66.12 186.09 L102.9 130.91 L113.26 197.88 L59.28 154.6 L129.72 149.96 L79.95 201.95 L81.57 128.65 L130.75 184.79 L55.28 176.47 L117.59 130.88 L102.18 207.81 L60.94 139.61 L138.58 162.4 L64.86 198.57 L95.23 121 L125.65 199.79 L48.96 161.73 L132.31 137.69 L86.5 212.67 L69.43 125.35"/>
+<circle class="op" cx="95" cy="166" r="2.2"/>
+<circle class="op" cx="89.47" cy="171.07" r="2.2"/>
+<circle class="op" cx="95.93" cy="155.43" r="2.2"/>
+<circle class="op" cx="102.9" cy="176.31" r="2.2"/>
+<circle class="op" cx="80.23" cy="163.39" r="2.2"/>
+<circle class="op" cx="90.23" cy="183.74" r="2.2"/>
+<circle class="op" cx="85.85" cy="148.39" r="2.2"/>
+<circle class="op" cx="114.93" cy="173.28" r="2.2"/>
+<circle class="op" cx="74.2" cy="174.58" r="2.2"/>
+<circle class="op" cx="105.05" cy="144.52" r="2.2"/>
+<circle class="op" cx="72.52" cy="152.97" r="2.2"/>
+<circle class="op" cx="121.41" cy="160.2" r="2.2"/>
+<circle class="op" cx="78.86" cy="188.96" r="2.2"/>
+<circle class="op" cx="91.27" cy="137.19" r="2.2"/>
+<circle class="op" cx="117.94" cy="185.33" r="2.2"/>
+<circle class="op" cx="64.1" cy="167.28" r="2.2"/>
+<circle cx="117.56" cy="143.56" r="3.2" fill="#0d1117" stroke="#7d8590" stroke-width="1.3"/>
+<circle class="op" cx="93.49" cy="198.66" r="2.2"/>
+<circle class="op" cx="129.06" cy="170.59" r="2.2"/>
+<circle class="op" cx="66.12" cy="186.09" r="2.2"/>
+<circle class="op" cx="102.9" cy="130.91" r="2.2"/>
+<circle class="op" cx="113.26" cy="197.88" r="2.2"/>
+<circle class="op" cx="59.28" cy="154.6" r="2.2"/>
+<circle class="op" cx="129.72" cy="149.96" r="2.2"/>
+<circle class="op" cx="79.95" cy="201.95" r="2.2"/>
+<circle class="op" cx="130.75" cy="184.79" r="2.2"/>
+<circle class="op" cx="55.28" cy="176.47" r="2.2"/>
+<circle class="op" cx="117.59" cy="130.88" r="2.2"/>
+<circle class="op" cx="102.18" cy="207.81" r="2.2"/>
+<circle class="op" cx="60.94" cy="139.61" r="2.2"/>
+<circle class="op" cx="138.58" cy="162.4" r="2.2"/>
+<circle class="op" cx="64.86" cy="198.57" r="2.2"/>
+<circle class="op" cx="125.65" cy="199.79" r="2.2"/>
+<circle class="op" cx="48.96" cy="161.73" r="2.2"/>
+<circle class="op" cx="132.31" cy="137.69" r="2.2"/>
+<circle class="op" cx="86.5" cy="212.67" r="2.2"/>
+<circle class="op" cx="69.43" cy="125.35" r="2.2"/>
+<text class="c m s14" x="95" y="242">eval harnesses 42</text>
+<path class="ln" d="M255 166 L249.47 171.07 L255.93 155.43 L262.9 176.31 L240.23 163.39 L269.15 157 L250.23 183.74 L245.85 148.39 L274.93 173.28 L234.2 174.58 L265.05 144.52 L262.44 189.73 L232.52 152.97 L281.41 160.2 L238.86 188.96 L251.27 137.19 L277.94 185.33 L224.1 167.28 L277.56 143.56 L253.49 198.66 L233.51 140.25 L289.06 170.59 L226.12 186.09 L262.9 130.91 L273.26 197.88 L219.28 154.6 L289.72 149.96 L239.95 201.95 L241.57 128.65"/>
+<circle class="op" cx="255" cy="166" r="2.2"/>
+<circle class="op" cx="249.47" cy="171.07" r="2.2"/>
+<circle class="op" cx="255.93" cy="155.43" r="2.2"/>
+<circle class="op" cx="262.9" cy="176.31" r="2.2"/>
+<circle class="op" cx="240.23" cy="163.39" r="2.2"/>
+<circle class="op" cx="269.15" cy="157" r="2.2"/>
+<circle class="op" cx="250.23" cy="183.74" r="2.2"/>
+<circle class="op" cx="245.85" cy="148.39" r="2.2"/>
+<circle class="op" cx="274.93" cy="173.28" r="2.2"/>
+<circle class="op" cx="234.2" cy="174.58" r="2.2"/>
+<circle class="op" cx="265.05" cy="144.52" r="2.2"/>
+<circle class="op" cx="232.52" cy="152.97" r="2.2"/>
+<circle class="op" cx="281.41" cy="160.2" r="2.2"/>
+<circle class="op" cx="238.86" cy="188.96" r="2.2"/>
+<circle class="op" cx="251.27" cy="137.19" r="2.2"/>
+<circle class="op" cx="277.94" cy="185.33" r="2.2"/>
+<circle class="op" cx="224.1" cy="167.28" r="2.2"/>
+<circle class="op" cx="277.56" cy="143.56" r="2.2"/>
+<circle class="op" cx="253.49" cy="198.66" r="2.2"/>
+<circle class="op" cx="233.51" cy="140.25" r="2.2"/>
+<circle class="op" cx="289.06" cy="170.59" r="2.2"/>
+<circle class="op" cx="226.12" cy="186.09" r="2.2"/>
+<circle class="op" cx="262.9" cy="130.91" r="2.2"/>
+<circle class="op" cx="273.26" cy="197.88" r="2.2"/>
+<circle class="op" cx="219.28" cy="154.6" r="2.2"/>
+<circle class="op" cx="289.72" cy="149.96" r="2.2"/>
+<circle class="op" cx="239.95" cy="201.95" r="2.2"/>
+<circle class="op" cx="241.57" cy="128.65" r="2.2"/>
+<text class="c m s14" x="255" y="242">judges &amp; RAG 29</text>
+<path class="ln" d="M415 166 L409.47 171.07 L415.93 155.43 L422.9 176.31 L400.23 163.39 L429.15 157 L410.23 183.74 L405.85 148.39 L434.93 173.28 L394.2 174.58 L425.05 144.52 L422.44 189.73 L392.52 152.97 L441.41 160.2 L398.86 188.96 L411.27 137.19 L437.94 185.33 L384.1 167.28 L437.56 143.56 L413.49 198.66 L393.51 140.25 L449.06 170.59"/>
+<circle class="op" cx="415" cy="166" r="2.2"/>
+<circle class="op" cx="415.93" cy="155.43" r="2.2"/>
+<circle class="op" cx="422.9" cy="176.31" r="2.2"/>
+<circle class="op" cx="400.23" cy="163.39" r="2.2"/>
+<circle cx="429.15" cy="157" r="3.2" fill="#0d1117" stroke="#7d8590" stroke-width="1.3"/>
+<circle class="op" cx="410.23" cy="183.74" r="2.2"/>
+<circle class="op" cx="405.85" cy="148.39" r="2.2"/>
+<circle class="op" cx="434.93" cy="173.28" r="2.2"/>
+<circle class="op" cx="394.2" cy="174.58" r="2.2"/>
+<circle class="op" cx="422.44" cy="189.73" r="2.2"/>
+<circle class="op" cx="392.52" cy="152.97" r="2.2"/>
+<circle class="op" cx="441.41" cy="160.2" r="2.2"/>
+<circle class="op" cx="398.86" cy="188.96" r="2.2"/>
+<circle class="op" cx="411.27" cy="137.19" r="2.2"/>
+<circle class="op" cx="437.94" cy="185.33" r="2.2"/>
+<circle class="op" cx="384.1" cy="167.28" r="2.2"/>
+<circle class="op" cx="437.56" cy="143.56" r="2.2"/>
+<circle class="op" cx="413.49" cy="198.66" r="2.2"/>
+<circle class="op" cx="393.51" cy="140.25" r="2.2"/>
+<circle class="op" cx="449.06" cy="170.59" r="2.2"/>
+<text class="c m s14" x="415" y="242">RL rewards 22</text>
+<path class="ln" d="M575 166 L569.47 171.07 L575.93 155.43 L582.9 176.31 L560.23 163.39 L589.15 157 L570.23 183.74 L565.85 148.39 L594.93 173.28 L554.2 174.58 L585.05 144.52 L582.44 189.73 L552.52 152.97 L601.41 160.2 L558.86 188.96 L571.27 137.19 L597.94 185.33 L544.1 167.28 L597.56 143.56 L573.49 198.66 L553.51 140.25"/>
+<circle class="op" cx="575" cy="166" r="2.2"/>
+<circle class="op" cx="569.47" cy="171.07" r="2.2"/>
+<circle class="op" cx="575.93" cy="155.43" r="2.2"/>
+<circle class="op" cx="582.9" cy="176.31" r="2.2"/>
+<circle class="op" cx="560.23" cy="163.39" r="2.2"/>
+<circle class="op" cx="589.15" cy="157" r="2.2"/>
+<circle class="op" cx="570.23" cy="183.74" r="2.2"/>
+<circle class="op" cx="565.85" cy="148.39" r="2.2"/>
+<circle class="op" cx="594.93" cy="173.28" r="2.2"/>
+<circle class="op" cx="554.2" cy="174.58" r="2.2"/>
+<circle class="op" cx="585.05" cy="144.52" r="2.2"/>
+<circle class="op" cx="582.44" cy="189.73" r="2.2"/>
+<circle class="op" cx="552.52" cy="152.97" r="2.2"/>
+<circle class="op" cx="601.41" cy="160.2" r="2.2"/>
+<circle class="op" cx="558.86" cy="188.96" r="2.2"/>
+<circle class="op" cx="571.27" cy="137.19" r="2.2"/>
+<circle class="op" cx="597.94" cy="185.33" r="2.2"/>
+<circle class="op" cx="544.1" cy="167.28" r="2.2"/>
+<circle class="op" cx="597.56" cy="143.56" r="2.2"/>
+<circle class="op" cx="573.49" cy="198.66" r="2.2"/>
+<circle class="op" cx="553.51" cy="140.25" r="2.2"/>
+<text class="c m s14" x="575" y="242">agent evals 21</text>
+<path class="ln" d="M735 166 L729.47 171.07 L735.93 155.43 L742.9 176.31 L720.23 163.39 L749.15 157 L730.23 183.74 L725.85 148.39 L754.93 173.28 L714.2 174.58 L745.05 144.52 L742.44 189.73 L712.52 152.97 L761.41 160.2 L718.86 188.96 L731.27 137.19 L757.94 185.33 L704.1 167.28 L757.56 143.56 L733.49 198.66"/>
+<circle class="op" cx="735" cy="166" r="2.2"/>
+<circle class="op" cx="729.47" cy="171.07" r="2.2"/>
+<circle class="op" cx="735.93" cy="155.43" r="2.2"/>
+<circle class="op" cx="742.9" cy="176.31" r="2.2"/>
+<circle class="op" cx="720.23" cy="163.39" r="2.2"/>
+<circle class="op" cx="749.15" cy="157" r="2.2"/>
+<circle class="op" cx="730.23" cy="183.74" r="2.2"/>
+<circle class="op" cx="725.85" cy="148.39" r="2.2"/>
+<circle class="op" cx="754.93" cy="173.28" r="2.2"/>
+<circle class="op" cx="745.05" cy="144.52" r="2.2"/>
+<circle class="op" cx="742.44" cy="189.73" r="2.2"/>
+<circle class="op" cx="712.52" cy="152.97" r="2.2"/>
+<circle class="op" cx="761.41" cy="160.2" r="2.2"/>
+<circle class="op" cx="718.86" cy="188.96" r="2.2"/>
+<circle class="op" cx="731.27" cy="137.19" r="2.2"/>
+<circle class="op" cx="757.94" cy="185.33" r="2.2"/>
+<circle class="op" cx="704.1" cy="167.28" r="2.2"/>
+<circle class="op" cx="757.56" cy="143.56" r="2.2"/>
+<circle class="op" cx="733.49" cy="198.66" r="2.2"/>
+<text class="c m s14" x="735" y="242">metric libs 20</text>
+<path class="ln" d="M95 326 L89.47 331.07 L95.93 315.43 L102.9 336.31 L80.23 323.39 L109.15 317 L90.23 343.74 L85.85 308.39 L114.93 333.28 L74.2 334.58 L105.05 304.52 L102.44 349.73 L72.52 312.97 L121.41 320.2 L78.86 348.96 L91.27 297.19 L117.94 345.33 L64.1 327.28 L117.56 303.56"/>
+<circle class="op" cx="95" cy="326" r="2.2"/>
+<circle class="op" cx="89.47" cy="331.07" r="2.2"/>
+<circle class="op" cx="95.93" cy="315.43" r="2.2"/>
+<circle class="op" cx="102.9" cy="336.31" r="2.2"/>
+<circle class="op" cx="80.23" cy="323.39" r="2.2"/>
+<circle class="op" cx="109.15" cy="317" r="2.2"/>
+<circle class="op" cx="90.23" cy="343.74" r="2.2"/>
+<circle class="op" cx="114.93" cy="333.28" r="2.2"/>
+<circle class="op" cx="74.2" cy="334.58" r="2.2"/>
+<circle class="op" cx="105.05" cy="304.52" r="2.2"/>
+<circle cx="102.44" cy="349.73" r="3.2" fill="#0d1117" stroke="#7d8590" stroke-width="1.3"/>
+<circle class="op" cx="72.52" cy="312.97" r="2.2"/>
+<circle class="op" cx="78.86" cy="348.96" r="2.2"/>
+<circle class="op" cx="91.27" cy="297.19" r="2.2"/>
+<circle class="op" cx="117.94" cy="345.33" r="2.2"/>
+<circle class="op" cx="64.1" cy="327.28" r="2.2"/>
+<circle class="op" cx="117.56" cy="303.56" r="2.2"/>
+<text class="c m s14" x="95" y="402">eval platforms 19</text>
+<path class="ln" d="M255 326 L249.47 331.07 L255.93 315.43 L262.9 336.31 L240.23 323.39 L269.15 317 L250.23 343.74 L245.85 308.39 L274.93 333.28 L234.2 334.58 L265.05 304.52 L262.44 349.73 L232.52 312.97 L281.41 320.2 L238.86 348.96 L251.27 297.19 L277.94 345.33 L224.1 327.28"/>
+<circle class="op" cx="255" cy="326" r="2.2"/>
+<circle class="op" cx="249.47" cy="331.07" r="2.2"/>
+<circle class="op" cx="255.93" cy="315.43" r="2.2"/>
+<circle class="op" cx="262.9" cy="336.31" r="2.2"/>
+<circle class="op" cx="240.23" cy="323.39" r="2.2"/>
+<circle class="op" cx="269.15" cy="317" r="2.2"/>
+<circle class="op" cx="250.23" cy="343.74" r="2.2"/>
+<circle class="op" cx="245.85" cy="308.39" r="2.2"/>
+<circle class="op" cx="274.93" cy="333.28" r="2.2"/>
+<circle class="op" cx="234.2" cy="334.58" r="2.2"/>
+<circle class="op" cx="265.05" cy="304.52" r="2.2"/>
+<circle class="op" cx="262.44" cy="349.73" r="2.2"/>
+<circle class="op" cx="232.52" cy="312.97" r="2.2"/>
+<circle class="op" cx="281.41" cy="320.2" r="2.2"/>
+<circle class="op" cx="238.86" cy="348.96" r="2.2"/>
+<circle class="op" cx="251.27" cy="297.19" r="2.2"/>
+<circle class="op" cx="224.1" cy="327.28" r="2.2"/>
+<text class="c m s14" x="255" y="402">fairness &amp; UQ 18</text>
+<path class="ln" d="M415 326 L409.47 331.07 L415.93 315.43 L422.9 336.31 L400.23 323.39 L429.15 317 L410.23 343.74 L405.85 308.39 L434.93 333.28 L394.2 334.58 L425.05 304.52 L422.44 349.73 L392.52 312.97"/>
+<circle class="op" cx="415" cy="326" r="2.2"/>
+<circle class="op" cx="409.47" cy="331.07" r="2.2"/>
+<circle class="op" cx="415.93" cy="315.43" r="2.2"/>
+<circle class="op" cx="422.9" cy="336.31" r="2.2"/>
+<circle class="op" cx="400.23" cy="323.39" r="2.2"/>
+<circle class="op" cx="429.15" cy="317" r="2.2"/>
+<circle cx="410.23" cy="343.74" r="3.2" fill="#0d1117" stroke="#7d8590" stroke-width="1.3"/>
+<circle class="op" cx="405.85" cy="308.39" r="2.2"/>
+<circle cx="434.93" cy="333.28" r="3.2" fill="#0d1117" stroke="#7d8590" stroke-width="1.3"/>
+<circle class="op" cx="394.2" cy="334.58" r="2.2"/>
+<circle class="op" cx="425.05" cy="304.52" r="2.2"/>
+<circle class="op" cx="422.44" cy="349.73" r="2.2"/>
+<circle class="op" cx="392.52" cy="312.97" r="2.2"/>
+<text class="c m s14" x="415" y="402">code &amp; math 13</text>
+<path class="ln" d="M575 326 L569.47 331.07 L575.93 315.43 L582.9 336.31 L560.23 323.39 L589.15 317 L570.23 343.74 L565.85 308.39 L594.93 333.28 L554.2 334.58 L585.05 304.52 L582.44 349.73"/>
+<circle class="op" cx="575" cy="326" r="2.2"/>
+<circle class="op" cx="582.9" cy="336.31" r="2.2"/>
+<circle class="op" cx="560.23" cy="323.39" r="2.2"/>
+<circle class="op" cx="589.15" cy="317" r="2.2"/>
+<circle class="op" cx="570.23" cy="343.74" r="2.2"/>
+<circle class="op" cx="565.85" cy="308.39" r="2.2"/>
+<circle class="op" cx="594.93" cy="333.28" r="2.2"/>
+<circle class="op" cx="554.2" cy="334.58" r="2.2"/>
+<circle class="op" cx="585.05" cy="304.52" r="2.2"/>
+<circle class="op" cx="582.44" cy="349.73" r="2.2"/>
+<text class="c m s14" x="575" y="402">data pipelines 12</text>
+<path class="ln" d="M735 326 L729.47 331.07 L735.93 315.43 L742.9 336.31 L720.23 323.39 L749.15 317 L730.23 343.74 L725.85 308.39 L754.93 333.28 L714.2 334.58 L745.05 304.52 L742.44 349.73"/>
+<circle class="op" cx="735" cy="326" r="2.2"/>
+<circle class="op" cx="729.47" cy="331.07" r="2.2"/>
+<circle class="op" cx="735.93" cy="315.43" r="2.2"/>
+<circle class="op" cx="742.9" cy="336.31" r="2.2"/>
+<circle class="op" cx="720.23" cy="323.39" r="2.2"/>
+<circle class="op" cx="749.15" cy="317" r="2.2"/>
+<circle class="op" cx="730.23" cy="343.74" r="2.2"/>
+<circle class="op" cx="725.85" cy="308.39" r="2.2"/>
+<circle class="op" cx="754.93" cy="333.28" r="2.2"/>
+<circle class="op" cx="714.2" cy="334.58" r="2.2"/>
+<circle class="op" cx="745.05" cy="304.52" r="2.2"/>
+<circle class="op" cx="742.44" cy="349.73" r="2.2"/>
+<text class="c m s14" x="735" y="402">safety 12</text>
+<path class="ln" d="M95 486 L89.47 491.07 L95.93 475.43 L102.9 496.31 L80.23 483.39 L109.15 477 L90.23 503.74 L85.85 468.39"/>
+<circle class="op" cx="95" cy="486" r="2.2"/>
+<circle class="op" cx="89.47" cy="491.07" r="2.2"/>
+<circle class="op" cx="102.9" cy="496.31" r="2.2"/>
+<circle class="op" cx="109.15" cy="477" r="2.2"/>
+<circle class="op" cx="90.23" cy="503.74" r="2.2"/>
+<circle class="op" cx="85.85" cy="468.39" r="2.2"/>
+<text class="c m s14" x="95" y="562">autograders 8</text>
+<path class="ln" d="M255 486 L249.47 491.07 L255.93 475.43 L262.9 496.31 L240.23 483.39 L269.15 477 L250.23 503.74 L245.85 468.39"/>
+<circle class="op" cx="255" cy="486" r="2.2"/>
+<circle class="op" cx="249.47" cy="491.07" r="2.2"/>
+<circle class="op" cx="240.23" cy="483.39" r="2.2"/>
+<circle class="op" cx="269.15" cy="477" r="2.2"/>
+<circle class="op" cx="245.85" cy="468.39" r="2.2"/>
+<text class="c m s14" x="255" y="562">forecasting 8</text>
+<path class="ln" d="M415 486 L409.47 491.07 L415.93 475.43 L422.9 496.31 L400.23 483.39 L429.15 477 L410.23 503.74"/>
+<circle class="op" cx="415" cy="486" r="2.2"/>
+<circle class="op" cx="409.47" cy="491.07" r="2.2"/>
+<circle class="op" cx="415.93" cy="475.43" r="2.2"/>
+<circle class="op" cx="422.9" cy="496.31" r="2.2"/>
+<circle class="op" cx="400.23" cy="483.39" r="2.2"/>
+<circle class="op" cx="410.23" cy="503.74" r="2.2"/>
+<text class="c m s14" x="415" y="562">retrieval 7</text>
+<path class="ln" d="M575 486 L569.47 491.07 L575.93 475.43 L582.9 496.31"/>
+<circle class="op" cx="575" cy="486" r="2.2"/>
+<circle class="op" cx="569.47" cy="491.07" r="2.2"/>
+<circle class="op" cx="575.93" cy="475.43" r="2.2"/>
+<circle class="op" cx="582.9" cy="496.31" r="2.2"/>
+<text class="c m s14" x="575" y="562">explainability 4</text>
+<path class="ln" d="M735 486 L729.47 491.07 L735.93 475.43"/>
+<circle class="op" cx="735" cy="486" r="2.2"/>
+<circle class="op" cx="729.47" cy="491.07" r="2.2"/>
+<circle class="op" cx="735.93" cy="475.43" r="2.2"/>
+<text class="c m s14" x="735" y="562">speech &amp; audio 3</text>
+</g>
+<g transform="translate(109.15 157)"><g class="lit" style="animation-delay:2.30s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(102.44 189.73)"><g class="lit" style="animation-delay:4.50s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(73.51 140.25)"><g class="lit" style="animation-delay:3.84s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(81.57 128.65)"><g class="lit" style="animation-delay:1.20s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(95.23 121)"><g class="lit" style="animation-delay:2.52s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(262.44 189.73)"><g class="lit" style="animation-delay:2.74s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(409.47 171.07)"><g class="lit" style="animation-delay:4.72s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(425.05 144.52)"><g class="lit" style="animation-delay:1.86s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(714.2 174.58)"><g class="lit" style="animation-delay:2.96s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(85.85 308.39)"><g class="lit" style="animation-delay:3.40s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(121.41 320.2)"><g class="lit" style="animation-delay:3.18s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(277.94 345.33)"><g class="lit" style="animation-delay:5.16s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(569.47 331.07)"><g class="lit" style="animation-delay:4.94s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(575.93 315.43)"><g class="lit" style="animation-delay:2.08s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/><circle r="12.5" fill="none" stroke="#3987e5" stroke-width="1.3"/></g></g>
+<g transform="translate(95.93 475.43)"><g class="lit" style="animation-delay:1.42s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(80.23 483.39)"><g class="lit" style="animation-delay:1.64s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/><circle r="12.5" fill="none" stroke="#3987e5" stroke-width="1.3"/></g></g>
+<g transform="translate(255.93 475.43)"><g class="lit" style="animation-delay:5.38s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(262.9 496.31)"><g class="lit" style="animation-delay:4.28s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(250.23 503.74)"><g class="lit" style="animation-delay:4.06s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(429.15 477)"><g class="lit" style="animation-delay:3.62s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/><circle r="12.5" fill="none" stroke="#3987e5" stroke-width="1.3"/></g></g>
+<circle cx="38" cy="609" r="2.2" fill="#7d8590"/>
+<text class="m s14" x="54" y="614">open 213</text>
+<circle cx="165.44" cy="609" r="3.2" fill="#0d1117" stroke="#7d8590" stroke-width="1.3"/>
+<text class="m s14" x="181.44" y="614">closed, no fix 5</text>
+<path d="M362.32 602Q364.28 607.04 369.32 609Q364.28 610.96 362.32 616Q360.36 610.96 355.32 609Q360.36 607.04 362.32 602Z" fill="#3987e5"/>
+<text class="m s14" x="378.32" y="614">fixed by others 17</text>
+<path d="M576.56 602Q578.52 607.04 583.56 609Q578.52 610.96 576.56 616Q574.6 610.96 569.56 609Q574.6 607.04 576.56 602Z" fill="#3987e5"/>
+<circle cx="576.56" cy="609" r="10.5" fill="none" stroke="#3987e5" stroke-width="1.3"/>
+<text class="m s14" x="592.56" y="614">fixed by me 3</text>
+</svg>
