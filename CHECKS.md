@@ -152,25 +152,8 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | README defect table | fixes in the table, lead sentence | eight of the fixes | `len(notes.json rows)` |
 | README side quest | lines in the example grader | two-line grader | `len(probe.json source)` |
 | README method and footer | as of | 2026-10-08 20:50 utc | `as_of (from fetch.json)` |
-| README method | trigalign capture | ds004621 | `trigalign.json source` |
 | header | class year | '27 | `WHO.year` |
 | header | stops (desc) | nine stops | `len(HEADER_STOPS)` |
-| proteins card | residues per turn | 3.6 residues/turn | `360 / PROTEIN.deg` |
-| proteins card | rise | 1.5 Å rise | `PROTEIN.rise` |
-| proteins card | strand step | 3.3 Å strand step | `PROTEIN.strand_step` |
-| proteins card | scale bar | 10 Å | `constant` |
-| proteins card | residues (desc) | 41-residue | `len(backbone())` |
-| proteins card | helix length (desc) | helix of 18 residues | `PROTEIN.helix` |
-| brains card | events paired | 194 of 195 | `trigalign.json logs[0].n_paired, logs[0].n_events` |
-| brains card | lost trigger, expected | 638.47 s | `logs[0].unmatched[0].expected_trigger_time` |
-| brains card | lost event, log time (desc) | 290.778 s | `logs[0].unmatched[0].time` |
-| brains card | triggers lost | one trigger | `logs[0].n_events - logs[0].n_paired` |
-| brains card | triggers with no log event | 1 extra trigger | `len(trigalign.json unpaired_triggers)` |
-| brains card | residual sd | sd 0.29 ms | `logs[0].segments[0].residual_sd_ms (recomputed from pairs)` |
-| brains card | residual max | max 0.54 | `logs[0].segments[0].residual_max_ms (recomputed from pairs)` |
-| brains card | drift | -22 ppm | `logs[0].segments[0].drift_ppm` |
-| brains card | offset (desc) | 347.7 s | `logs[0].segments[0].offset_s` |
-| brains card | residual axis | ±0.6 ms | `ceil(residual_max_ms × 10) / 10` |
 | quantum card | E\[BC\]² at 1,024 shots, a lower bound on mean fidelity | 0.9239 | `fidelity_floor(1024) = (√(K/s)·Σ pmf(k;s,1/K)√k)², K=256` |
 | quantum card | as the field guide prints it | 0.92 at 1,024 | `round(fidelity_floor(1024), 2)` |
 | quantum card | shots for 0.95, by the E\[BC\]² bound | 0.95 needs 1,425 | `shots_for(0.95), bisection` |
@@ -190,7 +173,7 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | quantum card | asymptote | 1.0 | `fidelity_floor(s) tends to 1 as s grows` |
 | quantum card | axis ends | 64 | `QUANTUM.axis[0]` |
 | quantum card | axis ends | 65,536 | `QUANTUM.axis[1]` |
-| things i made shelf | tools (desc) | 10 small python tools | `len of every TOOLS group` |
+| things i made shelf | tools (desc) | 8 small python tools | `len of every TOOLS group` |
 | things i made shelf | headings (desc) | three headings | `len(TOOLS)` |
 | side-quest stat tiles, all three widths | since | since 2026-09-23 | `issues.first_created_at` |
 | side-quest stat tiles, all three widths | issues filed | 238 issues filed | `issues.total` |
@@ -288,9 +271,6 @@ Text the pictures quote rather than compute. Each is checked to be on the pictur
 | where | figure as shown | source |
 |:--|:--|:--|
 | header | $ grep -rl "same field" \~/built/ / no matches | his personal site, sessions log |
-| music card | $ ls \~/music/released/ / (empty) | his personal site, sessions log |
-| brains card | OpenNeuro ds004621 (CC0) | trigalign tests/data/NOTICE |
-| brains card | (the recording paused) | trigalign README example output: "on a New Segment marker" |
 
 ## drawn by an Action, not recomputed
 

@@ -6,9 +6,6 @@
     python3 build.py stats           rebuild data/stats.json from the other files in data/ (no network)
     python3 build.py capture-probe --scoreprobe-src PATH [--status v0.1.0] [--url URL]
                                      re-run scoreprobe on the grader its panel shows; rewrites data/probe.json
-    python3 build.py capture-trigalign --trigalign-src PATH
-                                     re-run trigalign's README example on its CC0 excerpt; rewrites
-                                     data/trigalign.json (the brains card)
     python3 build.py --out DIR       render somewhere else (used to prove two builds give the same bytes)
     python3 build.py --widgets DIR   where the Action-drawn files are read from (default: this directory):
                                      assets/contrib/snake-{light,dark}.svg and profile-3d-contrib/3d-{light,dark}.svg.
@@ -32,7 +29,6 @@ data/
     areas.json   hand-written: repository -> area
     notes.json   hand-written: one line per issue in the "one defect" table
     probe.json   capture-probe: a captured scoreprobe run
-    trigalign.json  capture-trigalign: a captured trigalign run (CC0 excerpt) drawn on the brains card
     projects.json  hand-written: which of the packages in TOOLS are public, and their repository url
     stats.json   stats: every number the page shows, derived from the files above
 
@@ -742,7 +738,7 @@ SANS = 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, s
 MOTION = "@media (prefers-reduced-motion: reduce){*{animation:none!important}}"
 SIZES = (12, 13, 14, 16, 22, 26, 30, 40, 52)    # every text size an illustration may use; 12 is the floor
 MAX_ANIM = 11.0                                  # seconds: every animation has finished by then
-ART = ["header", "proteins", "brains", "quantum", "music", "divider", "shelf", "stats", "constellation", "analyzer"]
+ART = ["header", "quantum", "divider", "shelf", "stats", "constellation", "analyzer"]
 NARROW_ART = {"header", "constellation", "analyzer", "shelf", "stats"}   # drawn three times: wide, mid and narrow
 SIZES_OF = ("wide", "mid", "narrow")
 
@@ -1347,15 +1343,9 @@ STAR_LABEL_MAX = 14
 # drawn there instead (the description and alt text keep the full label)
 STAR_LABELS_NARROW = {"Speech & audio": "speech"}
 # textbook backbone geometry, angstroms and degrees: an alpha helix, a loop, a turn and two antiparallel strands
-PROTEIN = dict(helix=18, loop=4, strand=8, turn=3, rise=1.5, radius=2.3, deg=100, strand_step=3.3, pleat=0.9)
 # shotfloor's example: 8 qubits (256 outcomes), uniform target, 1,024 shots; one simulated flawless run, seed 0
 QUANTUM = dict(K=256, shots=1024, frames=(128, 256, 512), seed=0, clip=4, axis=(64, 65536))
-GAP_S = 10.0          # brains: a gap this long between triggers breaks the residual trace
 STAR_STEP, STAR_TURN = 7.5, 137.508               # golden-angle spiral: radius step per sqrt(i), degrees per star
-
-
-def is_dark(t: dict) -> bool:
-    return t["bg"] == THEMES["dark"]["bg"]
 
 
 def art_css(t: dict, extra: str = "") -> str:
@@ -1378,17 +1368,6 @@ def golden(i: int, step: float = STAR_STEP) -> tuple[float, float]:
     """Position of the i-th point on a golden-angle spiral: radius step*sqrt(i), angle i*137.508 degrees."""
     r, th = step * math.sqrt(i), math.radians(i * STAR_TURN)
     return r * math.cos(th), r * math.sin(th)
-
-
-def catmull_rom(pts: list[tuple[float, float]]) -> str:
-    """A smooth path through every point (Catmull-Rom, written as cubic Beziers with /6 control points)."""
-    d = f"M{n(pts[0][0])} {n(pts[0][1])}"
-    for i in range(len(pts) - 1):
-        p0, p1, p2, p3 = pts[max(i - 1, 0)], pts[i], pts[i + 1], pts[min(i + 2, len(pts) - 1)]
-        c1 = (p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6)
-        c2 = (p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6)
-        d += f" C{n(c1[0])} {n(c1[1])} {n(c2[0])} {n(c2[1])} {n(p2[0])} {n(p2[1])}"
-    return d
 
 
 @functools.lru_cache(maxsize=None)
@@ -1454,46 +1433,7 @@ def bc2(counts: list[int], s: int, k: int) -> float:
     return sum(math.sqrt(c / s / k) for c in counts) ** 2
 
 
-def backbone() -> list[tuple[float, float, float]]:
-    """A C-alpha trace from textbook geometry (schematic): helix along x, a loop down, strand 1 back toward the
-    start, a tight turn, strand 2 antiparallel. Angstroms."""
-    P = PROTEIN
-    pts = []
-    for i in range(P["helix"]):
-        a = math.radians(P["deg"] * i)
-        pts.append((P["rise"] * i, P["radius"] * math.cos(a), P["radius"] * math.sin(a)))
-    x0, y0, z0 = pts[-1]
-    for i in range(1, P["loop"] + 1):
-        a = math.pi / 2 * i / P["loop"]
-        pts.append((x0 + 3.2 * math.sin(a), y0 - 3.2 * (1 - math.cos(a)) - 1.2 * i, z0))
-    x1, y1, z1 = pts[-1]
-    for i in range(1, P["strand"] + 1):
-        pts.append((x1 - P["strand_step"] * i, y1 - 1.0 + (P["pleat"] if i % 2 else -P["pleat"]), z1))
-    x2, y2, z2 = pts[-1]
-    for i in range(1, P["turn"] + 1):
-        a = math.pi * i / P["turn"]
-        pts.append((x2 - 2.4 * math.sin(a), y2 - 2.4 * (1 - math.cos(a)), z2))
-    x3, y3, z3 = pts[-1]
-    for i in range(1, P["strand"] + 1):
-        pts.append((x3 + P["strand_step"] * i, y3 + (P["pleat"] if i % 2 else -P["pleat"]), z3))
-    return pts
-
-
-def wave(i: int, k: int) -> float:
-    """Schematic waveform bar i of k, 0..1: a few incommensurate sines under a breathing envelope."""
-    x = i / (k - 1)
-    env = math.sin(math.pi * x) ** 0.6 * (0.55 + 0.45 * math.sin(6 * math.pi * x) ** 2)
-    v = abs(0.6 * math.sin(37 * x) + 0.3 * math.sin(91 * x + 1) + 0.25 * math.sin(173 * x + 2)) * env
-    return min(1.0, v)
-
-
 # ------------------------------------------------------------ facts ----
-def protein_facts() -> dict:
-    P = PROTEIN
-    pts = backbone()
-    must(len(pts) == P["helix"] + P["loop"] + 2 * P["strand"] + P["turn"], "backbone length")
-    return dict(residues=len(pts), per_turn=f"{360 / P['deg']:.1f}", rise=f"{P['rise']:.1f}",
-                step=f"{P['strand_step']:.1f}", bar=10)
 
 
 def quantum_facts() -> dict:
@@ -1508,44 +1448,6 @@ def quantum_facts() -> dict:
                 F={f: fidelity_floor(f, k) for f in frames}, run=bc2(counts[s], s, k),
                 empty=counts[s].count(0), s95=shots_for(0.95, k), axis=(lo, hi),
                 F_lo=fidelity_floor(lo, k), F_hi=fidelity_floor(hi, k))
-
-
-def check_trigalign(doc: dict) -> dict:
-    """data/trigalign.json: the drawn fields of one captured trigalign run, checked against themselves."""
-    must(isinstance(doc, dict) and doc.get("logs"), "trigalign.json: no logs")
-    must("ds004621" in str(doc.get("source", "")) and "CC0" in str(doc.get("source", "")),
-         "trigalign.json: source must name OpenNeuro ds004621 and its CC0 licence")
-    log0 = doc["logs"][0]
-    pairs, unmatched, seg = log0["pairs"], log0["unmatched"], log0["segments"][0]
-    must(log0["n_paired"] == len(pairs), "trigalign.json: n_paired != len(pairs)")
-    must(log0["n_events"] - log0["n_paired"] == len(unmatched), "trigalign.json: unmatched count")
-    must(len(pairs) >= 2, "trigalign.json: too few pairs to draw")
-    res = [p["residual_ms"] for p in pairs]
-    must(abs(statistics.pstdev(res) - seg["residual_sd_ms"]) <= 0.01, "trigalign.json: residual sd does not recompute")
-    must(abs(max(abs(r) for r in res) - seg["residual_max_ms"]) <= 0.01, "trigalign.json: residual max does not recompute")
-    must(all(a["time"] < b["time"] and a["trigger_time"] < b["trigger_time"] for a, b in zip(pairs, pairs[1:])),
-         "trigalign.json: pairs are not in time order")
-    return doc
-
-
-def brains_facts(doc: dict) -> dict:
-    log0 = doc["logs"][0]
-    pairs, seg = log0["pairs"], log0["segments"][0]
-    miss = log0["unmatched"][0] if log0["unmatched"] else None
-    orphans = doc.get("unpaired_triggers") or []
-    lo_log = math.floor(min(p["time"] for p in pairs) / 10) * 10
-    lo_eeg = math.floor((lo_log + seg["offset_s"]) / 10) * 10
-    top_log = max([p["time"] for p in pairs] + ([miss["time"]] if miss else []))
-    top_eeg = max([p["trigger_time"] for p in pairs] + [o["time"] for o in orphans]
-                  + ([miss["expected_trigger_time"]] if miss else []))
-    span = math.ceil(max(top_log - lo_log, top_eeg - lo_eeg) / 10) * 10
-    return dict(pairs=pairs, miss=miss, orphans=orphans, n_events=log0["n_events"], n_paired=log0["n_paired"],
-                lost=log0["n_events"] - log0["n_paired"], sd=f"{seg['residual_sd_ms']:.2f}",
-                mx=f"{seg['residual_max_ms']:.2f}", drift=f"{seg['drift_ppm']:.0f}", offset=f"{seg['offset_s']:.1f}",
-                axis=f"{math.ceil(seg['residual_max_ms'] * 10) / 10:.1f}", lo_log=lo_log, lo_eeg=lo_eeg, span=span,
-                expected=f"{miss['expected_trigger_time']:.2f}" if miss else None,
-                log_time=f"{miss['time']:.3f}" if miss else None,
-                paused=bool(miss and miss.get("on_marker") == "New Segment"))
 
 
 def area_map(issues: list, areas_doc: dict) -> dict[str, str]:
@@ -1751,109 +1653,6 @@ def card_head(s: Svg, kicker: str, big: str, unit: str, line: str, line_cls: str
     s.text(PAD, 76, line, line_cls)
 
 
-def art_proteins(m: dict, t: dict) -> str:
-    pf = m["protein"]
-    pts = backbone()
-    L, R = PAD, CARD - PAD
-    xs_ = [q[0] + 0.9 * q[2] for q in pts]                 # oblique view: depth shifts x, so the helix reads as a coil
-    ys_ = [-q[1] for q in pts]
-    top, bot = 96, 226
-    sx = min((R - L - 40) / (max(xs_) - min(xs_)), (bot - top - 24) / (max(ys_) - min(ys_)))
-    cx0 = (L + R) / 2 - (max(xs_) + min(xs_)) / 2 * sx
-    cy0 = (top + bot) / 2 - (max(ys_) + min(ys_)) / 2 * sx
-    P = [(cx0 + x * sx, cy0 + y * sx) for x, y in zip(xs_, ys_)]
-    o1, o2, o3 = (.10, .14, .20) if is_dark(t) else (.05, .07, .10)
-    css = art_css(t, (
-        f".bl{{fill:{t['ink']}}}.r1{{opacity:{n(o1)}}}.r2{{opacity:{n(o2)}}}.r3{{opacity:{n(o3)}}}"
-        f".tr{{fill:none;stroke:{t['accent']};stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round;"
-        "stroke-dasharray:1;stroke-dashoffset:0;animation:draw 2.6s ease-in-out 1.2s both}"
-        "@keyframes draw{from{stroke-dashoffset:1}}"
-        ".ca{animation:pop .3s ease-out both}@keyframes pop{from{opacity:0}}"
-        ".hz{animation:sharpen 1.2s ease-out both}@keyframes sharpen{from{opacity:.25}}"))
-    s = Svg(t, "proteins: a backbone drawn out of a blur (schematic)", alt("proteins", m), css=css)
-    card_head(s, "proteins · DAIS lab, DeepTracer", "map → trace", "", "cryo-EM map in, 3D backbone out")
-    s.mark(min(x for x, _ in P) - 15, min(y for _, y in P) - 15, max(x for x, _ in P) + 15,
-           max(y for _, y in P) + 15, "density")
-    s.group("hz")
-    for r, cls in ((15, "r1"), (10, "r2"), (6, "r3")):
-        s.add(f'<g class="bl {cls}">' + "".join(f'<circle cx="{n(x)}" cy="{n(y)}" r="{r}"/>' for x, y in P) + "</g>")
-    s.end()
-    s.path(catmull_rom(P), "tr", ' pathLength="1"')
-    for i, (x, y) in enumerate(P):
-        s.circle(x, y, 2.1, t["bg"], t["accent"], 1.2, "ca", extra=delay(1.2 + 2.6 * i / len(P)))
-    yb = 250
-    bar = pf["bar"] * sx
-    s.path(f"M{L} {yb - 4}h{n(bar)}", extra=f' stroke="{t["fg"]}" stroke-width="1.5"')
-    s.mark(L, yb - 6, L + bar, yb - 2, "scale bar")
-    s.text(L + bar + 6, yb, f"{pf['bar']} Å", "m")
-    s.text(R, yb, "helix · loop · hairpin", "m e")
-    s.text(L, 270, f"{pf['per_turn']} residues/turn, {pf['rise']} Å rise,", "m")
-    s.text(L, 286, f"{pf['step']} Å strand step", "m")
-    s.text(L, 308, "schematic, not data: textbook geometry,", "w")
-    s.text(L, 324, "a pretend map, no real structure", "w")
-    return s.done()
-
-
-def art_brains(m: dict, t: dict) -> str:
-    b = m["brains"]
-    L, R = PAD, CARD - PAD
-    xl = lambda v: L + (v - b["lo_log"]) / b["span"] * (R - L)      # noqa: E731  two clocks, equal spans
-    xe = lambda v: L + (v - b["lo_eeg"]) / b["span"] * (R - L)      # noqa: E731
-    yt, yb = 108, 186
-    css = art_css(t, (
-        f".th{{stroke:{t['accent']};stroke-opacity:.55;stroke-width:.7;fill:none;stroke-dasharray:1;"
-        "stroke-dashoffset:0;animation:draw .5s ease-out both}@keyframes draw{from{stroke-dashoffset:1}}"
-        ".gh{animation:blink .45s step-end 3.2s 4}@keyframes blink{50%{opacity:.15}}"))
-    s = Svg(t, "brains: one trigger short", alt("brains", m), css=css)
-    lost = NUMBER_WORDS.get(b["lost"], str(b["lost"]))
-    card_head(s, "brains · trigalign", f"{b['n_paired']} of {b['n_events']}", "events paired",
-              f"a public EEG session, {lost} trigger{'s' if b['lost'] != 1 else ''} lost")
-    s.text(L, yt - 9, "stimulus log clock", "m")
-    s.text(L, yb + 20, "EEG recorder clock", "m")
-    s.path(f"M{L} {yt}H{R}M{L} {yb}H{R}", extra=f' stroke="{t["line"]}"')
-    ticks_t, ticks_b = [], []
-    for i, pr in enumerate(b["pairs"]):
-        a, c = xl(pr["time"]), xe(pr["trigger_time"])
-        ticks_t.append(f"M{n(a)} {yt - 5}v5")
-        ticks_b.append(f"M{n(c)} {yb}v5")
-        s.path(f"M{n(a)} {yt}L{n(c)} {yb}", "th", ' pathLength="1"' + delay(0.3 + 2.4 * i / len(b["pairs"])))
-    s.path("".join(ticks_t), extra=f' stroke="{t["fg"]}"')
-    s.path("".join(ticks_b), extra=f' stroke="{t["fg"]}"')
-    for o in b["orphans"]:                                  # a trigger with no log event behind it
-        s.circle(xe(o["time"]), yb + 2.5, 3, "none", t["ink"], 1.2)
-    if b["orphans"]:                                        # its key, on the image as well as in the alt text
-        k = len(b["orphans"])
-        s.circle(L + 3, yb + 30, 3, "none", t["ink"], 1.2, what="extra-trigger key")
-        s.text(L + 11, yb + 34, f"{k} extra trigger{'s' if k != 1 else ''}", "m")
-    if b["miss"]:
-        mx, gx = xl(b["miss"]["time"]), xe(b["miss"]["expected_trigger_time"])
-        s.group("gh")
-        s.path(f"M{n(mx)} {yt - 7}v7", extra=f' stroke="{t["warn"]}" stroke-width="2"')
-        s.path(f"M{n(mx)} {yt}L{n(gx)} {yb}", extra=f' stroke="{t["warn"]}" stroke-width="1.2" stroke-dasharray="3 3" fill="none"')
-        s.circle(gx, yb + 2.5, 3.5, t["bg"], t["warn"], 1.6)
-        s.end()
-        s.text(R, yb + 20, f"no trigger at {b['expected']} s", "w e")
-        if b["paused"]:
-            s.text(R, yb + 34, "(the recording paused)", "w e")
-    rt, rb = 248, 292
-    mid, ax = (rt + rb) / 2, float(b["axis"])
-    runs, cur = [], []
-    for a, c in zip([None] + b["pairs"], b["pairs"]):
-        if a is not None and c["trigger_time"] - a["trigger_time"] > GAP_S:
-            runs.append(cur)
-            cur = []
-        cur.append(c)
-    runs.append(cur)
-    s.path(f"M{L} {n(mid)}H{R}", extra=f' stroke="{t["line"]}" stroke-dasharray="2 3"')
-    for run in runs:
-        s.poly([(xe(p["trigger_time"]), mid - p["residual_ms"] / ax * (rb - rt) / 2) for p in run],
-               extra=f' fill="none" stroke="{t["accent"]}" stroke-width="1.1" stroke-linejoin="round"')
-    s.text(L, rt - 6, f"not a brainwave: each pair's miss, ±{b['axis']} ms", "m")
-    s.text(L, rb + 14, f"sd {b['sd']} ms · max {b['mx']} · drift {b['drift']} ppm", "m")
-    s.text(L, H - 10, "real markers: OpenNeuro ds004621 (CC0)", "m")
-    return s.done()
-
-
 def art_quantum(m: dict, t: dict) -> str:
     q = m["quantum"]
     k, S = q["K"], q["shots"]
@@ -1911,35 +1710,6 @@ def art_quantum(m: dict, t: dict) -> str:
     s.text(L, cb + 15, f"{lo:,}", "m")
     s.text(R, cb + 15, f"{hi:,} shots (log)", "m e")
     s.text(L, H - 14, f"bars: seed {q['seed']} run · curve: E[BC]² ≤ mean F", "m")
-    return s.done()
-
-
-def art_music(m: dict, t: dict) -> str:
-    L, R = PAD, CARD - PAD
-    css = art_css(t, (
-        f".wv{{fill:{t['accent']};opacity:.85;animation:breathe 1.6s ease-in-out .3s 3}}"
-        "@keyframes breathe{50%{transform:scaleY(.55)}}"
-        ".cur{opacity:0;animation:blink 1s step-end 1s 5}@keyframes blink{0%{opacity:1}50%{opacity:0}}"))
-    s = Svg(t, "music: made often, released never", alt("music", m), css=css)
-    card_head(s, "off the clock · music", "made often", "", "released never.")
-    mid, amp, k = 140, 48, 120
-    bw = (R - L) / k
-    s.mark(L, mid - amp, R, mid + amp, "waveform")
-    d = []
-    for i in range(k):
-        hh = max(1.5, wave(i, k) * amp)
-        d.append(f"M{n(L + i * bw)} {n(-hh)}h{n(bw * 0.6)}V{n(hh)}h{n(-bw * 0.6)}z")
-    s.group(transform=f"translate(0 {mid})")
-    s.path("".join(d), "wv")
-    s.end()
-    s.text(L, 208, "schematic: drawn from a formula,", "w")
-    s.text(L, 223, "not a recording", "w")
-    ty = 240
-    s.add(f'<rect x="{L}" y="{ty}" width="{R - L}" height="76" rx="6" fill="{t["faint"]}" stroke="{t["line"]}"/>')
-    s.text(L + 12, ty + 24, "$ ls ~/music/released/", "", 13)
-    s.text(L + 12, ty + 44, "(empty)", "m", 13)
-    s.text(L + 12, ty + 64, "$", "", 13)
-    s.add(f'<rect class="cur" x="{n(L + 12 + 2 * 0.6 * 13)}" y="{ty + 53}" width="8" height="14" fill="{t["accent"]}"/>')
     return s.done()
 
 
@@ -2014,9 +1784,6 @@ def tool_icon(name: str, t: dict) -> str:
     if name == "ziptrace":          # a zipper whose right side runs out of teeth
         teeth = "".join(f"M-6 {y}h4" for y in (-8, -3, 2, 7)) + "".join(f"M2 {y}h4" for y in (-5.5, -0.5))
         return f'<path {s} d="M-2 -11V11M2 -11V11{teeth}"/><path {a} d="M3 5l4 4m0-4l-4 4"/>'
-    if name == "unadded":           # a file that git does not track
-        return (f'<path {s} stroke-dasharray="3 2.2" d="M-7 -10H3L8 -5V10H-7Z"/>'
-                f'<path {a} d="M-2 -1a2.6 2.6 0 1 1 3 2.5V4M1 7.4v.2"/>')
     if name == "whymodified":       # a file marked modified with nothing inside it changed
         return (f'<path {s} d="M-7 -10H3L8 -5V10H-7Z"/><path {s} d="M-3 -1h7M-3 4h7"/>'
                 f'<circle cx="6" cy="-8" r="3.2" fill="{t["warn"]}" stroke="{t["bg"]}" stroke-width="1"/>')
@@ -2024,10 +1791,6 @@ def tool_icon(name: str, t: dict) -> str:
         hs = (9, 14, 6, 12, 16, 8)
         d = "".join(f"M{-9 + i * 3.6:.1f} 10v{-hh}" for i, hh in enumerate(hs))
         return f'<path {s} d="{d}"/><path {a} stroke-dasharray="2.4 2" d="M-11 -1H11"/>'
-    if name == "trigalign":         # two clocks and the lines that pair them
-        thin = a.replace('stroke-width="1.6"', 'stroke-width="1.2"')
-        return (f'<path {s} d="M-11 -8H11M-11 8H11"/>'
-                f'<path {thin} d="M-8 -8L-6 8M-3 -8L-1 8M2 -8L4 8M7 -8L9 8"/>')
     if name == "scoreprobe":        # a lens over a check mark that should not be there
         return (f'<circle cx="-2" cy="-2" r="7" {s}/><path {s} d="M3 3l7 7"/>'
                 f'<path {a} d="M-5.5 -2l2.5 2.5 4.5-5"/>')
@@ -2344,7 +2107,7 @@ def art_analyzer(m: dict, t: dict, size: str = "wide") -> str:
     return s.done()
 
 
-ART_FN = dict(header=art_header, proteins=art_proteins, brains=art_brains, quantum=art_quantum, music=art_music,
+ART_FN = dict(header=art_header, quantum=art_quantum,
               divider=art_divider, shelf=art_shelf, stats=art_stats, constellation=art_constellation,
               analyzer=art_analyzer)
 
@@ -2399,26 +2162,6 @@ def art_alt(name: str, m: dict) -> str:
         stops = [x[0] for x in HEADER_STOPS]
         return (f"{me['name']}, {me['city']}, cs + data science at UW, class of {me['year']}. A route through "
                 f"{words(len(stops))} stops, drawn as icons: {', '.join(stops)}. A terminal: {GREP[0]} prints {GREP[1]}.")
-    if name == "proteins":
-        pf, P = m["protein"], PROTEIN
-        return (f"Schematic, not data: a {pf['residues']}-residue protein backbone from textbook geometry (a helix of "
-                f"{P['helix']} residues at {pf['per_turn']} residues/turn and {pf['rise']} Å rise, a loop, and a two-strand "
-                f"hairpin at {pf['step']} Å strand step) drawn out of a blurred pretend density map, with a {pf['bar']} Å "
-                "scale bar. It stands for DeepTracer's job in UW's DAIS lab: cryo-EM map in, 3D backbone out.")
-    if name == "brains":
-        b = m["brains"]
-        out = (f"trigalign on a public EEG session (OpenNeuro ds004621, CC0): {b['n_paired']} of {b['n_events']} "
-               f"stimulus-log events paired with an EEG trigger; clock offset {b['offset']} s, drift {b['drift']} ppm, "
-               f"pairing residuals sd {b['sd']} ms, max {b['mx']} ms, drawn on an axis of ±{b['axis']} ms.")
-        if b["miss"]:
-            which = "The last event" if b["miss"]["event"] == b["n_events"] - 1 else "One event"
-            out += (f" {which}, at {b['log_time']} s on the log clock, has no trigger: one was expected at "
-                    f"{b['expected']} s" + (", where the recording paused." if b["paused"] else "."))
-        if b["orphans"]:
-            k = len(b["orphans"])
-            out += (f" Hollow circle on the recorder axis, labelled {k} extra trigger{'s' if k != 1 else ''}: "
-                    f"{'a trigger' if k == 1 else 'triggers'} with no log event.")
-        return out
     if name == "quantum":
         q = m["quantum"]
         S, K, fr = q["shots"], q["K"], q["frames"]
@@ -2437,9 +2180,6 @@ def art_alt(name: str, m: dict) -> str:
                 f"{words(len(TOOLS))} headings. "
                 + " ".join(f"{group}: " + "; ".join(f"{nm}, {d.replace('`', '')}" for nm, d in items) + "."
                            for group, items in TOOLS))
-    if name == "music":
-        return ("Schematic, not a recording: a waveform drawn from a formula, over a terminal where ls ~/music/released/ "
-                "lists nothing. Music: made often, released never.")
     if name == "stats":
         o, lag, p, q = dict(m["outcome"]), m["lag"], m["prs"], m["q"]
         fixed = (f"{m['fixed']} fixed by a merged pull request, {o['others']} by other people and {o['own']} by me"
@@ -2575,8 +2315,7 @@ INTRO_TEXT = [
 FIELD_GUIDE = [
     "- **proteins** · undergrad research in UW's DAIS lab: preprocessing, training runs and renders for DeepTracer, "
     "cryo-EM maps to 3D protein structures. no byline, and that's fine.",
-    "- **brains** · four essays, taught to myself in public, optogenetics to connectomics (2022–23). now {trigalign}, "
-    "for EEG recordings that dropped a trigger or two.",
+    "- **brains** · four essays, taught to myself in public, optogenetics to connectomics (2022–23).",
     "- **quantum** · {shotfloor}: the score a perfect quantum computer gets from shot noise alone. 8 qubits, uniform "
     "target, 1,024 shots: about 0.92 hellinger fidelity, not 1.",
     "- **classrooms** · co-founded SkillTern, its CTO (2022–23): computer science for 350+ students, built to run "
@@ -2594,14 +2333,11 @@ TOOLS = [
         ("tolwatch", "pytest plugin: flags `allclose`, `isclose` and `approx` checks that can't fail, or are far "
                      "looser than they need to be"),
         ("ziptrace", "names the `zip()` and `map()` calls that silently dropped data to a length mismatch"),
-        ("unadded", "finds the untracked or gitignored files a passing test run quietly depends on, before CI does"),
         ("whymodified", "`git status` says modified and nothing changed: says why, and the one command that clears it"),
     ]),
     ("science data", [
         ("shotfloor", "the score a flawless quantum computer gets at a given shot count, and the shots it needs to "
                       "reach a target"),
-        ("trigalign", "pairs a stimulus log with an EEG trigger list when triggers dropped, doubled, or the clocks "
-                      "drifted"),
     ]),
     ("grading code", [
         ("scoreprobe", 'feeds a grader the inputs known to slip through (a blank answer, "not Paris" against "Paris", '
@@ -2669,7 +2405,7 @@ def proj(name: str, projects: dict) -> str:
 
 
 def field_guide(projects: dict, cards: list[str]) -> list:
-    """The field guide: four illustrated cards, then one line per world."""
+    """The field guide: the illustrated card, then one line per world."""
     names = {n: proj(n, projects) for _, items in TOOLS for n, _ in items}
     out = ["### field guide", ""]
     for pair in cards:
@@ -2763,13 +2499,10 @@ def readme(m: dict, svgs: dict, widgets: dict | None = None) -> str:
         return f"[{name}]({url})" if url else name
 
     method += [
-        f"- the brains card is a captured run of {link('trigalign')} on a public EEG excerpt (OpenNeuro ds004621, CC0) "
-        "that ships with it; with its source, `python3 build.py capture-trigalign --trigalign-src PATH` reruns it.",
         f"- the quantum card is computed, not measured: the curve is {link('shotfloor')}'s closed form E[BC]², a lower "
         f"bound on the mean hellinger fidelity, and the bars one simulated flawless run (splitmix64, seed "
         f"{QUANTUM['seed']}).",
-        "- the proteins and music drawings are schematics and say so on the image; the header's and the shelf's "
-        "icons are icons.",
+        "- the header's and the shelf's icons are icons.",
         "- the constellation, divider and report-to-fix pictures are drawn from the same data as the tables, and every "
         "number on them is in CHECKS.md.",
     ]
@@ -2782,8 +2515,7 @@ def readme(m: dict, svgs: dict, widgets: dict | None = None) -> str:
              .replace("{stats}", "<p>\n" + picture_narrow("stats", svgs, m) + "\n</p>")
              .replace("{constellation}", "<p>\n" + picture_narrow("constellation", svgs, m) + "\n</p>")
             for x in side_quest(m)]
-    cards = [CENTER + "\n" + picture("proteins", svgs, m) + "\n" + picture("brains", svgs, m) + "\n</p>",
-             CENTER + "\n" + picture("quantum", svgs, m) + "\n" + picture("music", svgs, m) + "\n</p>"]
+    cards = [CENTER + "\n" + picture("quantum", svgs, m) + "\n</p>"]
     divider = "<p>\n" + picture("divider", svgs, m, "100%") + "\n</p>"
     return "\n".join([
         "<p>\n" + picture_narrow("header", svgs, m) + "\n</p>",
@@ -3110,7 +2842,7 @@ def drawn_text(svg: str) -> str:
 def art_checks(m: dict) -> list[tuple[str, str, str, str, list[str]]]:
     """(where, what, value as shown, field or formula, pictures to find it in) for every number the illustrations
     print or describe. The value is looked up in each picture's text and description, light and dark."""
-    o, pf, q, b = dict(m["outcome"]), m["protein"], m["quantum"], m["brains"]
+    o, q = dict(m["outcome"]), m["quantum"]
     rows = []
 
     def add(where, what, value, field, keys):
@@ -3121,30 +2853,6 @@ def art_checks(m: dict) -> list[tuple[str, str, str, str, list[str]]]:
     k = len(HEADER_STOPS)
     add("header", "stops (desc)", f"{NUMBER_WORDS.get(k, k)} stops", "len(HEADER_STOPS)",
         ["header", "header-mid", "header-narrow"])
-    card = ["proteins"]
-    add("proteins card", "residues per turn", f"{pf['per_turn']} residues/turn", "360 / PROTEIN.deg", card)
-    add("proteins card", "rise", f"{pf['rise']} Å rise", "PROTEIN.rise", card)
-    add("proteins card", "strand step", f"{pf['step']} Å strand step", "PROTEIN.strand_step", card)
-    add("proteins card", "scale bar", f"{pf['bar']} Å", "constant", card)
-    add("proteins card", "residues (desc)", f"{pf['residues']}-residue", "len(backbone())", card)
-    add("proteins card", "helix length (desc)", f"helix of {PROTEIN['helix']} residues", "PROTEIN.helix", card)
-    card = ["brains"]
-    add("brains card", "events paired", f"{b['n_paired']} of {b['n_events']}",
-        "trigalign.json logs[0].n_paired, logs[0].n_events", card)
-    if b["miss"]:
-        add("brains card", "lost trigger, expected", f"{b['expected']} s", "logs[0].unmatched[0].expected_trigger_time", card)
-        add("brains card", "lost event, log time (desc)", f"{b['log_time']} s", "logs[0].unmatched[0].time", card)
-    add("brains card", "triggers lost", f"{NUMBER_WORDS.get(b['lost'], b['lost'])} trigger",
-        "logs[0].n_events - logs[0].n_paired", card)
-    if b["orphans"]:
-        k = len(b["orphans"])
-        add("brains card", "triggers with no log event", f"{k} extra trigger", "len(trigalign.json unpaired_triggers)",
-            card)
-    add("brains card", "residual sd", f"sd {b['sd']} ms", "logs[0].segments[0].residual_sd_ms (recomputed from pairs)", card)
-    add("brains card", "residual max", f"max {b['mx']}", "logs[0].segments[0].residual_max_ms (recomputed from pairs)", card)
-    add("brains card", "drift", f"{b['drift']} ppm", "logs[0].segments[0].drift_ppm", card)
-    add("brains card", "offset (desc)", f"{b['offset']} s", "logs[0].segments[0].offset_s", card)
-    add("brains card", "residual axis", f"±{b['axis']} ms", "ceil(residual_max_ms × 10) / 10", card)
     card, S = ["quantum"], q["shots"]
     add("quantum card", f"E[BC]² at {S:,} shots, a lower bound on mean fidelity", f"{q['F'][S]:.4f}",
         f"fidelity_floor({S}) = (√(K/s)·Σ pmf(k;s,1/K)√k)², K={q['K']}", card)
@@ -3222,13 +2930,7 @@ def art_checks(m: dict) -> list[tuple[str, str, str, str, list[str]]]:
 
 def art_quoted(m: dict) -> list[tuple[str, tuple[str, ...], str, list[str]]]:
     """Figures the pictures quote rather than compute: (where, the figure's parts, source, pictures)."""
-    out = [("header", GREP, "his personal site, sessions log", ["header", "header-mid", "header-narrow"]),
-           ("music card", ("$ ls ~/music/released/", "(empty)"), "his personal site, sessions log", ["music"]),
-           ("brains card", ("OpenNeuro ds004621 (CC0)",), "trigalign tests/data/NOTICE", ["brains"])]
-    if m["brains"]["paused"]:
-        out.append(("brains card", ("(the recording paused)",),
-                    'trigalign README example output: "on a New Segment marker"', ["brains"]))
-    return out
+    return [("header", GREP, "his personal site, sessions log", ["header", "header-mid", "header-narrow"])]
 
 
 def checks(m: dict, svgs: dict, text: str, widgets: dict | None = None) -> str:
@@ -3325,7 +3027,6 @@ def checks(m: dict, svgs: dict, text: str, widgets: dict | None = None) -> str:
     add("README side quest", "lines in the example grader", f"{NUMBER_WORDS.get(n_src, n_src)}-line grader",
         "len(probe.json source)", "one example, small enough")
     add("README method and footer", "as of", m["as_of"].replace("T", " ").replace("Z", " utc"), "as_of (from fetch.json)")
-    add("README method", "trigalign capture", "ds004621", "trigalign.json source", "- the brains card is")
 
     hay = {"README.md": text, **{f"{k} panel": svg_text(svgs[(k, "light")]) for k in PANELS}}
     for where, what, value, field, anchor, needle in rows:
@@ -3441,9 +3142,7 @@ def model(data: Path) -> dict:
     m["area_of"] = area_map(issues, read(data / "areas.json"))
     m["stars"] = star_rows(m, issues)
     m["fixrows"] = fix_rows(m, issues)
-    m["protein"] = protein_facts()
     m["quantum"] = quantum_facts()
-    m["brains"] = brains_facts(check_trigalign(read(data / "trigalign.json")))
     return m
 
 
@@ -3471,62 +3170,15 @@ def render(data: Path, out: Path, widgets_root: Path | None = None) -> None:
     print(f"wrote {len(svgs)} svg{extra}, README.md and CHECKS.md to {out}")
 
 
-# ------------------------------------------------------- trigalign capture ----
-TRIG_EXAMPLE = ("tests/data/nencki/sub-24_task-oddball_block2_eeg.vmrk", "tests/data/nencki/sub-24_task-oddball_log_2.log")
-TRIG_WHERE = "Event Type=Picture,Response"
-
-
-def capture_trigalign(src: str, out: Path) -> None:
-    """Run trigalign's README example from its source tree and keep the fields the brains card draws."""
-    root = Path(src)
-    sys.path.insert(0, str(root / "src"))
-    sys.path.insert(0, str(root))
-    import trigalign  # noqa: E402  (imported only here, from the path given)
-    from trigalign import cli  # noqa: E402
-    import contextlib
-    import io
-
-    argv = [str(root / TRIG_EXAMPLE[0]), str(root / TRIG_EXAMPLE[1]), "--log-where", TRIG_WHERE]
-    buf_json, buf_text = io.StringIO(), io.StringIO()
-    with contextlib.redirect_stdout(buf_json):
-        status = cli.main(argv + ["--json"])
-    with contextlib.redirect_stdout(buf_text):
-        cli.main(argv)
-    rep = json.loads(buf_json.getvalue())
-    markers = {int(mo.group(1)): mo.group(2) for mo in re.finditer(r"#(\d+) .*?, on an? (.+?) marker", buf_text.getvalue())}
-    log0 = rep["logs"][0]
-    doc = dict(
-        source=(f"trigalign {trigalign.__version__}, captured run of the README example on tests/data/nencki (excerpt "
-                f"of OpenNeuro ds004621 v1.0.4, CC0): trigalign {Path(TRIG_EXAMPLE[0]).name} {Path(TRIG_EXAMPLE[1]).name} "
-                f"--log-where '{TRIG_WHERE}'"),
-        exit_status=status,
-        triggers=dict(n=rep["triggers"]["n"], paired=rep["triggers"]["paired"]),
-        unpaired_triggers=[dict(time=u["time"], code=u["code"]) for u in rep["unpaired_triggers"]],
-        logs=[dict(
-            n_events=log0["n_events"], n_paired=log0["n_paired"],
-            segments=[{k: sg[k] for k in ("offset_s", "drift_ppm", "residual_sd_ms", "residual_max_ms", "n_pairs")}
-                      for sg in log0["segments"]],
-            unmatched=[dict({k: u[k] for k in ("event", "time", "status", "expected_trigger_time")},
-                            **({"on_marker": markers[u["event"]]} if u["event"] in markers else {}))
-                       for u in log0["unmatched"]],
-            pairs=[{k: pr[k] for k in ("event", "time", "trigger_time", "residual_ms")} for pr in log0["pairs"]],
-        )],
-    )
-    check_trigalign(doc)
-    out.write_text(dump(doc), encoding="utf-8", newline="\n")
-    print(f"wrote {out}: {log0['n_paired']} of {log0['n_events']} events paired")
-
-
 def main() -> int:
     ap = argparse.ArgumentParser(description=inspect.cleandoc(__doc__).splitlines()[0])
     ap.add_argument("cmd", nargs="?", default="build",
-                    choices=["build", "fetch", "stats", "capture-probe", "capture-trigalign"])
+                    choices=["build", "fetch", "stats", "capture-probe"])
     ap.add_argument("--data", default=str(HERE / "data"), help="data directory")
     ap.add_argument("--out", default=str(HERE), help="render: output directory")
     ap.add_argument("--scoreprobe-src", help="capture-probe: directory that holds the scoreprobe package")
     ap.add_argument("--status", default=PROBE_PENDING, help="capture-probe: status line for the panel")
     ap.add_argument("--url", help="capture-probe: the scoreprobe repository, once it is public")
-    ap.add_argument("--trigalign-src", help="capture-trigalign: a trigalign source tree (with tests/data)")
     ap.add_argument("--widgets", default=str(HERE), help="render: where the Action-drawn files are read from")
     a = ap.parse_args()
     data = Path(a.data)
@@ -3534,9 +3186,6 @@ def main() -> int:
         if a.cmd == "capture-probe":
             must(bool(a.scoreprobe_src), "capture-probe needs --scoreprobe-src")
             capture_probe(a.scoreprobe_src, a.status, a.url, data / "probe.json")
-        elif a.cmd == "capture-trigalign":
-            must(bool(a.trigalign_src), "capture-trigalign needs --trigalign-src")
-            capture_trigalign(a.trigalign_src, data / "trigalign.json")
         elif a.cmd == "fetch":
             try:
                 fetch(data, Client(os.environ.get("GITHUB_TOKEN", "")), dt.datetime.now(dt.timezone.utc))

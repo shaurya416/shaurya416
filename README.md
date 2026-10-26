@@ -136,34 +136,16 @@ eight of the fixes share one defect: a missing, empty or undefined result counte
 
 <p align="center">
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="assets/proteins-dark.svg?v=9a86e8cd">
-<source media="(prefers-color-scheme: light)" srcset="assets/proteins-light.svg?v=1d9828c9">
-<img alt="Schematic, not data: a 41-residue protein backbone from textbook geometry (a helix of 18 residues at 3.6 residues/turn and 1.5 Å rise, a loop, and a two-strand hairpin at 3.3 Å strand step) drawn out of a blurred pretend density map, with a 10 Å scale bar. It stands for DeepTracer&#x27;s job in UW&#x27;s DAIS lab: cryo-EM map in, 3D backbone out." src="assets/proteins-light.svg?v=1d9828c9" width="380">
-</picture>
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="assets/brains-dark.svg?v=85e37029">
-<source media="(prefers-color-scheme: light)" srcset="assets/brains-light.svg?v=c14c1ceb">
-<img alt="trigalign on a public EEG session (OpenNeuro ds004621, CC0): 194 of 195 stimulus-log events paired with an EEG trigger; clock offset 347.7 s, drift -22 ppm, pairing residuals sd 0.29 ms, max 0.54 ms, drawn on an axis of ±0.6 ms. The last event, at 290.778 s on the log clock, has no trigger: one was expected at 638.47 s, where the recording paused. Hollow circle on the recorder axis, labelled 1 extra trigger: a trigger with no log event." src="assets/brains-light.svg?v=c14c1ceb" width="380">
-</picture>
-</p>
-
-<p align="center">
-<picture>
 <source media="(prefers-color-scheme: dark)" srcset="assets/quantum-dark.svg?v=507063c8">
 <source media="(prefers-color-scheme: light)" srcset="assets/quantum-light.svg?v=41bc3485">
 <img alt="A flawless 8-qubit device sampling a uniform target: one simulated run of 1,024 shots (splitmix64, seed 0) as 256 bars against the ideal of 4 each, bars clipped at 4 times the ideal. This run scores 0.9334 and leaves 3 outcomes empty. The curve is shotfloor&#x27;s closed form E&#91;BC&#93;², a lower bound on the mean Hellinger fidelity: 0.3807, 0.5986, 0.8056 at 128, 256, 512 shots; 0.9239 at 1,024 shots (0.92 at 1,024 on the curve); by that bound, shotfloor puts 0.95 at 1,425 shots; 1.0 only at infinite shots. The curve runs from 64 to 65,536 shots." src="assets/quantum-light.svg?v=41bc3485" width="380">
-</picture>
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="assets/music-dark.svg?v=4836e4fe">
-<source media="(prefers-color-scheme: light)" srcset="assets/music-light.svg?v=52a2e8ec">
-<img alt="Schematic, not a recording: a waveform drawn from a formula, over a terminal where ls ~/music/released/ lists nothing. Music: made often, released never." src="assets/music-light.svg?v=52a2e8ec" width="380">
 </picture>
 </p>
 
 one line per world i've wandered into.
 
 - **proteins** · undergrad research in UW's DAIS lab: preprocessing, training runs and renders for DeepTracer, cryo-EM maps to 3D protein structures. no byline, and that's fine.
-- **brains** · four essays, taught to myself in public, optogenetics to connectomics (2022–23). now **trigalign**, for EEG recordings that dropped a trigger or two.
+- **brains** · four essays, taught to myself in public, optogenetics to connectomics (2022–23).
 - **quantum** · **shotfloor**: the score a perfect quantum computer gets from shot noise alone. 8 qubits, uniform target, 1,024 shots: about 0.92 hellinger fidelity, not 1.
 - **classrooms** · co-founded SkillTern, its CTO (2022–23): computer science for 350+ students, built to run without me.
 - **street safety** · TurtleShell: K-means over 10,000+ LAPD crime datapoints and an iOS SOS app in Swift. Microsoft for Startups, then shut down on purpose (oct 2023).
@@ -185,12 +167,12 @@ small python tools, each about one thing that quietly goes wrong. none is public
 
 <p>
 <picture>
-<source media="(max-width: 600px) and (prefers-color-scheme: dark), (min-width: 768px) and (max-width: 859px) and (prefers-color-scheme: dark)" srcset="assets/shelf-narrow-dark.svg?v=e13ffa23">
-<source media="(max-width: 600px), (min-width: 768px) and (max-width: 859px)" srcset="assets/shelf-narrow-light.svg?v=fac958ae">
-<source media="(min-width: 601px) and (max-width: 767px) and (prefers-color-scheme: dark), (min-width: 860px) and (max-width: 1199px) and (prefers-color-scheme: dark)" srcset="assets/shelf-mid-dark.svg?v=38796712">
-<source media="(min-width: 601px) and (max-width: 767px), (min-width: 860px) and (max-width: 1199px)" srcset="assets/shelf-mid-light.svg?v=8fef9202">
-<source media="(prefers-color-scheme: dark)" srcset="assets/shelf-dark.svg?v=20a48ff3">
-<img alt="10 small python tools as cards on a shelf, each with an icon, under three headings. tests and repos: tolwatch, pytest plugin: flags allclose, isclose and approx checks that can&#x27;t fail, or are far looser than they need to be; ziptrace, names the zip() and map() calls that silently dropped data to a length mismatch; unadded, finds the untracked or gitignored files a passing test run quietly depends on, before CI does; whymodified, git status says modified and nothing changed: says why, and the one command that clears it. science data: shotfloor, the score a flawless quantum computer gets at a given shot count, and the shots it needs to reach a target; trigalign, pairs a stimulus log with an EEG trigger list when triggers dropped, doubled, or the clocks drifted. grading code: scoreprobe, feeds a grader the inputs known to slip through (a blank answer, &quot;not Paris&quot; against &quot;Paris&quot;, 4200 against 42) and reports which earned credit; normladder, is &quot;1,000&quot; the same answer as &quot;1000&quot;? 8 of 14 answer-matching rules from lm-eval, HELM and SQuAD say yes; it shows which, and why; mcqlint, lints multiple-choice eval sets: keys that name no option, duplicate options, leaked answers, position bias; tabverify, recomputes the averages, deltas and bold in results tables at the printed precision, and flags what no rounding explains." src="assets/shelf-light.svg?v=b0f08e43" width="100%">
+<source media="(max-width: 600px) and (prefers-color-scheme: dark), (min-width: 768px) and (max-width: 859px) and (prefers-color-scheme: dark)" srcset="assets/shelf-narrow-dark.svg?v=61c16282">
+<source media="(max-width: 600px), (min-width: 768px) and (max-width: 859px)" srcset="assets/shelf-narrow-light.svg?v=f01aee79">
+<source media="(min-width: 601px) and (max-width: 767px) and (prefers-color-scheme: dark), (min-width: 860px) and (max-width: 1199px) and (prefers-color-scheme: dark)" srcset="assets/shelf-mid-dark.svg?v=79077fc5">
+<source media="(min-width: 601px) and (max-width: 767px), (min-width: 860px) and (max-width: 1199px)" srcset="assets/shelf-mid-light.svg?v=ee86b2fb">
+<source media="(prefers-color-scheme: dark)" srcset="assets/shelf-dark.svg?v=0a501558">
+<img alt="8 small python tools as cards on a shelf, each with an icon, under three headings. tests and repos: tolwatch, pytest plugin: flags allclose, isclose and approx checks that can&#x27;t fail, or are far looser than they need to be; ziptrace, names the zip() and map() calls that silently dropped data to a length mismatch; whymodified, git status says modified and nothing changed: says why, and the one command that clears it. science data: shotfloor, the score a flawless quantum computer gets at a given shot count, and the shots it needs to reach a target. grading code: scoreprobe, feeds a grader the inputs known to slip through (a blank answer, &quot;not Paris&quot; against &quot;Paris&quot;, 4200 against 42) and reports which earned credit; normladder, is &quot;1,000&quot; the same answer as &quot;1000&quot;? 8 of 14 answer-matching rules from lm-eval, HELM and SQuAD say yes; it shows which, and why; mcqlint, lints multiple-choice eval sets: keys that name no option, duplicate options, leaked answers, position bias; tabverify, recomputes the averages, deltas and bold in results tables at the printed precision, and flags what no rounding explains." src="assets/shelf-light.svg?v=33740d87" width="100%">
 </picture>
 </p>
 
@@ -205,9 +187,8 @@ small python tools, each about one thing that quietly goes wrong. none is public
 - the scoreprobe panel is a captured run of scoreprobe on the code it shows. its first public release is pending; with its source, `python3 build.py capture-probe --scoreprobe-src PATH` reruns the panel.
 - days are utc. a day with nothing is drawn as a mark, not left blank.
 - regenerate (python 3.12 or newer): `python3 build.py fetch` reads the api (it needs `GITHUB_TOKEN`), then `python3 build.py` renders. same input, same bytes.
-- the brains card is a captured run of trigalign on a public EEG excerpt (OpenNeuro ds004621, CC0) that ships with it; with its source, `python3 build.py capture-trigalign --trigalign-src PATH` reruns it.
 - the quantum card is computed, not measured: the curve is shotfloor's closed form E[BC]², a lower bound on the mean hellinger fidelity, and the bars one simulated flawless run (splitmix64, seed 0).
-- the proteins and music drawings are schematics and say so on the image; the header's and the shelf's icons are icons.
+- the header's and the shelf's icons are icons.
 - the constellation, divider and report-to-fix pictures are drawn from the same data as the tables, and every number on them is in CHECKS.md.
 
 </details>

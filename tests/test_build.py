@@ -8,7 +8,7 @@ the documented REST shapes (timelines, commit lookups, star counts) and says so 
 
 The suite never reads the live data/ directory, so a refresh that changes data/ cannot turn it red.
 tests/fixtures/data/ is a frozen data directory: the hand-written and captured inputs (areas, notes, probe,
-projects, trigalign) plus the five files a fetch writes from the two fixtures above. tests/fixtures/widgets/ holds
+projects) plus the five files a fetch writes from the two fixtures above. tests/fixtures/widgets/ holds
 the files the workflow's two Actions write (see its NOTE.txt). Every fixture-driven test
 builds from it into a temporary directory. One test (CommittedOutputs) checks that the committed
 README, CHECKS and assets are what build.py renders from the live data/; that one passes after a refresh
@@ -40,7 +40,7 @@ import build as B  # noqa: E402
 
 FX = ROOT / "tests" / "fixtures"
 FXDATA = FX / "data"
-HAND_WRITTEN = ("areas.json", "notes.json", "probe.json", "projects.json", "trigalign.json")
+HAND_WRITTEN = ("areas.json", "notes.json", "probe.json", "projects.json")
 WIDGETS = FX / "widgets"   # the two Actions' files at their pinned versions, run on a made-up calendar
 
 
@@ -902,7 +902,7 @@ class Illustrations(unittest.TestCase):
             self.assertIn(f"assets/{name}-{th}.svg?v={want}", text)
 
     def test_every_new_asset_is_guard_clean(self):
-        self.assertEqual(len(ART_FILES), 40)
+        self.assertEqual(len(ART_FILES), 34)
         for name, th in ART_FILES:
             B.check_art(f"{name}-{th}", art(name, th))
         svg = art("header")
@@ -990,30 +990,6 @@ class Illustrations(unittest.TestCase):
         self.assertEqual(counts.count(0), 3)
         g = B.splitmix64(0)                      # the published first outputs of splitmix64 seeded with 0
         self.assertEqual([next(g) for _ in range(2)], [0xE220A8397B1DCDAF, 0x6E789E6AA1B965F4])
-
-    def test_trigalign_capture_is_consistent(self):
-        doc = B.read(FXDATA / "trigalign.json")
-        B.check_trigalign(doc)
-        for mutate in (lambda d: d["logs"][0].__setitem__("n_paired", 193),
-                       lambda d: d["logs"][0]["pairs"][5].__setitem__("residual_ms", 3.0),
-                       lambda d: d.__setitem__("source", d["source"].replace("CC0", "CC-BY"))):
-            bad = json.loads(json.dumps(doc))
-            mutate(bad)
-            with self.assertRaises(SystemExit):
-                B.check_trigalign(bad)
-
-    def test_the_lost_trigger_note_needs_the_marker(self):
-        self.assertIn("(the recording paused)", art("brains"))
-
-        def drop(data):
-            doc = B.read(data / "trigalign.json")
-            doc["logs"][0]["unmatched"][0].pop("on_marker")
-            (data / "trigalign.json").write_text(json.dumps(doc))
-        out = build_with(drop)
-        self.addCleanup(shutil.rmtree, out)
-        self.assertNotIn("recording paused", art("brains", out=out))
-        self.assertNotIn("recording paused", readme_alts((out / "README.md").read_text())["brains-light.svg"])
-        self.assertIn("no trigger at", art("brains", out=out))
 
     def test_constellation_counts_equal_the_outcomes(self):
         m = model()
@@ -1117,13 +1093,6 @@ class Illustrations(unittest.TestCase):
             B.tool_lines("x" * 200, 100)
         self.assertEqual(B.tool_lines("a `git status` b", 12 * B.ADV * 12), ["a `git status`", "b"])
 
-    def test_the_brains_card_labels_its_extra_trigger(self):
-        doc = B.read(FXDATA / "trigalign.json")
-        k = len(doc.get("unpaired_triggers") or [])
-        self.assertGreater(k, 0)                                 # the fixture carries one, so the label is tested
-        for th in B.THEMES:
-            self.assertIn(f"{k} extra trigger", B.drawn_text(art("brains", th)))
-
     def test_the_habit_sentence_does_not_repeat_the_table(self):
         text = (base_build() / "README.md").read_text()
         habit = next(ln for ln in text.splitlines() if ln.startswith(B.SIDE_ANCHOR))
@@ -1154,11 +1123,9 @@ class Illustrations(unittest.TestCase):
         def drawn(name):
             root = B.ET.fromstring(art(name))
             return " ".join("".join(el.itertext()) for el in root.iter() if el.tag.endswith("}text"))
-        self.assertIn("schematic", drawn("proteins"))
-        self.assertIn("schematic", drawn("music"))
         self.assertIn("icons, not data", drawn("header"))
         self.assertIn("icons, not data", drawn("header-narrow"))
-        for name in ("brains", "quantum", "constellation", "analyzer", "divider"):
+        for name in ("quantum", "constellation", "analyzer", "divider"):
             self.assertNotIn("schematic", art(name).lower(), name)
 
     def test_alt_text_states_every_checked_value(self):
