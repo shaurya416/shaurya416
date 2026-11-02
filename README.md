@@ -1,17 +1,17 @@
 <p>
 <picture>
-<source media="(max-width: 600px) and (prefers-color-scheme: dark), (min-width: 768px) and (max-width: 859px) and (prefers-color-scheme: dark)" srcset="assets/header-narrow-dark.svg?v=2fd02b93">
-<source media="(max-width: 600px), (min-width: 768px) and (max-width: 859px)" srcset="assets/header-narrow-light.svg?v=76ad4272">
-<source media="(min-width: 601px) and (max-width: 767px) and (prefers-color-scheme: dark), (min-width: 860px) and (max-width: 1199px) and (prefers-color-scheme: dark)" srcset="assets/header-mid-dark.svg?v=177d22d7">
-<source media="(min-width: 601px) and (max-width: 767px), (min-width: 860px) and (max-width: 1199px)" srcset="assets/header-mid-light.svg?v=82583291">
-<source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.svg?v=dfed11fa">
-<img alt="Shaurya Singh, Seattle, cs + data science at UW, class of &#x27;27. A route through nine stops, drawn as icons: proteins, brains, quantum, classrooms, street safety, buildings, underwater robot, graders, music. A terminal: $ grep -rl &quot;same field&quot; ~/built/ prints no matches." src="assets/header-light.svg?v=7e2ecdbe" width="100%">
+<source media="(max-width: 600px) and (prefers-color-scheme: dark), (min-width: 768px) and (max-width: 859px) and (prefers-color-scheme: dark)" srcset="assets/header-narrow-dark.svg?v=b4fccf4c">
+<source media="(max-width: 600px), (min-width: 768px) and (max-width: 859px)" srcset="assets/header-narrow-light.svg?v=d0649848">
+<source media="(min-width: 601px) and (max-width: 767px) and (prefers-color-scheme: dark), (min-width: 860px) and (max-width: 1199px) and (prefers-color-scheme: dark)" srcset="assets/header-mid-dark.svg?v=e1f5626a">
+<source media="(min-width: 601px) and (max-width: 767px), (min-width: 860px) and (max-width: 1199px)" srcset="assets/header-mid-light.svg?v=04d0a787">
+<source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.svg?v=9d9e1f94">
+<img alt="Shaurya Singh, Seattle, cs at UW, class of &#x27;27. A route through eight stops, drawn as icons: brains, quantum, classrooms, street safety, buildings, underwater robot, graders, music. A terminal: $ grep -rl &quot;same field&quot; ~/built/ prints no matches." src="assets/header-light.svg?v=566f2f9a" width="100%">
 </picture>
 </p>
 
 [shauryasingh.com](https://shauryasingh.com)
 
-i find what hurts, then build at it. so far: proteins, brains, quantum noise, classrooms, street safety, buildings, an underwater robot, and the code that grades things.
+i find what hurts, then build at it. so far: brains, quantum noise, classrooms, street safety, buildings, an underwater robot, and the code that grades things.
 
 ### grading the graders
 
@@ -144,7 +144,6 @@ eight of the fixes share one defect: a missing, empty or undefined result counte
 
 one line per world i've wandered into.
 
-- **proteins** · undergrad research in UW's DAIS lab: preprocessing, training runs and renders for DeepTracer, cryo-EM maps to 3D protein structures. no byline, and that's fine.
 - **brains** · four essays, taught to myself in public, optogenetics to connectomics (2022–23).
 - **quantum** · **shotfloor**: the score a perfect quantum computer gets from shot noise alone. 8 qubits, uniform target, 1,024 shots: about 0.92 hellinger fidelity, not 1.
 - **classrooms** · co-founded SkillTern, its CTO (2022–23): computer science for 350+ students, built to run without me.

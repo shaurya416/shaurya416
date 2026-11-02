@@ -153,7 +153,7 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | README side quest | lines in the example grader | two-line grader | `len(probe.json source)` |
 | README method and footer | as of | 2026-10-08 20:50 utc | `as_of (from fetch.json)` |
 | header | class year | '27 | `WHO.year` |
-| header | stops (desc) | nine stops | `len(HEADER_STOPS)` |
+| header | stops (desc) | eight stops | `len(HEADER_STOPS)` |
 | quantum card | E\[BC\]² at 1,024 shots, a lower bound on mean fidelity | 0.9239 | `fidelity_floor(1024) = (√(K/s)·Σ pmf(k;s,1/K)√k)², K=256` |
 | quantum card | as the field guide prints it | 0.92 at 1,024 | `round(fidelity_floor(1024), 2)` |
 | quantum card | shots for 0.95, by the E\[BC\]² bound | 0.95 needs 1,425 | `shots_for(0.95), bisection` |

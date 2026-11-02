@@ -1309,7 +1309,6 @@ PANEL_FN = dict(filed=panel_filed, outcome=panel_outcome, areas=panel_areas, pro
 GREP = ('$ grep -rl "same field" ~/built/', "no matches")     # the joke from his site's sessions log
 # (label on the map, icon, keyword, where the keyword must appear): the route follows the intro sentence, music last
 HEADER_STOPS = (
-    ("proteins", "proteins", "proteins", "intro"),
     ("brains", "brains", "brains", "intro"),
     ("quantum", "quantum", "quantum", "intro"),
     ("classrooms", "classrooms", "classrooms", "intro"),
@@ -1513,10 +1512,6 @@ def picto(kind: str, t: dict) -> str:
     s = s0 + ' stroke-width="2"'
     a = f'stroke="{t["accent"]}"'
     x, cy, cx = -16, 0, 0
-    if kind == "proteins":
-        d = "M" + " L".join(f"{n(x + 32 * i / 40)} {n(9 * math.sin(i / 40 * 4 * math.pi) * (0.6 + 0.4 * math.cos(i / 40 * 4 * math.pi + 1)))}"
-                            for i in range(41))
-        return f'<path {s} d="{d}"/>'
     if kind == "brains":
         return (f'<path {s} d="M{x} {cy}h5l3-9 4 17 3-12 3 4h6"/>'
                 f'<path fill="none" {a} stroke-width="2" stroke-dasharray="2 2.5" d="M{x + 28} {cy - 10}v20"/>')
@@ -1574,7 +1569,7 @@ def art_header(m: dict, t: dict, size: str = "wide") -> str:
     s.add(f'<rect width="{W}" height="{Hh}" rx="10" fill="{t["faint"]}"/>')      # the paper
     grid = "".join(f"M{x} 0V{Hh}" for x in range(40, W, 60)) + "".join(f"M0 {y}H{W}" for y in range(30, Hh, 60))
     s.path(grid, extra=f' stroke="{t["line"]}" stroke-opacity=".45" stroke-width=".8"')
-    sub = f"{me['city'].lower()} · cs + data science at UW, {me['year']}"
+    sub = f"{me['city'].lower()} · cs at UW, {me['year']}"
     if narrow:
         s.text(20, 54, me["name"], "nm", 40)
         s.text(20, 80, sub, "m", 14)
@@ -2160,7 +2155,7 @@ def art_alt(name: str, m: dict) -> str:
     if name == "header":
         me = who()
         stops = [x[0] for x in HEADER_STOPS]
-        return (f"{me['name']}, {me['city']}, cs + data science at UW, class of {me['year']}. A route through "
+        return (f"{me['name']}, {me['city']}, cs at UW, class of {me['year']}. A route through "
                 f"{words(len(stops))} stops, drawn as icons: {', '.join(stops)}. A terminal: {GREP[0]} prints {GREP[1]}.")
     if name == "quantum":
         q = m["quantum"]
@@ -2308,13 +2303,11 @@ def fixes_table(m: dict) -> list[str]:
 WHO = dict(name="Shaurya Singh", city="Seattle", year="'27")
 SITE = "[shauryasingh.com](https://shauryasingh.com)"   # his own site, the one link that is not GitHub
 INTRO_TEXT = [
-    "i find what hurts, then build at it. so far: proteins, brains, quantum noise, classrooms, street safety, "
+    "i find what hurts, then build at it. so far: brains, quantum noise, classrooms, street safety, "
     "buildings, an underwater robot, and the code that grades things.",
 ]
 # the grep joke under the intro now lives in the header picture (GREP), its description and its alt text
 FIELD_GUIDE = [
-    "- **proteins** · undergrad research in UW's DAIS lab: preprocessing, training runs and renders for DeepTracer, "
-    "cryo-EM maps to 3D protein structures. no byline, and that's fine.",
     "- **brains** · four essays, taught to myself in public, optogenetics to connectomics (2022–23).",
     "- **quantum** · {shotfloor}: the score a perfect quantum computer gets from shot noise alone. 8 qubits, uniform "
     "target, 1,024 shots: about 0.92 hellinger fidelity, not 1.",
