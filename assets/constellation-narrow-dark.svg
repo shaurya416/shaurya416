@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 994" width="380" height="994" role="img" aria-labelledby="t d">
 <title id="t">238 issues as stars</title>
-<desc id="d">238 issues drawn as stars in 15 clusters, one per area: eval harnesses 42, judges &amp; RAG 29, RL rewards 22, agent evals 21, metric libs 20, eval platforms 19, fairness &amp; UQ 18, code &amp; math 13, data pipelines 12, safety 12, autograders 8, forecasting 8, retrieval 7, explainability 4, speech &amp; audio 3. Lit: 20 fixed by a merged pull request, 17 by other people and 3 by me (ringed). Rings: 5 closed without a fix. Dots: 213 open. 229 repositories in 15 areas.</desc>
+<desc id="d">238 issues drawn as stars in 15 clusters, one per area: eval harnesses 42, judges &amp; RAG 29, RL rewards 22, agent evals 21, metric libs 20, eval platforms 19, fairness &amp; UQ 18, code &amp; math 13, data pipelines 12, safety 12, autograders 8, forecasting 8, retrieval 7, explainability 4, speech &amp; audio 3. Lit: 29 fixed by a merged pull request, 26 by other people and 3 by me (ringed). Rings: 8 closed without a fix. Dots: 201 open. 229 repositories in 15 areas.</desc>
 <style>text{font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;font-size:12px;fill:#f0f6fc}.m{fill:#9198a1}.a{fill:#3987e5}.b{font-size:26px}.e{text-anchor:end}.c{text-anchor:middle}.w{fill:#db6d28}.nm{font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;font-weight:700}.s13{font-size:13px}.s14{font-size:14px}.s16{font-size:16px}.s22{font-size:22px}.s30{font-size:30px}.s40{font-size:40px}.s52{font-size:52px}.op{fill:#7d8590}.ln{fill:none;stroke:#3d444d;stroke-width:1}.sky{animation:fade 1.2s ease-out both}@keyframes fade{from{opacity:0}}.lit{animation:lit 1.4s ease-out both}@keyframes lit{0%{opacity:0;transform:scale(.2)}60%{opacity:1;transform:scale(1.35)}100%{transform:scale(1)}}@media (prefers-reduced-motion: reduce){*{animation:none!important}}</style>
 <rect x=".5" y=".5" width="379" height="993" rx="8" fill="#0d1117" stroke="#3d444d"/>
 <text x="18" y="44"><tspan class="s30">238</tspan><tspan class="m" dx="8">issues, one star each</tspan></text>
-<text class="m" x="18" y="70">lit = fixed by a merged PR: 20</text>
+<text class="m" x="18" y="70">lit = fixed by a merged PR: 29</text>
 <text class="m s13" x="18" y="94">229 repositories in 15 areas;</text>
 <text class="m s13" x="18" y="112">lines join an area's issues in</text>
 <text class="m s13" x="18" y="130">the order filed</text>
@@ -34,7 +34,7 @@
 <circle class="op" cx="88.83" cy="223.63" r="2.2"/>
 <circle class="op" cx="42.04" cy="186.12" r="2.2"/>
 <circle class="op" cx="103.09" cy="182.1" r="2.2"/>
-<circle class="op" cx="59.96" cy="227.16" r="2.2"/>
+<circle cx="59.96" cy="227.16" r="3.2" fill="#0d1117" stroke="#7d8590" stroke-width="1.3"/>
 <circle class="op" cx="103.98" cy="212.29" r="2.2"/>
 <circle class="op" cx="38.57" cy="205.07" r="2.2"/>
 <circle class="op" cx="92.58" cy="165.56" r="2.2"/>
@@ -108,7 +108,6 @@
 <circle class="op" cx="68.21" cy="356.39" r="2.2"/>
 <circle class="op" cx="73.8" cy="342.84" r="2.2"/>
 <circle class="op" cx="79.85" cy="360.93" r="2.2"/>
-<circle class="op" cx="60.2" cy="349.74" r="2.2"/>
 <circle class="op" cx="85.26" cy="344.2" r="2.2"/>
 <circle class="op" cx="68.87" cy="367.38" r="2.2"/>
 <circle class="op" cx="65.07" cy="336.74" r="2.2"/>
@@ -140,12 +139,11 @@
 <circle class="op" cx="198.71" cy="333.38" r="2.2"/>
 <circle class="op" cx="196.45" cy="372.57" r="2.2"/>
 <circle class="op" cx="170.52" cy="340.71" r="2.2"/>
-<circle class="op" cx="212.89" cy="346.97" r="2.2"/>
+<circle cx="212.89" cy="346.97" r="3.2" fill="#0d1117" stroke="#7d8590" stroke-width="1.3"/>
 <circle class="op" cx="176.01" cy="371.9" r="2.2"/>
-<circle class="op" cx="186.77" cy="327.03" r="2.2"/>
 <circle class="op" cx="209.88" cy="368.76" r="2.2"/>
 <circle class="op" cx="163.22" cy="353.11" r="2.2"/>
-<circle class="op" cx="209.55" cy="332.55" r="2.2"/>
+<circle cx="209.55" cy="332.55" r="3.2" fill="#0d1117" stroke="#7d8590" stroke-width="1.3"/>
 <circle class="op" cx="188.69" cy="380.3" r="2.2"/>
 <text class="c m s13" x="190" y="420">metric libs</text>
 <text class="c s13" x="190" y="436">20</text>
@@ -154,7 +152,6 @@
 <circle class="op" cx="302.21" cy="356.39" r="2.2"/>
 <circle class="op" cx="307.8" cy="342.84" r="2.2"/>
 <circle class="op" cx="313.85" cy="360.93" r="2.2"/>
-<circle class="op" cx="294.2" cy="349.74" r="2.2"/>
 <circle class="op" cx="319.26" cy="344.2" r="2.2"/>
 <circle class="op" cx="302.87" cy="367.38" r="2.2"/>
 <circle class="op" cx="324.27" cy="358.31" r="2.2"/>
@@ -162,11 +159,9 @@
 <circle class="op" cx="315.71" cy="333.38" r="2.2"/>
 <circle cx="313.45" cy="372.57" r="3.2" fill="#0d1117" stroke="#7d8590" stroke-width="1.3"/>
 <circle class="op" cx="287.52" cy="340.71" r="2.2"/>
-<circle class="op" cx="293.01" cy="371.9" r="2.2"/>
 <circle class="op" cx="303.77" cy="327.03" r="2.2"/>
 <circle class="op" cx="326.88" cy="368.76" r="2.2"/>
 <circle class="op" cx="280.22" cy="353.11" r="2.2"/>
-<circle class="op" cx="326.55" cy="332.55" r="2.2"/>
 <text class="c m s13" x="307" y="420">eval platforms</text>
 <text class="c s13" x="307" y="436">19</text>
 <path class="ln" d="M73 508 L68.21 512.39 L73.8 498.84 L79.85 516.93 L60.2 505.74 L85.26 500.2 L68.87 523.38 L65.07 492.74 L90.27 514.31 L54.97 515.44 L81.71 489.38 L79.45 528.57 L53.52 496.71 L95.89 502.97 L59.01 527.9 L69.77 483.03 L92.88 524.76 L46.22 509.11"/>
@@ -223,12 +218,10 @@
 <circle class="op" cx="68.21" cy="668.39" r="2.2"/>
 <circle class="op" cx="73.8" cy="654.84" r="2.2"/>
 <circle class="op" cx="79.85" cy="672.93" r="2.2"/>
-<circle class="op" cx="60.2" cy="661.74" r="2.2"/>
 <circle class="op" cx="85.26" cy="656.2" r="2.2"/>
 <circle class="op" cx="68.87" cy="679.38" r="2.2"/>
 <circle class="op" cx="65.07" cy="648.74" r="2.2"/>
 <circle class="op" cx="90.27" cy="670.31" r="2.2"/>
-<circle class="op" cx="54.97" cy="671.44" r="2.2"/>
 <circle class="op" cx="81.71" cy="645.38" r="2.2"/>
 <circle class="op" cx="79.45" cy="684.57" r="2.2"/>
 <text class="c m s13" x="73" y="732">safety</text>
@@ -245,7 +238,6 @@
 <path class="ln" d="M307 664 L302.21 668.39 L307.8 654.84 L313.85 672.93 L294.2 661.74 L319.26 656.2 L302.87 679.38 L299.07 648.74"/>
 <circle class="op" cx="307" cy="664" r="2.2"/>
 <circle class="op" cx="302.21" cy="668.39" r="2.2"/>
-<circle class="op" cx="294.2" cy="661.74" r="2.2"/>
 <circle class="op" cx="319.26" cy="656.2" r="2.2"/>
 <circle class="op" cx="299.07" cy="648.74" r="2.2"/>
 <text class="c m s13" x="307" y="732">forecasting</text>
@@ -261,7 +253,6 @@
 <text class="c s13" x="73" y="904">7</text>
 <path class="ln" d="M190 820 L185.21 824.39 L190.8 810.84 L196.85 828.93"/>
 <circle class="op" cx="190" cy="820" r="2.2"/>
-<circle class="op" cx="185.21" cy="824.39" r="2.2"/>
 <circle class="op" cx="190.8" cy="810.84" r="2.2"/>
 <circle class="op" cx="196.85" cy="828.93" r="2.2"/>
 <text class="c m s13" x="190" y="888">explainability</text>
@@ -281,24 +272,33 @@
 <g transform="translate(196.45 216.57)"><g class="lit" style="animation-delay:2.74s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
 <g transform="translate(302.21 200.39)"><g class="lit" style="animation-delay:4.72s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
 <g transform="translate(315.71 177.38)"><g class="lit" style="animation-delay:1.86s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(60.2 349.74)"><g class="lit" style="animation-delay:6.70s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
 <g transform="translate(171.97 359.44)"><g class="lit" style="animation-delay:2.96s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(186.77 327.03)"><g class="lit" style="animation-delay:7.36s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(294.2 349.74)"><g class="lit" style="animation-delay:6.92s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
 <g transform="translate(299.07 336.74)"><g class="lit" style="animation-delay:3.40s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
 <g transform="translate(329.89 346.97)"><g class="lit" style="animation-delay:3.18s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(293.01 371.9)"><g class="lit" style="animation-delay:5.82s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(326.55 332.55)"><g class="lit" style="animation-delay:7.14s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
 <g transform="translate(92.88 524.76)"><g class="lit" style="animation-delay:5.16s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
 <g transform="translate(302.21 512.39)"><g class="lit" style="animation-delay:4.94s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
 <g transform="translate(307.8 498.84)"><g class="lit" style="animation-delay:2.08s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/><circle r="12.5" fill="none" stroke="#3987e5" stroke-width="1.3"/></g></g>
+<g transform="translate(60.2 661.74)"><g class="lit" style="animation-delay:6.48s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(54.97 671.44)"><g class="lit" style="animation-delay:6.26s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
 <g transform="translate(190.8 654.84)"><g class="lit" style="animation-delay:1.42s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
 <g transform="translate(177.2 661.74)"><g class="lit" style="animation-delay:1.64s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/><circle r="12.5" fill="none" stroke="#3987e5" stroke-width="1.3"/></g></g>
 <g transform="translate(307.8 654.84)"><g class="lit" style="animation-delay:5.38s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
 <g transform="translate(313.85 672.93)"><g class="lit" style="animation-delay:4.28s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
+<g transform="translate(294.2 661.74)"><g class="lit" style="animation-delay:6.04s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
 <g transform="translate(302.87 679.38)"><g class="lit" style="animation-delay:4.06s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
 <g transform="translate(85.26 812.2)"><g class="lit" style="animation-delay:3.62s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/><circle r="12.5" fill="none" stroke="#3987e5" stroke-width="1.3"/></g></g>
+<g transform="translate(185.21 824.39)"><g class="lit" style="animation-delay:5.60s"><circle r="11" fill="#3987e5" fill-opacity=".16"/><path d="M0 -7.5Q2.1 -2.1 7.5 0Q2.1 2.1 0 7.5Q-2.1 2.1 -7.5 0Q-2.1 -2.1 0 -7.5Z" fill="#3987e5"/></g></g>
 <circle cx="30" cy="941" r="2.2" fill="#7d8590"/>
-<text class="m s13" x="46" y="946">open 213</text>
+<text class="m s13" x="46" y="946">open 201</text>
 <circle cx="140.48" cy="941" r="3.2" fill="#0d1117" stroke="#7d8590" stroke-width="1.3"/>
-<text class="m s13" x="156.48" y="946">closed, no fix 5</text>
+<text class="m s13" x="156.48" y="946">closed, no fix 8</text>
 <path d="M30 962Q31.96 967.04 37 969Q31.96 970.96 30 976Q28.04 970.96 23 969Q28.04 967.04 30 962Z" fill="#3987e5"/>
-<text class="m s13" x="46" y="974">fixed by others 17</text>
+<text class="m s13" x="46" y="974">fixed by others 26</text>
 <path d="M221.08 962Q223.04 967.04 228.08 969Q223.04 970.96 221.08 976Q219.12 970.96 214.08 969Q219.12 967.04 221.08 962Z" fill="#3987e5"/>
 <circle cx="221.08" cy="969" r="10.5" fill="none" stroke="#3987e5" stroke-width="1.3"/>
 <text class="m s13" x="237.08" y="974">fixed by me 3</text>

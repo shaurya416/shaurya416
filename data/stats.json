@@ -1,25 +1,25 @@
 {
- "as_of": "2026-10-08T20:50Z",
+ "as_of": "2026-11-02T10:26Z",
  "account": {
   "login": "shaurya416",
   "user_id": 298017155
  },
  "queries": {
   "issues_total": 238,
-  "issues_open": 213,
-  "issues_closed": 25,
-  "prs_total": 33,
+  "issues_open": 201,
+  "issues_closed": 37,
+  "prs_total": 32,
   "prs_merged": 3,
-  "prs_open": 28,
-  "prs_closed_unmerged": 2
+  "prs_open": 25,
+  "prs_closed_unmerged": 4
  },
  "exclusion_applied": true,
  "issues": {
   "total": 238,
-  "open": 213,
-  "closed": 25,
-  "closed_completed": 21,
-  "closed_not_planned": 4,
+  "open": 201,
+  "closed": 37,
+  "closed_completed": 31,
+  "closed_not_planned": 6,
   "distinct_repos": 229,
   "distinct_owner_accounts": 189,
   "max_issues_in_one_repo": 2,
@@ -40,44 +40,49 @@
    "2026-09-30": 38,
    "2026-10-01": 5
   },
-  "with_comments": 50
+  "with_comments": 58
  },
  "outcomes": {
-  "open": 213,
-  "closed": 25,
-  "fixed_by_merged_pr_from_someone_else": 17,
+  "open": 201,
+  "closed": 37,
+  "fixed_by_merged_pr_from_someone_else": 26,
   "fixed_by_his_own_merged_pr": 3,
-  "closed_completed_without_a_fix_merged": 1,
+  "closed_completed_without_a_fix_merged": 2,
   "closed_completed_without_a_fix": [
-   "open-compass/VLMEvalKit#1705"
+   "open-compass/VLMEvalKit#1705",
+   "rafaelpadilla/review_object_detection_metrics#156"
   ],
-  "closed_not_planned": 4,
+  "closed_not_planned": 6,
   "not_planned": [
    "InternLM/InternLM#859",
+   "QwenLM/Qwen#2350",
    "huggingface/open-r1#732",
    "langchain-ai/langchain#40805",
-   "nuprl/MultiPL-E#192"
+   "nuprl/MultiPL-E#192",
+   "sebp/scikit-survival#643"
   ]
  },
  "fix_lag_hours_filed_to_merge": {
-  "n": 17,
+  "n": 26,
   "min": 4.7,
-  "median": 109.5,
-  "max": 316.2
+  "median": 235.9,
+  "max": 834.5
  },
  "prs": {
-  "total": 33,
-  "upstream": 33,
+  "total": 32,
+  "upstream": 32,
   "in_own_repo": 0,
   "own_repos": [],
   "merged": 3,
-  "open": 28,
-  "closed_unmerged": 2,
-  "distinct_upstream_repos": 33,
+  "open": 25,
+  "closed_unmerged": 4,
+  "distinct_upstream_repos": 32,
   "first_pr_created_at_upstream": "2026-09-24T08:37:19Z",
   "closed_unmerged_detail": [
+   "ferro-labs/ai-gateway#448",
    "huggingface/open-r1#734",
-   "open-compass/VLMEvalKit#1707"
+   "open-compass/VLMEvalKit#1707",
+   "xlang-ai/OSWorld#598"
   ],
   "merged_list": [
    {
@@ -377,25 +382,169 @@
    "hours_issue_filed_to_merge": [
     241.4
    ]
+  },
+  {
+   "repo": "MAIF/shapash",
+   "pr": 794,
+   "url": "https://github.com/MAIF/shapash/pull/794",
+   "pr_author": "aminemanai2003",
+   "merged_at": "2026-10-08T14:56:27Z",
+   "cites_issues": [
+    777
+   ],
+   "issue_closed_at": [
+    "2026-10-12T07:32:38Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    245.8
+   ]
+  },
+  {
+   "repo": "Agenta-AI/agenta",
+   "pr": 7161,
+   "url": "https://github.com/Agenta-AI/agenta/pull/7161",
+   "pr_author": "unfitcoder101",
+   "merged_at": "2026-10-08T21:05:18Z",
+   "cites_issues": [
+    7149
+   ],
+   "issue_closed_at": [
+    "2026-10-12T18:31:24Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    316.2
+   ]
+  },
+  {
+   "repo": "aeon-toolkit/aeon",
+   "pr": 3887,
+   "url": "https://github.com/aeon-toolkit/aeon/pull/3887",
+   "pr_author": "anshuman83-40",
+   "merged_at": "2026-10-12T21:11:38Z",
+   "cites_issues": [
+    3880
+   ],
+   "issue_closed_at": [
+    "2026-10-12T21:11:39Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    341.9
+   ]
+  },
+  {
+   "repo": "ferro-labs/ai-gateway",
+   "pr": 455,
+   "url": "https://github.com/ferro-labs/ai-gateway/pull/455",
+   "pr_author": "MitulShah1",
+   "merged_at": "2026-10-18T08:35:12Z",
+   "cites_issues": [
+    447
+   ],
+   "issue_closed_at": [
+    "2026-10-18T08:35:13Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    532.8
+   ]
+  },
+  {
+   "repo": "msoedov/agentic_security",
+   "pr": 352,
+   "url": "https://github.com/msoedov/agentic_security/pull/352",
+   "pr_author": "msoedov",
+   "merged_at": "2026-10-18T16:15:06Z",
+   "cites_issues": [
+    350
+   ],
+   "issue_closed_at": [
+    "2026-10-18T16:15:07Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    541.1
+   ]
+  },
+  {
+   "repo": "xlang-ai/OSWorld",
+   "pr": 614,
+   "url": "https://github.com/xlang-ai/OSWorld/pull/614",
+   "pr_author": "Timothyxxx",
+   "merged_at": "2026-10-19T10:26:18Z",
+   "cites_issues": [
+    597
+   ],
+   "issue_closed_at": [
+    "2026-10-19T10:26:20Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    614.5
+   ]
+  },
+  {
+   "repo": "Giskard-AI/giskard-oss",
+   "pr": 2904,
+   "url": "https://github.com/Giskard-AI/giskard-oss/pull/2904",
+   "pr_author": "kevinmessiaen",
+   "merged_at": "2026-10-28T08:24:13Z",
+   "cites_issues": [
+    2840
+   ],
+   "issue_closed_at": [
+    "2026-10-28T08:24:15Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    834.5
+   ]
+  },
+  {
+   "repo": "verifywise-ai/verifywise",
+   "pr": 5147,
+   "url": "https://github.com/verifywise-ai/verifywise/pull/5147",
+   "pr_author": "MuhammadKhalilzadeh",
+   "merged_at": "2026-10-28T12:57:31Z",
+   "cites_issues": [
+    4783
+   ],
+   "issue_closed_at": [
+    "2026-10-28T12:57:33Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    776.5
+   ]
+  },
+  {
+   "repo": "pltrdy/rouge",
+   "pr": 78,
+   "url": "https://github.com/pltrdy/rouge/pull/78",
+   "pr_author": "DataDetective-Neel",
+   "merged_at": "2026-11-02T08:45:37Z",
+   "cites_issues": [
+    77
+   ],
+   "issue_closed_at": [
+    "2026-11-02T08:45:39Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    780.9
+   ]
   }
  ],
  "fixes_by_others_summary": {
-  "prs": 16,
-  "issues_fixed": 17,
-  "distinct_pr_authors": 14
+  "prs": 25,
+  "issues_fixed": 26,
+  "distinct_pr_authors": 23
  },
  "ecosystems": [
   {
    "bucket": "LLM eval harnesses & benchmarks",
    "repos": 38,
    "issues": 42,
-   "examples": "Qwen, gpt-oss, evals, lm-evaluation-harness, PaddleNLP"
+   "examples": "Qwen, gpt-oss, evals, llama-cookbook, lm-evaluation-harness"
   },
   {
    "bucket": "Judge, RAG & hallucination scoring",
    "repos": 29,
    "issues": 29,
-   "examples": "OpenJudge, WildBench, athina-evals, FAITHSCORE, autoevals"
+   "examples": "deepeval, ragas, ogx, AutoRAG, LMOps"
   },
   {
    "bucket": "RL post-training & reward functions",
@@ -407,13 +556,13 @@
    "bucket": "Agent & tool-use benchmarks",
    "repos": 20,
    "issues": 21,
-   "examples": "autogen, crewAI, aider, storm, gorilla"
+   "examples": "autogen, crewAI, aider, storm, SWE-agent"
   },
   {
    "bucket": "Classic metric libraries",
    "repos": 20,
    "issues": 20,
-   "examples": "google-research, qa_metrics, mAP, seqeval, nlg-metricverse"
+   "examples": "google-research, imbalanced-learn, river, mlxtend, ignite"
   },
   {
    "bucket": "LLM eval platforms & app frameworks",
@@ -425,55 +574,55 @@
    "bucket": "Fairness, calibration & uncertainty",
    "repos": 16,
    "issues": 18,
-   "examples": "adversarial-robustness-toolbox, torch-uncertainty, TorchCP, langfair, aequitas"
+   "examples": "adversarial-robustness-toolbox, AIF360, MAPIE, robustbench, aequitas"
   },
   {
    "bucket": "Code & math answer checking",
    "repos": 13,
    "issues": 13,
-   "examples": "math-evaluation-harness, bigcode-evaluation-harness, codefuse-evaluation, evalplus, TACO"
+   "examples": "InternLM, evalplus, KernelBench, Math-Verify, Qwen2.5-Math"
   },
   {
    "bucket": "Data pipelines & ML monitoring",
    "repos": 12,
    "issues": 12,
-   "examples": "cleanlab, dolma, argilla, distilabel, DataProfiler"
+   "examples": "cleanlab, data-juicer, argilla, deepchecks, distilabel"
   },
   {
    "bucket": "Safety, red-teaming & guardrails",
    "repos": 12,
    "issues": 12,
-   "examples": "last_layer, strong_reject, ai-gateway, invariant, jailbreakbench"
+   "examples": "PurpleLlama, agentic_security, detoxify, jailbreakbench, invariant"
   },
   {
    "bucket": "Autograders & education",
    "repos": 8,
    "issues": 8,
-   "examples": "nbgrader, ok, edx-ora2, xblocks-core, oppia"
+   "examples": "oppia, nbgrader, Submitty, PrairieLearn, ok"
   },
   {
    "bucket": "Forecasting, time series & anomaly detection",
    "repos": 8,
    "issues": 8,
-   "examples": "pyod, darts, statsforecast, aeon, utilsforecast"
+   "examples": "sktime, pyod, darts, statsforecast, tslearn"
   },
   {
    "bucket": "Retrieval, ranking & recommender metrics",
    "repos": 6,
    "issues": 7,
-   "examples": "recommenders, ranx, beir, torchrec, pykeen"
+   "examples": "recommenders, torchrec, beir, pykeen, ranx"
   },
   {
    "bucket": "Explainability",
    "repos": 4,
    "issues": 4,
-   "examples": "shapash, captum, DALEX, Quantus"
+   "examples": "captum, shapash, DALEX, Quantus"
   },
   {
    "bucket": "Speech & audio",
    "repos": 3,
    "issues": 3,
-   "examples": "meeteval, PESQ, speechbrain"
+   "examples": "speechbrain, PESQ, meeteval"
   }
  ],
  "areas_by_rule": [],
@@ -492,63 +641,63 @@
   {
    "repo": "EleutherAI/lm-evaluation-harness",
    "issues": 2,
-   "stars": 14157
+   "stars": 14370
   },
   {
    "repo": "open-compass/opencompass",
    "issues": 2,
-   "stars": 7496
+   "stars": 7561
   },
   {
    "repo": "Azure/azure-sdk-for-python",
    "issues": 2,
-   "stars": 5614
+   "stars": 5623
   },
   {
    "repo": "mosaicml/llm-foundry",
    "issues": 2,
-   "stars": 4451
+   "stars": 4462
   },
   {
    "repo": "modelscope/evalscope",
    "issues": 2,
-   "stars": 3510
+   "stars": 3634
   },
   {
    "repo": "openai/frontier-evals",
    "issues": 2,
-   "stars": 1309
+   "stars": 1333
   },
   {
    "repo": "AmenRa/ranx",
    "issues": 2,
-   "stars": 702
+   "stars": 701
   },
   {
    "repo": "torch-uncertainty/torch-uncertainty",
    "issues": 2,
-   "stars": 530
+   "stars": 531
   },
   {
    "repo": "ml-stat-Sustech/TorchCP",
    "issues": 2,
-   "stars": 479
+   "stars": 481
   },
   {
    "repo": "langchain-ai/langchain",
    "issues": 1,
-   "stars": 147402
+   "stars": 148875
   },
   {
    "repo": "microsoft/autogen",
    "issues": 1,
-   "stars": 61312
+   "stars": 61674
   },
   {
    "repo": "crewAIInc/crewAI",
    "issues": 1,
-   "stars": 59469
+   "stars": 60414
   }
  ],
- "stars_read_at": "2026-10-08"
+ "stars_read_at": "2026-11-02"
 }

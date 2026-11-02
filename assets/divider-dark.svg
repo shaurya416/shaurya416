@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 18" width="830" height="18" role="img" aria-labelledby="t d">
 <title id="t">the issues in the order filed</title>
-<desc id="d">238 dots, one per issue in the order filed; the 20 fixed by a merged pull request are lit.</desc>
+<desc id="d">238 dots, one per issue in the order filed; the 29 fixed by a merged pull request are lit.</desc>
 <style>text{font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;font-size:12px;fill:#f0f6fc}.m{fill:#9198a1}.a{fill:#3987e5}.b{font-size:26px}.e{text-anchor:end}.c{text-anchor:middle}</style>
 <circle cx="15.68" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="19.05" cy="9" r="1.8" fill="#7d8590"/>
@@ -13,7 +13,7 @@
 <circle cx="42.64" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="46.01" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="49.38" cy="9" r="1.8" fill="#7d8590"/>
-<circle cx="52.75" cy="9" r="1.8" fill="#7d8590"/>
+<circle cx="52.75" cy="9" r="4" fill="#3987e5"/>
 <circle cx="56.12" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="59.49" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="62.86" cy="9" r="1.8" fill="#7d8590"/>
@@ -35,7 +35,7 @@
 <circle cx="116.78" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="120.15" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="123.52" cy="9" r="1.8" fill="#7d8590"/>
-<circle cx="126.89" cy="9" r="1.8" fill="#7d8590"/>
+<circle cx="126.89" cy="9" r="4" fill="#3987e5"/>
 <circle cx="130.26" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="133.63" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="137" cy="9" r="1.8" fill="#7d8590"/>
@@ -122,7 +122,7 @@
 <circle cx="409.95" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="413.32" cy="9" r="4" fill="#3987e5"/>
 <circle cx="416.68" cy="9" r="1.8" fill="#7d8590"/>
-<circle cx="420.05" cy="9" r="1.8" fill="#7d8590"/>
+<circle cx="420.05" cy="9" r="4" fill="#3987e5"/>
 <circle cx="423.42" cy="9" r="4" fill="#3987e5"/>
 <circle cx="426.79" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="430.16" cy="9" r="1.8" fill="#7d8590"/>
@@ -155,7 +155,7 @@
 <circle cx="521.15" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="524.52" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="527.89" cy="9" r="1.8" fill="#7d8590"/>
-<circle cx="531.26" cy="9" r="1.8" fill="#7d8590"/>
+<circle cx="531.26" cy="9" r="4" fill="#3987e5"/>
 <circle cx="534.63" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="538" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="541.37" cy="9" r="1.8" fill="#7d8590"/>
@@ -163,11 +163,11 @@
 <circle cx="548.11" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="551.47" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="554.84" cy="9" r="1.8" fill="#7d8590"/>
-<circle cx="558.21" cy="9" r="1.8" fill="#7d8590"/>
+<circle cx="558.21" cy="9" r="4" fill="#3987e5"/>
 <circle cx="561.58" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="564.95" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="568.32" cy="9" r="1.8" fill="#7d8590"/>
-<circle cx="571.69" cy="9" r="1.8" fill="#7d8590"/>
+<circle cx="571.69" cy="9" r="4" fill="#3987e5"/>
 <circle cx="575.06" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="578.43" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="581.8" cy="9" r="1.8" fill="#7d8590"/>
@@ -185,7 +185,7 @@
 <circle cx="622.24" cy="9" r="4" fill="#3987e5"/>
 <circle cx="625.61" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="628.98" cy="9" r="1.8" fill="#7d8590"/>
-<circle cx="632.35" cy="9" r="1.8" fill="#7d8590"/>
+<circle cx="632.35" cy="9" r="4" fill="#3987e5"/>
 <circle cx="635.72" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="639.09" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="642.46" cy="9" r="1.8" fill="#7d8590"/>
@@ -196,7 +196,7 @@
 <circle cx="659.31" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="662.68" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="666.05" cy="9" r="1.8" fill="#7d8590"/>
-<circle cx="669.42" cy="9" r="1.8" fill="#7d8590"/>
+<circle cx="669.42" cy="9" r="4" fill="#3987e5"/>
 <circle cx="672.79" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="676.16" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="679.53" cy="9" r="4" fill="#3987e5"/>
@@ -205,7 +205,7 @@
 <circle cx="689.63" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="693" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="696.37" cy="9" r="1.8" fill="#7d8590"/>
-<circle cx="699.74" cy="9" r="1.8" fill="#7d8590"/>
+<circle cx="699.74" cy="9" r="4" fill="#3987e5"/>
 <circle cx="703.11" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="706.48" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="709.85" cy="9" r="1.8" fill="#7d8590"/>

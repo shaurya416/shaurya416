@@ -134,13 +134,13 @@
   "owner": "rafaelpadilla",
   "number": 156,
   "title": "coco2bb() stops parsing all remaining annotations and files at the first detection missing `score`",
-  "state": "open",
-  "state_reason": null,
+  "state": "closed",
+  "state_reason": "completed",
   "created_at": "2026-09-30T22:01:01Z",
-  "closed_at": null,
-  "comments": 1,
+  "closed_at": "2026-10-25T06:18:37Z",
+  "comments": 3,
   "url": "https://github.com/rafaelpadilla/review_object_detection_metrics/issues/156",
-  "merged_prs": null
+  "merged_prs": []
  },
  {
   "repo": "google-research/mt-metrics-eval",
@@ -341,7 +341,7 @@
   "repo": "Unakar/Logic-RL",
   "owner": "Unakar",
   "number": 78,
-  "title": "eval_kk parse_model_answer accepts a name assigned both roles in  and scores the first-mentioned role",
+  "title": "eval_kk parse_model_answer accepts a name assigned both roles in <answer> and scores the first-mentioned role",
   "state": "open",
   "state_reason": null,
   "created_at": "2026-09-30T20:46:16Z",
@@ -354,7 +354,7 @@
   "repo": "lsdefine/simple_GRPO",
   "owner": "lsdefine",
   "number": 57,
-  "title": "reward_correct/reward_format grade the whole completion instead of the `` span, so an empty or prose-only `` scores the same +2.25 as a correct answer",
+  "title": "reward_correct/reward_format grade the whole completion instead of the `<answer>` span, so an empty or prose-only `<answer>` scores the same +2.25 as a correct answer",
   "state": "open",
   "state_reason": null,
   "created_at": "2026-09-30T20:46:11Z",
@@ -446,13 +446,20 @@
   "owner": "pltrdy",
   "number": 77,
   "title": "Whitespace-only sentence segments survive splitting and score as a shared empty-string token (phantom overlap, false perfect matches)",
-  "state": "open",
-  "state_reason": null,
+  "state": "closed",
+  "state_reason": "completed",
   "created_at": "2026-09-30T19:53:24Z",
-  "closed_at": null,
-  "comments": 0,
+  "closed_at": "2026-11-02T08:45:39Z",
+  "comments": 1,
   "url": "https://github.com/pltrdy/rouge/issues/77",
-  "merged_prs": null
+  "merged_prs": [
+   {
+    "pr": 78,
+    "author": "DataDetective-Neel",
+    "merged_at": "2026-11-02T08:45:37Z",
+    "hours": 780.9
+   }
+  ]
  },
  {
   "repo": "chakki-works/seqeval",
@@ -522,7 +529,7 @@
   "state_reason": null,
   "created_at": "2026-09-30T19:34:07Z",
   "closed_at": null,
-  "comments": 0,
+  "comments": 1,
   "url": "https://github.com/tslearn-team/tslearn/issues/740",
   "merged_prs": null
  },
@@ -550,7 +557,7 @@
   "repo": "meta-pytorch/torchrec",
   "owner": "meta-pytorch",
   "number": 4812,
-  "title": "RecallMetric / HindsightTargetPR: `compute_false_neg_sum` uses `&lt;=` and double-counts positives predicted exactly at the threshold",
+  "title": "RecallMetric / HindsightTargetPR: `compute_false_neg_sum` uses `<=` and double-counts positives predicted exactly at the threshold",
   "state": "open",
   "state_reason": null,
   "created_at": "2026-09-30T19:28:44Z",
@@ -577,26 +584,33 @@
   "owner": "aeon-toolkit",
   "number": 3880,
   "title": "[BUG] Continuous anomaly-detection metrics discard check_y's output, so swapped arguments score the labels against themselves and any detector gets 1.0",
-  "state": "open",
-  "state_reason": null,
+  "state": "closed",
+  "state_reason": "completed",
   "created_at": "2026-09-28T15:17:47Z",
-  "closed_at": null,
+  "closed_at": "2026-10-12T21:11:39Z",
   "comments": 0,
   "url": "https://github.com/aeon-toolkit/aeon/issues/3880",
-  "merged_prs": null
+  "merged_prs": [
+   {
+    "pr": 3887,
+    "author": "anshuman83-40",
+    "merged_at": "2026-10-12T21:11:38Z",
+    "hours": 341.9
+   }
+  ]
  },
  {
   "repo": "sebp/scikit-survival",
   "owner": "sebp",
   "number": 643,
   "title": "brier_score silently zero-weights rows where the censoring survival G is 0 instead of raising, so an all-dead predictor can score 0.0",
-  "state": "open",
-  "state_reason": null,
+  "state": "closed",
+  "state_reason": "not_planned",
   "created_at": "2026-09-28T15:17:12Z",
-  "closed_at": null,
+  "closed_at": "2026-10-10T07:02:50Z",
   "comments": 1,
   "url": "https://github.com/sebp/scikit-survival/issues/643",
-  "merged_prs": null
+  "merged_prs": []
  },
  {
   "repo": "pytorch/ignite",
@@ -734,13 +748,20 @@
   "owner": "MAIF",
   "number": 777,
   "title": "`shap_neighbors` returns a neighbour's contributions as \"the instance\": the inner merge puts rows back in `x_encoded` order",
-  "state": "open",
-  "state_reason": null,
+  "state": "closed",
+  "state_reason": "completed",
   "created_at": "2026-09-28T09:08:48Z",
-  "closed_at": null,
+  "closed_at": "2026-10-12T07:32:38Z",
   "comments": 1,
   "url": "https://github.com/MAIF/shapash/issues/777",
-  "merged_prs": null
+  "merged_prs": [
+   {
+    "pr": 794,
+    "author": "aminemanai2003",
+    "merged_at": "2026-10-08T14:56:27Z",
+    "hours": 245.8
+   }
+  ]
  },
  {
   "repo": "capitalone/DataProfiler",
@@ -876,7 +897,7 @@
   "state_reason": null,
   "created_at": "2026-09-26T12:12:47Z",
   "closed_at": null,
-  "comments": 0,
+  "comments": 1,
   "url": "https://github.com/torch-uncertainty/torch-uncertainty/issues/347",
   "merged_prs": null
  },
@@ -989,13 +1010,20 @@
   "owner": "verifywise-ai",
   "number": 4783,
   "title": "Custom scorer reports passed=True for every judge reply, including an explicit FAIL, when the scorer's defaultThreshold is NULL",
-  "state": "open",
-  "state_reason": null,
+  "state": "closed",
+  "state_reason": "completed",
   "created_at": "2026-09-26T04:27:03Z",
-  "closed_at": null,
+  "closed_at": "2026-10-28T12:57:33Z",
   "comments": 0,
   "url": "https://github.com/verifywise-ai/verifywise/issues/4783",
-  "merged_prs": null
+  "merged_prs": [
+   {
+    "pr": 5147,
+    "author": "MuhammadKhalilzadeh",
+    "merged_at": "2026-10-28T12:57:31Z",
+    "hours": 776.5
+   }
+  ]
  },
  {
   "repo": "dssg/aequitas",
@@ -1041,13 +1069,20 @@
   "owner": "ferro-labs",
   "number": 447,
   "title": "wordfilter: a non-list `blocked_words` value is a silent no-op, not a load error; the guardrail loads and screens nothing",
-  "state": "open",
-  "state_reason": null,
+  "state": "closed",
+  "state_reason": "completed",
   "created_at": "2026-09-26T03:46:49Z",
-  "closed_at": null,
+  "closed_at": "2026-10-18T08:35:13Z",
   "comments": 3,
   "url": "https://github.com/ferro-labs/ai-gateway/issues/447",
-  "merged_prs": null
+  "merged_prs": [
+   {
+    "pr": 455,
+    "author": "MitulShah1",
+    "merged_at": "2026-10-18T08:35:12Z",
+    "hours": 532.8
+   }
+  ]
  },
  {
   "repo": "cvs-health/langfair",
@@ -1145,13 +1180,20 @@
   "owner": "msoedov",
   "number": 350,
   "title": "LLMRefusalClassifier.is_refusal reports a \"pass\" judge verdict as a refusal when the reply carries punctuation, quotes or markdown",
-  "state": "open",
-  "state_reason": null,
+  "state": "closed",
+  "state_reason": "completed",
   "created_at": "2026-09-26T03:09:45Z",
-  "closed_at": null,
+  "closed_at": "2026-10-18T16:15:07Z",
   "comments": 0,
   "url": "https://github.com/msoedov/agentic_security/issues/350",
-  "merged_prs": null
+  "merged_prs": [
+   {
+    "pr": 352,
+    "author": "msoedov",
+    "merged_at": "2026-10-18T16:15:06Z",
+    "hours": 541.1
+   }
+  ]
  },
  {
   "repo": "LLAMATOR-Core/llamator",
@@ -1240,7 +1282,7 @@
   "state_reason": null,
   "created_at": "2026-09-26T01:45:00Z",
   "closed_at": null,
-  "comments": 0,
+  "comments": 1,
   "url": "https://github.com/agentscope-ai/OpenJudge/issues/199",
   "merged_prs": null
  },
@@ -1581,13 +1623,20 @@
   "owner": "Agenta-AI",
   "number": 7149,
   "title": "JSON Diff: case_insensitive_keys=True scores identical JSON as 0.0 when keys contain uppercase letters",
-  "state": "open",
-  "state_reason": null,
+  "state": "closed",
+  "state_reason": "completed",
   "created_at": "2026-09-25T16:50:59Z",
-  "closed_at": null,
+  "closed_at": "2026-10-12T18:31:24Z",
   "comments": 4,
   "url": "https://github.com/Agenta-AI/agenta/issues/7149",
-  "merged_prs": null
+  "merged_prs": [
+   {
+    "pr": 7161,
+    "author": "unfitcoder101",
+    "merged_at": "2026-10-08T21:05:18Z",
+    "hours": 316.2
+   }
+  ]
  },
  {
   "repo": "mosaicml/llm-foundry",
@@ -1678,7 +1727,7 @@
   "repo": "Azure/azure-sdk-for-python",
   "owner": "Azure",
   "number": 49190,
-  "title": "azure-ai-evaluation: a content-harm score of 0 (no harm) is parsed as NaN in _parse_content_harm_response (numeric branch uses 0 &lt; x instead of 0 &lt;= x)",
+  "title": "azure-ai-evaluation: a content-harm score of 0 (no harm) is parsed as NaN in _parse_content_harm_response (numeric branch uses 0 < x instead of 0 <= x)",
   "state": "open",
   "state_reason": null,
   "created_at": "2026-09-25T11:33:08Z",
@@ -1743,7 +1792,7 @@
   "repo": "Unbabel/COMET",
   "owner": "Unbabel",
   "number": 277,
-  "title": "comet-score / comet-compare do not check that -s, -t and -r have the same number of lines (silent truncation, cross-system mis-pairing with --gpus &gt; 1)",
+  "title": "comet-score / comet-compare do not check that -s, -t and -r have the same number of lines (silent truncation, cross-system mis-pairing with --gpus > 1)",
   "state": "open",
   "state_reason": null,
   "created_at": "2026-09-25T10:50:06Z",
@@ -2260,13 +2309,13 @@
   "owner": "QwenLM",
   "number": 2350,
   "title": "extract_choice() unbounded fuzzy-match fallback scores degenerate/refusal chat replies as a real MMLU/C-Eval answer letter",
-  "state": "open",
-  "state_reason": null,
+  "state": "closed",
+  "state_reason": "not_planned",
   "created_at": "2026-09-24T02:59:47Z",
-  "closed_at": null,
-  "comments": 0,
+  "closed_at": "2026-10-31T10:31:25Z",
+  "comments": 1,
   "url": "https://github.com/QwenLM/Qwen/issues/2350",
-  "merged_prs": null
+  "merged_prs": []
  },
  {
   "repo": "codefuse-ai/codefuse-evaluation",
@@ -2303,7 +2352,7 @@
   "state_reason": null,
   "created_at": "2026-09-24T02:59:45Z",
   "closed_at": null,
-  "comments": 0,
+  "comments": 1,
   "url": "https://github.com/open-compass/opencompass/issues/2654",
   "merged_prs": null
  },
@@ -2479,7 +2528,7 @@
   "state_reason": null,
   "created_at": "2026-09-23T23:58:16Z",
   "closed_at": null,
-  "comments": 7,
+  "comments": 9,
   "url": "https://github.com/crewAIInc/crewAI/issues/7739",
   "merged_prs": null
  },
@@ -2782,13 +2831,20 @@
   "owner": "xlang-ai",
   "number": 597,
   "title": "compare_result_files scores 1.0 for any result containing the gold numeral as a substring: 125.27, -25.27 and 25.271 all pass against 25.27",
-  "state": "open",
-  "state_reason": null,
+  "state": "closed",
+  "state_reason": "completed",
   "created_at": "2026-09-23T19:57:18Z",
-  "closed_at": null,
+  "closed_at": "2026-10-19T10:26:20Z",
   "comments": 0,
   "url": "https://github.com/xlang-ai/OSWorld/issues/597",
-  "merged_prs": null
+  "merged_prs": [
+   {
+    "pr": 614,
+    "author": "Timothyxxx",
+    "merged_at": "2026-10-19T10:26:18Z",
+    "hours": 614.5
+   }
+  ]
  },
  {
   "repo": "microsoft/WindowsAgentArena",
@@ -2864,7 +2920,7 @@
   "state_reason": null,
   "created_at": "2026-09-23T19:24:39Z",
   "closed_at": null,
-  "comments": 0,
+  "comments": 3,
   "url": "https://github.com/UKGovernmentBEIS/inspect_evals/issues/2523",
   "merged_prs": null
  },
@@ -2931,7 +2987,7 @@
   "repo": "SWE-bench/SWE-bench",
   "owner": "SWE-bench",
   "number": 667,
-  "title": "Exit-code spoof guard (#620) reads the first \"&gt;&gt;&gt;&gt;&gt; Test Exit Code:\" marker in the log, so a patch that prints the marker during the test run is scored resolved",
+  "title": "Exit-code spoof guard (#620) reads the first \">>>>> Test Exit Code:\" marker in the log, so a patch that prints the marker during the test run is scored resolved",
   "state": "open",
   "state_reason": null,
   "created_at": "2026-09-23T18:20:36Z",
@@ -3047,7 +3103,7 @@
   "state_reason": null,
   "created_at": "2026-09-23T14:13:17Z",
   "closed_at": null,
-  "comments": 0,
+  "comments": 1,
   "url": "https://github.com/IBM/unitxt/issues/1980",
   "merged_prs": null
  },
@@ -3082,13 +3138,20 @@
   "owner": "Giskard-AI",
   "number": 2840,
   "title": "garak adapter grades a NaN detector score as PASS",
-  "state": "open",
-  "state_reason": null,
+  "state": "closed",
+  "state_reason": "completed",
   "created_at": "2026-09-23T13:54:02Z",
-  "closed_at": null,
+  "closed_at": "2026-10-28T08:24:15Z",
   "comments": 2,
   "url": "https://github.com/Giskard-AI/giskard-oss/issues/2840",
-  "merged_prs": null
+  "merged_prs": [
+   {
+    "pr": 2904,
+    "author": "kevinmessiaen",
+    "merged_at": "2026-10-28T08:24:13Z",
+    "hours": 834.5
+   }
+  ]
  },
  {
   "repo": "uptrain-ai/uptrain",

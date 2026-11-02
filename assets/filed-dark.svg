@@ -1,84 +1,68 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 342" width="380" height="342" role="img" aria-labelledby="t d">
-<title id="t">issues filed and fixed per day</title>
-<desc id="d">issues filed per day, UTC, 2026-09-23 to 2026-10-08: 09-23 57, 09-24 44, 09-25 35, 09-26 40, 09-27 4, 09-28 15, 09-29 0, 09-30 38, 10-01 5, 10-02 0, 10-03 0, 10-04 0, 10-05 0, 10-06 0, 10-07 0, 10-08 0. Issues closed by a merged PR, by merge day: 09-24 1, 09-25 2, 09-27 1, 09-28 3, 09-29 2, 09-30 3, 10-01 2, 10-02 1, 10-03 1, 10-06 1, 10-07 2, 10-08 1.</desc>
+<title id="t">issues filed and fixed per week</title>
+<desc id="d">issues filed per week, UTC, 2026-09-23 to 2026-11-02: week of 09-21 180, week of 09-28 58, week of 10-05 0, week of 10-12 0, week of 10-19 0, week of 10-26 0, week of 11-02 0. Issues closed by a merged PR, by merge week: week of 09-21 4, week of 09-28 12, week of 10-05 6, week of 10-12 3, week of 10-19 1, week of 10-26 2, week of 11-02 1.</desc>
 <style>text{font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;font-size:12px;fill:#f0f6fc}.m{fill:#9198a1}.a{fill:#3987e5}.b{font-size:26px}.e{text-anchor:end}.c{text-anchor:middle}</style>
 <rect x=".5" y=".5" width="373" height="335" rx="6" fill="#0d1117" stroke="#3d444d"/>
-<text class="m" x="14" y="22">issues per day, utc</text>
-<text class="m e" x="360" y="22">2026-09-23/2026-10-08</text>
+<text class="m" x="14" y="22">issues per week, utc</text>
+<text class="m e" x="360" y="22">2026-09-23/2026-11-02</text>
 <rect x="14" y="42" width="8" height="14" rx="4" fill="#7d8590"/>
 <text x="30" y="56"><tspan class="b">238</tspan><tspan class="m" dx="7">filed</tspan></text>
 <rect x="164" y="47" width="9" height="9" rx="1.6" fill="#3987e5"/>
-<text x="180" y="56"><tspan class="b">20</tspan><tspan class="m" dx="7">fixed</tspan></text>
+<text x="180" y="56"><tspan class="b">29</tspan><tspan class="m" dx="7">fixed</tspan></text>
 <rect x="301.06" y="47.7" width="7.6" height="7.6" rx="1.6" fill="none" stroke="#3987e5" stroke-width="1.4"/>
 <text class="m" x="315.36" y="56">own PR</text>
-<path d="M14 249.5H360" stroke="#3d444d" fill="none"/>
-<rect x="20.81" y="96" width="8" height="153" rx="3" fill="#7d8590"/>
-<rect x="42.44" y="130.89" width="8" height="118.11" rx="3" fill="#7d8590"/>
-<rect x="64.06" y="155.05" width="8" height="93.95" rx="3" fill="#7d8590"/>
-<rect x="85.69" y="141.63" width="8" height="107.37" rx="3" fill="#7d8590"/>
-<rect x="107.31" y="238.26" width="8" height="10.74" rx="3" fill="#7d8590"/>
-<rect x="128.94" y="208.74" width="8" height="40.26" rx="3" fill="#7d8590"/>
-<rect x="150.56" y="247" width="8" height="2" rx="1" fill="#30363d"/>
-<rect x="172.19" y="147" width="8" height="102" rx="3" fill="#7d8590"/>
-<rect x="193.81" y="235.58" width="8" height="13.42" rx="3" fill="#7d8590"/>
-<rect x="215.44" y="247" width="8" height="2" rx="1" fill="#30363d"/>
-<rect x="237.06" y="247" width="8" height="2" rx="1" fill="#30363d"/>
-<rect x="258.69" y="247" width="8" height="2" rx="1" fill="#30363d"/>
-<rect x="280.31" y="247" width="8" height="2" rx="1" fill="#30363d"/>
-<rect x="301.94" y="247" width="8" height="2" rx="1" fill="#30363d"/>
-<rect x="323.56" y="247" width="8" height="2" rx="1" fill="#30363d"/>
-<rect x="345.19" y="247" width="8" height="2" rx="1" fill="#30363d"/>
-<text class="m c" x="24.81" y="91">57</text>
-<text class="m c" x="46.44" y="125.89">44</text>
-<text class="m c" x="68.06" y="150.05">35</text>
-<text class="m c" x="89.69" y="136.63">40</text>
-<text class="m c" x="111.31" y="233.26">4</text>
-<text class="m c" x="132.94" y="203.74">15</text>
-<text class="m c" x="176.19" y="142">38</text>
-<text class="m c" x="197.81" y="230.58">5</text>
+<path d="M14 183.5H360" stroke="#3d444d" fill="none"/>
+<rect x="34.71" y="96" width="8" height="87" rx="3" fill="#7d8590"/>
+<rect x="84.14" y="154.97" width="8" height="28.03" rx="3" fill="#7d8590"/>
+<rect x="133.57" y="181" width="8" height="2" rx="1" fill="#30363d"/>
+<rect x="183" y="181" width="8" height="2" rx="1" fill="#30363d"/>
+<rect x="232.43" y="181" width="8" height="2" rx="1" fill="#30363d"/>
+<rect x="281.86" y="181" width="8" height="2" rx="1" fill="#30363d"/>
+<rect x="331.29" y="181" width="8" height="2" rx="1" fill="#30363d"/>
+<text class="m c" x="38.71" y="91">180</text>
+<text class="m c" x="88.14" y="149.97">58</text>
 <path d="M14 298.5H360" stroke="#3d444d" fill="none"/>
-<rect x="20.81" y="295" width="8" height="2" rx="1" fill="#30363d"/>
-<path d="M24.81 299v3" stroke="#3d444d" fill="none"/>
-<rect x="41.94" y="287" width="9" height="9" rx="1.6" fill="#3987e5"/>
-<path d="M46.44 299v3" stroke="#3d444d" fill="none"/>
-<rect x="63.56" y="287" width="9" height="9" rx="1.6" fill="#3987e5"/>
-<rect x="64.26" y="276.7" width="7.6" height="7.6" rx="1.6" fill="none" stroke="#3987e5" stroke-width="1.4"/>
-<path d="M68.06 299v3" stroke="#3d444d" fill="none"/>
-<rect x="85.69" y="295" width="8" height="2" rx="1" fill="#30363d"/>
-<path d="M89.69 299v3" stroke="#3d444d" fill="none"/>
-<rect x="106.81" y="287" width="9" height="9" rx="1.6" fill="#3987e5"/>
-<path d="M111.31 299v3" stroke="#3d444d" fill="none"/>
-<rect x="128.44" y="287" width="9" height="9" rx="1.6" fill="#3987e5"/>
-<rect x="128.44" y="276" width="9" height="9" rx="1.6" fill="#3987e5"/>
-<rect x="129.14" y="265.7" width="7.6" height="7.6" rx="1.6" fill="none" stroke="#3987e5" stroke-width="1.4"/>
-<path d="M132.94 299v3" stroke="#3d444d" fill="none"/>
-<rect x="150.06" y="287" width="9" height="9" rx="1.6" fill="#3987e5"/>
-<rect x="150.06" y="276" width="9" height="9" rx="1.6" fill="#3987e5"/>
-<path d="M154.56 299v3" stroke="#3d444d" fill="none"/>
-<rect x="171.69" y="287" width="9" height="9" rx="1.6" fill="#3987e5"/>
-<rect x="171.69" y="276" width="9" height="9" rx="1.6" fill="#3987e5"/>
-<rect x="172.39" y="265.7" width="7.6" height="7.6" rx="1.6" fill="none" stroke="#3987e5" stroke-width="1.4"/>
-<path d="M176.19 299v3" stroke="#3d444d" fill="none"/>
-<rect x="193.31" y="287" width="9" height="9" rx="1.6" fill="#3987e5"/>
-<rect x="193.31" y="276" width="9" height="9" rx="1.6" fill="#3987e5"/>
-<path d="M197.81 299v3" stroke="#3d444d" fill="none"/>
-<rect x="214.94" y="287" width="9" height="9" rx="1.6" fill="#3987e5"/>
-<path d="M219.44 299v3" stroke="#3d444d" fill="none"/>
-<rect x="236.56" y="287" width="9" height="9" rx="1.6" fill="#3987e5"/>
-<path d="M241.06 299v3" stroke="#3d444d" fill="none"/>
-<rect x="258.69" y="295" width="8" height="2" rx="1" fill="#30363d"/>
-<path d="M262.69 299v3" stroke="#3d444d" fill="none"/>
-<rect x="280.31" y="295" width="8" height="2" rx="1" fill="#30363d"/>
-<path d="M284.31 299v3" stroke="#3d444d" fill="none"/>
-<rect x="301.44" y="287" width="9" height="9" rx="1.6" fill="#3987e5"/>
-<path d="M305.94 299v3" stroke="#3d444d" fill="none"/>
-<rect x="323.06" y="287" width="9" height="9" rx="1.6" fill="#3987e5"/>
-<rect x="323.06" y="276" width="9" height="9" rx="1.6" fill="#3987e5"/>
-<path d="M327.56 299v3" stroke="#3d444d" fill="none"/>
-<rect x="344.69" y="287" width="9" height="9" rx="1.6" fill="#3987e5"/>
-<path d="M349.19 299v3" stroke="#3d444d" fill="none"/>
-<text class="m" x="14" y="316">09-23</text>
-<text class="m e" x="360" y="316">10-08</text>
-<text class="m c" x="132.94" y="316">09-28</text>
-<text class="m c" x="241.06" y="316">10-03</text>
+<rect x="35.59" y="289.75" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<rect x="35.59" y="281.5" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<rect x="35.59" y="273.25" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<rect x="36.29" y="265.7" width="4.85" height="4.85" rx="1.6" fill="none" stroke="#3987e5" stroke-width="1.4"/>
+<path d="M38.71 299v3" stroke="#3d444d" fill="none"/>
+<rect x="85.02" y="289.75" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<rect x="85.02" y="281.5" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<rect x="85.02" y="273.25" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<rect x="85.02" y="265" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<rect x="85.02" y="256.75" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<rect x="85.02" y="248.5" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<rect x="85.02" y="240.25" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<rect x="85.02" y="232" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<rect x="85.02" y="223.75" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<rect x="85.02" y="215.5" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<rect x="85.72" y="207.95" width="4.85" height="4.85" rx="1.6" fill="none" stroke="#3987e5" stroke-width="1.4"/>
+<rect x="85.72" y="199.7" width="4.85" height="4.85" rx="1.6" fill="none" stroke="#3987e5" stroke-width="1.4"/>
+<path d="M88.14 299v3" stroke="#3d444d" fill="none"/>
+<rect x="134.45" y="289.75" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<rect x="134.45" y="281.5" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<rect x="134.45" y="273.25" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<rect x="134.45" y="265" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<rect x="134.45" y="256.75" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<rect x="134.45" y="248.5" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<path d="M137.57 299v3" stroke="#3d444d" fill="none"/>
+<rect x="183.88" y="289.75" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<rect x="183.88" y="281.5" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<rect x="183.88" y="273.25" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<path d="M187 299v3" stroke="#3d444d" fill="none"/>
+<rect x="233.3" y="289.75" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<path d="M236.43 299v3" stroke="#3d444d" fill="none"/>
+<rect x="282.73" y="289.75" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<rect x="282.73" y="281.5" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<path d="M285.86 299v3" stroke="#3d444d" fill="none"/>
+<rect x="332.16" y="289.75" width="6.25" height="6.25" rx="1.6" fill="#3987e5"/>
+<path d="M335.29 299v3" stroke="#3d444d" fill="none"/>
+<text class="m" x="14" y="316">09-21</text>
+<text class="m e" x="360" y="316">11-02</text>
+<text class="m c" x="88.14" y="316">09-28</text>
+<text class="m c" x="137.57" y="316">10-05</text>
+<text class="m c" x="187" y="316">10-12</text>
+<text class="m c" x="236.43" y="316">10-19</text>
+<text class="m c" x="285.86" y="316">10-26</text>
 </svg>

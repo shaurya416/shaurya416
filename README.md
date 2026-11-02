@@ -19,23 +19,23 @@ the habit: i read the code that decides whether an answer is right (eval harness
 
 <p>
 <picture>
-<source media="(max-width: 600px) and (prefers-color-scheme: dark), (min-width: 768px) and (max-width: 859px) and (prefers-color-scheme: dark)" srcset="assets/stats-narrow-dark.svg?v=f8f341e3">
-<source media="(max-width: 600px), (min-width: 768px) and (max-width: 859px)" srcset="assets/stats-narrow-light.svg?v=7b2d9015">
-<source media="(min-width: 601px) and (max-width: 767px) and (prefers-color-scheme: dark), (min-width: 860px) and (max-width: 1199px) and (prefers-color-scheme: dark)" srcset="assets/stats-mid-dark.svg?v=08c84c4b">
-<source media="(min-width: 601px) and (max-width: 767px), (min-width: 860px) and (max-width: 1199px)" srcset="assets/stats-mid-light.svg?v=c500bf06">
-<source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg?v=c1978d5f">
-<img alt="Since 2026-09-23: 238 issues filed in 229 repositories, 15 areas; 20 fixed by a merged pull request, 17 by other people and 3 by me; median 109.5 hours from filing to the merged pull request, over 17 fixes by others; 33 pull requests to other people&#x27;s repositories, 3 merged and 28 open." src="assets/stats-light.svg?v=206531e9" width="100%">
+<source media="(max-width: 600px) and (prefers-color-scheme: dark), (min-width: 768px) and (max-width: 859px) and (prefers-color-scheme: dark)" srcset="assets/stats-narrow-dark.svg?v=e23c78bd">
+<source media="(max-width: 600px), (min-width: 768px) and (max-width: 859px)" srcset="assets/stats-narrow-light.svg?v=794b0acd">
+<source media="(min-width: 601px) and (max-width: 767px) and (prefers-color-scheme: dark), (min-width: 860px) and (max-width: 1199px) and (prefers-color-scheme: dark)" srcset="assets/stats-mid-dark.svg?v=e97ea6ea">
+<source media="(min-width: 601px) and (max-width: 767px), (min-width: 860px) and (max-width: 1199px)" srcset="assets/stats-mid-light.svg?v=da7c1ac4">
+<source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg?v=115e8186">
+<img alt="Since 2026-09-23: 238 issues filed in 229 repositories, 15 areas; 29 fixed by a merged pull request, 26 by other people and 3 by me; median 235.9 hours from filing to the merged pull request, over 26 fixes by others; 32 pull requests to other people&#x27;s repositories, 3 merged and 25 open." src="assets/stats-light.svg?v=0fa72a8c" width="100%">
 </picture>
 </p>
 
 <p>
 <picture>
-<source media="(max-width: 600px) and (prefers-color-scheme: dark), (min-width: 768px) and (max-width: 859px) and (prefers-color-scheme: dark)" srcset="assets/constellation-narrow-dark.svg?v=23fd777b">
-<source media="(max-width: 600px), (min-width: 768px) and (max-width: 859px)" srcset="assets/constellation-narrow-light.svg?v=c1dece71">
-<source media="(min-width: 601px) and (max-width: 767px) and (prefers-color-scheme: dark), (min-width: 860px) and (max-width: 1199px) and (prefers-color-scheme: dark)" srcset="assets/constellation-mid-dark.svg?v=ab70d634">
-<source media="(min-width: 601px) and (max-width: 767px), (min-width: 860px) and (max-width: 1199px)" srcset="assets/constellation-mid-light.svg?v=fc4f76e3">
-<source media="(prefers-color-scheme: dark)" srcset="assets/constellation-dark.svg?v=7d4ccbc2">
-<img alt="238 issues drawn as stars in 15 clusters, one per area: eval harnesses 42, judges &amp; RAG 29, RL rewards 22, agent evals 21, metric libs 20, eval platforms 19, fairness &amp; UQ 18, code &amp; math 13, data pipelines 12, safety 12, autograders 8, forecasting 8, retrieval 7, explainability 4, speech &amp; audio 3. Lit: 20 fixed by a merged pull request, 17 by other people and 3 by me (ringed). Rings: 5 closed without a fix. Dots: 213 open. 229 repositories in 15 areas." src="assets/constellation-light.svg?v=795090a9" width="100%">
+<source media="(max-width: 600px) and (prefers-color-scheme: dark), (min-width: 768px) and (max-width: 859px) and (prefers-color-scheme: dark)" srcset="assets/constellation-narrow-dark.svg?v=da283a8f">
+<source media="(max-width: 600px), (min-width: 768px) and (max-width: 859px)" srcset="assets/constellation-narrow-light.svg?v=f0886dd4">
+<source media="(min-width: 601px) and (max-width: 767px) and (prefers-color-scheme: dark), (min-width: 860px) and (max-width: 1199px) and (prefers-color-scheme: dark)" srcset="assets/constellation-mid-dark.svg?v=7a7554ee">
+<source media="(min-width: 601px) and (max-width: 767px), (min-width: 860px) and (max-width: 1199px)" srcset="assets/constellation-mid-light.svg?v=45b9715e">
+<source media="(prefers-color-scheme: dark)" srcset="assets/constellation-dark.svg?v=267a5ccd">
+<img alt="238 issues drawn as stars in 15 clusters, one per area: eval harnesses 42, judges &amp; RAG 29, RL rewards 22, agent evals 21, metric libs 20, eval platforms 19, fairness &amp; UQ 18, code &amp; math 13, data pipelines 12, safety 12, autograders 8, forecasting 8, retrieval 7, explainability 4, speech &amp; audio 3. Lit: 29 fixed by a merged pull request, 26 by other people and 3 by me (ringed). Rings: 8 closed without a fix. Dots: 201 open. 229 repositories in 15 areas." src="assets/constellation-light.svg?v=28905c46" width="100%">
 </picture>
 </p>
 
@@ -54,14 +54,14 @@ one example, small enough to read: scoreprobe on a two-line grader, before and a
 
 <p align="center">
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="assets/filed-dark.svg?v=66461f4d">
-<source media="(prefers-color-scheme: light)" srcset="assets/filed-light.svg?v=8027f89d">
-<img alt="Issues filed per day in UTC, 2026-09-23 to 2026-10-08: 57 44 35 40 4 15 0 38 5 0 0 0 0 0 0 0. 238 filed, 20 fixed by a merged PR." src="assets/filed-light.svg?v=8027f89d" width="380">
+<source media="(prefers-color-scheme: dark)" srcset="assets/filed-dark.svg?v=1370c8bd">
+<source media="(prefers-color-scheme: light)" srcset="assets/filed-light.svg?v=abf6640a">
+<img alt="Issues filed per week in UTC, 2026-09-23 to 2026-11-02: 180 58 0 0 0 0 0. 238 filed, 29 fixed by a merged PR." src="assets/filed-light.svg?v=abf6640a" width="380">
 </picture>
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="assets/outcome-dark.svg?v=b9cd6d71">
-<source media="(prefers-color-scheme: light)" srcset="assets/outcome-light.svg?v=58445d9c">
-<img alt="State of each of the 238 issues: fixed by someone else&#x27;s PR 17, by own PR 3, closed without a merged PR 5, open 213. Median 109.5 hours from report to a merged fix by someone else." src="assets/outcome-light.svg?v=58445d9c" width="380">
+<source media="(prefers-color-scheme: dark)" srcset="assets/outcome-dark.svg?v=a1000cc4">
+<source media="(prefers-color-scheme: light)" srcset="assets/outcome-light.svg?v=8d7efc92">
+<img alt="State of each of the 238 issues: fixed by someone else&#x27;s PR 26, by own PR 3, closed without a merged PR 8, open 201. Median 235.9 hours from report to a merged fix by someone else." src="assets/outcome-light.svg?v=8d7efc92" width="380">
 </picture>
 <picture>
 <source media="(prefers-color-scheme: dark)" srcset="assets/areas-dark.svg?v=0fdc2a5a">
@@ -87,16 +87,16 @@ eight of the fixes share one defect: a missing, empty or undefined result counte
 </details>
 
 <details>
-<summary>19 merged pull requests closed 20 of the issues</summary>
+<summary>28 merged pull requests closed 29 of the issues</summary>
 
 <p>
 <picture>
-<source media="(max-width: 600px) and (prefers-color-scheme: dark), (min-width: 768px) and (max-width: 859px) and (prefers-color-scheme: dark)" srcset="assets/analyzer-narrow-dark.svg?v=86db1830">
-<source media="(max-width: 600px), (min-width: 768px) and (max-width: 859px)" srcset="assets/analyzer-narrow-light.svg?v=682e9e1e">
-<source media="(min-width: 601px) and (max-width: 767px) and (prefers-color-scheme: dark), (min-width: 860px) and (max-width: 1199px) and (prefers-color-scheme: dark)" srcset="assets/analyzer-mid-dark.svg?v=6931e6f9">
-<source media="(min-width: 601px) and (max-width: 767px), (min-width: 860px) and (max-width: 1199px)" srcset="assets/analyzer-mid-light.svg?v=432e73d6">
-<source media="(prefers-color-scheme: dark)" srcset="assets/analyzer-dark.svg?v=aa56fd6e">
-<img alt="Report to fix, drawn as a logic analyzer. Top channel: one edge per issue filed, 238 in all; filed per day: 09-23 57, 09-24 44, 09-25 35, 09-26 40, 09-27 4, 09-28 15, 09-29 0, 09-30 38, 10-01 5, 10-02 0, 10-03 0, 10-04 0, 10-05 0, 10-06 0, 10-07 0, 10-08 0. Below, one channel per fixed issue (20), high from the report until the merged pull request that closed it: evalscope#1774 115.0 h, lmms-eval#1546 235.1 h, kaggle-benchmarks#217 187.5 h, Curator#2443 316.2 h, opik#8519 157.7 h, trl#7364 296.2 h, data-juicer#1077 101.5 h, EasyEdit#716 4.7 h, PrairieLearn#15852 26.8 h, otter-grader#1020 31.1 h, AReaL#1757 56.7 h, trulens#2823 109.5 h, AutoRAG#1707 86.7 h, evalscope#1783 16.6 h, MAPIE#993 236.8 h, mlxtend#1202 30.8 h, darts#3221 241.4 h, utilsforecast#285 105.9 h, ir_measures#83 2.5 h, statsforecast#1247 27.9 h. Three are mine: data-juicer#1077 101.5 h, otter-grader#1020 31.1 h, ir_measures#83 2.5 h. Median wait for fixes by others: 109.5 h. As of 10-08 20:50 utc." src="assets/analyzer-light.svg?v=22422e26" width="100%">
+<source media="(max-width: 600px) and (prefers-color-scheme: dark), (min-width: 768px) and (max-width: 859px) and (prefers-color-scheme: dark)" srcset="assets/analyzer-narrow-dark.svg?v=a03199a1">
+<source media="(max-width: 600px), (min-width: 768px) and (max-width: 859px)" srcset="assets/analyzer-narrow-light.svg?v=1394b923">
+<source media="(min-width: 601px) and (max-width: 767px) and (prefers-color-scheme: dark), (min-width: 860px) and (max-width: 1199px) and (prefers-color-scheme: dark)" srcset="assets/analyzer-mid-dark.svg?v=34b3db8c">
+<source media="(min-width: 601px) and (max-width: 767px), (min-width: 860px) and (max-width: 1199px)" srcset="assets/analyzer-mid-light.svg?v=1740e795">
+<source media="(prefers-color-scheme: dark)" srcset="assets/analyzer-dark.svg?v=5a113d0e">
+<img alt="Report to fix, drawn as a logic analyzer. Top channel: one edge per issue filed, 238 in all; filed per week: week of 09-21 180, week of 09-28 58, week of 10-05 0, week of 10-12 0, week of 10-19 0, week of 10-26 0, week of 11-02 0. Below, one channel per fixed issue (29), high from the report until the merged pull request that closed it: giskard-oss#2840 834.5 h, evalscope#1774 115.0 h, lmms-eval#1546 235.1 h, OSWorld#597 614.5 h, kaggle-benchmarks#217 187.5 h, Curator#2443 316.2 h, opik#8519 157.7 h, trl#7364 296.2 h, data-juicer#1077 101.5 h, EasyEdit#716 4.7 h, PrairieLearn#15852 26.8 h, otter-grader#1020 31.1 h, AReaL#1757 56.7 h, trulens#2823 109.5 h, agenta#7149 316.2 h, AutoRAG#1707 86.7 h, agentic_security#350 541.1 h, ai-gateway#447 532.8 h, verifywise#4783 776.5 h, evalscope#1783 16.6 h, MAPIE#993 236.8 h, mlxtend#1202 30.8 h, shapash#777 245.8 h, darts#3221 241.4 h, utilsforecast#285 105.9 h, aeon#3880 341.9 h, ir_measures#83 2.5 h, statsforecast#1247 27.9 h, rouge#77 780.9 h. Three are mine: data-juicer#1077 101.5 h, otter-grader#1020 31.1 h, ir_measures#83 2.5 h. Median wait for fixes by others: 235.9 h. As of 11-02 10:26 utc." src="assets/analyzer-light.svg?v=9af23387" width="100%">
 </picture>
 </p>
 
@@ -121,14 +121,23 @@ eight of the fixes share one defect: a missing, empty or undefined result counte
 | 10-07 | [NVIDIA-NeMo/Curator#2444](https://github.com/NVIDIA-NeMo/Curator/pull/2444) | 1fanwang | [#2443](https://github.com/NVIDIA-NeMo/Curator/issues/2443) | 316.2 |
 | 10-07 | [scikit-learn-contrib/MAPIE#994](https://github.com/scikit-learn-contrib/MAPIE/pull/994) | SashaMIT | [#993](https://github.com/scikit-learn-contrib/MAPIE/issues/993) | 236.8 |
 | 10-08 | [unit8co/darts#3223](https://github.com/unit8co/darts/pull/3223) | adigulalkari | [#3221](https://github.com/unit8co/darts/issues/3221) | 241.4 |
+| 10-08 | [MAIF/shapash#794](https://github.com/MAIF/shapash/pull/794) | aminemanai2003 | [#777](https://github.com/MAIF/shapash/issues/777) | 245.8 |
+| 10-08 | [Agenta-AI/agenta#7161](https://github.com/Agenta-AI/agenta/pull/7161) | unfitcoder101 | [#7149](https://github.com/Agenta-AI/agenta/issues/7149) | 316.2 |
+| 10-12 | [aeon-toolkit/aeon#3887](https://github.com/aeon-toolkit/aeon/pull/3887) | anshuman83-40 | [#3880](https://github.com/aeon-toolkit/aeon/issues/3880) | 341.9 |
+| 10-18 | [ferro-labs/ai-gateway#455](https://github.com/ferro-labs/ai-gateway/pull/455) | MitulShah1 | [#447](https://github.com/ferro-labs/ai-gateway/issues/447) | 532.8 |
+| 10-18 | [msoedov/agentic\_security#352](https://github.com/msoedov/agentic_security/pull/352) | msoedov | [#350](https://github.com/msoedov/agentic_security/issues/350) | 541.1 |
+| 10-19 | [xlang-ai/OSWorld#614](https://github.com/xlang-ai/OSWorld/pull/614) | Timothyxxx | [#597](https://github.com/xlang-ai/OSWorld/issues/597) | 614.5 |
+| 10-28 | [Giskard-AI/giskard-oss#2904](https://github.com/Giskard-AI/giskard-oss/pull/2904) | kevinmessiaen | [#2840](https://github.com/Giskard-AI/giskard-oss/issues/2840) | 834.5 |
+| 10-28 | [verifywise-ai/verifywise#5147](https://github.com/verifywise-ai/verifywise/pull/5147) | MuhammadKhalilzadeh | [#4783](https://github.com/verifywise-ai/verifywise/issues/4783) | 776.5 |
+| 11-02 | [pltrdy/rouge#78](https://github.com/pltrdy/rouge/pull/78) | DataDetective-Neel | [#77](https://github.com/pltrdy/rouge/issues/77) | 780.9 |
 
 </details>
 
 <p>
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="assets/divider-dark.svg?v=c9f3ac41">
-<source media="(prefers-color-scheme: light)" srcset="assets/divider-light.svg?v=e3b05395">
-<img alt="238 dots, one per issue in the order filed; the 20 fixed by a merged pull request are lit." src="assets/divider-light.svg?v=e3b05395" width="100%">
+<source media="(prefers-color-scheme: dark)" srcset="assets/divider-dark.svg?v=5f33a236">
+<source media="(prefers-color-scheme: light)" srcset="assets/divider-light.svg?v=12d15b15">
+<img alt="238 dots, one per issue in the order filed; the 29 fixed by a merged pull request are lit." src="assets/divider-light.svg?v=12d15b15" width="100%">
 </picture>
 </p>
 
@@ -154,9 +163,9 @@ one line per world i've wandered into.
 
 <p>
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="assets/divider-dark.svg?v=c9f3ac41">
-<source media="(prefers-color-scheme: light)" srcset="assets/divider-light.svg?v=e3b05395">
-<img alt="238 dots, one per issue in the order filed; the 20 fixed by a merged pull request are lit." src="assets/divider-light.svg?v=e3b05395" width="100%">
+<source media="(prefers-color-scheme: dark)" srcset="assets/divider-dark.svg?v=5f33a236">
+<source media="(prefers-color-scheme: light)" srcset="assets/divider-light.svg?v=12d15b15">
+<img alt="238 dots, one per issue in the order filed; the 29 fixed by a merged pull request are lit." src="assets/divider-light.svg?v=12d15b15" width="100%">
 </picture>
 </p>
 
@@ -175,21 +184,41 @@ small python tools, each about one thing that quietly goes wrong. none is public
 </picture>
 </p>
 
+### commit weather
+
+<p>
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="profile-3d-contrib/3d-dark.svg?v=438a0b62">
+<source media="(prefers-color-scheme: light)" srcset="profile-3d-contrib/3d-light.svg?v=0ac2a9f6">
+<img alt="A 3D contribution calendar for the past year, drawn by a GitHub Action from the public profile calendar, with a radar of commits, issues, pull requests, reviews and repositories and a language chart. On a phone it is a picture of the calendar&#x27;s shape; its small labels are not meant to be read there. Its totals are the calendar&#x27;s own." src="profile-3d-contrib/3d-light.svg?v=0ac2a9f6" width="100%">
+</picture>
+</p>
+<p>
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="assets/contrib/snake-dark.svg?v=bd18aff9">
+<source media="(prefers-color-scheme: light)" srcset="assets/contrib/snake-light.svg?v=1f462958">
+<img alt="A snake eats the public profile calendar of the past year, once, and leaves the grid as it found it." src="assets/contrib/snake-light.svg?v=1f462958" width="100%">
+</picture>
+</p>
+
+<sub>drawn daily by two GitHub Actions from the public profile calendar: the shape of the year, not numbers to read. the totals in the 3D picture are the calendar's own.</sub>
+
 <details>
 <summary>method</summary>
 
-- counts are `total_count` from GitHub search at 2026-10-08 20:50 utc: `author:shaurya416 is:public is:issue` (238: 213 open, 25 closed) and `author:shaurya416 is:public is:pr` (33: 3 merged, 28 open, 2 closed unmerged; 33 to other people's repositories), excluding the owner's own organisations.
-- fixed means the issue is closed and a pull request in its repository that references it was merged before it closed; an issue closed as not planned never counts. all 25 closed issues were traced: 20 fixed, 5 closed without a merged pull request. the 16 pull requests by others come from 14 people.
+- counts are `total_count` from GitHub search at 2026-11-02 10:26 utc: `author:shaurya416 is:public is:issue` (238: 201 open, 37 closed) and `author:shaurya416 is:public is:pr` (32: 3 merged, 25 open, 4 closed unmerged; 32 to other people's repositories), excluding the owner's own organisations.
+- fixed means the issue is closed and a pull request in its repository that references it was merged before it closed; an issue closed as not planned never counts. all 37 closed issues were traced: 29 fixed, 8 closed without a merged pull request. the 25 pull requests by others come from 23 people.
 - an open issue whose fix did not close it is not counted, so fixed is a lower bound.
 - hours run from the issue being filed to the pull request merging.
 - areas: each of the 229 repositories is put in one of 15 areas by hand. that, the four kinds of code the side-quest sentence names, the sentence above the defect table and its one line per row are the hand-written inputs to the side quest.
 - the scoreprobe panel is a captured run of scoreprobe on the code it shows. its first public release is pending; with its source, `python3 build.py capture-probe --scoreprobe-src PATH` reruns the panel.
-- days are utc. a day with nothing is drawn as a mark, not left blank.
+- weeks start on monday, utc. a week with nothing is drawn as a mark, not left blank.
 - regenerate (python 3.12 or newer): `python3 build.py fetch` reads the api (it needs `GITHUB_TOKEN`), then `python3 build.py` renders. same input, same bytes.
 - the quantum card is computed, not measured: the curve is shotfloor's closed form E[BC]², a lower bound on the mean hellinger fidelity, and the bars one simulated flawless run (splitmix64, seed 0).
 - the header's and the shelf's icons are icons.
 - the constellation, divider and report-to-fix pictures are drawn from the same data as the tables, and every number on them is in CHECKS.md.
+- the 3D graph and the snake are drawn by two GitHub Actions pinned to full commit SHAs, from the public profile calendar; their totals are the calendar's.
 
 </details>
 
-<sub>side-quest numbers: github api, as of 2026-10-08 20:50 utc.</sub>
+<sub>side-quest numbers: github api, as of 2026-11-02 10:26 utc.</sub>
