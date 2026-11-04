@@ -295,4 +295,4 @@ Every figure printed in profile-3d-contrib/3d-light.svg, in the order the file h
 | 322 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
 | 0 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
 | 1 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
-| 2025-11-02 / 2026-11-03 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
+| 2025-11-02 / 2026-11-04 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
