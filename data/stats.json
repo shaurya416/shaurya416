@@ -1,13 +1,13 @@
 {
- "as_of": "2026-11-02T10:26Z",
+ "as_of": "2026-11-06T14:14Z",
  "account": {
   "login": "shaurya416",
   "user_id": 298017155
  },
  "queries": {
   "issues_total": 238,
-  "issues_open": 201,
-  "issues_closed": 37,
+  "issues_open": 200,
+  "issues_closed": 38,
   "prs_total": 32,
   "prs_merged": 3,
   "prs_open": 25,
@@ -16,9 +16,9 @@
  "exclusion_applied": true,
  "issues": {
   "total": 238,
-  "open": 201,
-  "closed": 37,
-  "closed_completed": 31,
+  "open": 200,
+  "closed": 38,
+  "closed_completed": 32,
   "closed_not_planned": 6,
   "distinct_repos": 229,
   "distinct_owner_accounts": 189,
@@ -43,9 +43,9 @@
   "with_comments": 58
  },
  "outcomes": {
-  "open": 201,
-  "closed": 37,
-  "fixed_by_merged_pr_from_someone_else": 26,
+  "open": 200,
+  "closed": 38,
+  "fixed_by_merged_pr_from_someone_else": 27,
   "fixed_by_his_own_merged_pr": 3,
   "closed_completed_without_a_fix_merged": 2,
   "closed_completed_without_a_fix": [
@@ -63,9 +63,9 @@
   ]
  },
  "fix_lag_hours_filed_to_merge": {
-  "n": 26,
+  "n": 27,
   "min": 4.7,
-  "median": 235.9,
+  "median": 236.8,
   "max": 834.5
  },
  "prs": {
@@ -368,6 +368,22 @@
    ]
   },
   {
+   "repo": "promptfoo/promptfoo",
+   "pr": 11445,
+   "url": "https://github.com/promptfoo/promptfoo/pull/11445",
+   "pr_author": "he-yufeng",
+   "merged_at": "2026-10-08T12:30:19Z",
+   "cites_issues": [
+    11041
+   ],
+   "issue_closed_at": [
+    "2026-11-06T01:26:45Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    360.5
+   ]
+  },
+  {
    "repo": "unit8co/darts",
    "pr": 3223,
    "url": "https://github.com/unit8co/darts/pull/3223",
@@ -529,9 +545,9 @@
   }
  ],
  "fixes_by_others_summary": {
-  "prs": 25,
-  "issues_fixed": 26,
-  "distinct_pr_authors": 23
+  "prs": 26,
+  "issues_fixed": 27,
+  "distinct_pr_authors": 24
  },
  "ecosystems": [
   {

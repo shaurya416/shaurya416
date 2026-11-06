@@ -1,6 +1,6 @@
 {
- "as_of": "2026-11-02T10:26Z",
- "checked": "2026-11-02",
+ "as_of": "2026-11-06T14:14Z",
+ "checked": "2026-11-06",
  "account": {
   "login": "shaurya416",
   "user_id": 298017155
@@ -8,8 +8,8 @@
  "exclusion_applied": true,
  "counts": {
   "issues_total": 238,
-  "issues_open": 201,
-  "issues_closed": 37,
+  "issues_open": 200,
+  "issues_closed": 38,
   "prs_total": 32,
   "prs_merged": 3,
   "prs_open": 25,

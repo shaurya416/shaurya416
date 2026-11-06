@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 342" width="380" height="342" role="img" aria-labelledby="t d">
 <title id="t">issues filed and fixed per week</title>
-<desc id="d">issues filed per week, UTC, 2026-09-23 to 2026-11-02: week of 09-21 180, week of 09-28 58, week of 10-05 0, week of 10-12 0, week of 10-19 0, week of 10-26 0, week of 11-02 0. Issues closed by a merged PR, by merge week: week of 09-21 4, week of 09-28 12, week of 10-05 6, week of 10-12 3, week of 10-19 1, week of 10-26 2, week of 11-02 1.</desc>
+<desc id="d">issues filed per week, UTC, 2026-09-23 to 2026-11-06: week of 09-21 180, week of 09-28 58, week of 10-05 0, week of 10-12 0, week of 10-19 0, week of 10-26 0, week of 11-02 0. Issues closed by a merged PR, by merge week: week of 09-21 4, week of 09-28 12, week of 10-05 7, week of 10-12 3, week of 10-19 1, week of 10-26 2, week of 11-02 1.</desc>
 <style>text{font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;font-size:12px;fill:#1f2328}.m{fill:#59636e}.a{fill:#0969da}.b{font-size:26px}.e{text-anchor:end}.c{text-anchor:middle}</style>
 <rect x=".5" y=".5" width="373" height="335" rx="6" fill="#ffffff" stroke="#d1d9e0"/>
 <text class="m" x="14" y="22">issues per week, utc</text>
-<text class="m e" x="360" y="22">2026-09-23/2026-11-02</text>
+<text class="m e" x="360" y="22">2026-09-23/2026-11-06</text>
 <rect x="14" y="42" width="8" height="14" rx="4" fill="#6e7781"/>
 <text x="30" y="56"><tspan class="b">238</tspan><tspan class="m" dx="7">filed</tspan></text>
 <rect x="164" y="47" width="9" height="9" rx="1.6" fill="#0969da"/>
-<text x="180" y="56"><tspan class="b">29</tspan><tspan class="m" dx="7">fixed</tspan></text>
+<text x="180" y="56"><tspan class="b">30</tspan><tspan class="m" dx="7">fixed</tspan></text>
 <rect x="301.06" y="47.7" width="7.6" height="7.6" rx="1.6" fill="none" stroke="#0969da" stroke-width="1.4"/>
 <text class="m" x="315.36" y="56">own PR</text>
 <path d="M14 183.5H360" stroke="#d1d9e0" fill="none"/>
@@ -46,6 +46,7 @@
 <rect x="134.45" y="265" width="6.25" height="6.25" rx="1.6" fill="#0969da"/>
 <rect x="134.45" y="256.75" width="6.25" height="6.25" rx="1.6" fill="#0969da"/>
 <rect x="134.45" y="248.5" width="6.25" height="6.25" rx="1.6" fill="#0969da"/>
+<rect x="134.45" y="240.25" width="6.25" height="6.25" rx="1.6" fill="#0969da"/>
 <path d="M137.57 299v3" stroke="#d1d9e0" fill="none"/>
 <rect x="183.88" y="289.75" width="6.25" height="6.25" rx="1.6" fill="#0969da"/>
 <rect x="183.88" y="281.5" width="6.25" height="6.25" rx="1.6" fill="#0969da"/>
