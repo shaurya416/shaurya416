@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 342" width="380" height="342" role="img" aria-labelledby="t d">
 <title id="t">issues filed and fixed per week</title>
-<desc id="d">issues filed per week, UTC, 2026-09-23 to 2026-11-06: week of 09-21 180, week of 09-28 58, week of 10-05 0, week of 10-12 0, week of 10-19 0, week of 10-26 0, week of 11-02 0. Issues closed by a merged PR, by merge week: week of 09-21 4, week of 09-28 12, week of 10-05 7, week of 10-12 3, week of 10-19 1, week of 10-26 2, week of 11-02 1.</desc>
+<desc id="d">issues filed per week, UTC, 2026-09-23 to 2026-11-07: week of 09-21 180, week of 09-28 58, week of 10-05 0, week of 10-12 0, week of 10-19 0, week of 10-26 0, week of 11-02 0. Issues closed by a merged PR, by merge week: week of 09-21 4, week of 09-28 12, week of 10-05 7, week of 10-12 3, week of 10-19 1, week of 10-26 2, week of 11-02 1.</desc>
 <style>text{font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;font-size:12px;fill:#f0f6fc}.m{fill:#9198a1}.a{fill:#3987e5}.b{font-size:26px}.e{text-anchor:end}.c{text-anchor:middle}</style>
 <rect x=".5" y=".5" width="373" height="335" rx="6" fill="#0d1117" stroke="#3d444d"/>
 <text class="m" x="14" y="22">issues per week, utc</text>
-<text class="m e" x="360" y="22">2026-09-23/2026-11-06</text>
+<text class="m e" x="360" y="22">2026-09-23/2026-11-07</text>
 <rect x="14" y="42" width="8" height="14" rx="4" fill="#7d8590"/>
 <text x="30" y="56"><tspan class="b">238</tspan><tspan class="m" dx="7">filed</tspan></text>
 <rect x="164" y="47" width="9" height="9" rx="1.6" fill="#3987e5"/>

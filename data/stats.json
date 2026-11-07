@@ -1,13 +1,13 @@
 {
- "as_of": "2026-11-06T14:14Z",
+ "as_of": "2026-11-07T12:57Z",
  "account": {
   "login": "shaurya416",
   "user_id": 298017155
  },
  "queries": {
   "issues_total": 238,
-  "issues_open": 200,
-  "issues_closed": 38,
+  "issues_open": 199,
+  "issues_closed": 39,
   "prs_total": 32,
   "prs_merged": 3,
   "prs_open": 25,
@@ -16,10 +16,10 @@
  "exclusion_applied": true,
  "issues": {
   "total": 238,
-  "open": 200,
-  "closed": 38,
+  "open": 199,
+  "closed": 39,
   "closed_completed": 32,
-  "closed_not_planned": 6,
+  "closed_not_planned": 7,
   "distinct_repos": 229,
   "distinct_owner_accounts": 189,
   "max_issues_in_one_repo": 2,
@@ -43,8 +43,8 @@
   "with_comments": 58
  },
  "outcomes": {
-  "open": 200,
-  "closed": 38,
+  "open": 199,
+  "closed": 39,
   "fixed_by_merged_pr_from_someone_else": 27,
   "fixed_by_his_own_merged_pr": 3,
   "closed_completed_without_a_fix_merged": 2,
@@ -52,8 +52,9 @@
    "open-compass/VLMEvalKit#1705",
    "rafaelpadilla/review_object_detection_metrics#156"
   ],
-  "closed_not_planned": 6,
+  "closed_not_planned": 7,
   "not_planned": [
+   "IBM/unitxt#1980",
    "InternLM/InternLM#859",
    "QwenLM/Qwen#2350",
    "huggingface/open-r1#732",

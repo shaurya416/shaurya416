@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 342" width="380" height="342" role="img" aria-labelledby="t d">
 <title id="t">state of each issue</title>
-<desc id="d">state of the 238 issues: fixed, PR by someone else 27, fixed, own PR 3, closed, no merged PR 8, open 200. Hours from report to merged fix, 27 fixes by others: min 4.7, median 236.8, max 834.5.</desc>
+<desc id="d">state of the 238 issues: fixed, PR by someone else 27, fixed, own PR 3, closed, no merged PR 9, open 199. Hours from report to merged fix, 27 fixes by others: min 4.7, median 236.8, max 834.5.</desc>
 <style>text{font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;font-size:12px;fill:#f0f6fc}.m{fill:#9198a1}.a{fill:#3987e5}.b{font-size:26px}.e{text-anchor:end}.c{text-anchor:middle}</style>
 <rect x=".5" y=".5" width="373" height="335" rx="6" fill="#0d1117" stroke="#3d444d"/>
 <text class="m" x="14" y="22">state of each issue</text>
@@ -44,7 +44,7 @@
 <rect x="65.58" y="72.7" width="6.38" height="6.38" rx="1.6" fill="none" stroke="#7d8590" stroke-width="1.4"/>
 <rect x="65.58" y="82.88" width="6.38" height="6.38" rx="1.6" fill="none" stroke="#7d8590" stroke-width="1.4"/>
 <rect x="65.58" y="93.05" width="6.38" height="6.38" rx="1.6" fill="none" stroke="#7d8590" stroke-width="1.4"/>
-<rect x="64.88" y="102.53" width="7.78" height="7.78" rx="1.6" fill="#30363d"/>
+<rect x="65.58" y="103.23" width="6.38" height="6.38" rx="1.6" fill="none" stroke="#7d8590" stroke-width="1.4"/>
 <rect x="64.88" y="112.71" width="7.78" height="7.78" rx="1.6" fill="#30363d"/>
 <rect x="64.88" y="122.88" width="7.78" height="7.78" rx="1.6" fill="#30363d"/>
 <rect x="64.88" y="133.06" width="7.78" height="7.78" rx="1.6" fill="#30363d"/>
@@ -254,12 +254,12 @@
 <text class="m e" x="360" y="182.24">1.3%</text>
 <rect x="14.7" y="190.94" width="7.6" height="7.6" rx="1.6" fill="none" stroke="#7d8590" stroke-width="1.4"/>
 <text x="31" y="199.24">closed, no merged PR</text>
-<text class="e" x="308" y="199.24">8</text>
-<text class="m e" x="360" y="199.24">3.4%</text>
+<text class="e" x="308" y="199.24">9</text>
+<text class="m e" x="360" y="199.24">3.8%</text>
 <rect x="14" y="207.24" width="9" height="9" rx="1.6" fill="#30363d"/>
 <text x="31" y="216.24">open</text>
-<text class="e" x="308" y="216.24">200</text>
-<text class="m e" x="360" y="216.24">84.0%</text>
+<text class="e" x="308" y="216.24">199</text>
+<text class="m e" x="360" y="216.24">83.6%</text>
 <path d="M14 248.5H360" stroke="#3d444d" fill="none"/>
 <text class="m" x="14" y="267">hours, report to merged fix by others</text>
 <text class="m e" x="360" y="267">n 27</text>

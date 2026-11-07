@@ -3099,13 +3099,13 @@
   "owner": "IBM",
   "number": 1980,
   "title": "MatchClosestOption maps an empty, whitespace or refusal judge reply to \"Yes\" (score 1.0) and, in pairwise mode, always to \"Response 2\"",
-  "state": "open",
-  "state_reason": null,
+  "state": "closed",
+  "state_reason": "not_planned",
   "created_at": "2026-09-23T14:13:17Z",
-  "closed_at": null,
-  "comments": 1,
+  "closed_at": "2026-11-07T07:31:41Z",
+  "comments": 2,
   "url": "https://github.com/IBM/unitxt/issues/1980",
-  "merged_prs": null
+  "merged_prs": []
  },
  {
   "repo": "meta-llama/PurpleLlama",
