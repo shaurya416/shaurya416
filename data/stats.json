@@ -1,24 +1,24 @@
 {
- "as_of": "2026-11-07T12:57Z",
+ "as_of": "2026-11-08T13:20Z",
  "account": {
   "login": "shaurya416",
   "user_id": 298017155
  },
  "queries": {
   "issues_total": 238,
-  "issues_open": 199,
-  "issues_closed": 39,
+  "issues_open": 198,
+  "issues_closed": 40,
   "prs_total": 32,
-  "prs_merged": 3,
-  "prs_open": 25,
+  "prs_merged": 4,
+  "prs_open": 24,
   "prs_closed_unmerged": 4
  },
  "exclusion_applied": true,
  "issues": {
   "total": 238,
-  "open": 199,
-  "closed": 39,
-  "closed_completed": 32,
+  "open": 198,
+  "closed": 40,
+  "closed_completed": 33,
   "closed_not_planned": 7,
   "distinct_repos": 229,
   "distinct_owner_accounts": 189,
@@ -43,10 +43,10 @@
   "with_comments": 58
  },
  "outcomes": {
-  "open": 199,
-  "closed": 39,
+  "open": 198,
+  "closed": 40,
   "fixed_by_merged_pr_from_someone_else": 27,
-  "fixed_by_his_own_merged_pr": 3,
+  "fixed_by_his_own_merged_pr": 4,
   "closed_completed_without_a_fix_merged": 2,
   "closed_completed_without_a_fix": [
    "open-compass/VLMEvalKit#1705",
@@ -74,8 +74,8 @@
   "upstream": 32,
   "in_own_repo": 0,
   "own_repos": [],
-  "merged": 3,
-  "open": 25,
+  "merged": 4,
+  "open": 24,
   "closed_unmerged": 4,
   "distinct_upstream_repos": 32,
   "first_pr_created_at_upstream": "2026-09-24T08:37:19Z",
@@ -120,6 +120,18 @@
     ],
     "hours": [
      2.5
+    ]
+   },
+   {
+    "repo": "allenai/open-instruct",
+    "number": 1917,
+    "title": "Compare the non-additive R1 format gate against r1_style_format_reward",
+    "merged_at": "2026-11-08T05:14:40Z",
+    "closes_issue": [
+     "allenai/open-instruct#1915"
+    ],
+    "hours": [
+     1081.9
     ]
    }
   ]

@@ -2243,13 +2243,20 @@
   "owner": "allenai",
   "number": 1915,
   "title": "R1-style format-reward gate compares format_scores[i] to the literal int 1 instead of the configured r1_style_format_reward, so any non-default scale silently zeros the entire verifiable reward",
-  "state": "open",
-  "state_reason": null,
+  "state": "closed",
+  "state_reason": "completed",
   "created_at": "2026-09-24T03:18:33Z",
-  "closed_at": null,
+  "closed_at": "2026-11-08T05:14:41Z",
   "comments": 1,
   "url": "https://github.com/allenai/open-instruct/issues/1915",
-  "merged_prs": null
+  "merged_prs": [
+   {
+    "pr": 1917,
+    "author": "shaurya416",
+    "merged_at": "2026-11-08T05:14:40Z",
+    "hours": 1081.9
+   }
+  ]
  },
  {
   "repo": "zjunlp/EasyEdit",
