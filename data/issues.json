@@ -524,12 +524,12 @@
   "repo": "tslearn-team/tslearn",
   "owner": "tslearn-team",
   "number": 740,
-  "title": "KShape: after every restart hits EmptyClusterError, predict(), labels_ and fit_predict() still return labels from the failed initialization",
+  "title": "KShape/TimeSeriesKMeans: after every restart hits EmptyClusterError, predict(), labels_ and fit_predict() still return labels from the failed initialization",
   "state": "open",
   "state_reason": null,
   "created_at": "2026-09-30T19:34:07Z",
   "closed_at": null,
-  "comments": 1,
+  "comments": 2,
   "url": "https://github.com/tslearn-team/tslearn/issues/740",
   "merged_prs": null
  },
@@ -1408,13 +1408,20 @@
   "owner": "unitaryai",
   "number": 135,
   "title": "binary_accuracy compares a boolean prediction to the raw float target with ==, under-reporting accuracy when JigsawDataBias(soft_labels=True) is used",
-  "state": "open",
-  "state_reason": null,
+  "state": "closed",
+  "state_reason": "completed",
   "created_at": "2026-09-26T00:08:38Z",
-  "closed_at": null,
+  "closed_at": "2026-11-08T14:51:02Z",
   "comments": 0,
   "url": "https://github.com/unitaryai/detoxify/issues/135",
-  "merged_prs": null
+  "merged_prs": [
+   {
+    "pr": 136,
+    "author": "zstring",
+    "merged_at": "2026-11-08T14:51:00Z",
+    "hours": 1046.7
+   }
+  ]
  },
  {
   "repo": "NVIDIA-NeMo/RL",

@@ -1,83 +1,85 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 794" width="830" height="794" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 814" width="830" height="814" role="img" aria-labelledby="t d">
 <title id="t">report to fix, as a logic analyzer</title>
-<desc id="d">Report to fix, drawn as a logic analyzer. Top channel: one edge per issue filed, 238 in all; filed per week: week of 09-21 180, week of 09-28 58, week of 10-05 0, week of 10-12 0, week of 10-19 0, week of 10-26 0, week of 11-02 0. Below, one channel per fixed issue (31), high from the report until the merged pull request that closed it: promptfoo#11041 360.5 h, giskard-oss#2840 834.5 h, evalscope#1774 115.0 h, lmms-eval#1546 235.1 h, OSWorld#597 614.5 h, kaggle-benchmarks#217 187.5 h, Curator#2443 316.2 h, opik#8519 157.7 h, trl#7364 296.2 h, data-juicer#1077 101.5 h, EasyEdit#716 4.7 h, open-instruct#1915 1081.9 h, PrairieLearn#15852 26.8 h, otter-grader#1020 31.1 h, AReaL#1757 56.7 h, trulens#2823 109.5 h, agenta#7149 316.2 h, AutoRAG#1707 86.7 h, agentic_security#350 541.1 h, ai-gateway#447 532.8 h, verifywise#4783 776.5 h, evalscope#1783 16.6 h, MAPIE#993 236.8 h, mlxtend#1202 30.8 h, shapash#777 245.8 h, darts#3221 241.4 h, utilsforecast#285 105.9 h, aeon#3880 341.9 h, ir_measures#83 2.5 h, statsforecast#1247 27.9 h, rouge#77 780.9 h. Four are mine: data-juicer#1077 101.5 h, open-instruct#1915 1081.9 h, otter-grader#1020 31.1 h, ir_measures#83 2.5 h. Median wait for fixes by others: 236.8 h. As of 11-08 13:20 utc.</desc>
+<desc id="d">Report to fix, drawn as a logic analyzer. Top channel: one edge per issue filed, 238 in all; filed per week: week of 09-21 180, week of 09-28 58, week of 10-05 0, week of 10-12 0, week of 10-19 0, week of 10-26 0, week of 11-02 0, week of 11-09 0. Below, one channel per fixed issue (32), high from the report until the merged pull request that closed it: promptfoo#11041 360.5 h, giskard-oss#2840 834.5 h, evalscope#1774 115.0 h, lmms-eval#1546 235.1 h, OSWorld#597 614.5 h, kaggle-benchmarks#217 187.5 h, Curator#2443 316.2 h, opik#8519 157.7 h, trl#7364 296.2 h, data-juicer#1077 101.5 h, EasyEdit#716 4.7 h, open-instruct#1915 1081.9 h, PrairieLearn#15852 26.8 h, otter-grader#1020 31.1 h, AReaL#1757 56.7 h, trulens#2823 109.5 h, agenta#7149 316.2 h, AutoRAG#1707 86.7 h, detoxify#135 1046.7 h, agentic_security#350 541.1 h, ai-gateway#447 532.8 h, verifywise#4783 776.5 h, evalscope#1783 16.6 h, MAPIE#993 236.8 h, mlxtend#1202 30.8 h, shapash#777 245.8 h, darts#3221 241.4 h, utilsforecast#285 105.9 h, aeon#3880 341.9 h, ir_measures#83 2.5 h, statsforecast#1247 27.9 h, rouge#77 780.9 h. Four are mine: data-juicer#1077 101.5 h, open-instruct#1915 1081.9 h, otter-grader#1020 31.1 h, ir_measures#83 2.5 h. Median wait for fixes by others: 239.1 h. As of 11-09 16:13 utc.</desc>
 <style>text{font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;font-size:12px;fill:#f0f6fc}.m{fill:#9198a1}.a{fill:#3987e5}.b{font-size:26px}.e{text-anchor:end}.c{text-anchor:middle}.w{fill:#db6d28}.nm{font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;font-weight:700}.s13{font-size:13px}.s14{font-size:14px}.s16{font-size:16px}.s22{font-size:22px}.s30{font-size:30px}.s40{font-size:40px}.s52{font-size:52px}.hl{stroke:#0d1117;stroke-width:4px;stroke-linejoin:round;paint-order:stroke}.sw{transform-origin:746px 0;transform:scaleX(0);animation:shrink 4.2s linear .3s both}@keyframes shrink{from{transform:scaleX(1)}to{transform:scaleX(0)}}.cu{transform:translateX(536px);opacity:0;animation:sweep 4.2s linear .3s both}@keyframes sweep{from{transform:translateX(0);opacity:1}98%{opacity:1}to{transform:translateX(536px);opacity:0}}@media (prefers-reduced-motion: reduce){*{animation:none!important}}</style>
-<rect x=".5" y=".5" width="829" height="793" rx="8" fill="#0d1117" stroke="#3d444d"/>
+<rect x=".5" y=".5" width="829" height="813" rx="8" fill="#0d1117" stroke="#3d444d"/>
 <text class="s16" x="20" y="30">report → fix</text>
-<text class="m e" x="810" y="30">238 filed · 31 fixed · median wait 236.8 h</text>
+<text class="m e" x="810" y="30">238 filed · 32 fixed · median wait 239.1 h</text>
 <text class="m" x="20" y="54">high = waiting: from the report until a merged PR closed it.</text>
 <text class="m e" x="810" y="54">by my own PR</text>
 <circle cx="710.72" cy="50" r="3.6" fill="none" stroke="#f0f6fc" stroke-width="1.4"/>
 <text class="m e" x="694.72" y="54">fixed by someone else</text>
 <path d="M514.48 50h16" stroke="#3987e5" stroke-width="1.6"/>
-<path d="M211.79 102V88M211.8 102V88M211.8 102V88M211.8 102V88M211.8 102V88M215.72 102V88M216 102V88M216.06 102V88M216.13 102V88M216.35 102V88M216.6 102V88M216.61 102V88M216.75 102V88M216.75 102V88M216.76 102V88M216.76 102V88M216.92 102V88M216.92 102V88M218.15 102V88M218.15 102V88M218.36 102V88M218.36 102V88M218.72 102V88M218.72 102V88M218.72 102V88M219.07 102V88M219.07 102V88M219.22 102V88M219.22 102V88M219.22 102V88M219.34 102V88M219.34 102V88M219.48 102V88M219.48 102V88M219.48 102V88M219.48 102V88M219.55 102V88M219.55 102V88M219.55 102V88M219.55 102V88M219.64 102V88M219.64 102V88M219.64 102V88M219.72 102V88M219.72 102V88M219.72 102V88M219.72 102V88M220.9 102V88M220.9 102V88M220.9 102V88M221.14 102V88M221.14 102V88M221.27 102V88M221.27 102V88M221.39 102V88M221.39 102V88M221.39 102V88M221.53 102V88M221.53 102V88M221.53 102V88M221.83 102V88M221.83 102V88M221.83 102V88M221.94 102V88M221.94 102V88M221.94 102V88M222.09 102V88M222.09 102V88M222.83 102V88M222.83 102V88M222.83 102V88M222.83 102V88M222.98 102V88M222.98 102V88M222.98 102V88M222.98 102V88M223.51 102V88M223.51 102V88M223.51 102V88M224.24 102V88M224.24 102V88M224.24 102V88M224.24 102V88M225.39 102V88M225.39 102V88M225.39 102V88M225.39 102V88M225.44 102V88M225.44 102V88M225.44 102V88M225.44 102V88M227.76 102V88M227.76 102V88M227.77 102V88M228.08 102V88M228.08 102V88M228.08 102V88M228.08 102V88M229.54 102V88M229.54 102V88M229.54 102V88M233.45 102V88M233.45 102V88M233.45 102V88M237.79 102V88M237.8 102V88M237.8 102V88M237.96 102V88M237.96 102V88M237.96 102V88M238.11 102V88M238.11 102V88M238.29 102V88M238.3 102V88M240.16 102V88M240.16 102V88M240.16 102V88M240.36 102V88M240.64 102V88M240.64 102V88M240.82 102V88M240.82 102V88M240.82 102V88M240.96 102V88M240.96 102V88M241.1 102V88M241.25 102V88M241.25 102V88M241.25 102V88M241.25 102V88M242.34 102V88M243.49 102V88M243.49 102V88M243.74 102V88M243.87 102V88M244.16 102V88M244.28 102V88M244.28 102V88M244.28 102V88M244.52 102V88M244.52 102V88M244.63 102V88M244.78 102V88M245.04 102V88M245.04 102V88M245.04 102V88M245.04 102V88M245.24 102V88M245.38 102V88M245.38 102V88M245.38 102V88M245.53 102V88M245.53 102V88M245.72 102V88M245.72 102V88M245.72 102V88M245.86 102V88M245.86 102V88M245.86 102V88M246.01 102V88M246.01 102V88M246.01 102V88M246.15 102V88M246.15 102V88M246.33 102V88M246.33 102V88M246.62 102V88M246.62 102V88M246.62 102V88M246.62 102V88M246.9 102V88M247.08 102V88M247.08 102V88M250.02 102V88M250.02 102V88M250.02 102V88M263.68 102V88M263.73 102V88M263.74 102V88M263.75 102V88M271.37 102V88M271.37 102V88M271.37 102V88M271.37 102V88M272.72 102V88M272.72 102V88M272.72 102V88M272.72 102V88M273.42 102V88M273.42 102V88M273.42 102V88M273.42 102V88M274.28 102V88M274.29 102V88M274.29 102V88M299.09 102V88M299.09 102V88M299.09 102V88M299.13 102V88M299.13 102V88M299.15 102V88M299.15 102V88M299.28 102V88M299.28 102V88M299.29 102V88M299.42 102V88M299.51 102V88M299.51 102V88M299.51 102V88M299.52 102V88M299.7 102V88M299.7 102V88M299.71 102V88M299.71 102V88M299.86 102V88M299.86 102V88M299.88 102V88M299.88 102V88M299.98 102V88M299.98 102V88M299.99 102V88M300.15 102V88M300.15 102V88M300.15 102V88M300.15 102V88M300.15 102V88M300.15 102V88M300.29 102V88M300.29 102V88M300.29 102V88M300.44 102V88M300.44 102V88M300.44 102V88M301.66 102V88M301.66 102V88M301.66 102V88M301.86 102V88M301.86 102V88" stroke="#7d8590" stroke-width="1"/>
+<path d="M211.75 102V88M211.76 102V88M211.76 102V88M211.76 102V88M211.76 102V88M215.6 102V88M215.88 102V88M215.94 102V88M216 102V88M216.22 102V88M216.46 102V88M216.47 102V88M216.61 102V88M216.61 102V88M216.62 102V88M216.62 102V88M216.78 102V88M216.78 102V88M217.98 102V88M217.98 102V88M218.19 102V88M218.19 102V88M218.53 102V88M218.53 102V88M218.53 102V88M218.88 102V88M218.88 102V88M219.03 102V88M219.03 102V88M219.03 102V88M219.14 102V88M219.14 102V88M219.28 102V88M219.28 102V88M219.28 102V88M219.28 102V88M219.35 102V88M219.35 102V88M219.35 102V88M219.35 102V88M219.44 102V88M219.44 102V88M219.44 102V88M219.52 102V88M219.52 102V88M219.52 102V88M219.52 102V88M220.67 102V88M220.67 102V88M220.67 102V88M220.91 102V88M220.91 102V88M221.03 102V88M221.03 102V88M221.15 102V88M221.15 102V88M221.15 102V88M221.29 102V88M221.29 102V88M221.29 102V88M221.58 102V88M221.58 102V88M221.58 102V88M221.69 102V88M221.69 102V88M221.69 102V88M221.84 102V88M221.84 102V88M222.56 102V88M222.56 102V88M222.56 102V88M222.56 102V88M222.71 102V88M222.71 102V88M222.71 102V88M222.71 102V88M223.23 102V88M223.23 102V88M223.23 102V88M223.95 102V88M223.95 102V88M223.95 102V88M223.95 102V88M225.07 102V88M225.07 102V88M225.07 102V88M225.07 102V88M225.12 102V88M225.12 102V88M225.12 102V88M225.12 102V88M227.39 102V88M227.39 102V88M227.39 102V88M227.7 102V88M227.71 102V88M227.71 102V88M227.71 102V88M229.14 102V88M229.14 102V88M229.14 102V88M232.96 102V88M232.96 102V88M232.96 102V88M237.22 102V88M237.22 102V88M237.22 102V88M237.37 102V88M237.37 102V88M237.37 102V88M237.52 102V88M237.53 102V88M237.7 102V88M237.71 102V88M239.53 102V88M239.53 102V88M239.53 102V88M239.73 102V88M240 102V88M240 102V88M240.17 102V88M240.17 102V88M240.17 102V88M240.31 102V88M240.31 102V88M240.45 102V88M240.6 102V88M240.6 102V88M240.6 102V88M240.6 102V88M241.67 102V88M242.8 102V88M242.8 102V88M243.04 102V88M243.16 102V88M243.45 102V88M243.57 102V88M243.57 102V88M243.57 102V88M243.8 102V88M243.8 102V88M243.91 102V88M244.05 102V88M244.31 102V88M244.31 102V88M244.31 102V88M244.31 102V88M244.5 102V88M244.64 102V88M244.64 102V88M244.64 102V88M244.79 102V88M244.79 102V88M244.97 102V88M244.97 102V88M244.97 102V88M245.12 102V88M245.12 102V88M245.12 102V88M245.26 102V88M245.26 102V88M245.26 102V88M245.4 102V88M245.4 102V88M245.57 102V88M245.57 102V88M245.86 102V88M245.86 102V88M245.86 102V88M245.86 102V88M246.13 102V88M246.3 102V88M246.3 102V88M249.18 102V88M249.18 102V88M249.18 102V88M262.56 102V88M262.62 102V88M262.62 102V88M262.63 102V88M270.09 102V88M270.09 102V88M270.09 102V88M270.09 102V88M271.41 102V88M271.41 102V88M271.41 102V88M271.41 102V88M272.1 102V88M272.1 102V88M272.1 102V88M272.1 102V88M272.94 102V88M272.95 102V88M272.95 102V88M297.23 102V88M297.23 102V88M297.23 102V88M297.27 102V88M297.27 102V88M297.29 102V88M297.29 102V88M297.42 102V88M297.42 102V88M297.43 102V88M297.56 102V88M297.64 102V88M297.65 102V88M297.65 102V88M297.66 102V88M297.83 102V88M297.83 102V88M297.84 102V88M297.84 102V88M297.99 102V88M297.99 102V88M298.01 102V88M298.01 102V88M298.1 102V88M298.1 102V88M298.11 102V88M298.27 102V88M298.27 102V88M298.27 102V88M298.27 102V88M298.27 102V88M298.28 102V88M298.41 102V88M298.41 102V88M298.41 102V88M298.55 102V88M298.55 102V88M298.56 102V88M299.75 102V88M299.75 102V88M299.75 102V88M299.95 102V88M299.95 102V88" stroke="#7d8590" stroke-width="1"/>
 <path d="M210 102.5H746" stroke="#3d444d"/>
-<path d="M210 121H215.72V110H387.01V121H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="387.01" cy="121" r="2.4" fill="#3987e5"/>
-<path d="M210 141H216.61V130H613.14V141H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="613.14" cy="141" r="2.4" fill="#3987e5"/>
-<path d="M210 161H216.92V150H271.57V161H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="271.57" cy="161" r="2.4" fill="#3987e5"/>
-<path d="M210 181H219.07V170H330.77V181H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="330.77" cy="181" r="2.4" fill="#3987e5"/>
-<path d="M210 201H219.48V190H511.47V201H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="511.47" cy="201" r="2.4" fill="#3987e5"/>
-<path d="M210 221H219.72V210H308.84V221H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="308.84" cy="221" r="2.4" fill="#3987e5"/>
-<path d="M210 241H220.9V230H371.14V241H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="371.14" cy="241" r="2.4" fill="#3987e5"/>
-<path d="M210 261H221.27V250H296.23V261H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="296.23" cy="261" r="2.4" fill="#3987e5"/>
-<path d="M210 281H221.53V270H362.3V281H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="362.3" cy="281" r="2.4" fill="#3987e5"/>
-<path d="M210 301H222.98V290H271.23V301H746" stroke="#f0f6fc" stroke-width="1.6" fill="none"/>
-<circle cx="271.23" cy="301" r="3.6" fill="#0d1117" stroke="#f0f6fc" stroke-width="1.4"/>
-<path d="M210 321H222.98V310H225.22V321H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="225.22" cy="321" r="2.4" fill="#3987e5"/>
-<path d="M210 341H222.98V330H737.09V341H746" stroke="#f0f6fc" stroke-width="1.6" fill="none"/>
-<circle cx="737.09" cy="341" r="3.6" fill="#0d1117" stroke="#f0f6fc" stroke-width="1.4"/>
-<path d="M210 361H227.77V350H240.5V361H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="240.5" cy="361" r="2.4" fill="#3987e5"/>
-<path d="M210 381H228.08V370H242.85V381H746" stroke="#f0f6fc" stroke-width="1.6" fill="none"/>
-<circle cx="242.85" cy="381" r="3.6" fill="#0d1117" stroke="#f0f6fc" stroke-width="1.4"/>
-<path d="M210 401H229.54V390H256.49V401H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="256.49" cy="401" r="2.4" fill="#3987e5"/>
-<path d="M210 421H240.64V410H292.68V421H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="292.68" cy="421" r="2.4" fill="#3987e5"/>
-<path d="M210 441H240.82V430H391.08V441H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="391.08" cy="441" r="2.4" fill="#3987e5"/>
-<path d="M210 461H240.82V450H282.02V461H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="282.02" cy="461" r="2.4" fill="#3987e5"/>
-<path d="M210 481H245.72V470H502.83V481H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="502.83" cy="481" r="2.4" fill="#3987e5"/>
-<path d="M210 501H246.01V490H499.19V501H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="499.19" cy="501" r="2.4" fill="#3987e5"/>
-<path d="M210 521H246.33V510H615.31V521H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="615.31" cy="521" r="2.4" fill="#3987e5"/>
-<path d="M210 541H263.68V530H271.57V541H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="271.57" cy="541" r="2.4" fill="#3987e5"/>
-<path d="M210 561H263.75V550H376.28V561H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="376.28" cy="561" r="2.4" fill="#3987e5"/>
-<path d="M210 581H271.37V570H285.98V581H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="285.98" cy="581" r="2.4" fill="#3987e5"/>
-<path d="M210 601H271.37V590H388.16V601H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="388.16" cy="601" r="2.4" fill="#3987e5"/>
-<path d="M210 621H273.42V610H388.12V621H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="388.12" cy="621" r="2.4" fill="#3987e5"/>
-<path d="M210 641H273.42V630H323.72V641H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="323.72" cy="641" r="2.4" fill="#3987e5"/>
-<path d="M210 661H274.29V650H436.75V661H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="436.75" cy="661" r="2.4" fill="#3987e5"/>
-<path d="M210 681H299.09V670H300.29V681H746" stroke="#f0f6fc" stroke-width="1.6" fill="none"/>
-<circle cx="300.29" cy="681" r="3.6" fill="#0d1117" stroke="#f0f6fc" stroke-width="1.4"/>
-<path d="M210 701H299.13V690H312.37V701H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="312.37" cy="701" r="2.4" fill="#3987e5"/>
-<path d="M210 721H299.28V710H670.33V721H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
-<circle cx="670.33" cy="721" r="2.4" fill="#3987e5"/>
-<rect class="sw" x="210" y="74" width="536" height="652" fill="#0d1117"/>
-<path class="cu" d="M210 74V726" stroke="#3987e5" stroke-width="2"/>
-<path d="M267.02 74V734M346.85 74V734M426.68 74V734M506.51 74V734M586.34 74V734M666.17 74V734M746 74V734" stroke="#3d444d" stroke-opacity=".6"/>
-<path d="M740.93 74V734" stroke="#9198a1" stroke-dasharray="2 3"/>
+<path d="M210 121H215.6V110H383.32V121H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="383.32" cy="121" r="2.4" fill="#3987e5"/>
+<path d="M210 141H216.47V130H604.74V141H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="604.74" cy="141" r="2.4" fill="#3987e5"/>
+<path d="M210 161H216.78V150H270.28V161H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="270.28" cy="161" r="2.4" fill="#3987e5"/>
+<path d="M210 181H218.88V170H328.26V181H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="328.26" cy="181" r="2.4" fill="#3987e5"/>
+<path d="M210 201H219.28V190H505.19V201H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="505.19" cy="201" r="2.4" fill="#3987e5"/>
+<path d="M210 221H219.52V210H306.78V221H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="306.78" cy="221" r="2.4" fill="#3987e5"/>
+<path d="M210 241H220.67V230H367.78V241H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="367.78" cy="241" r="2.4" fill="#3987e5"/>
+<path d="M210 261H221.03V250H294.43V261H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="294.43" cy="261" r="2.4" fill="#3987e5"/>
+<path d="M210 281H221.29V270H359.12V281H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="359.12" cy="281" r="2.4" fill="#3987e5"/>
+<path d="M210 301H222.71V290H269.95V301H746" stroke="#f0f6fc" stroke-width="1.6" fill="none"/>
+<circle cx="269.95" cy="301" r="3.6" fill="#0d1117" stroke="#f0f6fc" stroke-width="1.4"/>
+<path d="M210 321H222.71V310H224.9V321H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="224.9" cy="321" r="2.4" fill="#3987e5"/>
+<path d="M210 341H222.71V330H726.11V341H746" stroke="#f0f6fc" stroke-width="1.6" fill="none"/>
+<circle cx="726.11" cy="341" r="3.6" fill="#0d1117" stroke="#f0f6fc" stroke-width="1.4"/>
+<path d="M210 361H227.39V350H239.86V361H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="239.86" cy="361" r="2.4" fill="#3987e5"/>
+<path d="M210 381H227.71V370H242.17V381H746" stroke="#f0f6fc" stroke-width="1.6" fill="none"/>
+<circle cx="242.17" cy="381" r="3.6" fill="#0d1117" stroke="#f0f6fc" stroke-width="1.4"/>
+<path d="M210 401H229.14V390H255.52V401H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="255.52" cy="401" r="2.4" fill="#3987e5"/>
+<path d="M210 421H240V410H290.96V421H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="290.96" cy="421" r="2.4" fill="#3987e5"/>
+<path d="M210 441H240.17V430H387.31V441H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="387.31" cy="441" r="2.4" fill="#3987e5"/>
+<path d="M210 461H240.17V450H280.52V461H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="280.52" cy="461" r="2.4" fill="#3987e5"/>
+<path d="M210 481H243.57V470H730.58V481H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="730.58" cy="481" r="2.4" fill="#3987e5"/>
+<path d="M210 501H244.97V490H496.73V501H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="496.73" cy="501" r="2.4" fill="#3987e5"/>
+<path d="M210 521H245.26V510H493.16V521H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="493.16" cy="521" r="2.4" fill="#3987e5"/>
+<path d="M210 541H245.57V530H606.86V541H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="606.86" cy="541" r="2.4" fill="#3987e5"/>
+<path d="M210 561H262.56V550H270.28V561H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="270.28" cy="561" r="2.4" fill="#3987e5"/>
+<path d="M210 581H262.63V570H372.81V581H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="372.81" cy="581" r="2.4" fill="#3987e5"/>
+<path d="M210 601H270.09V590H284.4V601H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="284.4" cy="601" r="2.4" fill="#3987e5"/>
+<path d="M210 621H270.09V610H384.45V621H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="384.45" cy="621" r="2.4" fill="#3987e5"/>
+<path d="M210 641H272.1V630H384.41V641H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="384.41" cy="641" r="2.4" fill="#3987e5"/>
+<path d="M210 661H272.1V650H321.35V661H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="321.35" cy="661" r="2.4" fill="#3987e5"/>
+<path d="M210 681H272.95V670H432.03V681H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="432.03" cy="681" r="2.4" fill="#3987e5"/>
+<path d="M210 701H297.23V690H298.41V701H746" stroke="#f0f6fc" stroke-width="1.6" fill="none"/>
+<circle cx="298.41" cy="701" r="3.6" fill="#0d1117" stroke="#f0f6fc" stroke-width="1.4"/>
+<path d="M210 721H297.27V710H310.24V721H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="310.24" cy="721" r="2.4" fill="#3987e5"/>
+<path d="M210 741H297.42V730H660.74V741H746" stroke="#3987e5" stroke-width="1.6" fill="none"/>
+<circle cx="660.74" cy="741" r="2.4" fill="#3987e5"/>
+<rect class="sw" x="210" y="74" width="536" height="672" fill="#0d1117"/>
+<path class="cu" d="M210 74V746" stroke="#3987e5" stroke-width="2"/>
+<path d="M265.83 74V754M344 74V754M422.17 74V754M500.33 74V754M578.5 74V754M656.67 74V754M734.83 74V754M746 74V754" stroke="#3d444d" stroke-opacity=".6"/>
+<path d="M742.38 74V754" stroke="#9198a1" stroke-dasharray="2 3"/>
 <text class="m hl s13" x="20" y="100">CH0 every report</text>
 <text class="m hl s13" x="20" y="121">promptfoo#11041</text>
 <text class="m hl e s13" x="810" y="121">360.5 h</text>
@@ -115,40 +117,43 @@
 <text class="m hl e s13" x="810" y="441">316.2 h</text>
 <text class="m hl s13" x="20" y="461">AutoRAG#1707</text>
 <text class="m hl e s13" x="810" y="461">86.7 h</text>
-<text class="m hl s13" x="20" y="481">agentic_security#350</text>
-<text class="m hl e s13" x="810" y="481">541.1 h</text>
-<text class="m hl s13" x="20" y="501">ai-gateway#447</text>
-<text class="m hl e s13" x="810" y="501">532.8 h</text>
-<text class="m hl s13" x="20" y="521">verifywise#4783</text>
-<text class="m hl e s13" x="810" y="521">776.5 h</text>
-<text class="m hl s13" x="20" y="541">evalscope#1783</text>
-<text class="m hl e s13" x="810" y="541">16.6 h</text>
-<text class="m hl s13" x="20" y="561">MAPIE#993</text>
-<text class="m hl e s13" x="810" y="561">236.8 h</text>
-<text class="m hl s13" x="20" y="581">mlxtend#1202</text>
-<text class="m hl e s13" x="810" y="581">30.8 h</text>
-<text class="m hl s13" x="20" y="601">shapash#777</text>
-<text class="m hl e s13" x="810" y="601">245.8 h</text>
-<text class="m hl s13" x="20" y="621">darts#3221</text>
-<text class="m hl e s13" x="810" y="621">241.4 h</text>
-<text class="m hl s13" x="20" y="641">utilsforecast#285</text>
-<text class="m hl e s13" x="810" y="641">105.9 h</text>
-<text class="m hl s13" x="20" y="661">aeon#3880</text>
-<text class="m hl e s13" x="810" y="661">341.9 h</text>
-<text class="hl s13" x="20" y="681">ir_measures#83</text>
-<text class="hl e s13" x="810" y="681">2.5 h</text>
-<text class="m hl s13" x="20" y="701">statsforecast#1247</text>
-<text class="m hl e s13" x="810" y="701">27.9 h</text>
-<text class="m hl s13" x="20" y="721">rouge#77</text>
-<text class="m hl e s13" x="810" y="721">780.9 h</text>
-<text class="m" x="210" y="748">09-21</text>
-<text class="m" x="267.02" y="748">09-28</text>
-<text class="m" x="346.85" y="748">10-05</text>
-<text class="m" x="426.68" y="748">10-12</text>
-<text class="m" x="506.51" y="748">10-19</text>
-<text class="m" x="586.34" y="748">10-26</text>
-<text class="m" x="666.17" y="748">11-02</text>
-<path d="M210 765v14M322.52 765v14M210 772H322.52" stroke="#3987e5" fill="none"/>
-<text class="a" x="330.52" y="776">Δt median 236.8 h</text>
-<text class="m e" x="810" y="776">utc, weeks · dotted line: as of 11-08 13:20</text>
+<text class="m hl s13" x="20" y="481">detoxify#135</text>
+<text class="m hl e s13" x="810" y="481">1046.7 h</text>
+<text class="m hl s13" x="20" y="501">agentic_security#350</text>
+<text class="m hl e s13" x="810" y="501">541.1 h</text>
+<text class="m hl s13" x="20" y="521">ai-gateway#447</text>
+<text class="m hl e s13" x="810" y="521">532.8 h</text>
+<text class="m hl s13" x="20" y="541">verifywise#4783</text>
+<text class="m hl e s13" x="810" y="541">776.5 h</text>
+<text class="m hl s13" x="20" y="561">evalscope#1783</text>
+<text class="m hl e s13" x="810" y="561">16.6 h</text>
+<text class="m hl s13" x="20" y="581">MAPIE#993</text>
+<text class="m hl e s13" x="810" y="581">236.8 h</text>
+<text class="m hl s13" x="20" y="601">mlxtend#1202</text>
+<text class="m hl e s13" x="810" y="601">30.8 h</text>
+<text class="m hl s13" x="20" y="621">shapash#777</text>
+<text class="m hl e s13" x="810" y="621">245.8 h</text>
+<text class="m hl s13" x="20" y="641">darts#3221</text>
+<text class="m hl e s13" x="810" y="641">241.4 h</text>
+<text class="m hl s13" x="20" y="661">utilsforecast#285</text>
+<text class="m hl e s13" x="810" y="661">105.9 h</text>
+<text class="m hl s13" x="20" y="681">aeon#3880</text>
+<text class="m hl e s13" x="810" y="681">341.9 h</text>
+<text class="hl s13" x="20" y="701">ir_measures#83</text>
+<text class="hl e s13" x="810" y="701">2.5 h</text>
+<text class="m hl s13" x="20" y="721">statsforecast#1247</text>
+<text class="m hl e s13" x="810" y="721">27.9 h</text>
+<text class="m hl s13" x="20" y="741">rouge#77</text>
+<text class="m hl e s13" x="810" y="741">780.9 h</text>
+<text class="m" x="210" y="768">09-21</text>
+<text class="m" x="265.83" y="768">09-28</text>
+<text class="m" x="344" y="768">10-05</text>
+<text class="m" x="422.17" y="768">10-12</text>
+<text class="m" x="500.33" y="768">10-19</text>
+<text class="m" x="578.5" y="768">10-26</text>
+<text class="m" x="656.67" y="768">11-02</text>
+<text class="m" x="734.83" y="768">11-09</text>
+<path d="M210 785v14M321.25 785v14M210 792H321.25" stroke="#3987e5" fill="none"/>
+<text class="a" x="329.25" y="796">Δt median 239.1 h</text>
+<text class="m e" x="810" y="796">utc, weeks · dotted line: as of 11-09 16:13</text>
 </svg>

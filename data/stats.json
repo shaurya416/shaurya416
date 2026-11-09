@@ -1,13 +1,13 @@
 {
- "as_of": "2026-11-08T13:20Z",
+ "as_of": "2026-11-09T16:13Z",
  "account": {
   "login": "shaurya416",
   "user_id": 298017155
  },
  "queries": {
   "issues_total": 238,
-  "issues_open": 198,
-  "issues_closed": 40,
+  "issues_open": 197,
+  "issues_closed": 41,
   "prs_total": 32,
   "prs_merged": 4,
   "prs_open": 24,
@@ -16,9 +16,9 @@
  "exclusion_applied": true,
  "issues": {
   "total": 238,
-  "open": 198,
-  "closed": 40,
-  "closed_completed": 33,
+  "open": 197,
+  "closed": 41,
+  "closed_completed": 34,
   "closed_not_planned": 7,
   "distinct_repos": 229,
   "distinct_owner_accounts": 189,
@@ -43,9 +43,9 @@
   "with_comments": 58
  },
  "outcomes": {
-  "open": 198,
-  "closed": 40,
-  "fixed_by_merged_pr_from_someone_else": 27,
+  "open": 197,
+  "closed": 41,
+  "fixed_by_merged_pr_from_someone_else": 28,
   "fixed_by_his_own_merged_pr": 4,
   "closed_completed_without_a_fix_merged": 2,
   "closed_completed_without_a_fix": [
@@ -64,10 +64,10 @@
   ]
  },
  "fix_lag_hours_filed_to_merge": {
-  "n": 27,
+  "n": 28,
   "min": 4.7,
-  "median": 236.8,
-  "max": 834.5
+  "median": 239.1,
+  "max": 1046.7
  },
  "prs": {
   "total": 32,
@@ -555,12 +555,28 @@
    "hours_issue_filed_to_merge": [
     780.9
    ]
+  },
+  {
+   "repo": "unitaryai/detoxify",
+   "pr": 136,
+   "url": "https://github.com/unitaryai/detoxify/pull/136",
+   "pr_author": "zstring",
+   "merged_at": "2026-11-08T14:51:00Z",
+   "cites_issues": [
+    135
+   ],
+   "issue_closed_at": [
+    "2026-11-08T14:51:02Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    1046.7
+   ]
   }
  ],
  "fixes_by_others_summary": {
-  "prs": 26,
-  "issues_fixed": 27,
-  "distinct_pr_authors": 24
+  "prs": 27,
+  "issues_fixed": 28,
+  "distinct_pr_authors": 25
  },
  "ecosystems": [
   {
