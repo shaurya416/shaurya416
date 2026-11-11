@@ -1,12 +1,12 @@
 {
- "as_of": "2026-11-10T14:50Z",
+ "as_of": "2026-11-11T14:18Z",
  "account": {
   "login": "shaurya416",
   "user_id": 298017155
  },
  "queries": {
-  "issues_total": 238,
-  "issues_open": 196,
+  "issues_total": 237,
+  "issues_open": 195,
   "issues_closed": 42,
   "prs_total": 32,
   "prs_merged": 4,
@@ -15,26 +15,26 @@
  },
  "exclusion_applied": true,
  "issues": {
-  "total": 238,
-  "open": 196,
+  "total": 237,
+  "open": 195,
   "closed": 42,
   "closed_completed": 35,
   "closed_not_planned": 7,
-  "distinct_repos": 229,
+  "distinct_repos": 228,
   "distinct_owner_accounts": 189,
   "max_issues_in_one_repo": 2,
   "repos_with_more_than_one": 9,
   "first_created_at": "2026-09-23T03:46:11Z",
   "last_created_at": "2026-10-01T01:19:20Z",
   "monthly": {
-   "2026-09": 233,
+   "2026-09": 232,
    "2026-10": 5
   },
   "daily_utc": {
    "2026-09-23": 57,
    "2026-09-24": 44,
    "2026-09-25": 35,
-   "2026-09-26": 40,
+   "2026-09-26": 39,
    "2026-09-27": 4,
    "2026-09-28": 15,
    "2026-09-30": 38,
@@ -43,7 +43,7 @@
   "with_comments": 58
  },
  "outcomes": {
-  "open": 196,
+  "open": 195,
   "closed": 42,
   "fixed_by_merged_pr_from_someone_else": 29,
   "fixed_by_his_own_merged_pr": 4,
@@ -633,8 +633,8 @@
   },
   {
    "bucket": "Fairness, calibration & uncertainty",
-   "repos": 16,
-   "issues": 18,
+   "repos": 15,
+   "issues": 17,
    "examples": "adversarial-robustness-toolbox, AIF360, MAPIE, robustbench, aequitas"
   },
   {

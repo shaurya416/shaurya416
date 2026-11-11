@@ -7,10 +7,10 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 
 | where | what | value as shown | field |
 |:--|:--|:--|:--|
-| filed panel | issues filed | 238 | `issues.total` |
+| filed panel | issues filed | 237 | `issues.total` |
 | filed panel | issues fixed | 33 | `outcomes.fixed_by_merged_pr_from_someone_else + outcomes.fixed_by_his_own_merged_pr` |
-| filed panel | window | 2026-09-23/2026-11-10 | `issues.first_created_at, as_of` |
-| filed panel | filed, week of 09-21 | week of 09-21 180 | `issues.daily_utc, summed per week` |
+| filed panel | window | 2026-09-23/2026-11-11 | `issues.first_created_at, as_of` |
+| filed panel | filed, week of 09-21 | week of 09-21 179 | `issues.daily_utc, summed per week` |
 | filed panel | filed, week of 09-28 | week of 09-28 58 | `issues.daily_utc, summed per week` |
 | filed panel | filed, week of 10-05 | week of 10-05 0 | `issues.daily_utc, summed per week` |
 | filed panel | filed, week of 10-12 | week of 10-12 0 | `issues.daily_utc, summed per week` |
@@ -26,20 +26,20 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | filed panel | fixed, week of 10-26 (squares) | week of 10-26 2 | `fixes_by_others[].merged_at, prs.merged_list[].merged_at` |
 | filed panel | fixed, week of 11-02 (squares) | week of 11-02 3 | `fixes_by_others[].merged_at, prs.merged_list[].merged_at` |
 | filed panel | fixed, week of 11-09 (squares) | week of 11-09 1 | `fixes_by_others[].merged_at, prs.merged_list[].merged_at` |
-| outcome panel | fixed, of total | of 238 fixed | `issues.total` |
+| outcome panel | fixed, of total | of 237 fixed | `issues.total` |
 | outcome panel | others | 29 | `outcomes.fixed_by_merged_pr_from_someone_else` |
 | outcome panel | others, share | 12.2% | `outcomes.fixed_by_merged_pr_from_someone_else / issues.total` |
 | outcome panel | own | 4 | `outcomes.fixed_by_his_own_merged_pr` |
 | outcome panel | own, share | 1.7% | `outcomes.fixed_by_his_own_merged_pr / issues.total` |
 | outcome panel | nofix | 9 | `outcomes.closed_not_planned + outcomes.closed_completed_without_a_fix_merged` |
 | outcome panel | nofix, share | 3.8% | `(outcomes.closed_not_planned + outcomes.closed_completed_without_a_fix_merged) / issues.total` |
-| outcome panel | open | 196 | `outcomes.open` |
-| outcome panel | open, share | 82.4% | `outcomes.open / issues.total` |
+| outcome panel | open | 195 | `outcomes.open` |
+| outcome panel | open, share | 82.3% | `outcomes.open / issues.total` |
 | outcome panel | hours, n | 29 | `fix_lag_hours_filed_to_merge.n` |
 | outcome panel | hours, min | 4.7 | `fix_lag_hours_filed_to_merge.min` |
 | outcome panel | hours, median | 241.4 | `fix_lag_hours_filed_to_merge.median` |
 | outcome panel | hours, max | 1076.3 | `fix_lag_hours_filed_to_merge.max` |
-| areas panel | repositories | 229 | `issues.distinct_repos` |
+| areas panel | repositories | 228 | `issues.distinct_repos` |
 | areas panel | areas | 15 areas | `len(ecosystems)` |
 | areas panel | eval harnesses &amp; benchmarks | eval harnesses &amp; benchmarks 42 | `ecosystems[0].issues` |
 | areas panel | judge, RAG &amp; hallucination scoring | judge, RAG &amp; hallucination scoring 29 | `ecosystems[1].issues` |
@@ -47,7 +47,7 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | areas panel | agent &amp; tool-use benchmarks | agent &amp; tool-use benchmarks 21 | `ecosystems[3].issues` |
 | areas panel | classic metric libraries | classic metric libraries 20 | `ecosystems[4].issues` |
 | areas panel | eval platforms &amp; app frameworks | eval platforms &amp; app frameworks 19 | `ecosystems[5].issues` |
-| areas panel | fairness, calibration &amp; uncertainty | fairness, calibration &amp; uncertainty 18 | `ecosystems[6].issues` |
+| areas panel | fairness, calibration &amp; uncertainty | fairness, calibration &amp; uncertainty 17 | `ecosystems[6].issues` |
 | areas panel | code &amp; math answer checking | code &amp; math answer checking 13 | `ecosystems[7].issues` |
 | areas panel | data pipelines &amp; ML monitoring | data pipelines &amp; ML monitoring 12 | `ecosystems[8].issues` |
 | areas panel | safety, red-teaming &amp; guardrails | safety, red-teaming &amp; guardrails 12 | `ecosystems[9].issues` |
@@ -147,8 +147,8 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | README fixes table | unitaryai/detoxify\#136, hours | 1046.7 | `fixes_by_others[].hours_issue_filed_to_merge` |
 | README fixes table | KRLabsOrg/LettuceDetect\#124, merged | 11-09 | `fixes_by_others[].merged_at` |
 | README fixes table | KRLabsOrg/LettuceDetect\#124, hours | 1076.3 | `fixes_by_others[].hours_issue_filed_to_merge` |
-| README method | issues total | 238 | `queries.issues_total` |
-| README method | issues open | 196 | `queries.issues_open` |
+| README method | issues total | 237 | `queries.issues_total` |
+| README method | issues open | 195 | `queries.issues_open` |
 | README method | issues closed | 42 | `queries.issues_closed` |
 | README method | prs total | 32 | `queries.prs_total` |
 | README method | prs merged | 4 | `queries.prs_merged` |
@@ -160,12 +160,12 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | README method | closed without a merged pull request | 9 closed without | `outcomes.closed_not_planned + outcomes.closed_completed_without_a_fix_merged` |
 | README method | pull requests by others | 28 pull requests | `fixes_by_others_summary.prs` |
 | README method | people | 26 people | `fixes_by_others_summary.distinct_pr_authors` |
-| README method | repositories put in areas | 229 repositories | `issues.distinct_repos` |
+| README method | repositories put in areas | 228 repositories | `issues.distinct_repos` |
 | README method | areas | 15 areas | `len(ecosystems)` |
 | README side quest | panels in the fold | three more panels | `len(PANELS) - 1` |
 | README defect table | fixes in the table, lead sentence | eight of the fixes | `len(notes.json rows)` |
 | README side quest | lines in the example grader | two-line grader | `len(probe.json source)` |
-| README method and footer | as of | 2026-11-10 14:50 utc | `as_of (from fetch.json)` |
+| README method and footer | as of | 2026-11-11 14:18 utc | `as_of (from fetch.json)` |
 | header | class year | '27 | `WHO.year` |
 | header | stops (desc) | eight stops | `len(HEADER_STOPS)` |
 | quantum card | E\[BC\]² at 1,024 shots, a lower bound on mean fidelity | 0.9239 | `fidelity_floor(1024) = (√(K/s)·Σ pmf(k;s,1/K)√k)², K=256` |
@@ -190,8 +190,8 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | things i made shelf | tools (desc) | 8 small python tools | `len of every TOOLS group` |
 | things i made shelf | headings (desc) | three headings | `len(TOOLS)` |
 | side-quest stat tiles, all three widths | since | since 2026-09-23 | `issues.first_created_at` |
-| side-quest stat tiles, all three widths | issues filed | 238 issues filed | `issues.total` |
-| side-quest stat tiles, all three widths | repositories | 229 repos | `issues.distinct_repos` |
+| side-quest stat tiles, all three widths | issues filed | 237 issues filed | `issues.total` |
+| side-quest stat tiles, all three widths | repositories | 228 repos | `issues.distinct_repos` |
 | side-quest stat tiles, all three widths | areas | 15 areas | `len(ecosystems)` |
 | side-quest stat tiles, all three widths | fixed | 33 fixed | `fixed (others + own)` |
 | side-quest stat tiles, all three widths | fixed by others, by me | 29 by others, 4 by me | `outcomes.fixed_by_merged_pr_from_someone_else, outcomes.fixed_by_his_own_merged_pr` |
@@ -199,15 +199,15 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | side-quest stat tiles, all three widths | fixes by others with hours | 29 fixes by others | `fix_lag_hours_filed_to_merge.n` |
 | side-quest stat tiles, all three widths | PRs upstream | 32 pull requests to other | `prs.upstream` |
 | side-quest stat tiles, all three widths | PRs merged, open | 4 merged, 24 open | `queries.prs_merged, queries.prs_open` |
-| divider | dots (desc) | 238 dots | `issues.total` |
+| divider | dots (desc) | 237 dots | `issues.total` |
 | divider | lit (desc) | the 33 fixed | `fixed (others + own)` |
-| constellation, all three widths | stars | 238 | `issues.total` |
+| constellation, all three widths | stars | 237 | `issues.total` |
 | constellation, all three widths | lit | fixed by a merged PR: 33 | `fixed (others + own)` |
 | constellation, all three widths | fixed by others | fixed by others 29 | `outcomes.fixed_by_merged_pr_from_someone_else` |
 | constellation, all three widths | fixed by me | fixed by me 4 | `outcomes.fixed_by_his_own_merged_pr` |
 | constellation, all three widths | closed, no fix | closed, no fix 9 | `outcomes.closed_not_planned + outcomes.closed_completed_without_a_fix_merged` |
-| constellation, all three widths | open | open 196 | `outcomes.open` |
-| constellation, all three widths | repositories | 229 repositories | `issues.distinct_repos` |
+| constellation, all three widths | open | open 195 | `outcomes.open` |
+| constellation, all three widths | repositories | 228 repositories | `issues.distinct_repos` |
 | constellation, all three widths | areas | 15 areas | `len(ecosystems)` |
 | constellation, all three widths | eval harnesses | eval harnesses 42 | `ecosystems[0].issues` |
 | constellation, all three widths | judges &amp; RAG | judges &amp; RAG 29 | `ecosystems[1].issues` |
@@ -215,7 +215,7 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | constellation, all three widths | agent evals | agent evals 21 | `ecosystems[3].issues` |
 | constellation, all three widths | metric libs | metric libs 20 | `ecosystems[4].issues` |
 | constellation, all three widths | eval platforms | eval platforms 19 | `ecosystems[5].issues` |
-| constellation, all three widths | fairness &amp; UQ | fairness &amp; UQ 18 | `ecosystems[6].issues` |
+| constellation, all three widths | fairness &amp; UQ | fairness &amp; UQ 17 | `ecosystems[6].issues` |
 | constellation, all three widths | code &amp; math | code &amp; math 13 | `ecosystems[7].issues` |
 | constellation, all three widths | data pipelines | data pipelines 12 | `ecosystems[8].issues` |
 | constellation, all three widths | safety | safety 12 | `ecosystems[9].issues` |
@@ -224,7 +224,7 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | constellation, all three widths | retrieval | retrieval 7 | `ecosystems[12].issues` |
 | constellation, all three widths | explainability | explainability 4 | `ecosystems[13].issues` |
 | constellation, all three widths | speech &amp; audio | speech &amp; audio 3 | `ecosystems[14].issues` |
-| analyzer, all three widths | filed | 238 filed | `issues.total` |
+| analyzer, all three widths | filed | 237 filed | `issues.total` |
 | analyzer, all three widths | fixed | 33 fixed | `fixed (others + own)` |
 | analyzer, all three widths | median wait | median 241.4 h | `fix_lag_hours_filed_to_merge.median, re-derived from created_at to merged_at` |
 | analyzer, all three widths | promptfoo\#11041 (desc) | promptfoo\#11041 360.5 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
@@ -260,7 +260,7 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | analyzer, all three widths | ir\_measures\#83 (desc) | ir\_measures\#83 2.5 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
 | analyzer, all three widths | statsforecast\#1247 (desc) | statsforecast\#1247 27.9 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
 | analyzer, all three widths | rouge\#77 (desc) | rouge\#77 780.9 h | `issues.json created_at to the fix's merged_at; equals the fixes table` |
-| analyzer (desc) | filed, week of 09-21 | week of 09-21 180 | `issues.daily_utc, summed per week` |
+| analyzer (desc) | filed, week of 09-21 | week of 09-21 179 | `issues.daily_utc, summed per week` |
 | analyzer (desc) | filed, week of 09-28 | week of 09-28 58 | `issues.daily_utc, summed per week` |
 | analyzer (desc) | filed, week of 10-05 | week of 10-05 0 | `issues.daily_utc, summed per week` |
 | analyzer (desc) | filed, week of 10-12 | week of 10-12 0 | `issues.daily_utc, summed per week` |
@@ -268,7 +268,7 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | analyzer (desc) | filed, week of 10-26 | week of 10-26 0 | `issues.daily_utc, summed per week` |
 | analyzer (desc) | filed, week of 11-02 | week of 11-02 0 | `issues.daily_utc, summed per week` |
 | analyzer (desc) | filed, week of 11-09 | week of 11-09 0 | `issues.daily_utc, summed per week` |
-| analyzer, all three widths | as of | 11-10 14:50 | `as_of` |
+| analyzer, all three widths | as of | 11-11 14:18 | `as_of` |
 
 ## quoted, not computed
 
@@ -303,11 +303,11 @@ Every figure printed in profile-3d-contrib/3d-light.svg, in the order the file h
 | 1K | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
 | 10K | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
 | commits 13 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
-| issues 238 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
+| issues 237 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
 | pull requests 33 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
 | reviews 0 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
 | repos 38 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
-| 323 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
+| 322 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
 | 0 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
 | 1 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
-| 2025-11-09 / 2026-11-10 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
+| 2025-11-09 / 2026-11-11 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
