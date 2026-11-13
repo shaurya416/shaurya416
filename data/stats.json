@@ -1,13 +1,13 @@
 {
- "as_of": "2026-11-11T14:18Z",
+ "as_of": "2026-11-13T14:31Z",
  "account": {
   "login": "shaurya416",
   "user_id": 298017155
  },
  "queries": {
   "issues_total": 237,
-  "issues_open": 195,
-  "issues_closed": 42,
+  "issues_open": 193,
+  "issues_closed": 44,
   "prs_total": 32,
   "prs_merged": 4,
   "prs_open": 24,
@@ -16,9 +16,9 @@
  "exclusion_applied": true,
  "issues": {
   "total": 237,
-  "open": 195,
-  "closed": 42,
-  "closed_completed": 35,
+  "open": 193,
+  "closed": 44,
+  "closed_completed": 37,
   "closed_not_planned": 7,
   "distinct_repos": 228,
   "distinct_owner_accounts": 189,
@@ -43,9 +43,9 @@
   "with_comments": 58
  },
  "outcomes": {
-  "open": 195,
-  "closed": 42,
-  "fixed_by_merged_pr_from_someone_else": 29,
+  "open": 193,
+  "closed": 44,
+  "fixed_by_merged_pr_from_someone_else": 31,
   "fixed_by_his_own_merged_pr": 4,
   "closed_completed_without_a_fix_merged": 2,
   "closed_completed_without_a_fix": [
@@ -64,10 +64,10 @@
   ]
  },
  "fix_lag_hours_filed_to_merge": {
-  "n": 29,
+  "n": 31,
   "min": 4.7,
-  "median": 241.4,
-  "max": 1076.3
+  "median": 245.8,
+  "max": 1087.7
  },
  "prs": {
   "total": 32,
@@ -587,12 +587,44 @@
    "hours_issue_filed_to_merge": [
     1076.3
    ]
+  },
+  {
+   "repo": "tslearn-team/tslearn",
+   "pr": 769,
+   "url": "https://github.com/tslearn-team/tslearn/pull/769",
+   "pr_author": "bhaskargurram-ai",
+   "merged_at": "2026-11-12T16:32:34Z",
+   "cites_issues": [
+    740
+   ],
+   "issue_closed_at": [
+    "2026-11-12T16:32:36Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    1029.0
+   ]
+  },
+  {
+   "repo": "yzhao062/pyod",
+   "pr": 787,
+   "url": "https://github.com/yzhao062/pyod/pull/787",
+   "pr_author": "yzhao062",
+   "merged_at": "2026-11-12T19:42:37Z",
+   "cites_issues": [
+    760
+   ],
+   "issue_closed_at": [
+    "2026-11-12T19:42:47Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    1087.7
+   ]
   }
  ],
  "fixes_by_others_summary": {
-  "prs": 28,
-  "issues_fixed": 29,
-  "distinct_pr_authors": 26
+  "prs": 30,
+  "issues_fixed": 31,
+  "distinct_pr_authors": 28
  },
  "ecosystems": [
   {

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 18" width="830" height="18" role="img" aria-labelledby="t d">
 <title id="t">the issues in the order filed</title>
-<desc id="d">237 dots, one per issue in the order filed; the 33 fixed by a merged pull request are lit.</desc>
+<desc id="d">237 dots, one per issue in the order filed; the 35 fixed by a merged pull request are lit.</desc>
 <style>text{font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;font-size:12px;fill:#f0f6fc}.m{fill:#9198a1}.a{fill:#3987e5}.b{font-size:26px}.e{text-anchor:end}.c{text-anchor:middle}</style>
 <circle cx="15.69" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="19.08" cy="9" r="1.8" fill="#7d8590"/>
@@ -188,7 +188,7 @@
 <circle cx="634.96" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="638.34" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="641.73" cy="9" r="1.8" fill="#7d8590"/>
-<circle cx="645.11" cy="9" r="1.8" fill="#7d8590"/>
+<circle cx="645.11" cy="9" r="4" fill="#3987e5"/>
 <circle cx="648.49" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="651.88" cy="9" r="4" fill="#3987e5"/>
 <circle cx="655.26" cy="9" r="4" fill="#3987e5"/>
@@ -199,7 +199,7 @@
 <circle cx="672.18" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="675.57" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="678.95" cy="9" r="4" fill="#3987e5"/>
-<circle cx="682.33" cy="9" r="1.8" fill="#7d8590"/>
+<circle cx="682.33" cy="9" r="4" fill="#3987e5"/>
 <circle cx="685.72" cy="9" r="4" fill="#3987e5"/>
 <circle cx="689.1" cy="9" r="1.8" fill="#7d8590"/>
 <circle cx="692.49" cy="9" r="1.8" fill="#7d8590"/>

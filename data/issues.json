@@ -525,13 +525,20 @@
   "owner": "tslearn-team",
   "number": 740,
   "title": "KShape/TimeSeriesKMeans: after every restart hits EmptyClusterError, predict(), labels_ and fit_predict() still return labels from the failed initialization",
-  "state": "open",
-  "state_reason": null,
+  "state": "closed",
+  "state_reason": "completed",
   "created_at": "2026-09-30T19:34:07Z",
-  "closed_at": null,
+  "closed_at": "2026-11-12T16:32:36Z",
   "comments": 3,
   "url": "https://github.com/tslearn-team/tslearn/issues/740",
-  "merged_prs": null
+  "merged_prs": [
+   {
+    "pr": 769,
+    "author": "bhaskargurram-ai",
+    "merged_at": "2026-11-12T16:32:34Z",
+    "hours": 1029.0
+   }
+  ]
  },
  {
   "repo": "terrierteam/ir_measures",
@@ -696,13 +703,26 @@
   "owner": "yzhao062",
   "number": 760,
   "title": "precision_n_scores can report up to 1.0 (or down to 0.0) when scores tie at the rank-n cutoff: get_label_n flags fewer than n rows",
-  "state": "open",
-  "state_reason": null,
+  "state": "closed",
+  "state_reason": "completed",
   "created_at": "2026-09-28T11:59:05Z",
-  "closed_at": null,
+  "closed_at": "2026-11-12T19:42:47Z",
   "comments": 0,
   "url": "https://github.com/yzhao062/pyod/issues/760",
-  "merged_prs": null
+  "merged_prs": [
+   {
+    "pr": 761,
+    "author": "Iams4kura",
+    "merged_at": "2026-11-12T03:45:07Z",
+    "hours": 1071.8
+   },
+   {
+    "pr": 787,
+    "author": "yzhao062",
+    "merged_at": "2026-11-12T19:42:37Z",
+    "hours": 1087.7
+   }
+  ]
  },
  {
   "repo": "online-ml/river",
