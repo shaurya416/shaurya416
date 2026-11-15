@@ -194,16 +194,16 @@ small python tools, each about one thing that quietly goes wrong. none is public
 
 <p>
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="profile-3d-contrib/3d-dark.svg?v=eb2f43e4">
-<source media="(prefers-color-scheme: light)" srcset="profile-3d-contrib/3d-light.svg?v=d0152f97">
-<img alt="A 3D contribution calendar for the past year, drawn by a GitHub Action from the public profile calendar, with a radar of commits, issues, pull requests, reviews and repositories and a language chart. On a phone it is a picture of the calendar&#x27;s shape; its small labels are not meant to be read there. Its totals are the calendar&#x27;s own." src="profile-3d-contrib/3d-light.svg?v=d0152f97" width="100%">
+<source media="(prefers-color-scheme: dark)" srcset="profile-3d-contrib/3d-dark.svg?v=aa34421e">
+<source media="(prefers-color-scheme: light)" srcset="profile-3d-contrib/3d-light.svg?v=583df610">
+<img alt="A 3D contribution calendar for the past year, drawn by a GitHub Action from the public profile calendar, with a radar of commits, issues, pull requests, reviews and repositories and a language chart. On a phone it is a picture of the calendar&#x27;s shape; its small labels are not meant to be read there. Its totals are the calendar&#x27;s own." src="profile-3d-contrib/3d-light.svg?v=583df610" width="100%">
 </picture>
 </p>
 <p>
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="assets/contrib/snake-dark.svg?v=94b5f1b8">
-<source media="(prefers-color-scheme: light)" srcset="assets/contrib/snake-light.svg?v=96a2cdd8">
-<img alt="A snake eats the public profile calendar of the past year, once, and leaves the grid as it found it." src="assets/contrib/snake-light.svg?v=96a2cdd8" width="100%">
+<source media="(prefers-color-scheme: dark)" srcset="assets/contrib/snake-dark.svg?v=3dad7333">
+<source media="(prefers-color-scheme: light)" srcset="assets/contrib/snake-light.svg?v=e0038aaf">
+<img alt="A snake eats the public profile calendar of the past year, once, and leaves the grid as it found it." src="assets/contrib/snake-light.svg?v=e0038aaf" width="100%">
 </picture>
 </p>
 
