@@ -2905,13 +2905,20 @@
   "owner": "ServiceNow",
   "number": 404,
   "title": "AssistantBench scorer treats a thousands separator as a decimal point: \"3,080,000\" scores 0 against gold 3080000, while \"1,000\" scores 1.0 against gold 1",
-  "state": "open",
-  "state_reason": null,
+  "state": "closed",
+  "state_reason": "completed",
   "created_at": "2026-09-23T19:38:59Z",
-  "closed_at": null,
+  "closed_at": "2026-11-17T15:39:10Z",
   "comments": 1,
   "url": "https://github.com/ServiceNow/BrowserGym/issues/404",
-  "merged_prs": null
+  "merged_prs": [
+   {
+    "pr": 414,
+    "author": "Vijaysrimari",
+    "merged_at": "2026-11-17T15:39:08Z",
+    "hours": 1316.0
+   }
+  ]
  },
  {
   "repo": "openai/gpt-oss",
