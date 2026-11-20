@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 306" width="380" height="306" role="img" aria-labelledby="t d">
 <title id="t">issues by area</title>
-<desc id="d">237 issues in 228 repositories, each repository in one area: eval harnesses &amp; benchmarks 42, judge, RAG &amp; hallucination scoring 29, RL post-training &amp; rewards 22, agent &amp; tool-use benchmarks 21, classic metric libraries 20, eval platforms &amp; app frameworks 19, fairness, calibration &amp; uncertainty 17, code &amp; math answer checking 13, data pipelines &amp; ML monitoring 12, safety, red-teaming &amp; guardrails 12, autograders &amp; education 8, forecasting &amp; anomaly detection 8, retrieval &amp; recommender metrics 7, explainability 4, speech &amp; audio 3.</desc>
+<desc id="d">237 issues in 228 repositories, each repository in one area: eval harnesses &amp; benchmarks 42, judge, RAG &amp; hallucination scoring 29, agent &amp; tool-use benchmarks 21, RL post-training &amp; rewards 21, classic metric libraries 20, eval platforms &amp; app frameworks 19, fairness, calibration &amp; uncertainty 17, code &amp; math answer checking 13, data pipelines &amp; ML monitoring 12, safety, red-teaming &amp; guardrails 12, autograders &amp; education 8, forecasting &amp; anomaly detection 8, retrieval &amp; recommender metrics 7, explainability 4, speech &amp; audio 3, other 1.</desc>
 <style>text{font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;font-size:12px;fill:#f0f6fc}.m{fill:#9198a1}.a{fill:#3987e5}.b{font-size:26px}.e{text-anchor:end}.c{text-anchor:middle}</style>
 <rect x=".5" y=".5" width="373" height="299" rx="6" fill="#0d1117" stroke="#3d444d"/>
 <text class="m" x="14" y="22">issues by area</text>
-<text class="m e" x="360" y="22">15 areas</text>
+<text class="m e" x="360" y="22">16 areas</text>
 <text x="14" y="56"><tspan class="b">228</tspan><tspan class="m" dx="7">repositories</tspan></text>
 <text class="m" x="14" y="86">eval harnesses &amp; benchmarks</text>
 <rect x="284.4" y="78" width="52.72" height="7" rx="2" fill="#7d8590"/>
@@ -12,10 +12,10 @@
 <text class="m" x="14" y="104">judge, RAG &amp; hallucination scoring</text>
 <rect x="284.4" y="96" width="36.4" height="7" rx="2" fill="#7d8590"/>
 <text class="e" x="360" y="104">29</text>
-<text class="m" x="14" y="122">RL post-training &amp; rewards</text>
-<rect x="284.4" y="114" width="27.62" height="7" rx="2" fill="#7d8590"/>
-<text class="e" x="360" y="122">22</text>
-<text class="m" x="14" y="140">agent &amp; tool-use benchmarks</text>
+<text class="m" x="14" y="122">agent &amp; tool-use benchmarks</text>
+<rect x="284.4" y="114" width="26.36" height="7" rx="2" fill="#7d8590"/>
+<text class="e" x="360" y="122">21</text>
+<text class="m" x="14" y="140">RL post-training &amp; rewards</text>
 <rect x="284.4" y="132" width="26.36" height="7" rx="2" fill="#7d8590"/>
 <text class="e" x="360" y="140">21</text>
 <text class="m" x="14" y="158">classic metric libraries</text>
@@ -39,5 +39,5 @@
 <text class="m" x="14" y="266">autograders &amp; education</text>
 <rect x="284.4" y="258" width="10.04" height="7" rx="2" fill="#7d8590"/>
 <text class="e" x="360" y="266">8</text>
-<text class="m" x="14" y="284">and 4 more areas: 22 issues, 21 repositories</text>
+<text class="m" x="14" y="284">and 5 more areas: 23 issues, 22 repositories</text>
 </svg>

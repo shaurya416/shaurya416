@@ -9,7 +9,7 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 |:--|:--|:--|:--|
 | filed panel | issues filed | 237 | `issues.total` |
 | filed panel | issues fixed | 36 | `outcomes.fixed_by_merged_pr_from_someone_else + outcomes.fixed_by_his_own_merged_pr` |
-| filed panel | window | 2026-09-23/2026-11-19 | `issues.first_created_at, as_of` |
+| filed panel | window | 2026-09-23/2026-11-20 | `issues.first_created_at, as_of` |
 | filed panel | filed, week of 09-21 | week of 09-21 179 | `issues.daily_utc, summed per week` |
 | filed panel | filed, week of 09-28 | week of 09-28 58 | `issues.daily_utc, summed per week` |
 | filed panel | filed, week of 10-05 | week of 10-05 0 | `issues.daily_utc, summed per week` |
@@ -42,11 +42,11 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | outcome panel | hours, median | 271.0 | `fix_lag_hours_filed_to_merge.median` |
 | outcome panel | hours, max | 1316.0 | `fix_lag_hours_filed_to_merge.max` |
 | areas panel | repositories | 228 | `issues.distinct_repos` |
-| areas panel | areas | 15 areas | `len(ecosystems)` |
+| areas panel | areas | 16 areas | `len(ecosystems)` |
 | areas panel | eval harnesses &amp; benchmarks | eval harnesses &amp; benchmarks 42 | `ecosystems[0].issues` |
 | areas panel | judge, RAG &amp; hallucination scoring | judge, RAG &amp; hallucination scoring 29 | `ecosystems[1].issues` |
-| areas panel | RL post-training &amp; rewards | RL post-training &amp; rewards 22 | `ecosystems[2].issues` |
-| areas panel | agent &amp; tool-use benchmarks | agent &amp; tool-use benchmarks 21 | `ecosystems[3].issues` |
+| areas panel | agent &amp; tool-use benchmarks | agent &amp; tool-use benchmarks 21 | `ecosystems[2].issues` |
+| areas panel | RL post-training &amp; rewards | RL post-training &amp; rewards 21 | `ecosystems[3].issues` |
 | areas panel | classic metric libraries | classic metric libraries 20 | `ecosystems[4].issues` |
 | areas panel | eval platforms &amp; app frameworks | eval platforms &amp; app frameworks 19 | `ecosystems[5].issues` |
 | areas panel | fairness, calibration &amp; uncertainty | fairness, calibration &amp; uncertainty 17 | `ecosystems[6].issues` |
@@ -58,8 +58,9 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | areas panel | retrieval &amp; recommender metrics | retrieval &amp; recommender metrics 7 | `ecosystems[12].issues` |
 | areas panel | explainability | explainability 4 | `ecosystems[13].issues` |
 | areas panel | speech &amp; audio | speech &amp; audio 3 | `ecosystems[14].issues` |
-| areas panel | folded areas, issues | 22 issues | `sum of ecosystems[11:].issues` |
-| areas panel | folded areas, repositories | 21 | `sum of ecosystems[11:].repos` |
+| areas panel | other | other 1 | `ecosystems[15].issues` |
+| areas panel | folded areas, issues | 23 issues | `sum of ecosystems[11:].issues` |
+| areas panel | folded areas, repositories | 22 | `sum of ecosystems[11:].repos` |
 | probe panel | checks that reproduce | 5 of 9 | `probe.json: len(runs[0].findings) of len(runs[0].checks_run)` |
 | probe panel | after the one-line fix | 0 of 9 | `probe.json: len(runs[1].findings) of len(runs[1].checks_run)` |
 | probe panel | empty\_reference, inputs that earned credit (in the description) | 3 inputs | `probe.json: runs[0].findings[0].n` |
@@ -169,11 +170,11 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | README method | pull requests by others | 31 pull requests | `fixes_by_others_summary.prs` |
 | README method | people | 29 people | `fixes_by_others_summary.distinct_pr_authors` |
 | README method | repositories put in areas | 228 repositories | `issues.distinct_repos` |
-| README method | areas | 15 areas | `len(ecosystems)` |
+| README method | areas | 16 areas | `len(ecosystems)` |
 | README side quest | panels in the fold | three more panels | `len(PANELS) - 1` |
 | README defect table | fixes in the table, lead sentence | eight of the fixes | `len(notes.json rows)` |
 | README side quest | lines in the example grader | two-line grader | `len(probe.json source)` |
-| README method and footer | as of | 2026-11-19 15:42 utc | `as_of (from fetch.json)` |
+| README method and footer | as of | 2026-11-20 15:24 utc | `as_of (from fetch.json)` |
 | header | class year | '27 | `WHO.year` |
 | header | stops (desc) | eight stops | `len(HEADER_STOPS)` |
 | quantum card | E\[BC\]² at 1,024 shots, a lower bound on mean fidelity | 0.9239 | `fidelity_floor(1024) = (√(K/s)·Σ pmf(k;s,1/K)√k)², K=256` |
@@ -200,7 +201,7 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | side-quest stat tiles, all three widths | since | since 2026-09-23 | `issues.first_created_at` |
 | side-quest stat tiles, all three widths | issues filed | 237 issues filed | `issues.total` |
 | side-quest stat tiles, all three widths | repositories | 228 repos | `issues.distinct_repos` |
-| side-quest stat tiles, all three widths | areas | 15 areas | `len(ecosystems)` |
+| side-quest stat tiles, all three widths | areas | 16 areas | `len(ecosystems)` |
 | side-quest stat tiles, all three widths | fixed | 36 fixed | `fixed (others + own)` |
 | side-quest stat tiles, all three widths | fixed by others, by me | 32 by others, 4 by me | `outcomes.fixed_by_merged_pr_from_someone_else, outcomes.fixed_by_his_own_merged_pr` |
 | side-quest stat tiles, all three widths | median hours to a fix | median 271.0 hours | `fix_lag_hours_filed_to_merge.median` |
@@ -216,11 +217,11 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | constellation, all three widths | closed, no fix | closed, no fix 9 | `outcomes.closed_not_planned + outcomes.closed_completed_without_a_fix_merged` |
 | constellation, all three widths | open | open 192 | `outcomes.open` |
 | constellation, all three widths | repositories | 228 repositories | `issues.distinct_repos` |
-| constellation, all three widths | areas | 15 areas | `len(ecosystems)` |
+| constellation, all three widths | areas | 16 areas | `len(ecosystems)` |
 | constellation, all three widths | eval harnesses | eval harnesses 42 | `ecosystems[0].issues` |
 | constellation, all three widths | judges &amp; RAG | judges &amp; RAG 29 | `ecosystems[1].issues` |
-| constellation, all three widths | RL rewards | RL rewards 22 | `ecosystems[2].issues` |
-| constellation, all three widths | agent evals | agent evals 21 | `ecosystems[3].issues` |
+| constellation, all three widths | agent evals | agent evals 21 | `ecosystems[2].issues` |
+| constellation, all three widths | RL rewards | RL rewards 21 | `ecosystems[3].issues` |
 | constellation, all three widths | metric libs | metric libs 20 | `ecosystems[4].issues` |
 | constellation, all three widths | eval platforms | eval platforms 19 | `ecosystems[5].issues` |
 | constellation, all three widths | fairness &amp; UQ | fairness &amp; UQ 17 | `ecosystems[6].issues` |
@@ -232,6 +233,7 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | constellation, all three widths | retrieval | retrieval 7 | `ecosystems[12].issues` |
 | constellation, all three widths | explainability | explainability 4 | `ecosystems[13].issues` |
 | constellation, all three widths | speech &amp; audio | speech &amp; audio 3 | `ecosystems[14].issues` |
+| constellation, all three widths | other | other 1 | `ecosystems[15].issues` |
 | analyzer, all three widths | filed | 237 filed | `issues.total` |
 | analyzer, all three widths | fixed | 36 fixed | `fixed (others + own)` |
 | analyzer, all three widths | median wait | median 271.0 h | `fix_lag_hours_filed_to_merge.median, re-derived from created_at to merged_at` |
@@ -280,7 +282,7 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | analyzer (desc) | filed, week of 11-02 | week of 11-02 0 | `issues.daily_utc, summed per week` |
 | analyzer (desc) | filed, week of 11-09 | week of 11-09 0 | `issues.daily_utc, summed per week` |
 | analyzer (desc) | filed, week of 11-16 | week of 11-16 0 | `issues.daily_utc, summed per week` |
-| analyzer, all three widths | as of | 11-19 15:42 | `as_of` |
+| analyzer, all three widths | as of | 11-20 15:24 | `as_of` |
 
 ## quoted, not computed
 
@@ -322,4 +324,4 @@ Every figure printed in profile-3d-contrib/3d-light.svg, in the order the file h
 | 322 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
 | 0 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
 | 1 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
-| 2025-11-16 / 2026-11-19 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
+| 2025-11-16 / 2026-11-20 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |

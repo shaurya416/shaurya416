@@ -360,7 +360,7 @@
   "url": "https://github.com/THUDM/slime/pull/2411"
  },
  {
-  "repo": "NovaSky-AI/SkyRL",
+  "repo": "skyrl-project/SkyRL",
   "number": 2290,
   "title": "Fix the tiemout keyword in naive_dapo.compute_score's \\pi branch",
   "state": "open",
@@ -369,7 +369,7 @@
   "closed_at": null,
   "merged_at": null,
   "comments": 2,
-  "url": "https://github.com/NovaSky-AI/SkyRL/pull/2290"
+  "url": "https://github.com/skyrl-project/SkyRL/pull/2290"
  },
  {
   "repo": "allenai/open-instruct",

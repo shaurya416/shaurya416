@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-19T15:42Z",
+ "as_of": "2026-11-20T15:24Z",
  "account": {
   "login": "shaurya416",
   "user_id": 298017155
@@ -21,7 +21,7 @@
   "closed_completed": 38,
   "closed_not_planned": 7,
   "distinct_repos": 228,
-  "distinct_owner_accounts": 189,
+  "distinct_owner_accounts": 190,
   "max_issues_in_one_repo": 2,
   "repos_with_more_than_one": 9,
   "first_created_at": "2026-09-23T03:46:11Z",
@@ -656,16 +656,16 @@
    "examples": "deepeval, ragas, ogx, AutoRAG, LMOps"
   },
   {
-   "bucket": "RL post-training & reward functions",
-   "repos": 22,
-   "issues": 22,
-   "examples": "open-r1, verl, trl, OpenRLHF, slime"
-  },
-  {
    "bucket": "Agent & tool-use benchmarks",
    "repos": 20,
    "issues": 21,
    "examples": "autogen, crewAI, aider, storm, SWE-agent"
+  },
+  {
+   "bucket": "RL post-training & reward functions",
+   "repos": 21,
+   "issues": 21,
+   "examples": "open-r1, verl, trl, OpenRLHF, slime"
   },
   {
    "bucket": "Classic metric libraries",
@@ -732,9 +732,20 @@
    "repos": 3,
    "issues": 3,
    "examples": "speechbrain, PESQ, meeteval"
+  },
+  {
+   "bucket": "Other",
+   "repos": 1,
+   "issues": 1,
+   "examples": "SkyRL"
   }
  ],
- "areas_by_rule": [],
+ "areas_by_rule": [
+  {
+   "repo": "skyrl-project/SkyRL",
+   "area": "Other"
+  }
+ ],
  "speech_audio": {
   "repo_level_repos": 3,
   "issue_level": 5,

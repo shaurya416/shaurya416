@@ -2117,6 +2117,19 @@
   "merged_prs": null
  },
  {
+  "repo": "skyrl-project/SkyRL",
+  "owner": "skyrl-project",
+  "number": 2289,
+  "title": "naive_dapo.compute_score: `tiemout=True` typo makes the `\\pi` branch always raise (swallowed by bare `except:`), so correct numeric answers to `\\pi` questions score 0.0",
+  "state": "open",
+  "state_reason": null,
+  "created_at": "2026-09-24T08:23:46Z",
+  "closed_at": null,
+  "comments": 0,
+  "url": "https://github.com/skyrl-project/SkyRL/issues/2289",
+  "merged_prs": null
+ },
+ {
   "repo": "OpenRLHF/OpenRLHF",
   "owner": "OpenRLHF",
   "number": 1364,
@@ -2127,19 +2140,6 @@
   "closed_at": null,
   "comments": 0,
   "url": "https://github.com/OpenRLHF/OpenRLHF/issues/1364",
-  "merged_prs": null
- },
- {
-  "repo": "NovaSky-AI/SkyRL",
-  "owner": "NovaSky-AI",
-  "number": 2289,
-  "title": "naive_dapo.compute_score: `tiemout=True` typo makes the `\\pi` branch always raise (swallowed by bare `except:`), so correct numeric answers to `\\pi` questions score 0.0",
-  "state": "open",
-  "state_reason": null,
-  "created_at": "2026-09-24T08:23:46Z",
-  "closed_at": null,
-  "comments": 0,
-  "url": "https://github.com/NovaSky-AI/SkyRL/issues/2289",
   "merged_prs": null
  },
  {
