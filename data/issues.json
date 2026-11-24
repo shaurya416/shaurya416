@@ -496,7 +496,7 @@
   "state_reason": null,
   "created_at": "2026-09-30T19:36:43Z",
   "closed_at": null,
-  "comments": 0,
+  "comments": 1,
   "url": "https://github.com/fgnt/meeteval/issues/132",
   "merged_prs": null
  },
@@ -1507,13 +1507,20 @@
   "owner": "Lightning-AI",
   "number": 3516,
   "title": "WER/CER return inf/nan with no warning when the total reference length is zero; jiwer defines a value for this case",
-  "state": "open",
-  "state_reason": null,
+  "state": "closed",
+  "state_reason": "completed",
   "created_at": "2026-09-25T20:03:49Z",
-  "closed_at": null,
+  "closed_at": "2026-11-24T14:32:13Z",
   "comments": 1,
   "url": "https://github.com/Lightning-AI/torchmetrics/issues/3516",
-  "merged_prs": null
+  "merged_prs": [
+   {
+    "pr": 3517,
+    "author": "Nikhi00718",
+    "merged_at": "2026-11-24T14:32:10Z",
+    "hours": 1434.5
+   }
+  ]
  },
  {
   "repo": "eth-sri/ChatProtect",
@@ -2086,7 +2093,7 @@
   "state_reason": null,
   "created_at": "2026-09-24T08:29:59Z",
   "closed_at": null,
-  "comments": 2,
+  "comments": 3,
   "url": "https://github.com/ogx-ai/ogx/issues/6647",
   "merged_prs": null
  },

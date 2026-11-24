@@ -1,13 +1,13 @@
 {
- "as_of": "2026-11-20T15:24Z",
+ "as_of": "2026-11-24T17:39Z",
  "account": {
   "login": "shaurya416",
   "user_id": 298017155
  },
  "queries": {
   "issues_total": 237,
-  "issues_open": 192,
-  "issues_closed": 45,
+  "issues_open": 191,
+  "issues_closed": 46,
   "prs_total": 32,
   "prs_merged": 4,
   "prs_open": 24,
@@ -16,9 +16,9 @@
  "exclusion_applied": true,
  "issues": {
   "total": 237,
-  "open": 192,
-  "closed": 45,
-  "closed_completed": 38,
+  "open": 191,
+  "closed": 46,
+  "closed_completed": 39,
   "closed_not_planned": 7,
   "distinct_repos": 228,
   "distinct_owner_accounts": 190,
@@ -40,12 +40,12 @@
    "2026-09-30": 38,
    "2026-10-01": 5
   },
-  "with_comments": 62
+  "with_comments": 63
  },
  "outcomes": {
-  "open": 192,
-  "closed": 45,
-  "fixed_by_merged_pr_from_someone_else": 32,
+  "open": 191,
+  "closed": 46,
+  "fixed_by_merged_pr_from_someone_else": 33,
   "fixed_by_his_own_merged_pr": 4,
   "closed_completed_without_a_fix_merged": 2,
   "closed_completed_without_a_fix": [
@@ -64,10 +64,10 @@
   ]
  },
  "fix_lag_hours_filed_to_merge": {
-  "n": 32,
+  "n": 33,
   "min": 4.7,
-  "median": 271.0,
-  "max": 1316.0
+  "median": 296.2,
+  "max": 1434.5
  },
  "prs": {
   "total": 32,
@@ -635,12 +635,28 @@
    "hours_issue_filed_to_merge": [
     1316.0
    ]
+  },
+  {
+   "repo": "Lightning-AI/torchmetrics",
+   "pr": 3517,
+   "url": "https://github.com/Lightning-AI/torchmetrics/pull/3517",
+   "pr_author": "Nikhi00718",
+   "merged_at": "2026-11-24T14:32:10Z",
+   "cites_issues": [
+    3516
+   ],
+   "issue_closed_at": [
+    "2026-11-24T14:32:13Z"
+   ],
+   "hours_issue_filed_to_merge": [
+    1434.5
+   ]
   }
  ],
  "fixes_by_others_summary": {
-  "prs": 31,
-  "issues_fixed": 32,
-  "distinct_pr_authors": 29
+  "prs": 32,
+  "issues_fixed": 33,
+  "distinct_pr_authors": 30
  },
  "ecosystems": [
   {
