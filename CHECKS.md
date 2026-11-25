@@ -9,7 +9,7 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 |:--|:--|:--|:--|
 | filed panel | issues filed | 237 | `issues.total` |
 | filed panel | issues fixed | 37 | `outcomes.fixed_by_merged_pr_from_someone_else + outcomes.fixed_by_his_own_merged_pr` |
-| filed panel | window | 2026-09-23/2026-11-24 | `issues.first_created_at, as_of` |
+| filed panel | window | 2026-09-23/2026-11-25 | `issues.first_created_at, as_of` |
 | filed panel | filed, week of 09-21 | week of 09-21 179 | `issues.daily_utc, summed per week` |
 | filed panel | filed, week of 09-28 | week of 09-28 58 | `issues.daily_utc, summed per week` |
 | filed panel | filed, week of 10-05 | week of 10-05 0 | `issues.daily_utc, summed per week` |
@@ -178,7 +178,7 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | README side quest | panels in the fold | three more panels | `len(PANELS) - 1` |
 | README defect table | fixes in the table, lead sentence | eight of the fixes | `len(notes.json rows)` |
 | README side quest | lines in the example grader | two-line grader | `len(probe.json source)` |
-| README method and footer | as of | 2026-11-24 17:39 utc | `as_of (from fetch.json)` |
+| README method and footer | as of | 2026-11-25 17:10 utc | `as_of (from fetch.json)` |
 | header | class year | '27 | `WHO.year` |
 | header | stops (desc) | eight stops | `len(HEADER_STOPS)` |
 | quantum card | E\[BC\]² at 1,024 shots, a lower bound on mean fidelity | 0.9239 | `fidelity_floor(1024) = (√(K/s)·Σ pmf(k;s,1/K)√k)², K=256` |
@@ -288,7 +288,7 @@ Figures the prose quotes from elsewhere are listed after the table, with their s
 | analyzer (desc) | filed, week of 11-09 | week of 11-09 0 | `issues.daily_utc, summed per week` |
 | analyzer (desc) | filed, week of 11-16 | week of 11-16 0 | `issues.daily_utc, summed per week` |
 | analyzer (desc) | filed, week of 11-23 | week of 11-23 0 | `issues.daily_utc, summed per week` |
-| analyzer, all three widths | as of | 11-24 17:39 | `as_of` |
+| analyzer, all three widths | as of | 11-25 17:10 | `as_of` |
 
 ## quoted, not computed
 
@@ -330,4 +330,4 @@ Every figure printed in profile-3d-contrib/3d-light.svg, in the order the file h
 | 322 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
 | 0 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
 | 1 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
-| 2025-11-23 / 2026-11-24 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
+| 2025-11-23 / 2026-11-25 | GitHub's public profile calendar, via yoshi389111/github-profile-3d-contrib v0.9.3 |
